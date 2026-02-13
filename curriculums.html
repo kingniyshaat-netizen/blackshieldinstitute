@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculums — Blackshield Institute</title>
+  <style>
+    :root{ --gold:#d4af37; --bg:#000; --text:#fff; --muted:#eaeaea; }
+    body{ margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); }
+    header{ padding:14px 18px; border-bottom:1px solid rgba(212,175,55,.25); background:rgba(0,0,0,.92); }
+    nav a{ color:#fff; text-decoration:none; font-weight:800; margin-right:14px; }
+    nav a:hover{ color:var(--gold); }
+    .wrap{ max-width: 980px; margin:0 auto; padding:34px 18px 60px; }
+    h1{ margin:0 0 12px; font-size:34px; }
+    p{ margin:0 0 18px; color:var(--muted); line-height:1.75; }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-top:14px; }
+    .card{
+      border:1px solid rgba(212,175,55,.22);
+      border-radius:14px;
+      padding:16px;
+      background:rgba(255,255,255,.03);
+    }
+    .tag{ color:var(--gold); font-weight:900; letter-spacing:.4px; text-transform:uppercase; font-size:12px; }
+    .title{ margin:8px 0 8px; font-size:18px; font-weight:900; }
+    .desc{ margin:0; color:var(--muted); line-height:1.65; font-size:14px; }
+    .cta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:12px; font-weight:900; text-decoration:none;
+      border:1px solid rgba(212,175,55,.45); color:var(--gold);
+    }
+    .btn:hover{ background:rgba(212,175,55,.08); }
+    footer{ padding:18px; text-align:center; border-top:1px solid rgba(212,175,55,.18); color:#bdbdbd; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="curriculums.html">Curriculums</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Curriculums</h1>
+    <p>
+      These are the current curriculum pillars. Each pillar expands into modules, workbooks, and implementation guides.
+      All material is provided for independent learning and private implementation.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="tag">Pillar 01</div>
+        <div class="title">Sovereignty & Governance</div>
+        <p class="desc">Civic literacy, governance frameworks, rights, responsibility, and disciplined leadership.</p>
+      </div>
+
+      <div class="card">
+        <div class="tag">Pillar 02</div>
+        <div class="title">Economic Autonomy</div>
+        <p class="desc">Business structure, LLC discipline, branding, finance, and asset positioning.</p>
+      </div>
+
+      <div class="card">
+        <div class="tag">Pillar 03</div>
+        <div class="title">Cultural Restoration</div>
+        <p class="desc">Narrative control, historical literacy, generational psychology, and identity systems.</p>
+      </div>
+
+      <div class="card">
+        <div class="tag">Pillar 04</div>
+        <div class="title">Biology & Stewardship</div>
+        <p class="desc">Body literacy, cranio-dental ecosystems, hygiene strategy, and functional wellness.</p>
+      </div>
+
+      <div class="card">
+        <div class="tag">Pillar 05</div>
+        <div class="title">Language & Expression</div>
+        <p class="desc">Rhetoric, slang deconstruction, poetic systems, and persuasive communication.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="contact.html">Request curriculum access</a>
+      <a class="btn" href="index.html">Back to Home</a>
+    </div>
+  </main>
+
+  <footer>© <span id="yr"></span> Blackshield Institute</footer>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
