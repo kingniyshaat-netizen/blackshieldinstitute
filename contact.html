@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Blackshield Institute</title>
+  <style>
+    :root{ --gold:#d4af37; --bg:#000; --text:#fff; --muted:#eaeaea; }
+    body{ margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); }
+    header{ padding:14px 18px; border-bottom:1px solid rgba(212,175,55,.25); background:rgba(0,0,0,.92); }
+    nav a{ color:#fff; text-decoration:none; font-weight:800; margin-right:14px; }
+    nav a:hover{ color:var(--gold); }
+    .wrap{ max-width: 880px; margin:0 auto; padding:34px 18px 60px; }
+    h1{ margin:0 0 12px; font-size:34px; }
+    p{ margin:0 0 14px; color:var(--muted); line-height:1.75; }
+    .card{
+      margin-top:16px; border:1px solid rgba(212,175,55,.22); border-radius:14px; padding:16px;
+      background:rgba(255,255,255,.03);
+    }
+    .label{ color:var(--gold); font-weight:900; letter-spacing:.4px; text-transform:uppercase; font-size:12px; }
+    .value{ margin-top:8px; font-size:16px; font-weight:900; }
+    a{ color:var(--gold); text-decoration:none; font-weight:900; }
+    a:hover{ text-decoration:underline; }
+    footer{ padding:18px; text-align:center; border-top:1px solid rgba(212,175,55,.18); color:#bdbdbd; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="curriculums.html">Curriculums</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Contact</h1>
+    <p>
+      For curriculum licensing, access requests, partnerships, interviews, or publishing inquiries, contact us here:
+    </p>
+
+    <div class="card">
+      <div class="label">Email</div>
+      <div class="value">admin@blackshieldinstitute.org</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Notes</div>
+      <p>
+        Blackshield Institute provides digital curriculum for independent learning and private implementation.
+        We do not provide degrees, academic credit, or institutional accreditation.
+      </p>
+    </div>
+
+    <p style="margin-top:18px;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+  </main>
+
+  <footer>© <span id="yr"></span> Blackshield Institute</footer>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
