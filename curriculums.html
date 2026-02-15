@@ -4,90 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curriculums — Blackshield Institute</title>
+  <meta name="description" content="Blackshield Institute curriculum catalog by vertical division." />
   <style>
-    :root{ --gold:#d4af37; --bg:#000; --text:#fff; --muted:#eaeaea; }
-    body{ margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); }
-    header{ padding:14px 18px; border-bottom:1px solid rgba(212,175,55,.25); background:rgba(0,0,0,.92); }
-    nav a{ color:#fff; text-decoration:none; font-weight:800; margin-right:14px; }
-    nav a:hover{ color:var(--gold); }
-    .wrap{ max-width: 980px; margin:0 auto; padding:34px 18px 60px; }
-    h1{ margin:0 0 12px; font-size:34px; }
-    p{ margin:0 0 18px; color:var(--muted); line-height:1.75; }
-    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-top:14px; }
-    .card{
-      border:1px solid rgba(212,175,55,.22);
-      border-radius:14px;
-      padding:16px;
-      background:rgba(255,255,255,.03);
+    :root{
+      --black:#111111; --ivory:#F4F1E8; --gold:#B08D57;
+      --panel: rgba(244,241,232,0.06);
+      --stroke: rgba(176,141,87,0.28);
+      --stroke2: rgba(244,241,232,0.12);
+      --text:#F4F1E8; --muted: rgba(244,241,232,0.78);
     }
-    .tag{ color:var(--gold); font-weight:900; letter-spacing:.4px; text-transform:uppercase; font-size:12px; }
-    .title{ margin:8px 0 8px; font-size:18px; font-weight:900; }
-    .desc{ margin:0; color:var(--muted); line-height:1.65; font-size:14px; }
-    .cta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      display:inline-block; padding:10px 14px; border-radius:12px; font-weight:900; text-decoration:none;
-      border:1px solid rgba(212,175,55,.45); color:var(--gold);
-    }
-    .btn:hover{ background:rgba(212,175,55,.08); }
-    footer{ padding:18px; text-align:center; border-top:1px solid rgba(212,175,55,.18); color:#bdbdbd; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--black);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--gold)}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(17,17,17,.9);border-bottom:1px solid var(--stroke2);backdrop-filter:blur(10px)}
+    .nav{max-width:1120px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;text-transform:uppercase;font-size:13px}
+    .brandDot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(176,141,87,.2)}
+    .navLinks{display:flex;gap:14px;flex-wrap:wrap;font-weight:800;font-size:13px}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 18px 70px}
+    h1{margin:0 0 8px;font-size:34px}
+    .sub{margin:0 0 18px;color:var(--muted);line-height:1.75;max-width:880px}
+    .section{margin-top:18px;border-top:1px solid var(--stroke2);padding-top:18px}
+    .sectionTitle{margin:0 0 10px;font-size:13px;font-weight:900;letter-spacing:.45px;text-transform:uppercase;color:var(--gold)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .tile{grid-column:span 12;border:1px solid var(--stroke);border-radius:16px;padding:16px;background:var(--panel)}
+    @media(min-width:900px){.tile{grid-column:span 6}}
+    .tileName{margin:0 0 6px;font-weight:900;font-size:16px}
+    .muted{color:var(--muted);line-height:1.7;font-size:14px}
+    .status{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(244,241,232,.18);background:rgba(244,241,232,.04);font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+    .statusLive{border-color:rgba(176,141,87,.42);background:rgba(176,141,87,.12)}
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:10px 12px;border-radius:12px;font-weight:900;font-size:13px;border:1px solid rgba(244,241,232,.18);background:rgba(244,241,232,.04)}
+    .btnPrimary{border-color:rgba(176,141,87,.40);background:rgba(176,141,87,.14)}
+    footer{margin-top:26px;border-top:1px solid var(--stroke2);padding:18px;text-align:center;color:rgba(244,241,232,.68);font-size:12px}
+    footer a{color:var(--gold);font-weight:900}
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="curriculums.html">Curriculums</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand"><span class="brandDot"></span><span>Blackshield Institute</span></div>
+      <div class="navLinks">
+        <a href="index.html">Home</a>
+        <a href="curriculums.html">Curriculums</a>
+        <a href="passage-series.html">PASSAGES</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
 
   <main class="wrap">
     <h1>Curriculums</h1>
-    <p>
-      These are the current curriculum pillars. Each pillar expands into modules, workbooks, and implementation guides.
-      All material is provided for independent learning and private implementation.
+    <p class="sub">
+      Blackshield Institute publishes diversified digital curriculum organized by vertical division. Only live divisions are active.
     </p>
 
-    <div class="grid">
-      <div class="card">
-        <div class="tag">Pillar 01</div>
-        <div class="title">Sovereignty & Governance</div>
-        <p class="desc">Civic literacy, governance frameworks, rights, responsibility, and disciplined leadership.</p>
-      </div>
+    <section class="section">
+      <div class="sectionTitle">Vertical Divisions</div>
 
-      <div class="card">
-        <div class="tag">Pillar 02</div>
-        <div class="title">Economic Autonomy</div>
-        <p class="desc">Business structure, LLC discipline, branding, finance, and asset positioning.</p>
-      </div>
+      <div class="grid">
+        <div class="tile">
+          <p class="tileName">Cultural Restoration</p>
+          <p class="muted">Structured formation systems for youth safety, identity discipline, responsibility, consent awareness, and health maintenance.</p>
+          <span class="status statusLive">Live</span>
+          <div class="btnRow">
+            <a class="btn btnPrimary" href="passage-series.html">PASSAGES — View</a>
+            <a class="btn" href="early-access.html">Early Access</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="tag">Pillar 03</div>
-        <div class="title">Cultural Restoration</div>
-        <p class="desc">Narrative control, historical literacy, generational psychology, and identity systems.</p>
-      </div>
+        <div class="tile">
+          <p class="tileName">Economic Autonomy</p>
+          <p class="muted">Frameworks for disciplined economic structure, business literacy, and long-term autonomy.</p>
+          <span class="status">In Development</span>
+          <div class="btnRow"><span class="btn" aria-disabled="true">Coming Soon</span></div>
+        </div>
 
-      <div class="card">
-        <div class="tag">Pillar 04</div>
-        <div class="title">Biology & Stewardship</div>
-        <p class="desc">Body literacy, cranio-dental ecosystems, hygiene strategy, and functional wellness.</p>
-      </div>
+        <div class="tile">
+          <p class="tileName">Governance &amp; Sovereignty</p>
+          <p class="muted">Structural literacy in responsibility, civic positioning, and institutional mechanics.</p>
+          <span class="status">In Development</span>
+          <div class="btnRow"><span class="btn" aria-disabled="true">Coming Soon</span></div>
+        </div>
 
-      <div class="card">
-        <div class="tag">Pillar 05</div>
-        <div class="title">Language & Expression</div>
-        <p class="desc">Rhetoric, slang deconstruction, poetic systems, and persuasive communication.</p>
-      </div>
-    </div>
+        <div class="tile">
+          <p class="tileName">Biological &amp; Scientific Literacy</p>
+          <p class="muted">Foundational biological understanding and physical responsibility for long-term maintenance.</p>
+          <span class="status">In Development</span>
+          <div class="btnRow"><span class="btn" aria-disabled="true">Coming Soon</span></div>
+        </div>
 
-    <div class="cta">
-      <a class="btn" href="contact.html">Request curriculum access</a>
-      <a class="btn" href="index.html">Back to Home</a>
-    </div>
+        <div class="tile">
+          <p class="tileName">Language &amp; Rhetoric Systems</p>
+          <p class="muted">Disciplined communication training, rhetorical clarity, and language systems mastery.</p>
+          <span class="status">In Development</span>
+          <div class="btnRow"><span class="btn" aria-disabled="true">Coming Soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> Blackshield Institute ·
+      <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a>
+    </footer>
   </main>
 
-  <footer>© <span id="yr"></span> Blackshield Institute</footer>
   <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>
