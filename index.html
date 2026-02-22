@@ -1,81 +1,207 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blackshield Institute — Diversified Curriculum</title>
 
   <style>
-    :root { --gold:#d4af37; --ink:#000; --text:#fff; --muted:#eaeaea; }
-    body{ margin:0; font-family: Arial, sans-serif; background:var(--ink); color:var(--text); }
+    :root{
+      --gold:#d4af37;
+      --bg:#050505;
+      --panel: rgba(0,0,0,.86);
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --line: rgba(212,175,55,.18);
+      --line2: rgba(212,175,55,.55);
+    }
 
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Top bar */
     .topbar{
-      position: sticky; top:0; z-index:10;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px; background:rgba(0,0,0,.92);
-      border-bottom:1px solid rgba(212,175,55,.18);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 18px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
       backdrop-filter: blur(6px);
     }
-    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; }
-    .brand-dot{ color:var(--gold); }
 
-    nav a{ color:var(--text); text-decoration:none; font-weight:700; margin-left:18px; }
-    nav a:hover{ color:var(--gold); opacity:1; }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
 
-    .wrap{ max-width:980px; margin:0 auto; padding:46px 18px 60px; text-align:center; }
+    .brand-dot{ color: var(--gold); }
 
+    nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      color: var(--text);
+      text-decoration:none;
+      font-weight:700;
+      opacity:.92;
+      padding:8px 8px;
+      border-radius:10px;
+    }
+    nav a:hover{ color: var(--gold); opacity:1; }
+
+    /* Layout */
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 18px 64px;
+      text-align:center;
+    }
+
+    /* Shield */
     .logo{
-      width: min(760px, 96vw);
+      width: min(820px, 94vw);
       height:auto;
       display:block;
-      margin: margin: 12px auto 14px;
+      margin: 14px auto 12px;
     }
-.topbar + .wrap { padding-top: 24px; }    
-    h1{ margin: 10px 0 8px; font-size: 44px; }
-    h2{ margin: 0 0 18px; font-size: 18px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: var(--gold); }
 
-    p{ margin:0 auto; max-width:720px; line-height:1.75; color:var(--muted); font-size:16px; }
+    h1{
+      margin: 6px 0 8px;
+      font-size: 44px;
+      letter-spacing: .3px;
+    }
 
-    .ctaRow{ margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .btn{ display:inline-block; padding:12px 16px; border-radius:12px; font-weight:900; text-decoration:none; letter-spacing:.3px; }
+    h2{
+      margin: 0 0 16px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity:.95;
+    }
 
-    .btnPrimary{ background:var(--gold); color:#111; box-shadow:0 0 0 1px rgba(212,175,55,.35); }
-    .btnPrimary:hover{ filter:brightness(1.05); }
+    p{
+      margin: 0 auto;
+      max-width: 760px;
+      line-height: 1.75;
+      color: var(--muted);
+      font-size: 16px;
+    }
 
-    .btnGhost{ border:1px solid rgba(212,175,55,.55); color:var(--gold); background:transparent; }
-    .btnGhost:hover{ background:rgba(212,175,55,.08); }
+    .ctaRow{
+      margin-top: 26px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
 
-    .footer{ padding:18px; text-align:center; color:#bdbdbd; border-top:1px solid rgba(212,175,55,.18); }
-    .fine{ font-size:12px; opacity:.85; margin-top:8px; }
+    .btn{
+      display:inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 900;
+      letter-spacing: .3px;
+      text-decoration:none;
+      border: 1px solid transparent;
+      transition: transform .05s ease, filter .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btnPrimary{
+      background: var(--gold);
+      color: #111;
+      box-shadow: 0 0 0 1px rgba(212,175,55,.35);
+    }
+    .btnPrimary:hover{ filter: brightness(1.05); }
+
+    .btnGhost{
+      background: transparent;
+      border: 1px solid var(--line2);
+      color: var(--gold);
+    }
+    .btnGhost:hover{ background: rgba(212,175,55,.08); }
+
+    .fine{
+      font-size: 12px;
+      opacity: .85;
+      margin-top: 10px;
+    }
+
+    .footer{
+      padding: 18px;
+      text-align:center;
+      color:#bdbdbd;
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.35);
+    }
+
+    /* Mobile polish */
+    @media (max-width: 520px){
+      h1{ font-size: 34px; }
+      .logo{ width: min(720px, 92vw); margin-top: 10px; }
+      nav{ gap:8px; }
+      nav a{ padding:8px 6px; }
+    }
   </style>
 </head>
-  <body>
+
+<body>
   <header class="topbar">
     <div class="brand">
-      <span>Blackshield Institute</span><span class="brand-dot">•</span><span style="color:var(--gold)">Diversified Curriculum</span>
+      <span>Blackshield Institute</span><span class="brand-dot">•</span>
     </div>
+
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>     <a href="curriculum.html" class="btn" style="text-decoration:none;">View Curriculum</a><nav>
-  
-<img class="logo" src="shield.png" alt="Blackshield Institute Shield" /><main class="wrap" id="home">
-     Shield" />
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="curriculum.html" class="btn btnGhost">View Curriculum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <img class="logo" src="shield.png" alt="Blackshield Institute Shield" />
 
     <h1>Blackshield Institute</h1>
     <h2>Diversified Curriculum</h2>
 
-    <p id="about">
-      Blackshield Institute publishes disciplined, structured digital curriculum for independent learning and private implementation — built to restore clarity, competence, and cultural strength.
+    <p>
+      Blackshield Institute publishes disciplined, structured digital curriculum for independent learners and families.
+      Our work is designed to build clarity, character, and competence through a modern delivery system rooted in
+      traditional standards.
     </p>
 
-    <div class="ctaRow" id="curriculums">
-      <a class="btn btnPrimary" href="#curriculums">View Curriculums</a>
-      <a class="btn btnGhost" href="#contact">Contact</a>
+    <div class="ctaRow">
+      <a class="btn btnPrimary" href="curriculum.html">View Curriculum</a>
+      <a class="btn btnGhost" href="contact.html">Contact</a>
     </div>
 
-    <p class="fine" id="contact" style="margin-top:22px;">
-      Contact: <span style="color:var(--gold); font-weight:800;">admin@blackshieldinstitute.org</span>
-    </p>
+    <div class="fine" style="margin-top:18px;">
+      Questions? Email: <span style="color:var(--gold); font-weight:800;">admin@blackshieldinstitute.org</span>
+    </div>
   </main>
 
   <footer class="footer">
@@ -88,11 +214,6 @@
   </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
