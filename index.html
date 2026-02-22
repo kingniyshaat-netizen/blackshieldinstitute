@@ -4,64 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshield Institute — Diversified Curriculum</title>
+
   <style>
     :root { --gold:#d4af37; --ink:#000; --text:#fff; --muted:#eaeaea; }
-    body{
-      margin:0; font-family: Arial, sans-serif; background:var(--ink); color:var(--text);
-    }
+    body{ margin:0; font-family: Arial, sans-serif; background:var(--ink); color:var(--text); }
+
     .topbar{
       position: sticky; top:0; z-index:10;
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px; background:#000; border-bottom:1px solid rgba(212,175,55,.18);
-      
+      padding:14px 18px; background:rgba(0,0,0,.92);
+      border-bottom:1px solid rgba(212,175,55,.18);
+      backdrop-filter: blur(6px);
     }
-    .brand{
-      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px;
-    }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; }
     .brand-dot{ color:var(--gold); }
-    nav a{
-      color:var(--text); text-decoration:none; font-weight:700; margin-left:14px; opacity:.92;
-    }
-    nav a:over{ color:var(--gold); opacity:1; }
-    .wrap{ max-width: 980px; margin: 0 auto; padding: 46px 18px 60px; text-align:center; }
-    .logo{
-  width: min(720px, 96vw);  /* bigger, fits screen */
-  height: auto;
-  display: block;
-  margin: 34px auto 18px;
-}</style>
 
-    p{
-      margin: 0 auto; max-width: 720px; line-height: 1.75; color: var(--muted); font-size: 16px;
+    nav a{ color:var(--text); text-decoration:none; font-weight:700; margin-left:18px; }
+    nav a:hover{ color:var(--gold); opacity:1; }
+
+    .wrap{ max-width:980px; margin:0 auto; padding:46px 18px 60px; text-align:center; }
+
+    .logo{
+      width: min(760px, 96vw);
+      height:auto;
+      display:block;
+      margin: 34px auto 18px;
     }
-    .ctaRow{ margin-top: 26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .btn{
-      display:inline-block; padding: 12px 16px; border-radius: 12px; font-weight: 900;
-      text-decoration:none; letter-spacing:.3px;
-    }
-    .btnPrimary{
-      background: var(--gold); color:#111;
-      box-shadow: 0 0 0 1px rgba(212,175,55,.35);
-    }
-    .btnPrimary:hover{ filter: brightness(1.05); }
-    .btnGhost{
-      border: 1px solid rgba(212,175,55,.55); color: var(--gold);
-      background: transparent;
-    }
-    .btnGhost:hover{ background: rgba(212,175,55,.08); }
-    .footer{
-      padding: 18px; text-align:center; color:#bdbdbd;
-      border-top:1px solid rgba(212,175,55,.18);
-    }
-    .fine{ font-size: 12px; opacity:.85; margin-top:8px; }
-  .logo {
-  width: 450px;
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin: 30px auto;</style>
+
+    h1{ margin: 10px 0 8px; font-size: 44px; }
+    h2{ margin: 0 0 18px; font-size: 18px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: var(--gold); }
+
+    p{ margin:0 auto; max-width:720px; line-height:1.75; color:var(--muted); font-size:16px; }
+
+    .ctaRow{ margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn{ display:inline-block; padding:12px 16px; border-radius:12px; font-weight:900; text-decoration:none; letter-spacing:.3px; }
+
+    .btnPrimary{ background:var(--gold); color:#111; box-shadow:0 0 0 1px rgba(212,175,55,.35); }
+    .btnPrimary:hover{ filter:brightness(1.05); }
+
+    .btnGhost{ border:1px solid rgba(212,175,55,.55); color:var(--gold); background:transparent; }
+    .btnGhost:hover{ background:rgba(212,175,55,.08); }
+
+    .footer{ padding:18px; text-align:center; color:#bdbdbd; border-top:1px solid rgba(212,175,55,.18); }
+    .fine{ font-size:12px; opacity:.85; margin-top:8px; }
+  </style>
 </head>
-<body>
+  <body>
   <header class="topbar">
     <div class="brand">
       <span>Blackshield Institute</span><span class="brand-dot">•</span><span style="color:var(--gold)">Diversified Curriculum</span>
@@ -100,6 +88,7 @@
   </script>
 </body>
 </html>
+
 
 
 
