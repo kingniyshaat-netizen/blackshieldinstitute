@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,113 +9,134 @@
     :root{
       --gold:#d4af37;
       --bg:#050505;
-      --panel: rgba(0,0,0,.86);
+      --panel:rgba(0,0,0,.86);
       --text:#ffffff;
       --muted:#cfcfcf;
-      --line: rgba(212,175,55,.18);
-      --line2: rgba(212,175,55,.55);
+      --line:rgba(212,175,55,.20);
+      --line2:rgba(212,175,55,.55);
     }
 
     *{ box-sizing:border-box; }
-
+    html, body{ height:100%; }
     body{
       margin:0;
       font-family: Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
     }
-   .wrap{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 18px 40px; 
-/* much tighter */  text-align:center; 
-   }   
-   /* Top bar */
+
+    /* Top Bar */
     .topbar{
       position: sticky;
       top: 0;
-      z-index: 10;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 18px;
-      background: var(--panel);
-      border-bottom: 1px solid var(--line);
+      z-index: 50;
+      background: rgba(0,0,0,.92);
       backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
     }
-
+    .topbarInner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight: 800;
-      letter-spacing:.2px;
-      white-space:nowrap;
+      font-weight: 900;
+      letter-spacing: .4px;
+      white-space: nowrap;
     }
-
-    .brand-dot{ color: var(--gold); }
+    .brandDot{ color: var(--gold); }
 
     nav{
       display:flex;
       align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-
     nav a{
       color: var(--text);
-      text-decoration:none;
-      font-weight:700;
-      opacity:.92;
-      padding:8px 8px;
-      border-radius:10px;
+      text-decoration: none;
+      font-weight: 800;
+      opacity: .9;
     }
-    nav a:hover{ color: var(--gold); opacity:1; }
+    nav a:hover{ color: var(--gold); opacity: 1; }
+    .navBtn{
+      display:inline-block;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line2);
+      color: var(--gold);
+    }
+    .navBtn:hover{
+      background: rgba(212,175,55,.10);
+    }
 
-    
-       /* Shield */
+    /* Page Wrap */
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 18px 26px;
+      text-align:center;
+    }
+
+    /* HERO: no insane scroll */
+    .hero{
+      min-height: calc(100vh - 64px); /* 64px approx topbar height */
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    /* Shield */
     .logo{
-  width: min(900px, 96vw);  /* wider */
-  height: auto;
-  display: block;
-  margin: -8px auto 8px;    /* slight negative pull upward */
-}
-
+      width: min(680px, 92vw);
+      height: auto;
+      display:block;
+      margin: 0 auto;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
+    }
 
     h1{
-      margin: 6px 0 8px;
-      font-size: 44px;
-      letter-spacing: .3px;
-    }
-
-    h2{
-      margin: 0 0 16px;
-      font-size: 18px;
+      margin: 6px 0 4px;
+      font-size: clamp(28px, 4vw, 44px);
       font-weight: 900;
       letter-spacing: .6px;
-      text-transform: uppercase;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(15px, 2.2vw, 18px);
+      font-weight: 900;
+      letter-spacing: .4px;
       color: var(--gold);
-      opacity:.95;
+      text-transform: uppercase;
+      opacity: .95;
     }
 
     p{
       margin: 0 auto;
-      max-width: 760px;
-      line-height: 1.75;
+      max-width: 720px;
+      line-height: 1.7;
       color: var(--muted);
       font-size: 16px;
     }
 
     .ctaRow{
-      margin-top: 26px;
+      margin-top: 16px;
       display:flex;
-      gap:12px;
+      gap: 12px;
       justify-content:center;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
     }
-
     .btn{
       display:inline-block;
       padding: 12px 16px;
@@ -123,122 +144,91 @@
       font-weight: 900;
       letter-spacing: .3px;
       text-decoration:none;
-      border: 1px solid transparent;
-      transition: transform .05s ease, filter .15s ease, background .15s ease;
-      user-select:none;
     }
-    .btn:active{ transform: translateY(1px); }
-
     .btnPrimary{
       background: var(--gold);
       color: #111;
       box-shadow: 0 0 0 1px rgba(212,175,55,.35);
     }
     .btnPrimary:hover{ filter: brightness(1.05); }
-
     .btnGhost{
-      background: transparent;
       border: 1px solid var(--line2);
       color: var(--gold);
+      background: transparent;
     }
-    .btnGhost:hover{ background: rgba(212,175,55,.08); }
+    .btnGhost:hover{ background: rgba(212,175,55,.10); }
 
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 16px 12px;
+      text-align:center;
+      color: #bdbdbd;
+    }
     .fine{
+      margin-top: 6px;
       font-size: 12px;
       opacity: .85;
-      margin-top: 10px;
     }
 
-    .footer{
-      padding: 18px;
-      text-align:center;
-      color:#bdbdbd;
-      border-top: 1px solid var(--line);
-      background: rgba(0,0,0,.35);
-    }
-
-    /* Mobile polish */
+    /* Mobile tightening */
     @media (max-width: 520px){
-      h1{ font-size: 34px; }
-      .logo{ width: min(720px, 92vw); margin-top: 10px; }
-      nav{ gap:8px; }
-      nav a{ padding:8px 6px; }
+      .topbarInner{ justify-content: center; flex-direction: column; }
+      nav{ justify-content: center; }
+      .hero{ min-height: calc(100vh - 110px); }
+      .wrap{ padding-top: 10px; }
     }
   </style>
 </head>
 
 <body>
   <header class="topbar">
-    <div class="brand">
-      <span>Blackshield Institute</span><span class="brand-dot">•</span>
-    </div>
+    <div class="topbarInner">
+      <div class="brand">
+        <span>Blackshield Institute</span><span class="brandDot">•</span>
+      </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="curriculum.html" class="btn btnGhost">View Curriculum</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a class="navBtn" href="curriculum.html">View Curriculum</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="wrap">
-    <img class="logo" src="shield.png" alt="Blackshield Institute Shield" />
+  <main class="wrap" id="home">
+    <section class="hero">
+      <img class="logo" src="shield.png" alt="Blackshield Institute Shield" />
 
-    <h1>Blackshield Institute</h1>
-    <h2>Diversified Curriculum</h2>
+      <h1>Blackshield Institute</h1>
+      <h2>Diversified Curriculum</h2>
 
-    <p>
-      Blackshield Institute publishes disciplined, structured digital curriculum for independent learners and families.
-      Our work is designed to build clarity, character, and competence through a modern delivery system rooted in
-      traditional standards.
-    </p>
+      <p id="about">
+        Blackshield Institute publishes disciplined, structured digital curriculums and intellectual capital designed to
+        rebuild literacy, identity, and leadership through clear standards and timeless principles.
+      </p>
 
-    <div class="ctaRow">
-      <a class="btn btnPrimary" href="curriculum.html">View Curriculum</a>
-      <a class="btn btnGhost" href="contact.html">Contact</a>
-    </div>
-
-    <div class="fine" style="margin-top:18px;">
-      Questions? Email: <span style="color:var(--gold); font-weight:800;">admin@blackshieldinstitute.org</span>
-    </div>
+      <div class="ctaRow" id="curriculums">
+        <a class="btn btnPrimary" href="curriculum.html">View Curriculum</a>
+        <a class="btn btnGhost" href="passage-series.html">Passage Series</a>
+        <a class="btn btnGhost" href="early-access.html">Early Access</a>
+        <a class="btn btnGhost" href="contact.html">Contact</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     © <span id="yr"></span> Blackshield Institute
     <div class="fine">Honored by the Shield.</div>
+    <div class="fine">
+      <a href="privacy.html" style="color:var(--muted); text-decoration:none;">Privacy</a>
+      <span style="opacity:.5;"> • </span>
+      <a href="terms.html" style="color:var(--muted); text-decoration:none;">Terms</a>
+    </div>
   </footer>
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>   
