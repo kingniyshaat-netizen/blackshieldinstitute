@@ -12,7 +12,7 @@
       --panel:rgba(0,0,0,.86);
       --text:#ffffff;
       --muted:#cfcfcf;
-      --line:rgba(212,175,55,.20);
+      --line:rgba(212,175,55,.18);
       --line2:rgba(212,175,55,.55);
     }
 
@@ -25,210 +25,228 @@
       color: var(--text);
     }
 
-    /* Top Bar */
+    /* Top bar */
     .topbar{
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 999;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 18px;
       background: rgba(0,0,0,.92);
-      backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(6px);
     }
-    .topbarInner{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
+
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
       font-weight: 900;
-      letter-spacing: .4px;
-      white-space: nowrap;
+      letter-spacing:.3px;
+      white-space:nowrap;
     }
-    .brandDot{ color: var(--gold); }
+    .brand-dot{
+      color: var(--gold);
+    }
 
     nav{
       display:flex;
       align-items:center;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
     nav a{
       color: var(--text);
-      text-decoration: none;
-      font-weight: 800;
-      opacity: .9;
+      text-decoration:none;
+      font-weight:800;
+      opacity:.92;
     }
-    nav a:hover{ color: var(--gold); opacity: 1; }
-    .navBtn{
-      display:inline-block;
-      padding: 9px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--line2);
+    nav a:hover{
       color: var(--gold);
-    }
-    .navBtn:hover{
-      background: rgba(212,175,55,.10);
+      opacity:1;
     }
 
-    /* Page Wrap */
+    .navCta{
+      border:1px solid rgba(212,175,55,.30);
+      padding:8px 12px;
+      border-radius: 12px;
+    }
+
+    /* Layout */
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 14px 18px 26px;
+      padding: 18px 18px 28px; /* <- no giant scroll gap */
       text-align:center;
     }
 
-    /* HERO: no insane scroll */
+    /* Hero card */
     .hero{
-      min-height: calc(100vh - 64px); /* 64px approx topbar height */
-      display:flex;
-      flex-direction: column;
-      align-items:center;
-      justify-content: center;
-      gap: 12px;
-      padding: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: radial-gradient(1200px 600px at 50% -20%, rgba(212,175,55,.10), transparent 55%),
+                  linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.88));
+      box-shadow: 0 18px 70px rgba(0,0,0,.55);
+      padding: 18px 16px 20px;
     }
 
-    /* Shield */
     .logo{
-      width: min(680px, 92vw);
+      width: min(760px, 92vw);
+      max-width: 100%;
       height: auto;
       display:block;
-      margin: 0 auto;
-      filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
+      margin: 8px auto 12px; /* tight to the header */
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.55);
     }
 
     h1{
-      margin: 6px 0 4px;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: .6px;
+      margin: 10px 0 8px;
+      font-size: clamp(28px, 5vw, 54px);
+      letter-spacing: .2px;
     }
     h2{
-      margin: 0 0 10px;
-      font-size: clamp(15px, 2.2vw, 18px);
-      font-weight: 900;
-      letter-spacing: .4px;
+      margin: 0 0 14px;
+      font-size: 18px;
       color: var(--gold);
+      letter-spacing: .16em;
+      font-weight: 900;
       text-transform: uppercase;
-      opacity: .95;
     }
 
     p{
       margin: 0 auto;
-      max-width: 720px;
-      line-height: 1.7;
+      max-width: 760px;
+      line-height: 1.75;
       color: var(--muted);
       font-size: 16px;
     }
 
     .ctaRow{
-      margin-top: 16px;
+      margin-top: 18px;
       display:flex;
-      gap: 12px;
+      gap:12px;
       justify-content:center;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
+
     .btn{
       display:inline-block;
       padding: 12px 16px;
-      border-radius: 12px;
+      border-radius: 14px;
       font-weight: 900;
-      letter-spacing: .3px;
       text-decoration:none;
+      letter-spacing:.3px;
+      border: 1px solid rgba(212,175,55,.35);
+      transition: transform .08s ease, filter .15s ease;
+      user-select:none;
     }
+    .btn:active{ transform: translateY(1px); }
+
     .btnPrimary{
       background: var(--gold);
-      color: #111;
-      box-shadow: 0 0 0 1px rgba(212,175,55,.35);
+      color:#121212;
+      border-color: rgba(212,175,55,.75);
+      box-shadow: 0 0 0 1px rgba(212,175,55,.22);
     }
-    .btnPrimary:hover{ filter: brightness(1.05); }
     .btnGhost{
-      border: 1px solid var(--line2);
-      color: var(--gold);
       background: transparent;
+      color: var(--gold);
     }
-    .btnGhost:hover{ background: rgba(212,175,55,.10); }
+    .btnGhost:hover{
+      background: rgba(212,175,55,.08);
+    }
 
     /* Footer */
     footer{
       border-top: 1px solid var(--line);
-      padding: 16px 12px;
+      margin-top: 22px;
+      padding: 18px 14px 22px;
       text-align:center;
-      color: #bdbdbd;
+      color:#bdbdbd;
     }
     .fine{
-      margin-top: 6px;
       font-size: 12px;
-      opacity: .85;
+      opacity:.85;
+      margin-top: 6px;
+    }
+    .footerLinks{
+      margin-top: 8px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .footerLinks a{
+      color:#bdbdbd;
+      text-decoration:none;
+    }
+    .footerLinks a:hover{
+      color: var(--gold);
     }
 
-    /* Mobile tightening */
+    /* Mobile tweaks */
     @media (max-width: 520px){
-      .topbarInner{ justify-content: center; flex-direction: column; }
-      nav{ justify-content: center; }
-      .hero{ min-height: calc(100vh - 110px); }
-      .wrap{ padding-top: 10px; }
+      .topbar{ padding: 12px 12px; }
+      nav{ gap: 10px; }
+      .hero{ padding: 16px 12px 18px; }
+      .btn{ width: 100%; max-width: 340px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="topbarInner">
-      <div class="brand">
-        <span>Blackshield Institute</span><span class="brandDot">•</span>
-      </div>
-
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a class="navBtn" href="curriculum.html">View Curriculum</a>
-      </nav>
+  <header class="topbar" id="home">
+    <div class="brand">
+      <span>Blackshield Institute</span>
+      <span class="brand-dot">•</span>
     </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="about.html">About</a>
+      <a class="navCta" href="curriculum.html">View Curriculum</a>
+    </nav>
   </header>
 
-  <main class="wrap" id="home">
+  <main class="wrap">
     <section class="hero">
       <img class="logo" src="shield.png" alt="Blackshield Institute Shield" />
 
       <h1>Blackshield Institute</h1>
       <h2>Diversified Curriculum</h2>
 
-      <p id="about">
-        Blackshield Institute publishes disciplined, structured digital curriculums and intellectual capital designed to
-        rebuild literacy, identity, and leadership through clear standards and timeless principles.
+      <p>
+        Blackshield Institute publishes disciplined, structured digital curriculums and intellectual capital
+        designed to rebuild literacy, identity, and leadership through clear standards and timeless principles.
       </p>
 
-      <div class="ctaRow" id="curriculums">
+      <div class="ctaRow">
         <a class="btn btnPrimary" href="curriculum.html">View Curriculum</a>
         <a class="btn btnGhost" href="passage-series.html">Passage Series</a>
         <a class="btn btnGhost" href="early-access.html">Early Access</a>
         <a class="btn btnGhost" href="contact.html">Contact</a>
       </div>
     </section>
-  </main>
 
-  <footer>
-    © <span id="yr"></span> Blackshield Institute
-    <div class="fine">Honored by the Shield.</div>
-    <div class="fine">
-      <a href="privacy.html" style="color:var(--muted); text-decoration:none;">Privacy</a>
-      <span style="opacity:.5;"> • </span>
-      <a href="terms.html" style="color:var(--muted); text-decoration:none;">Terms</a>
-    </div>
-  </footer>
+    <footer>
+      <div>© <span id="yr"></span> Blackshield Institute</div>
+      <div class="fine">Honored by the Shield.</div>
+
+      <div class="footerLinks">
+        <a href="privacy.html">Privacy</a>
+        <span>•</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </footer>
+  </main>
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>   
+</html>
