@@ -1,20 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact — Blackshield Institute</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Blackshield Institute</title>
+  <style>
+    :root{
+      --gold:#d4af37;
+      --bg:#050505;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --line:rgba(212,175,55,.18);
+      --line2:rgba(212,175,55,.45);
+      --panel:rgba(0,0,0,.70);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .top{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+    .topin{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{font-weight:900;letter-spacing:.4px;white-space:nowrap}
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a{color:var(--text);text-decoration:none;font-weight:800;opacity:.92;padding:8px 10px;border-radius:10px}
+    nav a:hover{opacity:1;color:var(--gold)}
+    .cta{border:1px solid var(--line2);color:var(--gold)}
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 16px 40px}
+    h1{margin:18px 0 6px;font-size:34px}
+    .gold{color:var(--gold)}
+    .sub{color:var(--muted);line-height:1.75;max-width:900px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+    .card{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;background:linear-gradient(180deg, rgba(212,175,55,.06), rgba(0,0,0,0))}
+    .label{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:#111;background:var(--gold);padding:5px 9px;border-radius:999px;margin-bottom:10px}
+    .title{font-size:18px;font-weight:900;margin:0 0 8px}
+    .desc{color:var(--muted);line-height:1.7;margin:0}
+    .quote{margin-top:20px;padding:16px;border-left:3px solid var(--gold);background:var(--panel);border-radius:12px}
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:14px 16px;color:#bdbdbd;text-align:center;background:rgba(0,0,0,.55)}
+    footer a{color:var(--gold);text-decoration:none;font-weight:800}
+    footer a:hover{text-decoration:underline}
+  </style>
 </head>
-<body style="background:black;color:white;font-family:Arial;text-align:center;padding:40px;">
 
-<h1>Contact Blackshield Institute</h1>
+<body>
+  <header class="top">
+    <div class="topin">
+      <div class="brand">Blackshield Institute</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a class="cta" href="about.html">About</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<p>Email inquiries regarding curriculum licensing, digital access, and publications.</p>
+  <main class="wrap">
+    <h1>About Blackshield Institute</h1>
+    <p class="sub">
+      <span class="gold"><strong>Blackshield Institute</strong></span> is a privately governed digital curriculum institution that publishes
+      structured formation systems for individual discipline and generational continuity.
+      We do not operate as a school. We publish deployable curriculums for private implementation.
+    </p>
 
-<p style="font-weight:bold;color:#d4af37;">
-admin@blackshieldinstitute.org
-</p>
+    <div class="quote">
+      <p class="sub" style="margin:0;">
+        <strong class="gold">Core Principle:</strong> Pressure does not create strength. It reveals structure.
+      </p>
+    </div>
 
-<br>
-<a href="index.html" style="color:#d4af37;">Return Home</a>
+    <h2 class="gold" style="margin-top:28px;">What We Solve</h2>
+    <p class="sub">
+      Modern people have information, but lack structure — no standards, no repetition loops, no accountability system.
+      That absence produces instability: weak decision-making, emotional reactivity, and poor long-term outcomes.
+      Blackshield restores structure through measurable formation.
+    </p>
 
+    <h2 class="gold" style="margin-top:28px;">What We Publish</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="label">Youth Formation</div>
+        <p class="title">PASSAGES</p>
+        <p class="desc">A structured digital curriculum for youth safety, identity, emotional discipline, responsibility, and health maintenance.</p>
+      </div>
+      <div class="card">
+        <div class="label">Flagship Doctrine</div>
+        <p class="title">The Diamond in the Rough</p>
+        <p class="desc">The governing doctrine of structural thinking: discipline under pressure, endurance, and long-term continuity.</p>
+      </div>
+      <div class="card">
+        <div class="label">Institutional Program</div>
+        <p class="title">Continuity Cycle I</p>
+        <p class="desc">A 10-week cohort program focused on civilizational identity and cultural continuity through structured analysis and implementation.</p>
+      </div>
+    </div>
+
+    <h2 class="gold" style="margin-top:28px;">Who This Is For</h2>
+    <div class="grid">
+      <div class="card">
+        <p class="title">For</p>
+        <p class="desc">
+          Parents and homeschool families • mentors and youth leaders • individuals rebuilding discipline • institutions seeking private implementation tools.
+        </p>
+      </div>
+      <div class="card">
+        <p class="title">Not For</p>
+        <p class="desc">
+          Academic credit seekers • accreditation programs • passive readers • ideological activism • anyone unwilling to follow standards and structure.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> Blackshield Institute • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a>
+  </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
