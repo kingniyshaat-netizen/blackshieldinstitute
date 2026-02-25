@@ -1,334 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PASSAGES — Blackshield Institute</title>
-  <meta name="description" content="PASSAGES is a measurable youth formation curriculum for safety, identity discipline, responsibility, consent awareness, and health maintenance." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PASSAGES — Blackshield Institute</title>
 
-  <style>
-    :root{
-      --black:#111111;
-      --ivory:#F4F1E8;
-      --gold:#B08D57;
-      --panel: rgba(244,241,232,0.06);
-      --stroke: rgba(176,141,87,0.28);
-      --stroke2: rgba(244,241,232,0.12);
-      --text: #F4F1E8;
-      --muted: rgba(244,241,232,0.78);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -20%, rgba(176,141,87,0.20), transparent 60%),
-                  radial-gradient(900px 500px at 20% 0%, rgba(244,241,232,0.10), transparent 60%),
-                  var(--black);
-      color: var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    a:hover{color:var(--gold)}
-    .topbar{
-      position: sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(17,17,17,0.86);
-      border-bottom: 1px solid var(--stroke2);
-    }
-    .nav{
-      max-width: 1120px; margin: 0 auto; padding: 12px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px;text-transform:uppercase;font-size:13px}
-    .brandDot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(176,141,87,0.20)}
-    .navLinks{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;font-weight:800;font-size:13px}
-    .wrap{max-width:1120px;margin:0 auto;padding: 28px 18px 70px;}
-    .hero{padding: 26px 0 6px;}
-    .heroGrid{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:980px){.heroGrid{grid-template-columns:1.2fr .8fr}}
-    .kicker{
-      display:inline-block;padding:6px 10px;border:1px solid var(--stroke);
-      background: rgba(176,141,87,0.08); border-radius:999px;
-      font-weight:900; letter-spacing:.5px; text-transform:uppercase; font-size:11px;
-    }
-    h1{margin:10px 0 10px;font-size: clamp(28px, 4vw, 44px);letter-spacing:.2px}
-    .sub{margin:0;color:var(--muted);line-height:1.8;font-size:15px;max-width: 820px;}
-    .card{
-      border:1px solid var(--stroke); border-radius:16px; padding:16px;
-      background: var(--panel);
-    }
-    .price{
-      font-weight:900; font-size:18px; color: var(--ivory);
-      margin: 2px 0 10px;
-    }
-    .fine{color: rgba(244,241,232,0.70); font-size:12px; line-height:1.6}
-    .btnRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .btn{
-      display:inline-block;padding:12px 16px;border-radius:12px;font-weight:900;letter-spacing:.25px;
-      border:1px solid transparent;
-    }
-    .btnPrimary{background: var(--gold); color:#111;}
-    .btnPrimary:hover{filter:brightness(1.05);color:#111;}
-    .btnGhost{border-color: rgba(244,241,232,0.22); background: rgba(244,241,232,0.04); color: var(--ivory);}
-    .btnGhost:hover{border-color: var(--gold);}
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#050505;
+  color:#fff;
+}
 
-    .section{margin-top: 22px; border-top: 1px solid var(--stroke2); padding-top: 18px;}
-    .sectionTitle{margin:0 0 10px;font-size:13px;font-weight:900;letter-spacing:.45px;text-transform:uppercase;color:var(--gold)}
-    .sectionDesc{margin:0 0 14px;color:var(--muted);line-height:1.75;max-width: 900px;}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .tile{grid-column: span 12; border:1px solid var(--stroke); border-radius:16px; padding:16px; background: var(--panel);}
-    @media(min-width:900px){.tile{grid-column: span 6;}}
-    .tileWide{grid-column: span 12;}
-    .tileName{margin:0 0 8px;font-weight:900;font-size:16px}
-    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.65}
-    li{margin:6px 0}
-    details{
-      border:1px solid rgba(244,241,232,0.14);
-      border-radius:14px;
-      padding:12px 12px;
-      background: rgba(244,241,232,0.03);
-      margin-top:10px;
-    }
-    summary{cursor:pointer;font-weight:900;color:var(--ivory)}
-    .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .pill{padding:8px 10px;border-radius:999px;border:1px solid rgba(244,241,232,0.18);background: rgba(244,241,232,0.04);font-weight:900;font-size:12px;color:var(--ivory)}
-    .enforce{
-      border:1px solid rgba(176,141,87,0.40);
-      background: rgba(176,141,87,0.10);
-      border-radius:14px;
-      padding:14px;
-      margin-top: 12px;
-    }
-    footer{
-      margin-top: 26px;
-      border-top: 1px solid var(--stroke2);
-      padding: 18px;
-      text-align:center;
-      color: rgba(244,241,232,0.68);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    footer a{color: var(--gold); font-weight: 900;}
-  </style>
+.container{
+  max-width:900px;
+  margin:60px auto;
+  padding:20px;
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.gold{
+  color:#d4af37;
+}
+
+.section{
+  margin:50px 0;
+}
+
+ul{
+  line-height:1.8;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  margin-top:20px;
+  background:#d4af37;
+  color:#111;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:8px;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.subtle{
+  color:#ccc;
+}
+</style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="nav">
-      <div class="brand"><span class="brandDot"></span><span>Blackshield Institute</span></div>
-      <div class="navLinks">
-        <a href="index.html">Home</a>
-        <a href="curriculums.html">Curriculums</a>        <a href="passage-series.html">PASSAGES</a>
-        <a href="contact.html">Contact</a>
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
-      </div>
-    </div>
-  </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="heroGrid">
-        <div>
-          <span class="kicker">Cultural Restoration — Flagship Curriculum</span>
-          <h1>PASSAGES</h1>
-          <p class="sub">
-            A measurable youth formation system for safety, identity discipline, responsibility, consent awareness, and health maintenance.
-            <strong>Execution required.</strong> <strong>Retention verified.</strong> Certificate issued upon verified completion.
-          </p>
+<div class="container">
 
-          <div class="pillRow">
-            <span class="pill">12 Books</span>
-            <span class="pill">5 Modules</span>
-            <span class="pill">Ages 6–12</span>
-            <span class="pill">5–6 Weeks</span>
-          </div>
+<h1>PASSAGES</h1>
+<h3 class="gold">Foundational Cultural Formation for Youth</h3>
 
-        https://buy.stripe.com/6oU28lfo2fgJcL17EBdnW04
-          <p class="fine" style="margin-top:12px;">
-            Classification: Digital curriculum for independent learning and private implementation. No academic credit or accreditation.
-          </p>
-        </div>
+<div class="section">
+<p>
+Modern youth are exposed to information, but lack structured formation in safety,
+boundaries, emotional discipline, and personal responsibility.
+</p>
+<p>
+PASSAGES restores disciplined formation through measurable execution.
+</p>
+</div>
 
-        <div class="card">
-          <div class="sectionTitle" style="margin-top:0;">Pricing</div>
-          <div class="price">Founding Window: $147</div>
-          <div class="fine">Standard: $197 · Institutional License: $497</div>
+<div class="section">
+<h2>What This Curriculum Builds</h2>
+<ul>
+<li>Emergency readiness and self-identification</li>
+<li>Boundary enforcement and refusal scripts</li>
+<li>Identity clarity and structured thinking</li>
+<li>Emotional discipline under pressure</li>
+<li>Responsible habit formation</li>
+<li>Health and maintenance literacy</li>
+</ul>
+</div>
 
-          <div class="sectionTitle" style="margin-top:14px;">Age Range</div>
-          <div class="fine">
-            Designed for ages <strong>6–12</strong>.<br>
-            Parent-guided for ages <strong>6–8</strong> · Independent-capable for ages <strong>9–12</strong>.
-          </div>
+<div class="section">
+<h2>Recommended Age Range</h2>
+<p>Ages 6–12</p>
+<p class="subtle">Parent-guided for ages 6–8. Independent-capable for ages 9–12.</p>
+</div>
 
-          <div class="sectionTitle" style="margin-top:14px;">Implementation</div>
-          <div class="fine">
-            1–2 sessions/week · 20–30 minutes/session · estimated completion 5–6 weeks.
-          </div>
+<div class="section">
+<h2>Implementation Structure</h2>
+<ul>
+<li>5 Modules</li>
+<li>1–2 sessions per week</li>
+<li>20–30 minutes per session</li>
+<li>Estimated completion: 5–6 weeks</li>
+</ul>
+</div>
 
-          <div class="enforce">
-            <div class="sectionTitle" style="margin:0 0 8px;">Verification Standard</div>
-            <div class="fine">
-              Execution tracking + 7-day retention checks + witness confirmation required for certificate eligibility.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="section">
+<h2>After Completion, Your Child Will:</h2>
+<ul>
+<li>Recite emergency contact information confidently</li>
+<li>Demonstrate refusal and boundary scripts</li>
+<li>Identify trusted adults and safety protocols</li>
+<li>Understand basic consent mechanics</li>
+<li>Maintain structured hygiene routines</li>
+</ul>
+</div>
 
-    <section class="section">
-      <div class="sectionTitle">The Problem</div>
-      <p class="sectionDesc">
-        Modern youth receive information without formation. PASSAGES restores disciplined behavioral literacy through measurable execution across safety, boundaries, identity, emotional discipline, and maintenance habits.
-      </p>
-    </section>
+<div class="section">
+<h2>Certification</h2>
+<p>
+PASSAGES includes repetition tracking, recall verification,
+7-day retention checks, and a Certificate of Completion
+issued upon verified completion.
+</p>
+</div>
 
-    <section class="section">
-      <div class="sectionTitle">After Completion, Youth Will Demonstrate</div>
-      <div class="grid">
-        <div class="tile">
-          <p class="tileName">Safety & Readiness</p>
-          <ul>
-            <li>Recite emergency information without hesitation</li>
-            <li>Execute “lost” protocol correctly</li>
-            <li>Identify trusted authority figures</li>
-          </ul>
-        </div>
-        <div class="tile">
-          <p class="tileName">Boundaries & Identity Discipline</p>
-          <ul>
-            <li>Demonstrate refusal and boundary scripts</li>
-            <li>Define identity by conduct, not labels</li>
-            <li>Apply anti-teasing clarity scripts</li>
-          </ul>
-        </div>
-        <div class="tile">
-          <p class="tileName">Responsibility & Emotional Control</p>
-          <ul>
-            <li>Maintain routine discipline (hygiene, chores)</li>
-            <li>Name emotions without chaos</li>
-            <li>Practice service-minded responsibility</li>
-          </ul>
-        </div>
-        <div class="tile">
-          <p class="tileName">Consent & Health Maintenance</p>
-          <ul>
-            <li>Understand consent mechanics at a foundational level</li>
-            <li>Recognize body signals and healthy supports</li>
-            <li>Build weekly maintenance routines (sleep, hydration)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<div class="section">
+<a href="early-access.html" class="btn">Join Early Access</a>
+</div>
 
-    <section class="section">
-      <div class="sectionTitle">Curriculum Breakdown</div>
-      <p class="sectionDesc">Five modules. Twelve books. Each book contains measurable outcomes, competencies, and an execution verification block.</p>
+</div>
 
-      <details open>
-        <summary>Module I — Safety Identity Formation (Books 1–5)</summary>
-        <ul>
-          <li>Book 1: My Parents’ Phone Number</li>
-          <li>Book 2: My Parents’ Names</li>
-          <li>Book 3: My Parents’ Address</li>
-          <li>Book 4: Never Speak to Strangers</li>
-          <li>Book 5: I’m Lost, Find a Cop</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Module II — Responsibility & Self-Governance (Books 6–7)</summary>
-        <ul>
-          <li>Book 6: I’m a Big Boy Now</li>
-          <li>Book 7: I’m a Big Girl Now</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Module III — Knowledge & Identity (Books 8–9)</summary>
-        <ul>
-          <li>Book 8: The Power in the Know</li>
-          <li>Book 9: What’s a Man? What’s a Woman?</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Module IV — Emotional & Relational Discipline (Book 10)</summary>
-        <ul>
-          <li>Book 10: Desire, Lust and Love</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Module V — Health & Maintenance (Books 11–12)</summary>
-        <ul>
-          <li>Book 11: Choices in Life</li>
-          <li>Book 12: Health and Well-Being</li>
-        </ul>
-      </details>
-    </section>
-
-    <section class="section">
-      <div class="sectionTitle">Execution & Certification</div>
-      <p class="sectionDesc">
-        PASSAGES is not passive reading. It is formation. Completion requires repetition tracking, recall verification, witness confirmation, and 7-day retention checks. A non-academic Certificate of Completion is issued upon verified completion.
-      </p>
-
-      <div class="tile tileWide">
-        <p class="tileName">Standard Enforcement Block (included per book)</p>
-        <div class="fine">
-          MODULE COMPLETION REQUIREMENTS<br><br>
-          Repetition Count Required: ____<br>
-          Recall Speed Target: ____ seconds<br>
-          Witness Signature: __________________________<br>
-          7-Day Retention Verified: ☐ Yes ☐ No<br>
-          Completion Date: ____________
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="sectionTitle">Who It’s For / Who It’s Not For</div>
-      <div class="grid">
-        <div class="tile">
-          <p class="tileName">For</p>
-          <ul>
-            <li>Parents and guardians</li>
-            <li>Homeschool families</li>
-            <li>Mentorship programs</li>
-            <li>Youth leaders</li>
-            <li>Faith-based institutions</li>
-          </ul>
-        </div>
-        <div class="tile">
-          <p class="tileName">Not For</p>
-          <ul>
-            <li>Passive reading</li>
-            <li>Academic credit seekers</li>
-            <li>Accreditation programs</li>
-            <li>Ideological activism</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="sectionTitle">Next Step</div>
-      <p class="sectionDesc">
-        Join Founding Access now. When checkout activates, Founding members receive priority enrollment + launch pricing access.
-      </p>
-      <div class="btnRow">
-        <a class="btn btnPrimary" href="early-access.html">Join Founding Access</a>
-        <a class="btn btnGhost" href="contact.html">Institutional Inquiry</a>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="yr"></span> Blackshield Institute ·
-      <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a>
-    </footer>
-  </main>
-
-  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>
