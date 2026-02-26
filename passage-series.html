@@ -3,128 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PASSAGES — Blackshield Institute</title>
+<title>PASSAGES | Blackshield Institute</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#050505;
-  color:#fff;
-}
+  :root{
+    --bg:#0b0b0c;
+    --text:#f4f1e8;
+    --muted:rgba(244,241,232,.75);
+    --gold:#b08d57;
+    --line:rgba(244,241,232,.14);
+    --radius:18px;
+    --max:1080px;
+  }
 
-.container{
-  max-width:900px;
-  margin:60px auto;
-  padding:20px;
-}
+  *{box-sizing:border-box}
 
-h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background:linear-gradient(180deg,#050506,#0b0b0c 35%,#050506);
+    color:var(--text);
+  }
 
-.gold{
-  color:#d4af37;
-}
+  a{text-decoration:none;color:inherit}
 
-.section{
-  margin:50px 0;
-}
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:18px 16px 70px;
+  }
 
-ul{
-  line-height:1.8;
-}
+  /* Return Bar */
+  .returnbar{
+    margin:14px 0 18px;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.03);
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
 
-.btn{
-  display:inline-block;
-  padding:14px 22px;
-  margin-top:20px;
-  background:#d4af37;
-  color:#111;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:8px;
-}
+  .returnbar a{
+    padding:8px 12px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-weight:800;
+    font-size:13px;
+    background:rgba(255,255,255,.04);
+  }
 
-.btn:hover{
-  opacity:.9;
-}
+  h1{
+    margin:0 0 10px;
+    font-size:30px;
+  }
 
-.subtle{
-  color:#ccc;
-}
+  p{
+    color:var(--muted);
+    line-height:1.6;
+  }
+
+  .section{
+    margin-top:24px;
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.02);
+  }
+
+  ul{
+    margin:0 0 16px 18px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+
+  .btnrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:16px;
+  }
+
+  .btn{
+    padding:12px 16px;
+    border-radius:14px;
+    border:1px solid rgba(176,141,87,.7);
+    background:rgba(176,141,87,.2);
+    font-weight:900;
+  }
+
+  .btnGhost{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+  }
+
+  footer{
+    margin-top:30px;
+    padding:16px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.02);
+    color:rgba(244,241,232,.65);
+    font-size:14px;
+  }
 </style>
 </head>
 
 <body>
+<div class="wrap">
 
-<div class="container">
+  <!-- Navigation -->
+  <div class="returnbar">
+    <a href="index.html">Home</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="early-access.html">Early Access</a>
+  </div>
 
-<h1>PASSAGES</h1>
-<h3 class="gold">Foundational Cultural Formation for Youth</h3>
+  <h1>PASSAGES</h1>
+  <p>
+    PASSAGES is a structured milestone formation curriculum designed to guide youth
+    through foundational life checkpoints with execution requirements, retention verification,
+    and measurable outcomes.
+  </p>
 
-<div class="section">
-<p>
-Modern youth are exposed to information, but lack structured formation in safety,
-boundaries, emotional discipline, and personal responsibility.
-</p>
-<p>
-PASSAGES restores disciplined formation through measurable execution.
-</p>
+  <div class="section">
+    <h2>What PASSAGES Includes</h2>
+    <ul>
+      <li>Structured behavioral modules</li>
+      <li>Execution requirements + witness signature</li>
+      <li>7-Day retention verification checks</li>
+      <li>Certificate eligibility framework</li>
+      <li>Quarterly access cycle</li>
+    </ul>
+
+    <div class="btnrow">
+      <!-- 🔥 PASTE YOUR PASSAGES STRIPE LINK BELOW -->
+      <a class="btn" href="PASTE_PASSAGES_STRIPE_LINK_HERE" target="_blank" rel="noopener">
+        Checkout PASSAGES — $97 / 3 Months
+      </a>
+
+      <a class="btn btnGhost" href="catalog.html">
+        View Catalog
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Who It Is For</h2>
+    <p>
+      PASSAGES is designed for structured households and private programs
+      seeking disciplined formation, responsibility, and measurable advancement.
+    </p>
+  </div>
+
+  <footer>
+    Blackshield Institute • Diversified Digital Curriculum<br>
+    Private implementation curriculum. No academic accreditation.
+  </footer>
+
 </div>
-
-<div class="section">
-<h2>What This Curriculum Builds</h2>
-<ul>
-<li>Emergency readiness and self-identification</li>
-<li>Boundary enforcement and refusal scripts</li>
-<li>Identity clarity and structured thinking</li>
-<li>Emotional discipline under pressure</li>
-<li>Responsible habit formation</li>
-<li>Health and maintenance literacy</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Recommended Age Range</h2>
-<p>Ages 6–12</p>
-<p class="subtle">Parent-guided for ages 6–8. Independent-capable for ages 9–12.</p>
-</div>
-
-<div class="section">
-<h2>Implementation Structure</h2>
-<ul>
-<li>5 Modules</li>
-<li>1–2 sessions per week</li>
-<li>20–30 minutes per session</li>
-<li>Estimated completion: 5–6 weeks</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>After Completion, Your Child Will:</h2>
-<ul>
-<li>Recite emergency contact information confidently</li>
-<li>Demonstrate refusal and boundary scripts</li>
-<li>Identify trusted adults and safety protocols</li>
-<li>Understand basic consent mechanics</li>
-<li>Maintain structured hygiene routines</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Certification</h2>
-<p>
-PASSAGES includes repetition tracking, recall verification,
-7-day retention checks, and a Certificate of Completion
-issued upon verified completion.
-</p>
-</div>
-
-<div class="section">
-https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08
-</div>
-
 </body>
 </html>
