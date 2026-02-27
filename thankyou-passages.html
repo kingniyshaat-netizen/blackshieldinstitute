@@ -2,57 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Curriculum Is Ready — PASSAGES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You — Blackshield Institute</title>
+
   <style>
-    :root{--black:#111;--ivory:#F4F1E8;--gold:#B08D57;--muted:rgba(244,241,232,.78);--panel:rgba(244,241,232,.06);--stroke:rgba(176,141,87,.28);}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--black);color:var(--ivory);}
-    .wrap{max-width:900px;margin:0 auto;padding:48px 18px 70px;text-align:left;}
-    h1{margin:0 0 10px;font-size:34px;color:var(--gold);}
-    p{margin:0 0 12px;line-height:1.75;color:var(--muted);}
-    .card{border:1px solid var(--stroke);border-radius:16px;padding:16px;background:var(--panel);margin-top:14px;}
-    a{color:var(--gold);font-weight:900;text-decoration:none}
-    a:hover{text-decoration:underline}
-    .btn{display:inline-block;margin-top:10px;padding:12px 16px;border-radius:12px;font-weight:900;background:var(--gold);color:#111;text-decoration:none}
-    .btn:hover{filter:brightness(1.05);color:#111}
-    .fine{font-size:12px;color:rgba(244,241,232,.68);line-height:1.6;margin-top:14px}
+    :root{
+      --bg:#050506;
+      --text:#f4f1e8;
+      --muted:rgba(244,241,232,.75);
+      --gold:#b88a34;
+      --line:rgba(244,241,232,.14);
+      --radius:16px;
+      --max:900px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#000,#050506 35%,#000);
+      color:var(--text);
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:30px 16px 80px;
+    }
+
+    h1{
+      margin:10px 0 6px;
+      font-size:34px;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.6;
+      margin:10px 0;
+    }
+
+    .card{
+      margin-top:18px;
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.02);
+    }
+
+    .btnRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid rgba(184,138,52,.7);
+      background:rgba(184,138,52,.18);
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+
+    .btnGhost{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-weight:900;
+    }
+
+    footer{
+      margin-top:30px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      color:rgba(244,241,232,.55);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
   </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <h1>Purchase Confirmed</h1>
+  <div class="wrap">
 
-<p>Your PASSAGES curriculum access is being prepared.</p>
-
-<p>You will receive your digital delivery instructions by email within <strong>5–15 minutes</strong>.</p>
-
-<p>If you do not receive your email:</p>
-
-<ul>
-  <li>Check your spam/junk folder</li>
-  <li>Then contact <strong>support@blackshieldinstitute.org</strong> with your purchase email</li>
-</ul>
-
-<p><strong>Start Instructions:</strong> Begin with Module I: Safety Identity Formation. Track repetition counts and complete 7-day retention checks.</p>
-
-<p>— Blackshield Institute</p><div class="card">
-      <p><strong>Download PASSAGES:</strong></p>
-      <p class="fine">Replace the link below once your final PDF bundle is hosted.</p>
-      <p><a href="REPLACE_WITH_PDF_LINK" target="_blank" rel="noopener">Download PASSAGES (PDF Bundle)</a></p>
-
-      <a class="btn" href="index.html">Return Home</a>
-    </div>
+    <h1>Thank You.</h1>
+    <p>Your enrollment has been successfully processed.</p>
 
     <div class="card">
-      <p><strong>Implementation Instructions</strong></p>
-      <p>Begin with Module I. Track repetition counts. Complete 7-day retention checks. Certificate is issued upon verified completion.</p>
-      <p class="fine">Support: support@blackshieldinstitute.org</p>
+      <p>
+        Welcome to Blackshield Institute. You will receive confirmation and access details
+        via the email associated with your purchase.
+      </p>
+
+      <div class="btnRow">
+        <a class="btn btnGhost" href="index.html">Return Home</a>
+        <a class="btn btnGhost" href="curriculum.html">Go to Curriculum</a>
+        <a class="btn btnGhost" href="catalog.html">View Catalog</a>
+        <a class="btn btnGhost" href="contact.html">Contact</a>
+      </div>
     </div>
-    
-    <p class="fine">
-      Blackshield Institute provides digital curriculum for independent learning and private implementation.
-      No academic credit or accreditation is provided.
-    </p>
-  </main>
+
+    <footer>
+      <div>© <span id="yr"></span> Blackshield Institute</div>
+      <div>Honored by the Shield.</div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
