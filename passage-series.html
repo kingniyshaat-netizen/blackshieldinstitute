@@ -7,103 +7,280 @@
   <style>
     :root{
       --bg:#050506;
+      --panel: rgba(255,255,255,.04);
+      --panel2: rgba(0,0,0,.55);
       --text:#f4f1e8;
-      --muted:rgba(244,241,232,.75);
+      --muted: rgba(244,241,232,.75);
       --gold:#b08d57;
-      --line:rgba(244,241,232,.14);
-      --radius:16px;
-      --max:980px;
+      --line: rgba(176,141,87,.30);
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1040px;
     }
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:linear-gradient(180deg,#000,#050506 35%,#000);
-      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 50% -10%, rgba(176,141,87,.18), transparent 55%),
+        radial-gradient(900px 600px at 50% 120%, rgba(176,141,87,.10), transparent 55%),
+        linear-gradient(180deg, #000, var(--bg) 35%, #000);
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 70px}
-    .bar{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;
-      margin-bottom:16px;padding:10px 12px;border:1px solid var(--line);
-      border-radius:14px;background:rgba(255,255,255,.03)
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding:18px 16px 64px; }
+
+    /* Top nav */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbarInner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 180px;
+      font-weight: 800;
+      letter-spacing:.2px;
+    }
+    .dot{ color: var(--gold); font-weight: 900; }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
     }
     .pill{
-      padding:8px 12px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.04);
-      font-weight:800;font-size:13px
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
     }
-    h1{margin:8px 0 8px;font-size:30px}
-    p{margin:0 0 12px;color:var(--muted);line-height:1.6}
-    .grid{display:grid;gap:16px;grid-template-columns:1fr}
-    @media(min-width:880px){.grid{grid-template-columns:1.15fr .85fr}}
+    .pill:hover{ border-color: rgba(176,141,87,.55); }
+
+    /* Hero */
+    .hero{
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.35));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroInner{
+      padding: 22px 18px;
+      display:grid;
+      gap: 12px;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1{
+      margin: 2px 0 0;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 78ch;
+    }
+
+    /* Cards */
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
     .card{
-      padding:18px;border:1px solid var(--line);
-      border-radius:var(--radius);background:rgba(255,255,255,.02)
+      grid-column: span 12;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      padding: 16px;
     }
-    .btnRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .card p{ margin: 0; color: var(--muted); line-height:1.6; }
+    ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height:1.7; }
+    li{ margin: 4px 0; }
+
+    @media (min-width: 860px){
+      .card.left{ grid-column: span 7; }
+      .card.right{ grid-column: span 5; }
+    }
+
+    /* Buttons */
+    .btnRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
     .btn{
-      display:inline-block;padding:12px 16px;border-radius:14px;
-      border:1px solid rgba(176,141,87,.7);background:rgba(176,141,87,.18);
-      font-weight:900
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      min-width: 220px;
     }
-    .btnGhost{border:1px solid var(--line);background:rgba(255,255,255,.04)}
-    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.7}
-    .note{margin-top:10px;font-size:13px;color:rgba(244,241,232,.65)}
+    .btn:hover{ border-color: rgba(176,141,87,.55); }
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(176,141,87,.95), rgba(176,141,87,.75));
+      border-color: rgba(176,141,87,.95);
+      color:#111;
+    }
+    .btnPrimary:hover{ filter: brightness(1.03); }
+    .btnGhost{
+      background: rgba(0,0,0,.25);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      text-align:center;
+      color: rgba(244,241,232,.65);
+      font-size: 13px;
+    }
+    .fineLinks{
+      margin-top: 8px;
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .fineLinks a{ color: rgba(244,241,232,.75); }
+    .fineLinks a:hover{ color: var(--text); }
+    .rule{ height:1px; background: rgba(255,255,255,.06); margin: 14px auto; max-width: 520px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <div class="bar">
-      <a class="pill" href="index.html">Home</a>
-      <a class="pill" href="curriculum.html">Curriculum</a>
-      <a class="pill" href="catalog.html">Catalog</a>
-      <a class="pill" href="contact.html">Contact</a>
+  <header class="topbar">
+    <div class="topbarInner">
+      <div class="brand">Blackshield Institute <span class="dot">•</span></div>
+      <nav class="nav">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="curriculum.html">Curriculum</a>
+        <a class="pill" href="catalog.html">Catalog</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>PASSAGES</h1>
-    <p>A structured, private-implementation curriculum series for formation, literacy reinforcement, identity discipline, and continuity.</p>
+  <main class="wrap">
 
-    <div class="grid">
-
-      <div class="card">
-        <h2 style="margin:0 0 8px;">What You Get</h2>
-        <ul>
-          <li>Structured modules + release pathway</li>
-          <li>Retention checkpoints (7-day recall)</li>
-          <li>Execution requirements + verification</li>
-          <li>Certificate of completion (non-academic)</li>
-        </ul>
+    <section class="hero">
+      <div class="heroInner">
+        <div class="kicker">Program Page • Member Access Pathway</div>
+        <h1>PASSAGES</h1>
+        <p class="sub">
+          PASSAGES is a structured formation curriculum for private implementation and independent learning.
+          It is not academic instruction, does not grant credit, and does not imply accreditation.
+        </p>
 
         <div class="btnRow">
-          <!-- ✅ PASSAGES Stripe checkout link (NO MORE 404) -->
-          <a class="btn" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener">
-            Checkout PASSAGES
+          <!-- PASSAGES Checkout (Stripe payment link you provided) -->
+          <a class="btn btnPrimary" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener noreferrer">
+            Subscribe: PASSAGES
           </a>
 
+          <!-- Optional early access interest form -->
           <a class="btn btnGhost" href="early-access.html">
             Join Early Access
           </a>
-        </div>
 
-        <div class="note">
-          Note: PASSAGES is for independent learning / private implementation. No academic credit or accreditation.
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 style="margin:0 0 8px;">Navigation</h2>
-        <p>Don’t trap users. Give them exits.</p>
-        <div class="btnRow">
-          <a class="btn btnGhost" href="curriculum.html">Return to Curriculum</a>
-          <a class="btn btnGhost" href="index.html">Return Home</a>
-          <a class="btn btnGhost" href="catalog.html">View Catalog</a>
+          <a class="btn" href="curriculum.html">Return to Curriculum</a>
+          <a class="btn" href="index.html">Return Home</a>
         </div>
       </div>
+    </section>
 
-    </div>
+    <section class="grid">
+      <div class="card left">
+        <h2>What you get</h2>
+        <p>Designed for consistency, retention, and measurable progress — without “school” language.</p>
+        <ul>
+          <li>Structured modules (identity, discipline, health, literacy formation)</li>
+          <li>Execution requirements + witness verification pathway</li>
+          <li>Retention checkpoints (7-day recall rhythm)</li>
+          <li>Certificate of Completion (non-academic)</li>
+          <li>Member access to structured releases + continuity drops</li>
+        </ul>
+      </div>
 
-  </div>
+      <div class="card right">
+        <h2>Implementation</h2>
+        <p>Built for individuals, families, and private programs.</p>
+        <ul>
+          <li>Self-paced delivery</li>
+          <li>Private tracking + repetition cycles</li>
+          <li>Clear standards (no fluff, no chaos)</li>
+        </ul>
+
+        <div class="btnRow" style="margin-top:12px;">
+          <a class="btn btnPrimary" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener noreferrer">
+            Go to Checkout
+          </a>
+          <a class="btn btnGhost" href="early-access.html">Early Access Form</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="rule"></div>
+      <div>© <span id="yr"></span> Blackshield Institute</div>
+      <div class="fineLinks">
+        <a href="privacy.html">Privacy</a>
+        <span>•</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
