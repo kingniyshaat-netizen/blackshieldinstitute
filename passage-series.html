@@ -23,50 +23,33 @@
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 70px}
-
     .bar{
-      display:flex;gap:10px;flex-wrap:wrap;
-      margin-bottom:16px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;
+      margin-bottom:16px;padding:10px 12px;border:1px solid var(--line);
+      border-radius:14px;background:rgba(255,255,255,.03)
     }
     .pill{
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      font-weight:800;
-      font-size:13px;
+      padding:8px 12px;border:1px solid var(--line);
+      border-radius:999px;background:rgba(255,255,255,.04);
+      font-weight:800;font-size:13px
     }
-
-    h1{margin:6px 0 10px;font-size:30px}
-    h2{margin:0 0 8px;font-size:20px}
-    p{color:var(--muted);line-height:1.6}
-
+    h1{margin:8px 0 8px;font-size:30px}
+    p{margin:0 0 12px;color:var(--muted);line-height:1.6}
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media(min-width:880px){.grid{grid-template-columns:1.15fr .85fr}}
     .card{
-      margin-top:14px;
-      padding:18px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.02);
+      padding:18px;border:1px solid var(--line);
+      border-radius:var(--radius);background:rgba(255,255,255,.02)
     }
-    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.6}
-
-    .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btnRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
     .btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(176,141,87,.7);
-      background:rgba(176,141,87,.18);
-      font-weight:900;
+      display:inline-block;padding:12px 16px;border-radius:14px;
+      border:1px solid rgba(176,141,87,.7);background:rgba(176,141,87,.18);
+      font-weight:900
     }
-    .btnGhost{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-    }
+    .btnGhost{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.7}
+    .note{margin-top:10px;font-size:13px;color:rgba(244,241,232,.65)}
   </style>
 </head>
 <body>
@@ -76,39 +59,49 @@
       <a class="pill" href="index.html">Home</a>
       <a class="pill" href="curriculum.html">Curriculum</a>
       <a class="pill" href="catalog.html">Catalog</a>
-      <a class="pill" href="early-access.html">Early Access</a>
       <a class="pill" href="contact.html">Contact</a>
     </div>
 
     <h1>PASSAGES</h1>
-    <p>
-      PASSAGES is a private implementation track built for disciplined execution,
-      measurable retention, and formation standards.
-    </p>
+    <p>A structured, private-implementation curriculum series for formation, literacy reinforcement, identity discipline, and continuity.</p>
 
-    <div class="card">
-      <h2>What you get</h2>
-      <ul>
-        <li>Structured modules with checkpoints</li>
-        <li>Retention verification (7-day recall)</li>
-        <li>Implementation guidance + standards</li>
-        <li>Completion certificate eligibility (non-academic)</li>
-      </ul>
+    <div class="grid">
 
-      <div class="btnrow">
-        <https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08>
-        <a class="btn" href=https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08target="_blank" rel="noopener">
-          Checkout PASSAGES
-        </a>
+      <div class="card">
+        <h2 style="margin:0 0 8px;">What You Get</h2>
+        <ul>
+          <li>Structured modules + release pathway</li>
+          <li>Retention checkpoints (7-day recall)</li>
+          <li>Execution requirements + verification</li>
+          <li>Certificate of completion (non-academic)</li>
+        </ul>
 
-        <a class="btn btnGhost" href="early-access.html">Join Early Access</a>
-        <a class="btn btnGhost" href="curriculum.html">Return to Curriculum</a>
-        <a class="btn btnGhost" href="index.html">Return Home</a>
+        <div class="btnRow">
+          <!-- ✅ PASSAGES Stripe checkout link (NO MORE 404) -->
+          <a class="btn" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener">
+            Checkout PASSAGES
+          </a>
+
+          <a class="btn btnGhost" href="early-access.html">
+            Join Early Access
+          </a>
+        </div>
+
+        <div class="note">
+          Note: PASSAGES is for independent learning / private implementation. No academic credit or accreditation.
+        </div>
       </div>
 
-      <p style="margin-top:12px;">
-        Note: PASSAGES is private implementation curriculum. No academic credit or accreditation.
-      </p>
+      <div class="card">
+        <h2 style="margin:0 0 8px;">Navigation</h2>
+        <p>Don’t trap users. Give them exits.</p>
+        <div class="btnRow">
+          <a class="btn btnGhost" href="curriculum.html">Return to Curriculum</a>
+          <a class="btn btnGhost" href="index.html">Return Home</a>
+          <a class="btn btnGhost" href="catalog.html">View Catalog</a>
+        </div>
+      </div>
+
     </div>
 
   </div>
