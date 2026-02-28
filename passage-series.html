@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PASSAGES — Blackshield Institute</title>
+  <title>PASSAGES Access — Blackshield Institute</title>
+
+  <!-- Keep this page semi-private -->
+  <meta name="robots" content="noindex, nofollow" />
+
   <style>
     :root{
       --bg:#050506;
@@ -11,8 +15,9 @@
       --muted:rgba(244,241,232,.75);
       --gold:#b88a34;
       --line:rgba(244,241,232,.14);
-      --radius:16px;
-      --max:980px;
+      --card:rgba(255,255,255,.02);
+      --r:16px;
+      --max:1040px;
     }
     *{box-sizing:border-box}
     body{
@@ -22,128 +27,189 @@
       color:var(--text);
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 70px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 84px}
     .bar{
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;
       margin-bottom:16px;padding:10px 12px;
-      border:1px solid var(--line);border-radius:14px;
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)
     }
     .pill{
       padding:8px 12px;border:1px solid var(--line);
       border-radius:999px;background:rgba(255,255,255,.04);
-      font-weight:800;font-size:13px;
+      font-weight:800;font-size:13px
     }
-    h1{margin:10px 0 6px;font-size:34px;letter-spacing:.3px}
-    h2{margin:0 0 8px;font-size:18px;color:var(--gold);letter-spacing:.8px;text-transform:uppercase}
+    h1{margin:10px 0 6px;font-size:30px}
     p{color:var(--muted);line-height:1.6;margin:10px 0}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr);margin-top:16px}
-    .card{
-      grid-column:span 12;
-      padding:18px;border:1px solid var(--line);border-radius:var(--radius);
-      background:rgba(255,255,255,.02);
+    .hero{
+      margin-top:12px;
+      border:1px solid rgba(184,138,52,.35);
+      background:rgba(184,138,52,.08);
+      border-radius:var(--r);
+      padding:16px;
     }
-    @media(min-width:900px){
-      .left{grid-column:span 7}
-      .right{grid-column:span 5}
+    .tag{
+      display:inline-block;margin:8px 0 10px;padding:6px 10px;
+      border-radius:999px;border:1px solid rgba(184,138,52,.55);
+      background:rgba(184,138,52,.12);color:var(--gold);
+      font-weight:900;font-size:13px
     }
-    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.7}
-    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .btn{
-      display:inline-block;
-      padding:12px 16px;border-radius:14px;
+      display:inline-block;padding:12px 16px;border-radius:14px;
       border:1px solid rgba(184,138,52,.70);
       background:rgba(184,138,52,.18);
-      font-weight:900;letter-spacing:.2px;
+      font-weight:900;
     }
-    .btn:hover{filter:brightness(1.05)}
-    .btnGhost{
-      border:1px solid var(--line);
+    .btnGhost{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .grid{
+      display:grid;gap:14px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--line);background:var(--card);
+      border-radius:var(--r);padding:14px;
+    }
+    .bookTitle{font-weight:900;margin:4px 0 6px}
+    .bookMeta{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 10px}
+    .dl{
+      display:inline-block;width:100%;
+      text-align:center;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(244,241,232,.16);
       background:rgba(255,255,255,.04);
       font-weight:900;
     }
-    .priceTag{
-      display:inline-block;margin-top:8px;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(184,138,52,.55);
-      color:var(--gold);font-weight:900;font-size:13px;
-      background:rgba(184,138,52,.12);
-    }
+    .dl:hover{border-color:rgba(184,138,52,.55)}
     .note{
-      margin-top:12px;
-      padding:12px 14px;border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      color:rgba(244,241,232,.78);
+      margin-top:14px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px dashed rgba(244,241,232,.18);
+      color:rgba(244,241,232,.70);
       font-size:13px;
+      line-height:1.6;
     }
     footer{
-      margin-top:28px;padding-top:14px;border-top:1px solid var(--line);
+      margin-top:26px;padding-top:14px;border-top:1px solid var(--line);
       color:rgba(244,241,232,.55);font-size:13px;
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
 
+    <!-- NAV: keep minimal but usable -->
     <div class="bar">
       <a class="pill" href="index.html">Home</a>
-      <a class="pill" href="curriculum.html">Curriculum</a>
-      <a class="pill" href="passage-series.html">PASSAGES</a>
       <a class="pill" href="catalog.html">Catalog</a>
-      <a class="pill" href="contact.html">Contact</a>
+      <a class="pill" href="curriculum.html">Curriculum</a>
+      <a class="pill" href="contact.html">Support</a>
     </div>
 
-    <h1>PASSAGES</h1>
-    <h2>Private implementation curriculum</h2>
-    <p>
-      PASSAGES is a structured formation system built for disciplined execution, retention checkpoints, and doctrine-based practice.
-      This is independent learning / private implementation material—no academic credit and no accreditation.
-    </p>
+    <h1>PASSAGES Access</h1>
+    <p>This page is your delivery portal. Download the full series bundle below, or download individual books.</p>
 
-    <div class="grid">
-      <div class="card left">
-        <h2>What you get</h2>
-        <ul>
-          <li>Structured modules (identity, discipline, safety, health)</li>
-          <li>Retention checkpoints (7-day recall cadence)</li>
-          <li>Repetition tracking + recall verification standards</li>
-          <li>Certificate of Completion (non-academic)</li>
-          <li>Release priority + updates through the Institute</li>
-        </ul>
+    <div class="hero">
+      <div class="tag">Full Series Bundle</div>
+      <p><strong>Download PASSAGES Series (Complete)</strong></p>
 
-        <div class="note">
-          <strong>Compliance note:</strong> All materials are provided for independent learning or private implementation and do not constitute formal academic instruction.
-        </div>
+      <div class="btnRow">
+        <a class="btn" href="downloads/passages-series.pdf" download>Download Full Series PDF</a>
+        <a class="btn btnGhost" href="passage-series.html">Return to PASSAGES Page</a>
+        <a class="btn btnGhost" href="catalog.html">View Catalog</a>
       </div>
 
-      <div class="card right">
-        <h2>Checkout</h2>
-        <span class="priceTag">$97 / 3 months</span>
-        <p>Access the PASSAGES pathway and releases.</p>
+      <div class="note">
+        If any download button returns a 404, it means the PDF file hasn’t been uploaded to your GitHub <code>downloads/</code> folder yet
+        or the filename doesn’t match exactly.
+      </div>
+    </div>
 
-        <div class="btnRow">
-          <a class="btn" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener">
-            Checkout: PASSAGES
-          </a>
-          <a class="btnGhost btn" href="early-access.html">
-            Early Access (Email List)
-          </a>
-          <a class="btnGhost btn" href="catalog.html">
-            View Catalog
-          </a>
-          <a class="btnGhost btn" href="index.html">
-            Return Home
-          </a>
-        </div>
+    <h2 style="margin:22px 0 6px;font-size:18px">Individual Book Downloads</h2>
+    <p>Each book is a standalone download. (If you haven’t uploaded the individual PDFs yet, upload them later and the buttons will start working automatically.)</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="bookTitle">Book 1 — My Parents’ Phone Number</div>
+        <p class="bookMeta">Emergency readiness</p>
+        <a class="dl" href="downloads/passages-01.pdf" download>Download Book 1 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 2 — My Parents’ Names</div>
+        <p class="bookMeta">Identity + clarity</p>
+        <a class="dl" href="downloads/passages-02.pdf" download>Download Book 2 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 3 — My Parents’ Address</div>
+        <p class="bookMeta">Safety recall</p>
+        <a class="dl" href="downloads/passages-03.pdf" download>Download Book 3 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 4 — Never Speak to Strangers</div>
+        <p class="bookMeta">Boundary scripts</p>
+        <a class="dl" href="downloads/passages-04.pdf" download>Download Book 4 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 5 — I’m Lost, Find a Cop</div>
+        <p class="bookMeta">Lost protocol</p>
+        <a class="dl" href="downloads/passages-05.pdf" download>Download Book 5 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 6 — I’m a Big Boy Now</div>
+        <p class="bookMeta">Responsibility routines</p>
+        <a class="dl" href="downloads/passages-06.pdf" download>Download Book 6 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 7 — I’m a Big Girl Now</div>
+        <p class="bookMeta">Self-care + boundaries</p>
+        <a class="dl" href="downloads/passages-07.pdf" download>Download Book 7 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 8 — The Power in the Know</div>
+        <p class="bookMeta">Knowledge for protection</p>
+        <a class="dl" href="downloads/passages-08.pdf" download>Download Book 8 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 9 — What’s a Man? What’s a Woman?</div>
+        <p class="bookMeta">Identity by conduct</p>
+        <a class="dl" href="downloads/passages-09.pdf" download>Download Book 9 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 10 — Desire, Lust and Love</div>
+        <p class="bookMeta">Consent + discipline</p>
+        <a class="dl" href="downloads/passages-10.pdf" download>Download Book 10 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 11 — Choices in Life</div>
+        <p class="bookMeta">Decision pathways</p>
+        <a class="dl" href="downloads/passages-11.pdf" download>Download Book 11 PDF</a>
+      </div>
+
+      <div class="card">
+        <div class="bookTitle">Book 12 — Health and Well-Being</div>
+        <p class="bookMeta">Maintenance system</p>
+        <a class="dl" href="downloads/passages-12.pdf" download>Download Book 12 PDF</a>
       </div>
     </div>
 
     <footer>
       <div>© <span id="yr"></span> Blackshield Institute</div>
-      <div>Honored by the Shield.</div>
+      <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
     </footer>
+
   </div>
 
   <script>
