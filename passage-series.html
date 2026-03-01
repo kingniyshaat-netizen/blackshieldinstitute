@@ -1,219 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>PASSAGES Access — Blackshield Institute</title>
-
-  <!-- Keep this page semi-private -->
-  <meta name="robots" content="noindex, nofollow" />
-
+  <meta name="robots" content="noindex,nofollow"/>
   <style>
-    :root{
-      --bg:#050506;
-      --text:#f4f1e8;
-      --muted:rgba(244,241,232,.75);
-      --gold:#b88a34;
-      --line:rgba(244,241,232,.14);
-      --card:rgba(255,255,255,.02);
-      --r:16px;
-      --max:1040px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#000,#050506 35%,#000);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 84px}
-    .bar{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-      margin-bottom:16px;padding:10px 12px;
-      border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)
-    }
-    .pill{
-      padding:8px 12px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.04);
-      font-weight:800;font-size:13px
-    }
-    h1{margin:10px 0 6px;font-size:30px}
-    p{color:var(--muted);line-height:1.6;margin:10px 0}
-    .hero{
-      margin-top:12px;
-      border:1px solid rgba(184,138,52,.35);
-      background:rgba(184,138,52,.08);
-      border-radius:var(--r);
-      padding:16px;
-    }
-    .tag{
-      display:inline-block;margin:8px 0 10px;padding:6px 10px;
-      border-radius:999px;border:1px solid rgba(184,138,52,.55);
-      background:rgba(184,138,52,.12);color:var(--gold);
-      font-weight:900;font-size:13px
-    }
-    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{
-      display:inline-block;padding:12px 16px;border-radius:14px;
-      border:1px solid rgba(184,138,52,.70);
-      background:rgba(184,138,52,.18);
-      font-weight:900;
-    }
-    .btnGhost{border:1px solid var(--line);background:rgba(255,255,255,.04)}
-    .grid{
-      display:grid;gap:14px;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      margin-top:14px;
-    }
-    .card{
-      border:1px solid var(--line);background:var(--card);
-      border-radius:var(--r);padding:14px;
-    }
-    .bookTitle{font-weight:900;margin:4px 0 6px}
-    .bookMeta{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 10px}
-    .dl{
-      display:inline-block;width:100%;
-      text-align:center;
-      padding:12px 14px;border-radius:14px;
-      border:1px solid rgba(244,241,232,.16);
-      background:rgba(255,255,255,.04);
-      font-weight:900;
-    }
-    .dl:hover{border-color:rgba(184,138,52,.55)}
-    .note{
-      margin-top:14px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px dashed rgba(244,241,232,.18);
-      color:rgba(244,241,232,.70);
-      font-size:13px;
-      line-height:1.6;
-    }
-    footer{
-      margin-top:26px;padding-top:14px;border-top:1px solid var(--line);
-      color:rgba(244,241,232,.55);font-size:13px;
-      display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px
-    }
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#050506;color:#f4f1e8}
+    .wrap{max-width:960px;margin:0 auto;padding:22px 16px 70px}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .pill{padding:8px 12px;border:1px solid rgba(244,241,232,.18);border-radius:999px;background:rgba(255,255,255,.03);font-weight:800;font-size:13px}
+    h1{margin:8px 0 8px;font-size:30px}
+    p{color:rgba(244,241,232,.75);line-height:1.6}
+    .card{border:1px solid rgba(184,138,52,.35);background:rgba(184,138,52,.08);border-radius:16px;padding:14px}
+    .btn{display:inline-block;margin-top:10px;padding:12px 14px;border-radius:14px;border:1px solid rgba(184,138,52,.7);background:rgba(184,138,52,.18);font-weight:900}
+    .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:14px}
+    .b{border:1px solid rgba(244,241,232,.14);border-radius:16px;padding:12px;background:rgba(255,255,255,.02)}
+    .t{font-weight:900;margin:0 0 8px}
+    .dl{display:block;text-align:center;padding:12px;border-radius:14px;border:1px solid rgba(244,241,232,.16);background:rgba(255,255,255,.04);font-weight:900}
   </style>
 </head>
-
 <body>
   <div class="wrap">
-
-    <!-- NAV: keep minimal but usable -->
-    <div class="bar">
+    <div class="nav">
       <a class="pill" href="index.html">Home</a>
       <a class="pill" href="catalog.html">Catalog</a>
       <a class="pill" href="curriculum.html">Curriculum</a>
       <a class="pill" href="contact.html">Support</a>
     </div>
 
-    <h1>PASSAGES Access</h1>
-    <p>This page is your delivery portal. Download the full series bundle below, or download individual books.</p>
+    <h1>Your PASSAGES Curriculum Is Ready</h1>
+    <p>Download the full series bundle or any book individually. If a download returns 404, the file name in <code>downloads/</code> doesn’t match.</p>
 
-    <div class="hero">
-      <div class="tag">Full Series Bundle</div>
-      <p><strong>Download PASSAGES Series (Complete)</strong></p>
-
-      <div class="btnRow">
-        <a class="btn" href="downloads/passages-series.pdf" download>Download Full Series PDF</a>
-        <a class="btn btnGhost" href="passage-series.html">Return to PASSAGES Page</a>
-        <a class="btn btnGhost" href="catalog.html">View Catalog</a>
-      </div>
-
-      <div class="note">
-        If any download button returns a 404, it means the PDF file hasn’t been uploaded to your GitHub <code>downloads/</code> folder yet
-        or the filename doesn’t match exactly.
-      </div>
+    <div class="card">
+      <p class="t">Full Series Bundle</p>
+      <a class="btn" href="downloads/passages-series.pdf" download>Download PASSAGES Series (PDF)</a>
     </div>
-
-    <h2 style="margin:22px 0 6px;font-size:18px">Individual Book Downloads</h2>
-    <p>Each book is a standalone download. (If you haven’t uploaded the individual PDFs yet, upload them later and the buttons will start working automatically.)</p>
 
     <div class="grid">
-      <div class="card">
-        <div class="bookTitle">Book 1 — My Parents’ Phone Number</div>
-        <p class="bookMeta">Emergency readiness</p>
-        <a class="dl" href="downloads/passages-01.pdf" download>Download Book 1 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 2 — My Parents’ Names</div>
-        <p class="bookMeta">Identity + clarity</p>
-        <a class="dl" href="downloads/passages-02.pdf" download>Download Book 2 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 3 — My Parents’ Address</div>
-        <p class="bookMeta">Safety recall</p>
-        <a class="dl" href="downloads/passages-03.pdf" download>Download Book 3 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 4 — Never Speak to Strangers</div>
-        <p class="bookMeta">Boundary scripts</p>
-        <a class="dl" href="downloads/passages-04.pdf" download>Download Book 4 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 5 — I’m Lost, Find a Cop</div>
-        <p class="bookMeta">Lost protocol</p>
-        <a class="dl" href="downloads/passages-05.pdf" download>Download Book 5 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 6 — I’m a Big Boy Now</div>
-        <p class="bookMeta">Responsibility routines</p>
-        <a class="dl" href="downloads/passages-06.pdf" download>Download Book 6 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 7 — I’m a Big Girl Now</div>
-        <p class="bookMeta">Self-care + boundaries</p>
-        <a class="dl" href="downloads/passages-07.pdf" download>Download Book 7 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 8 — The Power in the Know</div>
-        <p class="bookMeta">Knowledge for protection</p>
-        <a class="dl" href="downloads/passages-08.pdf" download>Download Book 8 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 9 — What’s a Man? What’s a Woman?</div>
-        <p class="bookMeta">Identity by conduct</p>
-        <a class="dl" href="downloads/passages-09.pdf" download>Download Book 9 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 10 — Desire, Lust and Love</div>
-        <p class="bookMeta">Consent + discipline</p>
-        <a class="dl" href="downloads/passages-10.pdf" download>Download Book 10 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 11 — Choices in Life</div>
-        <p class="bookMeta">Decision pathways</p>
-        <a class="dl" href="downloads/passages-11.pdf" download>Download Book 11 PDF</a>
-      </div>
-
-      <div class="card">
-        <div class="bookTitle">Book 12 — Health and Well-Being</div>
-        <p class="bookMeta">Maintenance system</p>
-        <a class="dl" href="downloads/passages-12.pdf" download>Download Book 12 PDF</a>
-      </div>
+      <div class="b"><p class="t">Book 1</p><a class="dl" href="downloads/passages-01.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 2</p><a class="dl" href="downloads/passages-02.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 3</p><a class="dl" href="downloads/passages-03.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 4</p><a class="dl" href="downloads/passages-04.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 5</p><a class="dl" href="downloads/passages-05.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 6</p><a class="dl" href="downloads/passages-06.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 7</p><a class="dl" href="downloads/passages-07.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 8</p><a class="dl" href="downloads/passages-08.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 9</p><a class="dl" href="downloads/passages-09.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 10</p><a class="dl" href="downloads/passages-10.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 11</p><a class="dl" href="downloads/passages-11.pdf" download>Download</a></div>
+      <div class="b"><p class="t">Book 12</p><a class="dl" href="downloads/passages-12.pdf" download>Download</a></div>
     </div>
-
-    <footer>
-      <div>© <span id="yr"></span> Blackshield Institute</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
-    </footer>
-
   </div>
-
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
