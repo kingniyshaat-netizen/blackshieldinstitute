@@ -227,6 +227,25 @@
       border-top: 1px solid var(--border);
       margin-top: 26px;
     }
+ /* KILL the giant hero/shield background if it exists anywhere */
+.hero,
+header,
+.brand,
+.logo,
+.logoWrap {
+  background-image: none !important;
+}
+
+/* Ensure the actual logo IMG shows at a sane size */
+.brand img,
+.logo img,
+img.logo {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+}
   </style>
 </head>
 
@@ -433,3 +452,4 @@
   </main>
 </body>
 </html>
+
