@@ -257,58 +257,85 @@
       <div class="divider"></div>
     </section>
 
-    <section class="section" id="passages">
-      <div class="sectionTitle">
-        <h2>PASSAGES Series (Books 01–12)</h2>
-        <small>Images served from: <code>assets/images/passages/</code></small>
-      </div>
+    <section id="passages">
+<h2>PASSAGES Series</h2>
 
-      <div class="grid">
-        <!-- Book Cards (01–12) -->
-        <!-- If your filenames differ, you MUST match them exactly. -->
-        <!-- Each card gives: View (opens in browser) + Download (forces download). -->
+<div class="passages-grid">
 
-        <!-- Helper note: the ?v=1 busts cache so GitHub Pages stops showing old images -->
-        <script>
-          const base = "assets/images/passages/";
-          const books = [
-            ["01","Passages Book 01"],
-            ["02","Passages Book 02"],
-            ["03","Passages Book 03"],
-            ["04","Passages Book 04"],
-            ["05","Passages Book 05"],
-            ["06","Passages Book 06"],
-            ["07","Passages Book 07"],
-            ["08","Passages Book 08"],
-            ["09","Passages Book 09"],
-            ["10","Passages Book 10"],
-            ["11","Passages Book 11"],
-            ["12","Passages Book 12"],
-          ];
+<div class="book">
+<img src="assets/images/passages/passages-01.png">
+<h3>Book 01</h3>
+<p>My Parents Phone Number</p>
+</div>
 
-          document.write(
-            books.map(([n,label])=>{
-              const file = `passages-${n}.png`;
-              const src = `${base}${file}?v=1`;
-              return `
-                <article class="card">
-                  <img class="thumb" src="${src}" alt="${label}"
-                       onerror="this.src='${base}passages-01.png?v=1';" />
-                  <div class="meta">
-                    <b>${label}</b>
-                    <span>${file}</span>
-                    <div class="actions">
-                      <a class="btn" href="${base}${file}" target="_blank" rel="noopener">View</a>
-                      <a class="btn gold" href="${base}${file}" download="${file}">Download</a>
-                    </div>
-                  </div>
-                </article>
-              `;
-            }).join("")
-          );
-        </script>
-      </div>
-    </section>
+<div class="book">
+<img src="assets/images/passages/passages-02.png">
+<h3>Book 02</h3>
+<p>My Parents Names</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-03.png">
+<h3>Book 03</h3>
+<p>My Parents Address</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-04.png">
+<h3>Book 04</h3>
+<p>Who Can I Trust</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-05.png">
+<h3>Book 05</h3>
+<p>I'm Lost, Find a Cop</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-06.png">
+<h3>Book 06</h3>
+<p>I'm a Big Boy Now</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-07.png">
+<h3>Book 07</h3>
+<p>I'm a Big Girl Now</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-08.png">
+<h3>Book 08</h3>
+<p>The Power in the Know</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-09.png">
+<h3>Book 09</h3>
+<p>What It Means to Grow Up</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-10.png">
+<h3>Book 10</h3>
+<p>Teen Years and the Brain</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-11.png">
+<h3>Book 11</h3>
+<p>My Boundaries My Limits</p>
+</div>
+
+<div class="book">
+<img src="assets/images/passages/passages-12.png">
+<h3>Book 12</h3>
+<p>Relationship and Consent</p>
+</div>
+
+</div>
+</section>
 
     <footer>
       © <span id="yr"></span> Black Shield Institute. All rights reserved.
@@ -321,5 +348,6 @@
   </script>
 </body>
 </html>
+
 
 
