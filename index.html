@@ -30,113 +30,39 @@ color:var(--text);
 
 /* HEADER */
 
+/* HARD OVERRIDE: stop header from covering page */
 header{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 24px;
-background:var(--panel);
-border-bottom:1px solid rgba(255,255,255,.08);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  height: auto !important;
+  max-height: 140px !important;
+  overflow: hidden !important;
 }
 
-/* SHIELD */
-
+/* HARD OVERRIDE: force shield to a normal size */
 .logo{
-width:120px;
-height:auto;
+  display:block !important;
+  width: auto !important;
+  height: 80px !important;
+  max-height: 80px !important;
 }
 
-/* NAV */
-
-nav{
-display:flex;
-gap:12px;
+/* If your logo is inside a wrapper, constrain it too */
+.logoWrap{
+  width: auto !important;
+  height: auto !important;
+  max-height: 120px !important;
 }
 
-.navBtn{
-padding:8px 12px;
-border-radius:8px;
-background:rgba(245,208,122,.1);
-border:1px solid rgba(245,208,122,.3);
-color:var(--gold);
-text-decoration:none;
-font-size:14px;
-}
-
-/* HERO */
-
-.hero{
-padding:40px 20px;
-text-align:center;
-}
-
-.hero h1{
-color:var(--gold);
-font-size:32px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:var(--muted);
-}
-
-/* PASSAGES */
-
-.section{
-padding:40px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-.section h2{
-color:var(--gold);
-margin-bottom:20px;
-}
-
-.passages-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.book{
-background:var(--panel);
-border-radius:10px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,.08);
-text-align:center;
-}
-
-.book img{
-width:100%;
-display:block;
-}
-
-.bookMeta{
-padding:12px;
-}
-
-.bookMeta .num{
-font-size:12px;
-color:var(--muted);
-}
-
-.bookMeta .title{
-font-weight:bold;
-margin-top:6px;
-}
-
-/* SCROLL FIX */
-
-html{
-scroll-behavior:smooth;
+/* Give page content breathing room below sticky header */
+.hero, #passages{
+  position: relative;
+  z-index: 1;
 }
 
 #passages{
-scroll-margin-top:160px;
+  scroll-margin-top: 160px;
 }
 
 footer{
@@ -284,3 +210,4 @@ font-size:12px;
 
 </body>
 </html>
+
