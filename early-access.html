@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Shield Institute — Early Access</title>
+  <meta name="description" content="Early Access portal for Black Shield Institute products and releases." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --ink:#e9eefc;
+      --muted:rgba(233,238,252,.78);
+      --gold:#d4af37;
+      --line:rgba(233,238,252,.14);
+      --btn:#15284d;
+      --btn2:#111c34;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(212,175,55,.10), transparent 55%),
+                  radial-gradient(1200px 800px at 90% 30%, rgba(94,234,212,.06), transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+    }
+
+    a{ color:inherit; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:28px 18px 70px; }
+
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px; border:1px solid var(--line);
+      background: rgba(15,27,51,.75);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .brand img{ width:54px; height:auto; display:block; }
+    .brand h1{ font-size:16px; letter-spacing:.4px; margin:0; }
+    .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(21,40,77,.5);
+      font-weight:700;
+      font-size:12px;
+    }
+    .nav a:hover{ border-color: rgba(212,175,55,.55); }
+
+    .hero{
+      margin-top:18px;
+      padding:28px 18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,27,51,.85), rgba(15,27,51,.55));
+      box-shadow: var(--shadow);
+    }
+    .hero h2{ margin:0 0 10px; font-size:28px; }
+    .hero p{ margin:0; color:var(--muted); max-width: 72ch; line-height:1.5; }
+
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:14px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(15,27,51,.70);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .card h3{ margin:0 0 8px; font-size:16px; }
+    .card p{ margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.45; }
+
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(21,40,77,.65);
+      font-weight:800;
+      font-size:12px;
+    }
+    .btn.primary{
+      border-color: rgba(212,175,55,.55);
+      background: rgba(212,175,55,.14);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .note{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius: 14px;
+      border:1px dashed rgba(212,175,55,.45);
+      color: rgba(233,238,252,.9);
+      background: rgba(212,175,55,.08);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    footer{
+      margin-top:26px;
+      color: var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+    code{
+      background: rgba(0,0,0,.25);
+      padding:2px 6px;
+      border-radius: 8px;
+      border:1px solid rgba(233,238,252,.12);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <img src="assets/images/shield.png" alt="Black Shield Institute Shield" />
+        <div>
+          <h1>Black Shield Institute</h1>
+          <p>Early Access Portal</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="./index.html">PASSAGES</a>
+        <a href="#releases">Releases</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="releases">
+      <h2>Early Access</h2>
+      <p>
+        This page is your staging area. Use it to preview releases before they hit the main site.
+        Keep assets in <code>assets/images/</code> to prevent broken links on GitHub Pages.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>PASSAGES Series (01–12)</h3>
+        <p>View the live PASSAGES catalog grid with stable image paths.</p>
+        <div class="btnrow">
+          <a class="btn primary" href="./index.html#passages">Open PASSAGES</a>
+          <a class="btn" href="assets/images/passages/passages-01.png" target="_blank" rel="noopener">Test Image 01</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Asset Health Check</h3>
+        <p>Use these direct links to verify GitHub Pages is serving your images correctly.</p>
+        <div class="btnrow">
+          <a class="btn" href="assets/images/shield.png" target="_blank" rel="noopener">Shield</a>
+          <a class="btn" href="assets/images/passages/passages-12.png" target="_blank" rel="noopener">Book 12</a>
+        </div>
+      </article>
+
+      <article class="card" id="notes">
+        <h3>Operational Notes</h3>
+        <p>
+          Replace book covers by overwriting the same filename (example: <code>passages-06.png</code>).
+          Do not change names unless you also change HTML.
+        </p>
+        <div class="btnrow">
+          <a class="btn" href="https://kingniyshaat-netizen.github.io/blackshieldinstitute/" target="_blank" rel="noopener">
+            Live Site
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <div class="note">
+      If you see a purple placeholder on the live site, that means the file in the repo is still the placeholder.
+      Fix by replacing the image file content while keeping the exact same filename.
+    </div>
+
+    <footer>
+      © <span id="y"></span> Black Shield Institute — Early Access
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
