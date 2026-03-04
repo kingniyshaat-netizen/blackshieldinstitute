@@ -1,255 +1,325 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Black Shield Institute — PASSAGES</title>
-  <meta name="description" content="PASSAGES by Black Shield Institute — 12-book children's educational series." />
+  <title>Blackshield Institute</title>
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1b33;
-      --ink:#e9eefc;
-      --muted:rgba(233,238,252,.78);
+      --bg:#0f172a;
+      --panel:#111827;
+      --panel2:#0b1220;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
       --gold:#d4af37;
-      --line:rgba(233,238,252,.14);
-      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --line:rgba(212,175,55,.35);
+      --btn:#1f2937;
+      --btnHover:#243041;
+      --card:#0b1220;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
       --radius: 16px;
     }
 
-    *{ box-sizing:border-box; }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1100px 700px at 15% 0%, rgba(212,175,55,.10), transparent 55%),
-                  radial-gradient(1100px 700px at 90% 35%, rgba(94,234,212,.06), transparent 55%),
-                  var(--bg);
-      color:var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -50%, rgba(212,175,55,.18), transparent 60%),
+                  linear-gradient(180deg, #0b1220 0%, #0f172a 60%, #0b1220 100%);
+      color:var(--text);
     }
 
-    a{ color:inherit; }
-    .wrap{ max-width:1200px; margin:0 auto; padding:28px 18px 70px; }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:18px}
 
+    /* Header */
     header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 16px; border:1px solid var(--line);
-      background: rgba(15,27,51,.75);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
+      background: rgba(17,24,39,.85);
+      border: 1px solid rgba(255,255,255,.06);
       box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      backdrop-filter: blur(10px);
     }
-    .brand{ display:flex; align-items:center; gap:12px; }
-    .brand img{ width:58px; height:auto; display:block; }
-    .brand h1{ font-size:16px; letter-spacing:.4px; margin:0; }
-    .brand p{ margin:0; font-size:12px; color:var(--muted); }
-
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 240px;
     }
-    .nav a{
-      text-decoration:none;
-      padding:10px 12px;
+    .logo{
+      width:52px;height:52px;
       border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(21,40,77,.5);
-      font-weight:800;
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.35);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:8px;
+    }
+    .brand-title{
+      line-height:1.05;
+    }
+    .brand-title b{
+      display:block;
+      font-size:18px;
+      letter-spacing:.3px;
+    }
+    .brand-title span{
+      color:var(--muted);
       font-size:12px;
     }
-    .nav a:hover{ border-color: rgba(212,175,55,.55); }
 
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navBtn{
+      background: rgba(31,41,55,.75);
+      border: 1px solid rgba(255,255,255,.08);
+      padding:10px 12px;
+      border-radius: 12px;
+      font-size:14px;
+      transition:.15s ease;
+    }
+    .navBtn:hover{background: rgba(36,48,65,.9); transform: translateY(-1px);}
+    .navBtn.gold{
+      border-color: rgba(212,175,55,.45);
+      background: rgba(212,175,55,.12);
+    }
+
+    /* Hero */
     .hero{
       margin-top:18px;
-      padding:22px 18px;
+      background: rgba(11,18,32,.75);
+      border: 1px solid rgba(255,255,255,.06);
       border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(15,27,51,.85), rgba(15,27,51,.55));
       box-shadow: var(--shadow);
+      padding: 26px 22px;
     }
-    .hero h2{ margin:0 0 8px; font-size:26px; }
-    .hero p{ margin:0; color:var(--muted); max-width: 80ch; line-height:1.5; }
+    .hero h1{
+      margin:0;
+      font-size:32px;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin:10px 0 0;
+      color: var(--muted);
+      max-width: 860px;
+      line-height: 1.5;
+    }
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 18px 0 0;
+    }
+
+    /* PASSAGES */
+    .section{
+      margin-top:18px;
+      background: rgba(11,18,32,.6);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:.3px;
+    }
+    .sectionTitle small{
+      color: var(--muted);
+    }
 
     .grid{
-      margin-top:16px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:18px;
-      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
     }
 
     .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(15,27,51,.70);
-      box-shadow: var(--shadow);
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
       overflow:hidden;
+      transition:.18s ease;
     }
-    .cover{
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(212,175,55,.28);
+      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+    }
+    .thumb{
       width:100%;
-      height:auto;
+      aspect-ratio: 3 / 4;
+      background: rgba(0,0,0,.18);
+      border-bottom: 1px solid rgba(255,255,255,.06);
       display:block;
-      background: rgba(255,255,255,.06);
+      object-fit: cover;
     }
     .meta{
-      padding:12px 12px 14px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
+      padding: 12px;
     }
-    .meta .left{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
+    .meta b{
+      display:block;
+      font-size:14px;
+      margin-bottom: 4px;
     }
-    .meta .label{
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.4px;
-      color: rgba(233,238,252,.92);
-    }
-    .meta .title{
-      font-size:12px;
+    .meta span{
       color: var(--muted);
-      line-height:1.35;
-    }
-    .open{
-      text-decoration:none;
-      font-weight:900;
       font-size:12px;
-      padding:10px 12px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+    }
+    .btn{
+      flex:1;
+      text-align:center;
+      background: rgba(31,41,55,.75);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 9px 10px;
       border-radius: 12px;
-      border:1px solid rgba(212,175,55,.55);
+      font-size: 13px;
+      transition:.15s ease;
+    }
+    .btn:hover{background: rgba(36,48,65,.95);}
+    .btn.gold{
+      border-color: rgba(212,175,55,.45);
       background: rgba(212,175,55,.12);
-      white-space:nowrap;
     }
 
     footer{
-      margin-top:26px;
-      color: var(--muted);
-      font-size:12px;
+      margin: 18px 0 24px;
       text-align:center;
-    }
-
-    .toast{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px dashed rgba(212,175,55,.45);
-      background: rgba(212,175,55,.08);
-      color: rgba(233,238,252,.9);
-      font-size:12px;
-      line-height:1.45;
-    }
-    code{
-      background: rgba(0,0,0,.25);
-      padding:2px 6px;
-      border-radius: 8px;
-      border:1px solid rgba(233,238,252,.12);
+      color: var(--muted);
+      font-size: 12px;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+
     <header>
       <div class="brand">
-        <img src="assets/images/shield.png" alt="Black Shield Institute Shield" />
-        <div>
-          <h1>Black Shield Institute</h1>
-          <p>PASSAGES Series — Books 01–12</p>
+        <div class="logo">
+          <!-- IMPORTANT: Put your shield at assets/images/shield.png -->
+          <img src="assets/images/shield.png" alt="Blackshield Institute Shield"
+               onerror="this.style.display='none'; this.parentElement.style.borderColor='rgba(255,255,255,.15)';" />
+        </div>
+        <div class="brand-title">
+          <b>Blackshield Institute</b>
+          <span>Disciplined, structured digital curricula & intellectual capital</span>
         </div>
       </div>
 
-      <nav class="nav">
-        <a href="./early-access.html">Early Access</a>
-        <a href="#passages">Catalog</a>
+      <nav>
+        <a class="navBtn" href="index.html">Home</a>
+        <a class="navBtn" href="catalog.html">Catalog</a>
+        <a class="navBtn" href="about.html">About</a>
+        <a class="navBtn gold" href="#passages">PASSAGES</a>
       </nav>
     </header>
 
-    <section class="hero" id="passages">
-      <h2>PASSAGES Catalog</h2>
+    <section class="hero" id="home">
+      <h1>Welcome to Blackshield Institute</h1>
       <p>
-        This page auto-loads covers from <code>assets/images/passages/</code>.
-        To update a cover, replace the file (same name). No HTML edits needed.
+        This homepage shows the <b>PASSAGES</b> children’s series with stable links and clean presentation.
+        If a cover ever fails to load, it won’t break the page—so your site stays professional.
       </p>
+      <div class="divider"></div>
+    </section>
 
-      <div class="toast">
-        If you still see purple placeholders, it means the files in the repo are placeholders.
-        Replace the PNG files while keeping the exact names <code>passages-01.png</code> … <code>passages-12.png</code>.
+    <section class="section" id="passages">
+      <div class="sectionTitle">
+        <h2>PASSAGES Series (Books 01–12)</h2>
+        <small>Images served from: <code>assets/images/passages/</code></small>
       </div>
 
-      <div class="grid" id="passagesGrid"></div>
+      <div class="grid">
+        <!-- Book Cards (01–12) -->
+        <!-- If your filenames differ, you MUST match them exactly. -->
+        <!-- Each card gives: View (opens in browser) + Download (forces download). -->
+
+        <!-- Helper note: the ?v=1 busts cache so GitHub Pages stops showing old images -->
+        <script>
+          const base = "assets/images/passages/";
+          const books = [
+            ["01","Passages Book 01"],
+            ["02","Passages Book 02"],
+            ["03","Passages Book 03"],
+            ["04","Passages Book 04"],
+            ["05","Passages Book 05"],
+            ["06","Passages Book 06"],
+            ["07","Passages Book 07"],
+            ["08","Passages Book 08"],
+            ["09","Passages Book 09"],
+            ["10","Passages Book 10"],
+            ["11","Passages Book 11"],
+            ["12","Passages Book 12"],
+          ];
+
+          document.write(
+            books.map(([n,label])=>{
+              const file = `passages-${n}.png`;
+              const src = `${base}${file}?v=1`;
+              return `
+                <article class="card">
+                  <img class="thumb" src="${src}" alt="${label}"
+                       onerror="this.src='${base}passages-01.png?v=1';" />
+                  <div class="meta">
+                    <b>${label}</b>
+                    <span>${file}</span>
+                    <div class="actions">
+                      <a class="btn" href="${base}${file}" target="_blank" rel="noopener">View</a>
+                      <a class="btn gold" href="${base}${file}" download="${file}">Download</a>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join("")
+          );
+        </script>
+      </div>
     </section>
 
     <footer>
-      © <span id="y"></span> Black Shield Institute — PASSAGES
+      © <span id="yr"></span> Black Shield Institute. All rights reserved.
     </footer>
+
   </div>
 
   <script>
-    const TITLES = [
-      "I Know My Full Name",
-      "What’s Your Phone Number",
-      "My Parents Address",
-      "Who Can I Trust",
-      "I'm Lost, Find a Cop",
-      "Im a Boy Now",
-      "Book 07",
-      "Book 08",
-      "Book 09",
-      "Book 10",
-      "Book 11",
-      "Book 12"
-    ];
-
-    const grid = document.getElementById("passagesGrid");
-
-    for (let i = 1; i <= 12; i++) {
-      const num = String(i).padStart(2, "0");
-      const file = `assets/images/passages/passages-${num}.png`;
-
-      const card = document.createElement("div");
-      card.className = "card";
-
-      const img = document.createElement("img");
-      img.className = "cover";
-      img.src = file;
-      img.alt = `PASSAGES Book ${num}`;
-
-      const meta = document.createElement("div");
-      meta.className = "meta";
-
-      const left = document.createElement("div");
-      left.className = "left";
-
-      const label = document.createElement("div");
-      label.className = "label";
-      label.textContent = `BOOK ${num}`;
-
-      const title = document.createElement("div");
-      title.className = "title";
-      title.textContent = TITLES[i - 1] || `Book ${num}`;
-
-      const open = document.createElement("a");
-      open.className = "open";
-      open.href = file;
-      open.target = "_blank";
-      open.rel = "noopener";
-      open.textContent = "Open";
-
-      left.appendChild(label);
-      left.appendChild(title);
-      meta.appendChild(left);
-      meta.appendChild(open);
-
-      card.appendChild(img);
-      card.appendChild(meta);
-
-      grid.appendChild(card);
-    }
-
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
