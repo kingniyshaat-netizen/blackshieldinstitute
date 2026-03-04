@@ -7,78 +7,87 @@
 
   <style>
     :root{
-      --bg:#0f172a;
-      --panel:#111827;
-      --panel2:#0b1220;
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --panel2:#111827;
       --text:#e5e7eb;
       --muted:#9ca3af;
-      --gold:#d4af37;
-      --line:rgba(212,175,55,.35);
-      --btn:#1f2937;
-      --btnHover:#243041;
-      --card:#0b1220;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --radius: 16px;
+      --gold:#f5d07a;
+      --gold2:#d4af37;
+      --line:rgba(245,208,122,.28);
+      --border:rgba(255,255,255,.10);
+      --shadow:0 14px 30px rgba(0,0,0,.35);
+      --radius:16px;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -50%, rgba(212,175,55,.18), transparent 60%),
-                  linear-gradient(180deg, #0b1220 0%, #0f172a 60%, #0b1220 100%);
       color:var(--text);
+      background:
+        radial-gradient(1000px 500px at 50% -30%, rgba(245,208,122,.18), transparent 60%),
+        linear-gradient(180deg, #07101f 0%, var(--bg) 55%, #07101f 100%);
     }
 
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:18px}
+
+    .wrap{max-width:1200px;margin:0 auto;padding:16px}
 
     /* Header */
     header{
-      background: rgba(17,24,39,.85);
-      border: 1px solid rgba(255,255,255,.06);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 18px 18px;
+      position:sticky;
+      top:12px;
+      z-index:50;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      position: sticky;
-      top: 12px;
-      z-index: 50;
+      padding:14px 16px;
+      border-radius:var(--radius);
+      background:rgba(15,23,42,.88);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
       backdrop-filter: blur(10px);
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      min-width: 240px;
+      min-width:240px;
     }
-    .logo{
-      width:52px;height:52px;
-      border-radius: 12px;
-      background: rgba(212,175,55,.08);
-      border: 1px solid rgba(212,175,55,.35);
-      display:flex;align-items:center;justify-content:center;
+
+    /* Shield logo */
+    .logoWrap{
+      width:64px;
+      height:64px;
+      border-radius:14px;
+      background: rgba(245,208,122,.10);
+      border: 1px solid rgba(245,208,122,.35);
       overflow:hidden;
-      flex: 0 0 auto;
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .logo img{
+    .logoWrap img{
       width:100%;
       height:100%;
       object-fit:contain;
-      padding:8px;
+      padding:10px;
+      display:block;
     }
-    .brand-title{
-      line-height:1.05;
-    }
-    .brand-title b{
+
+    .brandText b{
       display:block;
       font-size:18px;
-      letter-spacing:.3px;
+      letter-spacing:.2px;
+      color:var(--gold);
     }
-    .brand-title span{
+    .brandText span{
+      display:block;
+      margin-top:2px;
       color:var(--muted);
       font-size:12px;
     }
@@ -90,137 +99,125 @@
       justify-content:flex-end;
     }
     .navBtn{
-      background: rgba(31,41,55,.75);
-      border: 1px solid rgba(255,255,255,.08);
-      padding:10px 12px;
-      border-radius: 12px;
+      padding:9px 12px;
+      border-radius:12px;
       font-size:14px;
+      background:rgba(245,208,122,.10);
+      border:1px solid rgba(245,208,122,.30);
+      color:var(--gold);
       transition:.15s ease;
+      white-space:nowrap;
     }
-    .navBtn:hover{background: rgba(36,48,65,.9); transform: translateY(-1px);}
-    .navBtn.gold{
-      border-color: rgba(212,175,55,.45);
-      background: rgba(212,175,55,.12);
+    .navBtn:hover{
+      background:rgba(245,208,122,.16);
+      transform: translateY(-1px);
     }
 
     /* Hero */
     .hero{
-      margin-top:18px;
-      background: rgba(11,18,32,.75);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px 22px;
+      margin-top:16px;
+      padding:26px 20px;
+      border-radius:var(--radius);
+      background:rgba(17,24,39,.65);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
     }
     .hero h1{
       margin:0;
-      font-size:32px;
-      letter-spacing:.2px;
+      font-size:34px;
+      color:var(--gold);
+      letter-spacing:.3px;
     }
     .hero p{
       margin:10px 0 0;
-      color: var(--muted);
-      max-width: 860px;
-      line-height: 1.5;
+      color:var(--muted);
+      max-width:860px;
+      line-height:1.5;
     }
     .divider{
       height:1px;
       background: linear-gradient(90deg, transparent, var(--line), transparent);
-      margin: 18px 0 0;
-    }
-
-    /* PASSAGES */
-    .section{
       margin-top:18px;
-      background: rgba(11,18,32,.6);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
     }
-    .sectionTitle{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom: 12px;
+
+    /* Sections */
+    .section{
+      margin-top:16px;
+      padding:22px 18px;
+      border-radius:var(--radius);
+      background:rgba(15,23,42,.70);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
     }
-    .sectionTitle h2{
-      margin:0;
+    .section h2{
+      margin:0 0 12px;
+      color:var(--gold);
       font-size:20px;
-      letter-spacing:.3px;
+      letter-spacing:.2px;
     }
-    .sectionTitle small{
-      color: var(--muted);
+    .section small{
+      color:var(--muted);
     }
 
-    .grid{
+    /* PASSAGES grid */
+    .passages-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+      margin-top:14px;
     }
 
-    .card{
-      background: rgba(15,23,42,.55);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 16px;
+    .book{
+      background:rgba(11,18,32,.70);
+      border-radius:14px;
       overflow:hidden;
-      transition:.18s ease;
+      border:1px solid rgba(255,255,255,.10);
+      transition: transform .15s ease, border-color .15s ease;
     }
-    .card:hover{
+    .book:hover{
       transform: translateY(-2px);
-      border-color: rgba(212,175,55,.28);
-      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+      border-color: rgba(245,208,122,.35);
     }
-    .thumb{
+
+    .book img{
       width:100%;
-      aspect-ratio: 3 / 4;
-      background: rgba(0,0,0,.18);
-      border-bottom: 1px solid rgba(255,255,255,.06);
       display:block;
+      background:rgba(0,0,0,.18);
+      /* keep covers looking nice */
+      aspect-ratio: 3 / 4;
       object-fit: cover;
     }
-    .meta{
-      padding: 12px;
-    }
-    .meta b{
-      display:block;
-      font-size:14px;
-      margin-bottom: 4px;
-    }
-    .meta span{
-      color: var(--muted);
-      font-size:12px;
+
+    .bookMeta{
+      padding:12px;
     }
 
-    .actions{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
+    .bookMeta .num{
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.04em;
     }
-    .btn{
-      flex:1;
-      text-align:center;
-      background: rgba(31,41,55,.75);
-      border: 1px solid rgba(255,255,255,.10);
-      padding: 9px 10px;
-      border-radius: 12px;
-      font-size: 13px;
-      transition:.15s ease;
-    }
-    .btn:hover{background: rgba(36,48,65,.95);}
-    .btn.gold{
-      border-color: rgba(212,175,55,.45);
-      background: rgba(212,175,55,.12);
+
+    .bookMeta .title{
+      margin-top:6px;
+      font-weight:700;
+      font-size:14px;
+      line-height:1.25;
     }
 
     footer{
-      margin: 18px 0 24px;
+      margin:18px 0 24px;
       text-align:center;
-      color: var(--muted);
-      font-size: 12px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    code{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      padding:2px 6px;
+      border-radius:8px;
+      font-size:12px;
     }
   </style>
 </head>
@@ -230,112 +227,138 @@
 
     <header>
       <div class="brand">
-        <div class="logo">
-          <!-- IMPORTANT: Put your shield at assets/images/shield.png -->
-          <img src="shield.png" alt="Blackshield Institute Shield">
+        <!-- IMPORTANT: your repo screenshot showed shield.png in the ROOT -->
+        <div class="logoWrap">
+          <img src="shield.png" alt="Blackshield Institute Shield" />
         </div>
-        <div class="brand-title">
+        <div class="brandText">
           <b>Blackshield Institute</b>
-          <span>Disciplined, structured digital curricula & intellectual capital</span>
+          <span>Institutional-grade learning systems & publishing</span>
         </div>
       </div>
 
+      <!-- Only link to pages that exist in your repo -->
       <nav>
-        <a class="navBtn" href="index.html">Home</a>
+        <a class="navBtn" href="./">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
         <a class="navBtn" href="about.html">About</a>
-        <a class="navBtn gold" href="#passages">PASSAGES</a>
+        <a class="navBtn" href="contact.html">Contact</a>
+        <a class="navBtn" href="passage-series.html">PASSAGES</a>
       </nav>
     </header>
 
-    <section class="hero" id="home">
-      <h1>Welcome to Blackshield Institute</h1>
+    <section class="hero">
+      <h1>Blackshield Institute</h1>
       <p>
-        This homepage shows the <b>PASSAGES</b> children’s series with stable links and clean presentation.
-        If a cover ever fails to load, it won’t break the page—so your site stays professional.
+        Welcome to the Institute. Below is the <b>PASSAGES</b> children’s series.
+        Covers are served directly from your GitHub Pages folder structure:
+        <code>assets/images/passages/</code>
       </p>
       <div class="divider"></div>
     </section>
 
-    <section id="passages">
-<h2>PASSAGES Series</h2>
+    <section class="section" id="passages">
+      <h2>PASSAGES Series (Books 01–12)</h2>
+      <small>Image path format: <code>assets/images/passages/passages-01.png</code></small>
 
-<div class="passages-grid">
+      <div class="passages-grid">
+        <div class="book">
+          <img src="assets/images/passages/passages-01.png" alt="Book 01 — My Parents Phone Number" />
+          <div class="bookMeta">
+            <div class="num">Book 01</div>
+            <div class="title">My Parents Phone Number</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-01.png">
-<h3>Book 01</h3>
-<p>My Parents Phone Number</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-02.png" alt="Book 02 — My Parents Names" />
+          <div class="bookMeta">
+            <div class="num">Book 02</div>
+            <div class="title">My Parents Names</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-02.png">
-<h3>Book 02</h3>
-<p>My Parents Names</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-03.png" alt="Book 03 — My Parents Address" />
+          <div class="bookMeta">
+            <div class="num">Book 03</div>
+            <div class="title">My Parents Address</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-03.png">
-<h3>Book 03</h3>
-<p>My Parents Address</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-04.png" alt="Book 04 — Who Can I Trust" />
+          <div class="bookMeta">
+            <div class="num">Book 04</div>
+            <div class="title">Who Can I Trust</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-04.png">
-<h3>Book 04</h3>
-<p>Who Can I Trust</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-05.png" alt="Book 05 — Im Lost Find a Cop" />
+          <div class="bookMeta">
+            <div class="num">Book 05</div>
+            <div class="title">Im Lost Find a Cop</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-05.png">
-<h3>Book 05</h3>
-<p>I'm Lost, Find a Cop</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-06.png" alt="Book 06 — I'm a Big Boy Now" />
+          <div class="bookMeta">
+            <div class="num">Book 06</div>
+            <div class="title">I'm a Big Boy Now</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-06.png">
-<h3>Book 06</h3>
-<p>I'm a Big Boy Now</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-07.png" alt="Book 07 — I'm a Big Girl Now" />
+          <div class="bookMeta">
+            <div class="num">Book 07</div>
+            <div class="title">I'm a Big Girl Now</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-07.png">
-<h3>Book 07</h3>
-<p>I'm a Big Girl Now</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-08.png" alt="Book 08 — The Power in the Know" />
+          <div class="bookMeta">
+            <div class="num">Book 08</div>
+            <div class="title">The Power in the Know</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-08.png">
-<h3>Book 08</h3>
-<p>The Power in the Know</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-09.png" alt="Book 09 — What It Means to Grow Up" />
+          <div class="bookMeta">
+            <div class="num">Book 09</div>
+            <div class="title">What It Means to Grow Up</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-09.png">
-<h3>Book 09</h3>
-<p>What It Means to Grow Up</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-10.png" alt="Book 10 — Teen Years and the Brain" />
+          <div class="bookMeta">
+            <div class="num">Book 10</div>
+            <div class="title">Teen Years and the Brain</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-10.png">
-<h3>Book 10</h3>
-<p>Teen Years and the Brain</p>
-</div>
+        <div class="book">
+          <img src="assets/images/passages/passages-11.png" alt="Book 11 — My Boundaries My Limits" />
+          <div class="bookMeta">
+            <div class="num">Book 11</div>
+            <div class="title">My Boundaries My Limits</div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-11.png">
-<h3>Book 11</h3>
-<p>My Boundaries My Limits</p>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-12.png">
-<h3>Book 12</h3>
-<p>Relationship and Consent</p>
-</div>
-
-</div>
-</section>
+        <div class="book">
+          <img src="assets/images/passages/passages-12.png" alt="Book 12 — Relationship and Consent" />
+          <div class="bookMeta">
+            <div class="num">Book 12</div>
+            <div class="title">Relationship and Consent</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer>
       © <span id="yr"></span> Black Shield Institute. All rights reserved.
@@ -348,6 +371,4 @@
   </script>
 </body>
 </html>
-
-
 
