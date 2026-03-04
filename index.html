@@ -1,213 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blackshield Institute</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackshield Institute</title>
 
-<style>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --text:#e5e7eb;
+      --gold:#f5d07a;
+      --muted:#9ca3af;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
 
-:root{
---bg:#0b1220;
---panel:#0f172a;
---text:#e5e7eb;
---gold:#f5d07a;
---muted:#9ca3af;
-}
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:var(--bg);
-color:var(--text);
-}
+    /* ===== HEADER (NO OVERLAY) ===== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15,23,42,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
 
-/* HEADER */
+    .header-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
-/* HARD OVERRIDE: stop header from covering page */
-header{
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 999 !important;
-  height: auto !important;
-  max-height: 140px !important;
-  overflow: hidden !important;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 240px;
+    }
 
-/* HARD OVERRIDE: force shield to a normal size */
-.logo{
-  display:block !important;
-  width: auto !important;
-  height: 80px !important;
-  max-height: 80px !important;
-}
+    /* Shield sizing (fixed + consistent) */
+    .brand img{
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display:block;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+    }
 
-/* If your logo is inside a wrapper, constrain it too */
-.logoWrap{
-  width: auto !important;
-  height: auto !important;
-  max-height: 120px !important;
-}
+    .brand-text b{
+      display:block;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .brand-text span{
+      display:block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
 
-/* Give page content breathing room below sticky header */
-.hero, #passages{
-  position: relative;
-  z-index: 1;
-}
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-#passages{
-  scroll-margin-top: 160px;
-}
+    .navBtn{
+      display:inline-block;
+      text-decoration:none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      background: rgba(255,255,255,.03);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      white-space: nowrap;
+    }
+    .navBtn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .navBtn.gold{
+      border-color: rgba(245,208,122,.45);
+      background: rgba(245,208,122,.10);
+      color: var(--gold);
+    }
 
-footer{
-text-align:center;
-padding:20px;
-color:var(--muted);
-font-size:12px;
-}
+    /* ===== MAIN ===== */
+    main{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 26px 16px 40px;
+    }
 
-</style>
+    .hero{
+      background: linear-gradient(180deg, rgba(245,208,122,.10), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1{
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .hero p{
+      color: var(--muted);
+      max-width: 820px;
+    }
 
+    /* anchor offset so sticky header doesn’t cover section title */
+    #passages{ scroll-margin-top: 120px; }
+
+    .section-title{
+      margin-top: 26px;
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .section-title h2{
+      font-size: 20px;
+      letter-spacing: .3px;
+    }
+    .section-title .hint{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ===== PASSAGES GRID ===== */
+    .passages-grid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .book{
+      background: rgba(15,23,42,.55);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,.22);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .book img{
+      width: 100%;
+      height: 320px;         /* keeps it uniform */
+      object-fit: cover;     /* clean crop */
+      display:block;
+      background: rgba(255,255,255,.04);
+    }
+
+    .bookMeta{
+      padding: 12px 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+
+    .num{
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .title{
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .ctaRow{
+      margin-top: 10px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+    .btn:hover{
+      background: rgba(255,255,255,.07);
+    }
+    .btn.primary{
+      border-color: rgba(245,208,122,.45);
+      background: rgba(245,208,122,.12);
+      color: var(--gold);
+    }
+
+    footer{
+      text-align:center;
+      padding: 26px 16px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 26px;
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <!-- ROOT-ABSOLUTE PATHS (IMPORTANT FOR CUSTOM DOMAIN) -->
+        <img src="/assets/images/shield.png" alt="Blackshield Institute Shield"
+             onerror="this.style.display='none';" />
+        <div class="brand-text">
+          <b>Blackshield Institute</b>
+          <span>Disciplined, structured digital curricula &amp; intellectual capital</span>
+        </div>
+      </div>
 
-<header>
+      <nav>
+        <a class="navBtn" href="/index.html">Home</a>
+        <a class="navBtn" href="/catalog.html">Catalog</a>
+        <a class="navBtn" href="/about.html">About</a>
+        <a class="navBtn gold" href="#passages">PASSAGES</a>
+      </nav>
+    </div>
+  </header>
 
-<img src="shield.png" class="logo">
+  <main>
+    <section class="hero" id="home">
+      <h1>Blackshield Institute</h1>
+      <p>
+        Premium institutional learning assets built for clarity, discipline, and real-world readiness.
+        Explore the PASSAGES series below.
+      </p>
+    </section>
 
-<nav>
-<a class="navBtn" href="#">Home</a>
-<a class="navBtn" href="#passages">PASSAGES</a>
-</nav>
+    <section id="passages">
+      <div class="section-title">
+        <h2>PASSAGES Series (Books 01–12)</h2>
+        <div class="hint">Covers load from: <b>/assets/images/passages/</b></div>
+      </div>
 
-</header>
+      <div class="passages-grid">
+        <!-- Book 01 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-01.png" alt="Passages Book 01" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 01</div>
+            <div class="title">My parents phone number</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-01.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<section class="hero">
+        <!-- Book 02 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-02.png" alt="Passages Book 02" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 02</div>
+            <div class="title">My parents names</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-02.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<h1>Blackshield Institute</h1>
-<p>Educational publications and youth development resources.</p>
+        <!-- Book 03 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-03.png" alt="Passages Book 03" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 03</div>
+            <div class="title">My parents addresse</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-03.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-</section>
+        <!-- Book 04 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-04.png" alt="Passages Book 04" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 04</div>
+            <div class="title">Who can I trust</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-04.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<section class="section" id="passages">
+        <!-- Book 05 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-05.png" alt="Passages Book 05" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 05</div>
+            <div class="title">Im lost find a cop</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-05.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<h2>PASSAGES Series</h2>
+        <!-- Book 06 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-06.png" alt="Passages Book 06" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 06</div>
+            <div class="title">I'm a big boy now</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-06.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="passages-grid">
+        <!-- Book 07 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-07.png" alt="Passages Book 07" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 07</div>
+            <div class="title">I'm a big Girl now</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-07.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-01.png">
-<div class="bookMeta">
-<div class="num">Book 01</div>
-<div class="title">My Parents Phone Number</div>
-</div>
-</div>
+        <!-- Book 08 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-08.png" alt="Passages Book 08" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 08</div>
+            <div class="title">The Power in the know</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-08.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-02.png">
-<div class="bookMeta">
-<div class="num">Book 02</div>
-<div class="title">My Parents Names</div>
-</div>
-</div>
+        <!-- Book 09 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-09.png" alt="Passages Book 09" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 09</div>
+            <div class="title">What it means to grow up</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-09.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-03.png">
-<div class="bookMeta">
-<div class="num">Book 03</div>
-<div class="title">My Parents Address</div>
-</div>
-</div>
+        <!-- Book 10 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-10.png" alt="Passages Book 10" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 10</div>
+            <div class="title">Teen years and the brain</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-10.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-04.png">
-<div class="bookMeta">
-<div class="num">Book 04</div>
-<div class="title">Who Can I Trust</div>
-</div>
-</div>
+        <!-- Book 11 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-11.png" alt="Passages Book 11" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 11</div>
+            <div class="title">My boundaries my limits</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-11.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-05.png">
-<div class="bookMeta">
-<div class="num">Book 05</div>
-<div class="title">Im Lost Find a Cop</div>
-</div>
-</div>
+        <!-- Book 12 -->
+        <div class="book">
+          <img src="/assets/images/passages/passages-12.png" alt="Passages Book 12" loading="lazy">
+          <div class="bookMeta">
+            <div class="num">Book 12</div>
+            <div class="title">Relationship and consent</div>
+            <div class="ctaRow">
+              <a class="btn primary" href="/passage-series.html">View Series</a>
+              <a class="btn" href="/assets/images/passages/passages-12.png" target="_blank" rel="noopener">Open PNG</a>
+            </div>
+          </div>
+        </div>
 
-<div class="book">
-<img src="assets/images/passages/passages-06.png">
-<div class="bookMeta">
-<div class="num">Book 06</div>
-<div class="title">I'm a Big Boy Now</div>
-</div>
-</div>
+      </div>
+    </section>
 
-<div class="book">
-<img src="assets/images/passages/passages-07.png">
-<div class="bookMeta">
-<div class="num">Book 07</div>
-<div class="title">I'm a Big Girl Now</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-08.png">
-<div class="bookMeta">
-<div class="num">Book 08</div>
-<div class="title">The Power in the Know</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-09.png">
-<div class="bookMeta">
-<div class="num">Book 09</div>
-<div class="title">What It Means to Grow Up</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-10.png">
-<div class="bookMeta">
-<div class="num">Book 10</div>
-<div class="title">Teen Years and the Brain</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-11.png">
-<div class="bookMeta">
-<div class="num">Book 11</div>
-<div class="title">My Boundaries My Limits</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-12.png">
-<div class="bookMeta">
-<div class="num">Book 12</div>
-<div class="title">Relationship and Consent</div>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Blackshield Institute
-
-</footer>
-
+    <footer>
+      © 2026 Blackshield Institute
+    </footer>
+  </main>
 </body>
 </html>
-
