@@ -4,260 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshield Institute</title>
-
-  <style>
-    :root{
-      --bg:#0b1220;
-      --panel:#0f172a;
-      --panel2:#0b1326;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --gold:#f5d07a;
-      --gold2:#d8b25a;
-      --line:rgba(245,208,122,.22);
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:16px;
-    }
-
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(1200px 600px at 10% 0%, #122042 0%, var(--bg) 55%);
-      color: var(--text);
-    }
-
-    a{ color:inherit; text-decoration:none; }
-
-    .wrap{ width:min(1200px, 92vw); margin:0 auto; padding:18px 0 48px; }
-
-    /* ---------- HEADER (NO OVERLAP) ---------- */
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.65));
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner{
-      width:min(1200px, 92vw);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:12px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 240px;
-    }
-
-    /* HARD CLAMP LOGO SIZE (THIS FIXES YOUR BIG SHIELD) */
-    .logoWrap{
-      width:56px;
-      height:56px;
-      flex:0 0 56px;
-      border-radius:14px;
-      background: rgba(255,255,255,.03);
-      border:1px solid rgba(245,208,122,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-    .logoWrap img{
-      width:44px !important;
-      height:44px !important;
-      max-width:44px !important;
-      max-height:44px !important;
-      object-fit:contain !important;
-      display:block;
-    }
-
-    .brandText b{ display:block; font-size:16px; letter-spacing:.2px; }
-    .brandText span{ display:block; font-size:12px; color:var(--muted); margin-top:2px; }
-
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .navBtn{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(245,208,122,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      font-size:13px;
-      letter-spacing:.2px;
-      transition:.15s transform ease, .15s background ease, .15s border-color ease;
-      white-space:nowrap;
-    }
-    .navBtn:hover{
-      transform: translateY(-1px);
-      background: rgba(245,208,122,.08);
-      border-color: rgba(245,208,122,.35);
-    }
-    .navBtn.gold{
-      background: linear-gradient(180deg, rgba(245,208,122,.18), rgba(245,208,122,.08));
-      border-color: rgba(245,208,122,.45);
-      color: var(--gold);
-      font-weight:600;
-    }
-
-    /* ---------- HERO ---------- */
-    main{ padding-top: 18px; } /* breathing room under sticky header */
-
-    .hero{
-      background: linear-gradient(180deg, rgba(15,23,42,.85), rgba(11,18,32,.55));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:22px 20px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero h1{
-      font-size:28px;
-      letter-spacing:.3px;
-    }
-    .hero p{
-      margin-top:10px;
-      color: var(--muted);
-      line-height:1.45;
-      max-width: 800px;
-    }
-    .ctaRow{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid rgba(245,208,122,.28);
-      background: rgba(255,255,255,.03);
-      font-weight:600;
-      font-size:13px;
-    }
-    .cta.primary{
-      background: linear-gradient(180deg, rgba(245,208,122,.22), rgba(245,208,122,.10));
-      border-color: rgba(245,208,122,.55);
-      color: var(--gold);
-    }
-
-    /* ---------- PASSAGES SECTION ---------- */
-    .section{
-      margin-top: 18px;
-      background: linear-gradient(180deg, rgba(15,23,42,.78), rgba(11,18,32,.55));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: var(--shadow);
-    }
-
-    /* IMPORTANT: makes #passages scroll-to land below sticky header */
-    #passages{ scroll-margin-top: 120px; }
-
-    .sectionTitle{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .sectionTitle h2{
-      font-size:18px;
-      letter-spacing:.2px;
-      color: var(--text);
-    }
-    .hint{
-      font-size:12px;
-      color: var(--muted);
-    }
-
-    .passages-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap:14px;
-      margin-top: 12px;
-    }
-
-    .book{
-      border:1px solid rgba(245,208,122,.16);
-      background: rgba(0,0,0,.18);
-      border-radius: 14px;
-      overflow:hidden;
-      transition:.15s transform ease, .15s border-color ease;
-    }
-    .book:hover{
-      transform: translateY(-2px);
-      border-color: rgba(245,208,122,.35);
-    }
-    .book img{
-      width:100%;
-      height: 300px;
-      object-fit: cover;
-      display:block;
-      background: rgba(255,255,255,.03);
-    }
-    .bookMeta{
-      padding:12px 12px 14px;
-      border-top:1px solid rgba(245,208,122,.10);
-    }
-    .num{
-      font-size:12px;
-      letter-spacing:.7px;
-      color: var(--gold);
-      font-weight:700;
-      text-transform: uppercase;
-    }
-    .title{
-      margin-top:6px;
-      font-size:14px;
-      color: var(--text);
-      line-height:1.25;
-      min-height: 36px;
-    }
-
-    footer{
-      text-align:center;
-      margin-top:18px;
-      color:var(--muted);
-      font-size:12px;
-      padding:14px 0 6px;
-    }
-
-    /* --------- ABSOLUTE SAFETY OVERRIDES --------- */
-    /* If any generic CSS elsewhere is blowing up images, clamp ONLY the logo image */
-    header img[src*="shield"]{
-      width:44px !important;
-      height:44px !important;
-      max-width:44px !important;
-      max-height:44px !important;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
   <header>
-    <div class="header-inner">
+    <div class="wrap header-inner">
       <div class="brand">
-        <div class="logoWrap">
-          <!-- IMPORTANT: put your shield at assets/images/shield.png -->
-          <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
-        </div>
+        <img src="assets/images/shield.png" alt="Blackshield Institute Shield"
+             onerror="this.style.display='none'" />
         <div class="brandText">
           <b>Blackshield Institute</b>
           <span>Institutional-grade learning systems &amp; publishing</span>
@@ -265,144 +20,62 @@
       </div>
 
       <nav>
-        <a class="navBtn" href="index.html">Home</a>
+        <a class="navBtn gold" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
+        <a class="navBtn" href="passages.html">PASSAGES</a>
         <a class="navBtn" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
-        <a class="navBtn gold" href="#passages">PASSAGES</a>
       </nav>
     </div>
   </header>
 
-  <div class="wrap">
-    <main>
-      <section class="hero" id="home">
-        <h1>Blackshield Institute</h1>
-        <p>
-          Premium institutional learning assets built for clarity, discipline, and real-world readiness.
-          Explore the <b>PASSAGES</b> series below.
-        </p>
-        <div class="ctaRow">
-          <a class="cta primary" href="#passages">View PASSAGES Series</a>
-          <a class="cta" href="catalog.html">Open Catalog</a>
-        </div>
-      </section>
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="card">
+          <h1>Blackshield Institute</h1>
+          <p>
+            Premium institutional learning assets built for clarity, discipline, and real-world readiness.
+            Explore the PASSAGES children’s series and our catalog of structured products.
+          </p>
 
-      <section class="section" id="passages">
-        <div class="sectionTitle">
-          <h2>PASSAGES Series (Books 01–12)</h2>
-          <div class="hint">Images load from: <b>assets/images/passages/</b></div>
-        </div>
-
-        <div class="passages-grid">
-          <div class="book">
-            <img src="assets/images/passages/passages-01.svg" alt="Passages Book 01" />
-            <div class="bookMeta">
-              <div class="num">Book 01</div>
-              <div class="title">My Parents Phone Number</div>
-            </div>
+          <div class="heroActions">
+            <a class="btn primary" href="passages.html">Enter PASSAGES Library</a>
+            <a class="btn" href="catalog.html">View Catalog</a>
+            <a class="btn" href="contact.html">Contact</a>
           </div>
 
-          <div class="book">
-            <img src="assets/images/passages/passages-02.svg" alt="Passages Book 02" />
-            <div class="bookMeta">
-              <div class="num">Book 02</div>
-              <div class="title">My Parents Names</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-03.svg" alt="Passages Book 03" />
-            <div class="bookMeta">
-              <div class="num">Book 03</div>
-              <div class="title">My Parents Address</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-04.svg" alt="Passages Book 04" />
-            <div class="bookMeta">
-              <div class="num">Book 04</div>
-              <div class="title">Who Can I Trust</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-05.svg" alt="Passages Book 05" />
-            <div class="bookMeta">
-              <div class="num">Book 05</div>
-              <div class="title">Im Lost Find a Cop</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-06.svg" alt="Passages Book 06" />
-            <div class="bookMeta">
-              <div class="num">Book 06</div>
-              <div class="title">I'm a Big Boy Now</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-07.svg" alt="Passages Book 07" />
-            <div class="bookMeta">
-              <div class="num">Book 07</div>
-              <div class="title">I'm a Big Girl Now</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-08.svg" alt="Passages Book 08" />
-            <div class="bookMeta">
-              <div class="num">Book 08</div>
-              <div class="title">The Power in the Know</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-09.svg" alt="Passages Book 09" />
-            <div class="bookMeta">
-              <div class="num">Book 09</div>
-              <div class="title">What It Means to Grow Up</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-10.svg" alt="Passages Book 10" />
-            <div class="bookMeta">
-              <div class="num">Book 10</div>
-              <div class="title">Teen Years and the Brain</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-11.svg" alt="Passages Book 11" />
-            <div class="bookMeta">
-              <div class="num">Book 11</div>
-              <div class="title">My Boundaries My Limits</div>
-            </div>
-          </div>
-
-          <div class="book">
-            <img src="assets/images/passages/passages-12.svg" alt="Passages Book 12" />
-            <div class="bookMeta">
-              <div class="num">Book 12</div>
-              <div class="title">Relationship and Consent</div>
-            </div>
+          <div class="kpis">
+            <div class="kpi"><b>PASSAGES</b><span>Books 01–12</span></div>
+            <div class="kpi"><b>Digital</b><span>PDF-ready distribution</span></div>
+            <div class="kpi"><b>Brand</b><span>Navy + Gold system</span></div>
           </div>
         </div>
-      </section>
 
-      <footer>
-        © <span id="yr"></span> Blackshield Institute
-      </footer>
-    </main>
-  </div>
+        <div class="card heroBadge">
+          <img class="bigLogo" src="assets/images/shield.png" alt="Blackshield Shield"
+               onerror="this.style.display='none'" />
+          <div>
+            <div style="font-weight:800;color:var(--gold);letter-spacing:.6px">BLACKSHIELD STANDARD</div>
+            <div class="mini">Consistency • Authority • Clean deployment</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
+    <section class="card" style="padding:18px;">
+      <div class="sectionTitle">
+        <h2>Featured: PASSAGES (Quick View)</h2>
+        <div class="hint">Full library lives on <b>passages.html</b></div>
+      </div>
+      <div id="passagesGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> Blackshield Institute • All rights reserved
+  </footer>
+
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
-
-
