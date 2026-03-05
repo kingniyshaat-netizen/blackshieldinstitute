@@ -1,1 +1,43 @@
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0b1220;
+  color:#e5e7eb;
+}
 
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:#0b1220;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:10;
+}
+
+/* BRAND */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* SHIELD FIX */
+.brand img{
+  width:48px !important;
+  height:48px !important;
+  max-width:48px !important;
+  object-fit:contain;
+}
+
+/* PASSAGES GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.book img{
+  width:100%;
+  height:auto;
+  display:block;
+}
