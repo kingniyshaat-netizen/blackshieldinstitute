@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>PASSAGES Access — Blackshield Institute</title>
-  <meta name="robots" content="noindex,nofollow"/>
-  <style>
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#050506;color:#f4f1e8}
-    .wrap{max-width:960px;margin:0 auto;padding:22px 16px 70px}
-    .nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-    .pill{padding:8px 12px;border:1px solid rgba(244,241,232,.18);border-radius:999px;background:rgba(255,255,255,.03);font-weight:800;font-size:13px}
-    h1{margin:8px 0 8px;font-size:30px}
-    p{color:rgba(244,241,232,.75);line-height:1.6}
-    .card{border:1px solid rgba(184,138,52,.35);background:rgba(184,138,52,.08);border-radius:16px;padding:14px}
-    .btn{display:inline-block;margin-top:10px;padding:12px 14px;border-radius:14px;border:1px solid rgba(184,138,52,.7);background:rgba(184,138,52,.18);font-weight:900}
-    .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:14px}
-    .b{border:1px solid rgba(244,241,232,.14);border-radius:16px;padding:12px;background:rgba(255,255,255,.02)}
-    .t{font-weight:900;margin:0 0 8px}
-    .dl{display:block;text-align:center;padding:12px;border-radius:14px;border:1px solid rgba(244,241,232,.16);background:rgba(255,255,255,.04);font-weight:900}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PASSAGES • Blackshield Institute</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <a class="pill" href="index.html">Home</a>
-      <a class="pill" href="catalog.html">Catalog</a>
-      <a class="pill" href="curriculum.html">Curriculum</a>
-      <a class="pill" href="contact.html">Support</a>
-    </div>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand">
+        <img src="assets/images/shield.png" alt="Blackshield Institute Shield"
+             onerror="this.style.display='none'" />
+        <div class="brandText">
+          <b>Blackshield Institute</b>
+          <span>PASSAGES Library (Books 01–12)</span>
+        </div>
+      </div>
 
-    <h1>Your PASSAGES Curriculum Is Ready</h1>
-    <p>Download the full series bundle or any book individually. If a download returns 404, the file name in <code>downloads/</code> doesn’t match.</p>
-
-    <div class="card">
-      <p class="t">Full Series Bundle</p>
-      <a class="btn" href="downloads/passages-series.pdf" download>Download PASSAGES Series (PDF)</a>
+      <nav>
+        <a class="navBtn" href="index.html">Home</a>
+        <a class="navBtn" href="catalog.html">Catalog</a>
+        <a class="navBtn gold" href="passages.html">PASSAGES</a>
+        <a class="navBtn" href="about.html">About</a>
+        <a class="navBtn" href="contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="grid">
-      <div class="b"><p class="t">Book 1</p><a class="dl" href="downloads/passages-01.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 2</p><a class="dl" href="downloads/passages-02.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 3</p><a class="dl" href="downloads/passages-03.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 4</p><a class="dl" href="downloads/passages-04.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 5</p><a class="dl" href="downloads/passages-05.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 6</p><a class="dl" href="downloads/passages-06.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 7</p><a class="dl" href="downloads/passages-07.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 8</p><a class="dl" href="downloads/passages-08.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 9</p><a class="dl" href="downloads/passages-09.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 10</p><a class="dl" href="downloads/passages-10.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 11</p><a class="dl" href="downloads/passages-11.pdf" download>Download</a></div>
-      <div class="b"><p class="t">Book 12</p><a class="dl" href="downloads/passages-12.pdf" download>Download</a></div>
-    </div>
-  </div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card" style="padding:18px;">
+        <h1 style="font-size:22px;letter-spacing:.6px;">PASSAGES Series</h1>
+        <p style="color:var(--muted);margin-top:6px;">
+          Covers load from <b>assets/images/passages/</b>. PDFs open from <b>downloads/</b>.
+          If a PDF is missing, the link may 404 until you upload it.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" style="padding:18px;">
+      <div class="sectionTitle">
+        <h2>Books 01–12</h2>
+        <div class="hint">If images don’t load, file name/case is wrong.</div>
+      </div>
+
+      <div id="passagesGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> Blackshield Institute
+  </footer>
+
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
