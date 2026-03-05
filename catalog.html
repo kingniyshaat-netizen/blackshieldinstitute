@@ -2,288 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catalog — Blackshield Institute</title>
-
-  <style>
-    :root{
-      --bg:#050506;
-      --text:#f4f1e8;
-      --muted:rgba(244,241,232,.75);
-      --gold:#b88a34;
-      --line:rgba(244,241,232,.14);
-      --card:rgba(255,255,255,.02);
-      --radius:16px;
-      --max:1120px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#000,#050506 35%,#000);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 80px}
-
-    /* Top nav */
-    .bar{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-      margin-bottom:16px;padding:10px 12px;
-      border:1px solid var(--line);border-radius:14px;
-      background:rgba(255,255,255,.03);
-    }
-    .pill{
-      padding:8px 12px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.04);
-      font-weight:800;font-size:13px;
-    }
-
-    h1{margin:10px 0 6px;font-size:34px;letter-spacing:.2px}
-    p{color:var(--muted);line-height:1.6;margin:10px 0}
-    .subhead{
-      margin-top:6px;
-      padding:10px 12px;
-      border:1px solid rgba(184,138,52,.35);
-      background:rgba(184,138,52,.08);
-      border-radius:14px;
-      color:rgba(244,241,232,.85);
-      font-size:13px;
-    }
-
-    /* Grid */
-    .grid{
-      display:grid;
-      gap:16px;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      margin-top:18px;
-    }
-
-    .card{
-      border:1px solid var(--line);
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      min-height:100%;
-    }
-
-    /* Cover */
-    .cover{
-      width:100%;
-      border-radius:12px;
-      border:1px solid rgba(244,241,232,.12);
-      background:rgba(255,255,255,.03);
-      aspect-ratio: 3 / 4;
-      object-fit:cover;
-      display:block;
-      margin-bottom:14px;
-    }
-
-    /* placeholder if image fails */
-    .coverFallback{
-      width:100%;
-      border-radius:12px;
-      border:1px dashed rgba(244,241,232,.20);
-      background:rgba(255,255,255,.03);
-      aspect-ratio: 3 / 4;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:rgba(244,241,232,.55);
-      font-weight:900;
-      margin-bottom:14px;
-      text-align:center;
-      padding:12px;
-    }
-
-    h2{
-      margin:2px 0 6px;
-      font-size:18px;
-      letter-spacing:.2px;
-    }
-    .tag{
-      display:inline-block;
-      margin:6px 0 10px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(184,138,52,.55);
-      background:rgba(184,138,52,.12);
-      color:var(--gold);
-      font-weight:900;
-      font-size:13px;
-      width:fit-content;
-    }
-    .meta{color:var(--muted);font-size:14px;margin:0 0 10px;line-height:1.5}
-    ul{margin:0 0 10px 18px;color:var(--muted);line-height:1.65}
-
-    /* Buttons */
-    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:12px}
-    .btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(184,138,52,.70);
-      background:rgba(184,138,52,.18);
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .btnGhost{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      font-weight:900;
-    }
-
-    /* Footer */
-    footer{
-      margin-top:28px;
-      padding-top:14px;
-      border-top:1px solid var(--line);
-      color:rgba(244,241,232,.55);
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalog • Blackshield Institute</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-
 <body>
-  <div class="wrap">
-
-    <div class="bar">
-      <a class="pill" href="index.html">Home</a>
-      <a class="pill" href="curriculum.html">Curriculum</a>
-      <a class="pill" href="passage-series.html">PASSAGES</a>
-      <a class="pill" href="catalog.html">Catalog</a>
-      <a class="pill" href="contact.html">Contact</a>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand">
+        <img src="assets/images/shield.png" alt="Shield" onerror="this.style.display='none'"/>
+        <div class="brandText"><b>Blackshield Institute</b><span>Catalog</span></div>
+      </div>
+      <nav>
+        <a class="navBtn" href="index.html">Home</a>
+        <a class="navBtn gold" href="catalog.html">Catalog</a>
+        <a class="navBtn" href="passages.html">PASSAGES</a>
+        <a class="navBtn" href="about.html">About</a>
+        <a class="navBtn" href="contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>Catalog</h1>
-    <p>
-      Structured digital curriculum and private implementation assets published by Blackshield Institute.
-    </p>
-    <div class="subhead">
-      All materials are provided for independent learning or private implementation and do not constitute formal academic instruction.
-    </div>
-
-    <div class="grid">
-
-      <!-- PASSAGES -->
-      <div class="card">
-        <!-- Update filename to match your repo -->
-        <img class="cover" src="passages-cover.jpg" alt="PASSAGES Cover"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="coverFallback" style="display:none;">
-          PASSAGES COVER<br>(upload: passages-cover.jpg)
-        </div>
-
-        <h2>PASSAGES</h2>
-        <div class="tag">$97 / 3 months</div>
-        <p class="meta">Foundational cultural formation curriculum for youth safety, identity, and self-command.</p>
-
-        <ul>
-          <li>Modules + execution requirements</li>
-          <li>Retention checkpoints (7-day recall)</li>
-          <li>Certificate eligibility (non-academic)</li>
-        </ul>
-
-        <div class="btnRow">
-          <a class="btn" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener">
-            Checkout: PASSAGES
-          </a>
-          <a class="btn btnGhost" href="passage-series.html">View Details</a>
-          <a class="btn btnGhost" href="early-access.html">Early Access</a>
-        </div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card" style="padding:18px;">
+        <h1 style="font-size:22px;">Catalog</h1>
+        <p style="color:var(--muted);margin-top:6px;">Drop your product tiles here next.</p>
       </div>
+    </section>
+  </main>
 
-      <!-- TIER I -->
-      <div class="card">
-        <div class="coverFallback" style="margin-bottom:14px;">
-          Membership Access
-        </div>
-
-        <h2>Blackshield Tier I</h2>
-        <div class="tag">$147 / 3 months</div>
-        <p class="meta">Entry membership tier for individuals and small groups implementing privately.</p>
-
-        <ul>
-          <li>Curriculum access pathway</li>
-          <li>Structured releases</li>
-          <li>Member-only updates</li>
-        </ul>
-
-        <div class="btnRow">
-          <a class="btn" href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW09" target="_blank" rel="noopener">
-            Subscribe: Tier I
-          </a>
-          <a class="btn btnGhost" href="curriculum.html">Go to Curriculum</a>
-        </div>
-      </div>
-
-      <!-- TIER II -->
-      <div class="card">
-        <div class="coverFallback" style="margin-bottom:14px;">
-          Advanced Implementation
-        </div>
-
-        <h2>Blackshield Tier II</h2>
-        <div class="tag">$297 / month</div>
-        <p class="meta">Advanced tier for serious buyers seeking deeper implementation and priority pathway access.</p>
-
-        <ul>
-          <li>Everything in Tier I</li>
-          <li>Higher-touch implementation pathway</li>
-          <li>Priority support / guidance structure</li>
-        </ul>
-
-        <div class="btnRow">
-          <a class="btn" href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener">
-            Subscribe: Tier II
-          </a>
-          <a class="btn btnGhost" href="curriculum.html">Go to Curriculum</a>
-        </div>
-      </div>
-
-      <!-- DIAMOND (Placeholder until you add product page + checkout) -->
-      <div class="card">
-        <!-- Update filename to match your repo -->
-        <img class="cover" src="diamond-cover.jpg" alt="The Diamond in the Rough Cover"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="coverFallback" style="display:none;">
-          DIAMOND COVER<br>(upload: diamond-cover.jpg)
-        </div>
-
-        <h2>The Diamond in the Rough</h2>
-        <div class="tag">Flagship Doctrine</div>
-        <p class="meta">Foundational intellectual asset of Blackshield Institute. Individual structural formation doctrine.</p>
-
-        <ul>
-          <li>Structure over emotion</li>
-          <li>Discipline over reaction</li>
-          <li>Endurance over visibility</li>
-        </ul>
-
-        <div class="btnRow">
-          <!-- Update this once you create a diamond page -->
-          <a class="btn btnGhost" href="index.html">View on Site</a>
-          <a class="btn btnGhost" href="contact.html">Institutional Inquiry</a>
-        </div>
-      </div>
-
-    </div>
-
-    <footer>
-      <div>© <span id="yr"></span> Blackshield Institute</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
+  <footer>© <span id="yr"></span> Blackshield Institute</footer>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
