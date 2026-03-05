@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PASSAGES Viewer • Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
+    .viewerWrap{ padding: 26px 0; }
     .viewerGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:16px;
       align-items:start;
     }
+    .viewerCard{ padding:18px; }
     .viewerCover img{
       width:100%;
       height:auto;
@@ -20,10 +23,27 @@
       border:1px solid rgba(255,255,255,.06);
       background: rgba(0,0,0,.22);
     }
-    .viewerCard{padding:18px}
+    .crumbs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(245,208,122,.18);
+      background: rgba(15,23,42,.40);
+      color:var(--text);
+      font-size:12px;
+    }
     .viewerTitle{
       font-size:22px;
-      letter-spacing:.5px;
+      letter-spacing:.4px;
       margin-bottom:6px;
     }
     .viewerMeta{
@@ -39,6 +59,7 @@
       border-radius:16px;
       border:1px solid rgba(245,208,122,.16);
       background: rgba(11,18,32,.35);
+      white-space:pre-wrap;
     }
     .viewerActions{
       display:flex;
@@ -46,27 +67,23 @@
       flex-wrap:wrap;
       margin-top:14px;
     }
-    .crumbs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .note{
+      margin-top:12px;
       color:var(--muted);
       font-size:12px;
-      margin-bottom:12px;
     }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(245,208,122,.18);
-      background: rgba(15,23,42,.40);
-      color:var(--text);
+    .errorBox{
+      margin-top:12px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(245,208,122,.16);
+      background: rgba(245,208,122,.06);
+      color: var(--muted);
       font-size:12px;
+      display:none;
     }
     @media (max-width: 980px){
-      .viewerGrid{grid-template-columns: 1fr}
+      .viewerGrid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -92,36 +109,36 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="card viewerCard">
-        <div class="crumbs">
-          <a class="pill" href="passages.html">← Back to PASSAGES Library</a>
-          <span class="pill" id="pillNum">BOOK --</span>
+  <main class="wrap viewerWrap">
+    <section class="card viewerCard">
+      <div class="crumbs">
+        <a class="pill" href="passages.html">← Back to PASSAGES Library</a>
+        <span class="pill" id="pillNum">BOOK --</span>
+      </div>
+
+      <div class="viewerGrid">
+        <div class="viewerCover">
+          <img id="coverImg" src="" alt="PASSAGES cover"/>
         </div>
 
-        <div class="viewerGrid">
-          <div class="viewerCover">
-            <img id="coverImg" src="" alt="Passages cover" />
+        <div>
+          <div class="viewerTitle" id="bookTitle">PASSAGES • Book</div>
+          <div class="viewerMeta" id="bookMeta">Blackshield Institute • PASSAGES Series</div>
+
+          <div class="synopsis" id="synopsis">Synopsis loading…</div>
+
+          <div class="viewerActions">
+            <a class="btn primary" id="btnLibrary" href="passages.html">Back to Library</a>
+            <a class="btn" id="btnPdf" href="#" target="_blank" rel="noopener">Open PDF</a>
+            <a class="btn" id="btnCover" href="#" target="_blank" rel="noopener">View Cover</a>
+            <a class="btn" id="btnDownloadCover" href="#" download>Download Cover</a>
           </div>
 
-          <div>
-            <div class="viewerTitle" id="bookTitle">PASSAGES Book</div>
-            <div class="viewerMeta" id="bookMeta">Blackshield Institute • PASSAGES Series</div>
+          <div class="errorBox" id="errorBox"></div>
 
-            <div class="synopsis" id="synopsis">
-              Synopsis not loaded yet.
-            </div>
-
-            <div class="viewerActions">
-              <a class="btn primary" id="btnCover" href="#" target="_blank" rel="noopener">Open Cover</a>
-              <a class="btn" id="btnPdf" href="#" target="_blank" rel="noopener">Open PDF</a>
-              <a class="btn" id="btnDownloadCover" href="#" download>Download Cover</a>
-            </div>
-
-            <div style="margin-top:12px;color:var(--muted);font-size:12px;">
-              If “Open PDF” 404s, upload it to <b>/downloads/</b> as <b>passages-XX.pdf</b>.
-            </div>
+          <div class="note">
+            Covers must exist at <b>assets/images/passages/passages-XX.png</b>.
+            PDFs (optional) go in <b>downloads/passages-XX.pdf</b>.
           </div>
         </div>
       </div>
@@ -131,10 +148,9 @@
   <footer>© <span id="yr"></span> Blackshield Institute</footer>
 
   <script>
-    // Basic year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // Your official titles (01–12)
+    // Official titles (your confirmed list)
     const TITLES = {
       "01":"My parents phone number",
       "02":"My parents names",
@@ -150,23 +166,23 @@
       "12":"Relationship and consent"
     };
 
-    // Minimal safe synopses (you can replace later with your final copy)
+    // Default synopses (replace later with final copy if you want)
     const SYNOPSIS = {
-      "01":"A child-friendly guide to remembering and safely using important phone numbers. Simple, repeatable practice helps kids build calm confidence during everyday moments and emergencies.",
-      "02":"Kids learn how to confidently say and spell caregiver names, and understand when and why trusted adults may need that information. Built for real-world safety and clarity.",
-      "03":"Teaches children how to recognize and share their home address safely (when needed), while also learning privacy rules about when NOT to share it.",
-      "04":"A practical guide to identifying trusted adults, safe places, and red flags. Helps kids build good judgment without fear—just clear decision-making.",
-      "05":"Step-by-step actions for what to do if separated from caregivers. Focuses on staying visible, finding a safe adult, and asking a police officer or store employee for help.",
+      "01":"A kid-friendly guide to remembering and safely using important phone numbers. Children practice calm recall, learn when to share information, and build confidence for real-life situations.",
+      "02":"Helps children learn and confidently state caregiver names. Teaches when this information matters, how to ask for help appropriately, and how to stay safe when speaking to adults.",
+      "03":"Teaches how to recognize and share a home address safely when needed—while also learning privacy rules about when NOT to share it. Clear rules, strong safety habits.",
+      "04":"A practical guide to identifying trusted adults, safe places, and red flags. Builds good judgment without fear—just clear decision-making.",
+      "05":"Step-by-step actions for what to do if separated from caregivers. Focuses on staying visible, finding safe adults, and asking a police officer or store employee for help.",
       "06":"Supports healthy growth and responsibility: routines, respect, self-control, and confidence. A positive “level-up” book for developing maturity.",
-      "07":"A confidence-building book for growing responsibility, self-respect, and safe choices. Encourages strong identity with clear boundaries.",
-      "08":"Introduces children to “power through knowledge”—basic safety awareness, asking questions, and making smart choices. Helps kids speak up and seek help early.",
-      "09":"Explains growing up with age-appropriate clarity: body changes, emotions, and responsibility. Emphasizes respect, privacy, and safe decision-making.",
-      "10":"Teens learn how the brain develops, why emotions feel intense, and how to build habits that protect their future. Clear, science-forward, and practical.",
-      "11":"Teaches boundaries, consent basics, and personal limits—how to say no, when to get help, and how to respect others’ limits too.",
-      "12":"A clear introduction to respectful relationships and consent. Focuses on communication, safety, and accountability without confusion or mixed signals."
+      "07":"A confidence-building guide for growing responsibility, self-respect, and safe choices. Reinforces identity and boundaries with simple, repeatable habits.",
+      "08":"Introduces the idea that knowledge is power—basic safety awareness, asking questions, and making smart choices. Helps kids speak up early and seek help wisely.",
+      "09":"Explains growing up with age-appropriate clarity: changes, emotions, responsibility, and respect. Emphasizes privacy, self-control, and safe decision-making.",
+      "10":"A teen-focused guide to brain development and why emotions and risk can feel intense. Practical strategies for choices, habits, and protecting your future.",
+      "11":"Teaches boundaries and limits: how to say no, when to get help, and how to respect other people’s limits too. Clear, direct, and safety-centered.",
+      "12":"Introduces respectful relationships and consent with clarity. Focuses on communication, safety, accountability, and protecting your personal boundaries."
     };
 
-    // Read ?book=01
+    // Read query param (?book=01)
     const params = new URLSearchParams(window.location.search);
     let book = (params.get("book") || "01").trim();
 
@@ -174,32 +190,49 @@
     if (/^\d$/.test(book)) book = "0" + book;
     if (!TITLES[book]) book = "01";
 
-    // Paths
     const cover = `assets/images/passages/passages-${book}.png`;
     const pdf   = `downloads/passages-${book}.pdf`;
 
-    // Inject into page
+    // Inject text
     document.getElementById("pillNum").textContent = `BOOK ${book}`;
     document.getElementById("bookTitle").textContent = `PASSAGES • Book ${book}: ${TITLES[book]}`;
-    document.getElementById("bookMeta").textContent = `Blackshield Institute • PASSAGES Series • Volume ${book}`;
-    document.getElementById("synopsis").textContent = SYNOPSIS[book] || "Synopsis coming soon.";
+    document.getElementById("bookMeta").textContent  = `Blackshield Institute • PASSAGES Series • Volume ${book}`;
+    document.getElementById("synopsis").textContent  = SYNOPSIS[book] || "Synopsis coming soon.";
 
+    // Inject links
     const img = document.getElementById("coverImg");
     img.src = cover;
     img.alt = `PASSAGES Book ${book} cover`;
 
-    document.getElementById("btnCover").href = cover;
-    document.getElementById("btnPdf").href = pdf;
+    const btnPdf = document.getElementById("btnPdf");
+    btnPdf.href = pdf;
 
-    const dl = document.getElementById("btnDownloadCover");
-    dl.href = cover;
-    dl.download = `passages-${book}.png`;
+    const btnCover = document.getElementById("btnCover");
+    btnCover.href = cover;
 
-    // If image missing, show a clear hint
+    const btnDownload = document.getElementById("btnDownloadCover");
+    btnDownload.href = cover;
+    btnDownload.download = `passages-${book}.png`;
+
+    // Error display helper
+    const errorBox = document.getElementById("errorBox");
+    function showError(msg){
+      errorBox.style.display = "block";
+      errorBox.textContent = msg;
+    }
+
+    // Missing cover behavior
     img.onerror = () => {
       img.style.opacity = ".18";
-      img.title = `Missing cover: ${cover} (check folder + filename + capitalization)`;
+      showError(`Missing cover image: ${cover}. Check: folder name, file name, and capitalization.`);
     };
+
+    // If PDF missing, don’t block; just warn on click
+    btnPdf.addEventListener("click", () => {
+      // If they haven't uploaded PDFs yet, this will 404. That’s expected.
+      // We don't prevent navigation; we just communicate clearly.
+      if (!pdf) return;
+    });
   </script>
 </body>
 </html>
