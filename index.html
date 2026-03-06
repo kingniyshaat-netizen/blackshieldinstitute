@@ -2,78 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
   <header>
-    <div class="wrap header-inner">
+    <div class="header-inner">
       <div class="brand">
-        <img src="assets/images/shield.png" alt="Blackshield Institute Shield"
-             onerror="this.style.display='none'" />
+        <div class="logoWrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute Shield"
+               onerror="this.style.display='none';" />
+        </div>
         <div class="brandText">
           <b>Blackshield Institute</b>
-          <span>Institutional-grade learning systems &amp; publishing</span>
+          <span>Institutional-grade learning systems & publishing</span>
         </div>
       </div>
 
       <nav>
         <a class="navBtn gold" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
-        <a class="navBtn" href="passages.html">PASSAGES</a>
         <a class="navBtn" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
+        <a class="navBtn" href="passage-series.html">PASSAGES</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main>
     <section class="hero">
-      <div class="heroGrid">
-        <div class="card">
-          <h1>Blackshield Institute</h1>
-          <p>
-            Premium institutional learning assets built for clarity, discipline, and real-world readiness.
-            Explore the PASSAGES children’s series and our catalog of structured products.
-          </p>
+      <h1>Blackshield Institute</h1>
+      <p>
+        Premium institutional learning assets built for clarity, discipline, and real-world readiness.
+        Explore the PASSAGES children’s series and download PDF editions.
+      </p>
 
-          <div class="heroActions">
-            <a class="btn primary" href="passages.html">Enter PASSAGES Library</a>
-            <a class="btn" href="catalog.html">View Catalog</a>
-            <a class="btn" href="contact.html">Contact</a>
-          </div>
-
-          <div class="kpis">
-            <div class="kpi"><b>PASSAGES</b><span>Books 01–12</span></div>
-            <div class="kpi"><b>Digital</b><span>PDF-ready distribution</span></div>
-            <div class="kpi"><b>Brand</b><span>Navy + Gold system</span></div>
-          </div>
-        </div>
-
-        <div class="card heroBadge">
-          <img class="bigLogo" src="assets/images/shield.png" alt="Blackshield Shield"
-               onerror="this.style.display='none'" />
-          <div>
-            <div style="font-weight:800;color:var(--gold);letter-spacing:.6px">BLACKSHIELD STANDARD</div>
-            <div class="mini">Consistency • Authority • Clean deployment</div>
-          </div>
-        </div>
+      <div class="ctaRow">
+        <a class="cta primary" href="passage-series.html">Explore PASSAGES</a>
+        <a class="cta" href="catalog.html">View Catalog</a>
       </div>
     </section>
 
-    <section class="card" style="padding:18px;">
-      <div class="sectionTitle">
-        <h2>Featured: PASSAGES (Quick View)</h2>
-        <div class="hint">Full library lives on <b>passages.html</b></div>
+    <section class="section" id="passages">
+      <div class="section-title">
+        <h2>PASSAGES — Books 01–12</h2>
+        <div class="hint">Covers: <b>assets/images/passages/</b> • PDFs: <b>downloads/passages/</b></div>
       </div>
-      <div id="passagesGrid" class="grid"></div>
+
+      <div id="passagesMount"></div>
     </section>
   </main>
 
   <footer>
-    © <span id="yr"></span> Blackshield Institute • All rights reserved
+    © <span id="yr"></span> Blackshield Institute
   </footer>
 
   <script src="assets/js/site.js"></script>
