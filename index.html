@@ -1,229 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Blackshield Institute</title>
-
-<link rel="stylesheet" href="assets/css/styles.css">
-
-<style>
-
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0b1220;
-color:#e5e7eb;
-}
-
-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:20px 40px;
-background:#0f172a;
-}
-
-.logo{
-height:70px;
-}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#f5d07a;
-font-weight:bold;
-}
-
-.hero{
-text-align:center;
-padding:80px 20px;
-}
-
-.hero img{
-max-width:300px;
-width:100%;
-}
-
-.section{
-padding:60px 40px;
-}
-
-.passages-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-}
-
-.book img{
-width:100%;
-border-radius:8px;
-}
-
-.bookMeta{
-margin-top:10px;
-}
-
-.num{
-color:#f5d07a;
-font-weight:bold;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#9ca3af;
-font-size:12px;
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackshield Institute</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:center;
+    }
+    .hero-copy h1{
+      font-size:34px;
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+    .hero-copy p{
+      color:var(--muted);
+      max-width:60ch;
+      margin-bottom:16px;
+    }
+    .hero-logo{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:280px;
+    }
+    .hero-logo img{
+      max-width:260px;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
+    }
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .feature-card{
+      padding:18px;
+      border:1px solid rgba(245,208,122,.18);
+      border-radius:18px;
+      background:rgba(11,18,32,.35);
+    }
+    .feature-card h3{
+      color:var(--gold);
+      margin-bottom:8px;
+      font-size:16px;
+    }
+    .feature-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:12px;
+    }
+    .tiers{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .tier-card{
+      padding:20px;
+      border:1px solid rgba(245,208,122,.22);
+      border-radius:18px;
+      background:rgba(15,23,42,.45);
+    }
+    .tier-card h3{
+      color:var(--gold);
+      margin-bottom:8px;
+      font-size:20px;
+    }
+    .tier-card p{
+      color:var(--muted);
+      margin-bottom:12px;
+      font-size:14px;
+    }
+    .tier-card ul{
+      padding-left:18px;
+      color:var(--text);
+      margin-bottom:14px;
+    }
+    .tier-card li{ margin-bottom:6px; }
+    .stripe-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .small-note{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+    @media (max-width: 900px){
+      .hero-grid,.feature-grid,.tiers{ grid-template-columns:1fr; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logoWrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
+        </div>
+        <div class="brandText">
+          <b>Blackshield Institute</b>
+          <span>Institutional-grade learning systems &amp; publishing</span>
+        </div>
+      </div>
 
-<header>
+      <nav>
+        <a class="navBtn gold" href="index.html">Home</a>
+        <a class="navBtn" href="catalog.html">Catalog</a>
+        <a class="navBtn" href="passage-series.html">PASSAGES</a>
+        <a class="navBtn" href="curriculum.html">Curriculum</a>
+        <a class="navBtn" href="about.html">About</a>
+        <a class="navBtn" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<img src="assets/images/shield.png" class="logo">
+  <main>
+    <section class="hero">
+      <div class="card" style="padding:22px;">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Build discipline, literacy, and structured development through Blackshield Institute.</h1>
+            <p>
+              Blackshield Institute houses institutional-grade publishing, children’s safety books,
+              curriculum systems, and premium learning assets designed for clarity, order, and real-world use.
+            </p>
 
-<nav>
+            <div class="cta-row">
+              <a class="btn primary" href="passage-series.html">Explore PASSAGES</a>
+              <a class="btn" href="curriculum.html">View Curriculum</a>
+              <a class="btn" href="catalog.html">Browse Catalog</a>
+            </div>
 
-<a href="index.html">Home</a>
-<a href="catalog.html">Catalog</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="passage-series.html">Passages</a>
+            <div class="small-note">
+              Replace the Stripe placeholder links below with your real checkout links.
+            </div>
+          </div>
 
-</nav>
+          <div class="hero-logo">
+            <img src="assets/images/shield.png" alt="Blackshield Shield" onerror="this.style.display='none';" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-</header>
+    <section class="section">
+      <div class="section-title">
+        <h2>Core Product Lines</h2>
+        <div class="hint">Blackshield flagship offerings</div>
+      </div>
 
-<section class="hero">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>PASSAGES Series</h3>
+          <p>
+            A children’s development and safety book line built to teach memory, trust, boundaries,
+            growth, and decision-making through clean, focused titles.
+          </p>
+          <a class="btn primary" href="passage-series.html">Open PASSAGES</a>
+        </div>
 
-<h1>Blackshield Institute</h1>
+        <div class="feature-card">
+          <h3>Curriculum Systems</h3>
+          <p>
+            Structured educational tracks, digital learning systems, and premium member pathways
+            built for institutional depth and consistent implementation.
+          </p>
+          <a class="btn primary" href="curriculum.html">Open Curriculum</a>
+        </div>
 
-<p>
-Disciplined digital curriculum and institutional publishing
-</p>
+        <div class="feature-card">
+          <h3>The Diamond in the Rough</h3>
+          <p>
+            A featured Blackshield title positioned as a premium flagship intellectual property asset
+            within the Institute catalog.
+          </p>
+          <a class="btn primary" href="catalog.html">View in Catalog</a>
+        </div>
+      </div>
+    </section>
 
-<img src="assets/images/shield.png">
+    <section class="section">
+      <div class="section-title">
+        <h2>Membership Tiers</h2>
+        <div class="hint">Add your real Stripe payment links</div>
+      </div>
 
-</section>
+      <div class="tiers">
+        <div class="tier-card">
+          <h3>Tier I</h3>
+          <p>Foundational member access for families, supporters, and early learners.</p>
+          <ul>
+            <li>Entry-level access to select digital materials</li>
+            <li>Foundational PASSAGES and member updates</li>
+            <li>Access to introductory Blackshield resources</li>
+          </ul>
+          <div class="stripe-row">
+            <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_1" target="_blank" rel="noopener">Subscribe Tier I</a>
+          </div>
+        </div>
 
-<section class="section">
+        <div class="tier-card">
+          <h3>Tier II</h3>
+          <p>Premium member access for deeper curriculum, advanced resources, and institute-level products.</p>
+          <ul>
+            <li>Expanded digital curriculum access</li>
+            <li>Premium publications and advanced tools</li>
+            <li>Priority access to new Blackshield releases</li>
+          </ul>
+          <div class="stripe-row">
+            <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_2" target="_blank" rel="noopener">Subscribe Tier II</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2>Passages Series</h2>
+    <section class="section" id="home-passages">
+      <div class="section-title">
+        <h2>Featured PASSAGES Books</h2>
+        <div class="hint">Quick entry into the series</div>
+      </div>
 
-<div class="passages-grid">
+      <div id="passagesMount"></div>
+    </section>
+  </main>
 
-<div class="book">
-<img src="assets/images/passages/passages-01.png">
-<div class="bookMeta">
-<div class="num">Book 01</div>
-<div class="title">My Parents Phone Number</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-02.png">
-<div class="bookMeta">
-<div class="num">Book 02</div>
-<div class="title">My Parents Names</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-03.png">
-<div class="bookMeta">
-<div class="num">Book 03</div>
-<div class="title">My Parents Address</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-04.png">
-<div class="bookMeta">
-<div class="num">Book 04</div>
-<div class="title">Who Can I Trust</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-05.png">
-<div class="bookMeta">
-<div class="num">Book 05</div>
-<div class="title">Im Lost Find a Cop</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-06.png">
-<div class="bookMeta">
-<div class="num">Book 06</div>
-<div class="title">I'm a Big Boy Now</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-07.png">
-<div class="bookMeta">
-<div class="num">Book 07</div>
-<div class="title">I'm a Big Girl Now</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-08.png">
-<div class="bookMeta">
-<div class="num">Book 08</div>
-<div class="title">The Power in the Know</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-09.png">
-<div class="bookMeta">
-<div class="num">Book 09</div>
-<div class="title">What It Means to Grow Up</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-10.png">
-<div class="bookMeta">
-<div class="num">Book 10</div>
-<div class="title">Teen Years and the Brain</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-11.png">
-<div class="bookMeta">
-<div class="num">Book 11</div>
-<div class="title">My Boundaries My Limits</div>
-</div>
-</div>
-
-<div class="book">
-<img src="assets/images/passages/passages-12.png">
-<div class="bookMeta">
-<div class="num">Book 12</div>
-<div class="title">Relationship and Consent</div>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Blackshield Institute
-
-</footer>
-
+  <footer>© <span id="yr"></span> Blackshield Institute</footer>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
+
