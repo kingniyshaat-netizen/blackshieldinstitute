@@ -8,11 +8,13 @@
   <style>
     .viewer-shell{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:18px;
       align-items:start;
     }
-    .viewer-card{ padding:18px; }
+    .viewer-card{
+      padding:18px;
+    }
     .viewer-cover img{
       width:100%;
       height:auto;
@@ -63,8 +65,25 @@
       color:var(--muted);
       font-size:14px;
     }
-    @media (max-width: 900px){
-      .viewer-shell{ grid-template-columns:1fr; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(245,208,122,.22);
+      background:rgba(15,23,42,.55);
+      color:var(--text);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+    }
+    .btn.primary{
+      border-color:rgba(245,208,122,.45);
+      background:linear-gradient(180deg, rgba(245,208,122,.18), rgba(15,23,42,.70));
+    }
+    @media (max-width:900px){
+      .viewer-shell{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -84,7 +103,7 @@
       <nav>
         <a class="navBtn" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
-        <a class="navBtn gold" href="passage-series.html">PASSAGES</a>
+        <a class="navBtn gold" href="passages-series.html">PASSAGES</a>
         <a class="navBtn" href="curriculum.html">Curriculum</a>
         <a class="navBtn" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
@@ -104,12 +123,10 @@
             <h1 class="viewer-title" id="bookTitle">PASSAGES</h1>
             <div class="viewer-meta" id="bookMeta">Blackshield Institute • PASSAGES Series</div>
 
-            <div class="viewer-synopsis" id="bookSynopsis">
-              Synopsis loading...
-            </div>
+            <div class="viewer-synopsis" id="bookSynopsis">Synopsis loading...</div>
 
             <div class="viewer-actions">
-              <a class="btn" href="passage-series.html">Back to Series</a>
+              <a class="btn" href="passages-series.html">Back to Series</a>
               <a class="btn primary" id="pdfBtn" href="#" target="_blank" rel="noopener">Open PDF</a>
               <a class="btn" id="coverBtn" href="#" target="_blank" rel="noopener">Open Cover</a>
             </div>
@@ -194,7 +211,6 @@
       document.getElementById("bookMeta").textContent = `Blackshield Institute • PASSAGES Series • Book ${bookNum}`;
       document.getElementById("bookSynopsis").textContent = book.synopsis;
 
-      // ROOT IMAGE PATH FOR YOUR CURRENT REPO SETUP
       const coverPath = `passages-${bookNum}.png`;
       const pdfPath = `downloads/passages/passages-${bookNum}.pdf`;
 
