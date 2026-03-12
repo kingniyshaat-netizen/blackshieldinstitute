@@ -3,68 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PASSAGES Viewer • Blackshield Institute</title>
+  <title>PASSAGES Series • Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .viewer-shell{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      align-items:start;
-    }
-    .viewer-card{ padding:18px; }
-    .viewer-cover img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:18px;
-      border:1px solid rgba(245,208,122,.18);
-      background:rgba(11,18,32,.35);
-    }
-    .viewer-title{
-      font-size:24px;
-      margin-bottom:6px;
-    }
-    .viewer-meta{
-      font-size:13px;
+    .series-intro{
       color:var(--muted);
-      margin-bottom:14px;
+      line-height:1.6;
+      max-width:75ch;
     }
-    .viewer-synopsis{
+    .detail-box{
+      margin-top:16px;
       padding:16px;
       border:1px solid rgba(245,208,122,.18);
       border-radius:18px;
       background:rgba(11,18,32,.35);
-      color:var(--text);
-      line-height:1.6;
-      font-size:14px;
     }
-    .viewer-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
+    .detail-box h3{
+      color:var(--gold);
+      margin-bottom:8px;
+      font-size:17px;
     }
-    .viewer-note{
-      margin-top:12px;
-      font-size:12px;
+    .detail-box p{
       color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      margin-bottom:10px;
     }
-    .missing-cover{
-      min-height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
+    .passages-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+    }
+    .book{
       border:1px solid rgba(245,208,122,.18);
       border-radius:18px;
+      overflow:hidden;
       background:rgba(11,18,32,.35);
-      color:var(--muted);
-      font-size:14px;
     }
-    @media (max-width: 900px){
-      .viewer-shell{ grid-template-columns:1fr; }
+    .book img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      display:block;
+      background:rgba(255,255,255,.05);
+    }
+    .bookMeta{
+      padding:12px;
+    }
+    .num{
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+    .title{
+      margin-top:6px;
+      font-size:14px;
+      line-height:1.35;
+      font-weight:700;
+    }
+    .desc{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .actions{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 12px;
+      border-radius:12px;
+      border:1px solid rgba(245,208,122,.22);
+      background:rgba(15,23,42,.55);
+      color:var(--text);
+      text-decoration:none;
+      font-size:12px;
+      font-weight:700;
+    }
+    .btn.primary{
+      border-color:rgba(245,208,122,.45);
+      background:linear-gradient(180deg, rgba(245,208,122,.18), rgba(15,23,42,.70));
+    }
+    .missing{
+      opacity:.18;
     }
   </style>
 </head>
@@ -77,14 +105,14 @@
         </div>
         <div class="brandText">
           <b>Blackshield Institute</b>
-          <span>PASSAGES Viewer</span>
+          <span>PASSAGES Series</span>
         </div>
       </div>
 
       <nav>
         <a class="navBtn" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
-        <a class="navBtn gold" href="passage-series.html">PASSAGES</a>
+        <a class="navBtn gold" href="passages-series.html">PASSAGES</a>
         <a class="navBtn" href="curriculum.html">Curriculum</a>
         <a class="navBtn" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
@@ -94,130 +122,89 @@
 
   <main>
     <section class="hero">
-      <div class="card viewer-card">
-        <div class="viewer-shell">
-          <div class="viewer-cover" id="coverWrap">
-            <img id="coverImage" src="" alt="PASSAGES cover" />
-          </div>
+      <div class="card" style="padding:20px;">
+        <h1>PASSAGES Series</h1>
+        <p class="series-intro">
+          PASSAGES is a structured children’s series built to teach essential developmental knowledge,
+          safety awareness, boundaries, identity, decision-making, and practical growth.
+          Each title is designed to be direct, memorable, and useful.
+        </p>
 
-          <div>
-            <h1 class="viewer-title" id="bookTitle">PASSAGES</h1>
-            <div class="viewer-meta" id="bookMeta">Blackshield Institute • PASSAGES Series</div>
-
-            <div class="viewer-synopsis" id="bookSynopsis">
-              Synopsis loading...
-            </div>
-
-            <div class="viewer-actions">
-              <a class="btn" href="passage-series.html">Back to Series</a>
-              <a class="btn primary" id="pdfBtn" href="#" target="_blank" rel="noopener">Open PDF</a>
-              <a class="btn" id="coverBtn" href="#" target="_blank" rel="noopener">Open Cover</a>
-            </div>
-
-            <div class="viewer-note">
-              If the PDF button opens a 404, that means the PDF has not been uploaded yet.
-            </div>
-          </div>
+        <div class="detail-box">
+          <h3>What the Series Covers</h3>
+          <p>
+            The PASSAGES line teaches children and young readers practical concepts such as names,
+            phone numbers, address recall, trusted adults, what to do when lost, healthy growth,
+            boundaries, and age-appropriate development.
+          </p>
+          <p>
+            This series is positioned as a premium institutional children’s collection under Blackshield Institute.
+          </p>
         </div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Books in the Series</h2>
+        <div class="hint">Viewer page: <b>passages.html?b=01</b></div>
+      </div>
+
+      <div id="passagesGrid" class="passages-grid"></div>
     </section>
   </main>
 
   <footer>© <span id="yr"></span> Blackshield Institute</footer>
 
   <script>
-    const PASSAGES = {
-      "01": {
-        title: "My Parents Phone Number",
-        synopsis: "A foundational PASSAGES title designed to help children remember and safely use important phone numbers. This book builds practical recall, confidence, and readiness for real-world situations."
-      },
-      "02": {
-        title: "My Parents Names",
-        synopsis: "This title helps children clearly learn and remember the names of their parents or guardians. It reinforces identity, communication, and practical information every child should know."
-      },
-      "03": {
-        title: "My Parents Address",
-        synopsis: "A practical early-learning title that teaches children how to remember their address and understand why location knowledge matters. It supports safety, memory, and real-world readiness."
-      },
-      "04": {
-        title: "Who Can I Trust",
-        synopsis: "This book introduces the concept of trust, safe adults, and wise judgment in a child-friendly way. It helps young readers think carefully about who to go to when they need help."
-      },
-      "05": {
-        title: "Im Lost Find a Cop",
-        synopsis: "A straightforward guide for children on what to do if they become lost. It teaches calm action, safe choices, and the importance of finding the right authority figure for help."
-      },
-      "06": {
-        title: "I'm a Big Boy Now",
-        synopsis: "A growth-centered PASSAGES title that supports maturity, self-control, responsibility, and confidence. It helps young boys understand what growth should look like in practical daily life."
-      },
-      "07": {
-        title: "I'm a Big Girl Now",
-        synopsis: "A development-focused title for girls that highlights growth, responsibility, self-respect, and confidence. It reinforces maturity and healthy self-awareness in a supportive format."
-      },
-      "08": {
-        title: "The Power in the Know",
-        synopsis: "This title teaches that knowledge is power. It encourages awareness, understanding, and the confidence that comes from being informed and prepared."
-      },
-      "09": {
-        title: "What It Means to Grow Up",
-        synopsis: "A practical introduction to maturity, life changes, and responsible development. This book helps readers think clearly about what growth should mean in real life."
-      },
-      "10": {
-        title: "Teen Years and the Brain",
-        synopsis: "This title explores development, thinking, behavior, and the challenges of the teen years with a direct and understandable approach. It supports self-awareness and better choices."
-      },
-      "11": {
-        title: "My Boundaries My Limits",
-        synopsis: "A clear guide to personal boundaries, self-protection, and respectful limits. It teaches readers the importance of knowing where they end and what they should protect."
-      },
-      "12": {
-        title: "Relationship and Consent",
-        synopsis: "A structured title focused on respect, accountability, boundaries, and consent. It introduces relationship ethics in a serious, readable, and developmentally aware way."
-      }
-    };
+    const PASSAGES = [
+      ["01","My Parents Phone Number","Children practice remembering and safely using important phone numbers for real-world confidence and readiness."],
+      ["02","My Parents Names","A foundational title that teaches children to clearly know and communicate caregiver names when needed."],
+      ["03","My Parents Address","Builds memory, location awareness, and practical recall through a direct lesson on home address knowledge."],
+      ["04","Who Can I Trust","Introduces trusted adults, safe judgment, and clear boundaries in a child-friendly format."],
+      ["05","Im Lost Find a Cop","Teaches what to do when separated, how to stay calm, and how to seek safe authority help."],
+      ["06","I'm a Big Boy Now","Supports growing responsibility, self-control, maturity, and confidence in young boys."],
+      ["07","I'm a Big Girl Now","Supports growing responsibility, self-respect, maturity, and healthy development in young girls."],
+      ["08","The Power in the Know","Positions knowledge as power through awareness, safety, and age-appropriate confidence building."],
+      ["09","What It Means to Grow Up","Introduces growth, change, and maturity in a practical and child-centered way."],
+      ["10","Teen Years and the Brain","Explains development, choices, and mental growth through a clear youth-focused lens."],
+      ["11","My Boundaries My Limits","Teaches limits, personal boundaries, and self-protection in direct, readable language."],
+      ["12","Relationship and Consent","Introduces respect, accountability, and consent in a structured youth-appropriate format."]
+    ];
 
-    function getBookNumber() {
-      const params = new URLSearchParams(window.location.search);
-      let b = params.get("b") || "01";
-      if (b.length === 1) b = "0" + b;
-      if (!PASSAGES[b]) b = "01";
-      return b;
-    }
+    const grid = document.getElementById("passagesGrid");
 
-    function initViewer() {
-      const bookNum = getBookNumber();
-      const book = PASSAGES[bookNum];
+    PASSAGES.forEach(([num,title,desc]) => {
+      const card = document.createElement("div");
+      card.className = "book";
 
-      document.getElementById("yr").textContent = new Date().getFullYear();
-      document.getElementById("bookTitle").textContent = `PASSAGES ${bookNum} — ${book.title}`;
-      document.getElementById("bookMeta").textContent = `Blackshield Institute • PASSAGES Series • Book ${bookNum}`;
-      document.getElementById("bookSynopsis").textContent = book.synopsis;
-
-      // ROOT IMAGE PATH FOR YOUR CURRENT REPO SETUP
-      const coverPath = `passages-${bookNum}.png`;
-      const pdfPath = `downloads/passages/passages-${bookNum}.pdf`;
-
-      const coverImage = document.getElementById("coverImage");
-      const coverWrap = document.getElementById("coverWrap");
-
-      coverImage.src = coverPath;
-      coverImage.alt = `${book.title} cover`;
-
-      coverImage.onerror = function () {
-        coverWrap.innerHTML = `
-          <div class="missing-cover">
-            Cover missing for Book ${bookNum}.<br>
-            Expected file: passages-${bookNum}.png
-          </div>
-        `;
+      const img = document.createElement("img");
+      img.src = `passages-${num}.png`;
+      img.alt = title;
+      img.onerror = () => {
+        img.classList.add("missing");
+        img.title = `Missing file: passages-${num}.png`;
       };
 
-      document.getElementById("pdfBtn").href = pdfPath;
-      document.getElementById("coverBtn").href = coverPath;
-    }
+      const meta = document.createElement("div");
+      meta.className = "bookMeta";
 
-    initViewer();
+      meta.innerHTML = `
+        <div class="num">Book ${num}</div>
+        <div class="title">${title}</div>
+        <div class="desc">${desc}</div>
+        <div class="actions">
+          <a class="btn primary" href="passages.html?b=${num}">View</a>
+          <a class="btn" href="downloads/passages/passages-${num}.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      `;
+
+      card.appendChild(img);
+      card.appendChild(meta);
+      grid.appendChild(card);
+    });
+
+    document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
