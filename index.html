@@ -10,37 +10,60 @@
     .home-hero-grid{
       display:grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap:18px;
+      gap:22px;
       align-items:center;
     }
 
     .home-hero-copy h1{
-      font-size:34px;
-      line-height:1.1;
-      margin-bottom:10px;
+      font-size:38px;
+      line-height:1.08;
+      margin-bottom:12px;
+      color:var(--gold);
+      letter-spacing:.3px;
+      text-shadow:0 2px 14px rgba(0,0,0,.35);
     }
 
     .home-hero-copy p{
-      color:var(--muted);
+      color:#d8dbe3;
       max-width:62ch;
       margin-bottom:16px;
-      line-height:1.55;
+      line-height:1.6;
+      font-size:15px;
     }
 
     .home-hero-logo{
       display:flex;
       justify-content:center;
       align-items:center;
-      min-height:260px;
+      min-height:320px;
+    }
+
+    .home-hero-logo-wrap{
+      width:100%;
+      max-width:340px;
+      padding:20px;
+      border-radius:24px;
+      border:1px solid rgba(245,208,122,.30);
+      background:
+        radial-gradient(circle at center, rgba(245,208,122,.10), rgba(11,18,32,.15) 60%),
+        rgba(11,18,32,.45);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,.40),
+        inset 0 0 30px rgba(245,208,122,.08);
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
     .home-hero-logo img{
-      max-width:240px;
+      max-width:260px;
       width:100%;
       height:auto;
       object-fit:contain;
       display:block;
-      filter:drop-shadow(0 18px 28px rgba(0,0,0,.35));
+      filter:
+        drop-shadow(0 8px 20px rgba(0,0,0,.45))
+        drop-shadow(0 0 18px rgba(245,208,122,.12));
     }
 
     .cta-row{
@@ -58,19 +81,21 @@
 
     .feature-card{
       padding:18px;
-      border:1px solid rgba(245,208,122,.18);
+      border:1px solid rgba(245,208,122,.22);
       border-radius:18px;
-      background:rgba(11,18,32,.35);
+      background:linear-gradient(180deg, rgba(15,23,42,.72), rgba(11,18,32,.58));
+      box-shadow:0 10px 22px rgba(0,0,0,.22);
     }
 
     .feature-card h3{
       color:var(--gold);
       margin-bottom:8px;
       font-size:17px;
+      letter-spacing:.2px;
     }
 
     .feature-card p{
-      color:var(--muted);
+      color:#cfd4de;
       font-size:14px;
       line-height:1.55;
       margin-bottom:12px;
@@ -84,19 +109,21 @@
 
     .tier-card{
       padding:20px;
-      border:1px solid rgba(245,208,122,.22);
+      border:1px solid rgba(245,208,122,.25);
       border-radius:18px;
-      background:rgba(15,23,42,.45);
+      background:linear-gradient(180deg, rgba(15,23,42,.78), rgba(11,18,32,.62));
+      box-shadow:0 12px 24px rgba(0,0,0,.24);
     }
 
     .tier-card h3{
       color:var(--gold);
       margin-bottom:8px;
-      font-size:20px;
+      font-size:21px;
+      letter-spacing:.2px;
     }
 
     .tier-card p{
-      color:var(--muted);
+      color:#d2d7e1;
       margin-bottom:12px;
       font-size:14px;
       line-height:1.55;
@@ -105,6 +132,7 @@
     .tier-card ul{
       padding-left:18px;
       margin-bottom:14px;
+      color:#eef1f7;
     }
 
     .tier-card li{
@@ -113,8 +141,14 @@
 
     .small-note{
       font-size:12px;
-      color:var(--muted);
+      color:#b6bdc9;
       margin-top:8px;
+    }
+
+    .gold-subhead{
+      color:var(--gold);
+      font-weight:700;
+      letter-spacing:.3px;
     }
 
     @media (max-width: 900px){
@@ -122,6 +156,10 @@
       .feature-grid,
       .tiers{
         grid-template-columns:1fr;
+      }
+
+      .home-hero-copy h1{
+        font-size:32px;
       }
     }
   </style>
@@ -135,7 +173,7 @@
           <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
         </div>
         <div class="brandText">
-          <b>Blackshield Institute</b>
+          <b style="color:var(--gold);">Blackshield Institute</b>
           <span>Institutional-grade learning systems &amp; publishing</span>
         </div>
       </div>
@@ -143,7 +181,7 @@
       <nav>
         <a class="navBtn gold" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
-        <a href="passages-series.html">PASSAGES</a>
+        <a class="navBtn" href="passages-series.html">PASSAGES</a>
         <a class="navBtn" href="curriculum.html">Curriculum</a>
         <a class="navBtn" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
@@ -153,13 +191,15 @@
 
   <main>
     <section class="hero">
-      <div class="card" style="padding:22px;">
+      <div class="card" style="padding:24px;">
         <div class="home-hero-grid">
           <div class="home-hero-copy">
-            <h1>Blackshield Institute</h1>
+            <div class="gold-subhead">BLACKSHIELD INSTITUTE</div>
+            <h1>Structured learning. Institutional order. Blackshield standards.</h1>
             <p>
-              Premium institutional learning assets built for clarity, discipline, structure, and real-world readiness.
-              Explore PASSAGES, curriculum pathways, flagship programs, and direct digital products through a clean Blackshield system.
+              Blackshield Institute delivers premium educational assets, children’s book systems,
+              curriculum pathways, and flagship development programs built for clarity, discipline,
+              and real-world readiness.
             </p>
 
             <div class="cta-row">
@@ -169,12 +209,14 @@
             </div>
 
             <div class="small-note">
-              Replace Stripe placeholder links later with your live payment links.
+              This homepage is now structured for growth. Stripe links and advanced product sections can be layered in without breaking the foundation.
             </div>
           </div>
 
           <div class="home-hero-logo">
-            <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
+            <div class="home-hero-logo-wrap">
+              <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
+            </div>
           </div>
         </div>
       </div>
@@ -182,15 +224,16 @@
 
     <section class="section">
       <div class="section-title">
-        <h2>Core Product Lines</h2>
-        <div class="hint">Blackshield flagship offerings</div>
+        <h2 style="color:var(--gold);">Core Blackshield Lines</h2>
+        <div class="hint">Foundational Institute offerings</div>
       </div>
 
       <div class="feature-grid">
         <div class="feature-card">
           <h3>PASSAGES Series</h3>
           <p>
-            A children’s development and safety book line focused on memory, trust, boundaries, growth, and practical life knowledge.
+            A structured children’s book series focused on memory, trust, boundaries, growth,
+            safety, and practical life knowledge.
           </p>
           <a class="btn primary" href="passages-series.html">Open PASSAGES</a>
         </div>
@@ -198,7 +241,7 @@
         <div class="feature-card">
           <h3>Curriculum Systems</h3>
           <p>
-            Structured educational pathways, digital learning systems, and membership access built for layered institutional delivery.
+            Digital educational pathways, premium institute learning assets, and structured member access for deeper implementation.
           </p>
           <a class="btn primary" href="curriculum.html">Open Curriculum</a>
         </div>
@@ -206,7 +249,7 @@
         <div class="feature-card">
           <h3>Diamond in the Rough</h3>
           <p>
-            Featured Blackshield transformation program positioned as a flagship intellectual property and development offering.
+            A featured Blackshield development program positioned as a flagship transformation and leadership property.
           </p>
           <a class="btn primary" href="diamond-in-the-rough.html">View Program</a>
         </div>
@@ -215,20 +258,20 @@
 
     <section class="section">
       <div class="section-title">
-        <h2>Membership Access</h2>
-        <div class="hint">Tier structure with Stripe placeholder links</div>
+        <h2 style="color:var(--gold);">Membership Access</h2>
+        <div class="hint">Tier structure ready for Stripe links</div>
       </div>
 
       <div class="tiers">
         <div class="tier-card">
           <h3>Tier I</h3>
           <p>
-            Entry-level access for foundational resources, selected digital products, and introductory Blackshield materials.
+            Foundational access for supporters, families, and learners entering the Blackshield system.
           </p>
           <ul>
-            <li>Foundational educational access</li>
+            <li>Foundational digital access</li>
             <li>Selected PASSAGES support materials</li>
-            <li>Introductory Institute resources</li>
+            <li>Entry-level institute resources</li>
           </ul>
           <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_1" target="_blank" rel="noopener">Subscribe Tier I</a>
         </div>
@@ -236,12 +279,12 @@
         <div class="tier-card">
           <h3>Tier II</h3>
           <p>
-            Premium access for expanded curriculum, deeper products, advanced content, and priority Blackshield releases.
+            Premium access for expanded curriculum, advanced product pathways, and deeper Institute offerings.
           </p>
           <ul>
             <li>Expanded curriculum access</li>
             <li>Premium educational tools</li>
-            <li>Priority release access</li>
+            <li>Priority access to major releases</li>
           </ul>
           <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_2" target="_blank" rel="noopener">Subscribe Tier II</a>
         </div>
@@ -250,8 +293,8 @@
 
     <section class="section" id="passages-home">
       <div class="section-title">
-        <h2>Featured PASSAGES Books</h2>
-        <div class="hint">Grid loads from assets/images/passages/</div>
+        <h2 style="color:var(--gold);">Featured PASSAGES Books</h2>
+        <div class="hint">Series preview</div>
       </div>
 
       <div id="passagesMount"></div>
