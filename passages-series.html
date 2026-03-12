@@ -157,54 +157,54 @@
   <footer>© <span id="yr"></span> Blackshield Institute</footer>
 
   <script>
-    const PASSAGES = [
-      ["01","My Parents Phone Number","Children practice remembering and safely using important phone numbers for real-world confidence and readiness."],
-      ["02","My Parents Names","A foundational title that teaches children to clearly know and communicate caregiver names when needed."],
-      ["03","My Parents Address","Builds memory, location awareness, and practical recall through a direct lesson on home address knowledge."],
-      ["04","Who Can I Trust","Introduces trusted adults, safe judgment, and clear boundaries in a child-friendly format."],
-      ["05","Im Lost Find a Cop","Teaches what to do when separated, how to stay calm, and how to seek safe authority help."],
-      ["06","I'm a Big Boy Now","Supports growing responsibility, self-control, maturity, and confidence in young boys."],
-      ["07","I'm a Big Girl Now","Supports growing responsibility, self-respect, maturity, and healthy development in young girls."],
-      ["08","The Power in the Know","Positions knowledge as power through awareness, safety, and age-appropriate confidence building."],
-      ["09","What It Means to Grow Up","Introduces growth, change, and maturity in a practical and child-centered way."],
-      ["10","Teen Years and the Brain","Explains development, choices, and mental growth through a clear youth-focused lens."],
-      ["11","My Boundaries My Limits","Teaches limits, personal boundaries, and self-protection in direct, readable language."],
-      ["12","Relationship and Consent","Introduces respect, accountability, and consent in a structured youth-appropriate format."]
-    ];
+  const PASSAGES = [
+    ["01","My Parents Phone Number","Children practice remembering and safely using important phone numbers for real-world confidence and readiness."],
+    ["02","My Parents Names","A foundational title that teaches children to clearly know and communicate caregiver names when needed."],
+    ["03","My Parents Address","Builds memory, location awareness, and practical recall through a direct lesson on home address knowledge."],
+    ["04","Who Can I Trust","Introduces trusted adults, safe judgment, and clear boundaries in a child-friendly format."],
+    ["05","Im Lost Find a Cop","Teaches what to do when separated, how to stay calm, and how to seek safe authority help."],
+    ["06","I'm a Big Boy Now","Supports growing responsibility, self-control, maturity, and confidence in young boys."],
+    ["07","I'm a Big Girl Now","Supports growing responsibility, self-respect, maturity, and healthy development in young girls."],
+    ["08","The Power in the Know","Positions knowledge as power through awareness, safety, and age-appropriate confidence building."],
+    ["09","What It Means to Grow Up","Introduces growth, change, and maturity in a practical and child-centered way."],
+    ["10","Teen Years and the Brain","Explains development, choices, and mental growth through a clear youth-focused lens."],
+    ["11","My Boundaries My Limits","Teaches limits, personal boundaries, and self-protection in direct, readable language."],
+    ["12","Relationship and Consent","Introduces respect, accountability, and consent in a structured youth-appropriate format."]
+  ];
 
-    const grid = document.getElementById("passagesGrid");
+  const grid = document.getElementById("passagesGrid");
 
-    PASSAGES.forEach(([num,title,desc]) => {
-      const card = document.createElement("div");
-      card.className = "book";
+  PASSAGES.forEach(([num,title,desc]) => {
+    const card = document.createElement("div");
+    card.className = "book";
 
-      const img = document.createElement("img");
-      img.src = `passages-${num}.png`;
-      img.alt = title;
-      img.onerror = () => {
-        img.classList.add("missing");
-        img.title = `Missing file: passages-${num}.png`;
-      };
+    const img = document.createElement("img");
+    img.src = `passages-${num}.png`;
+    img.alt = title;
+    img.onerror = () => {
+      img.classList.add("missing");
+      img.title = `Missing file: passages-${num}.png`;
+    };
 
-      const meta = document.createElement("div");
-      meta.className = "bookMeta";
+    const meta = document.createElement("div");
+    meta.className = "bookMeta";
 
-      meta.innerHTML = `
-        <div class="num">Book ${num}</div>
-        <div class="title">${title}</div>
-        <div class="desc">${desc}</div>
-        <div class="actions">
-          <a class="btn primary" href="passages.html?b=${num}">View</a>
-          <a class="btn" href="downloads/passages/passages-${num}.pdf" target="_blank" rel="noopener">PDF</a>
-        </div>
-      `;
+    meta.innerHTML = `
+      <div class="num">Book ${num}</div>
+      <div class="title">${title}</div>
+      <div class="desc">${desc}</div>
+      <div class="actions">
+        <a class="btn primary" href="passages.html?b=${num}">View</a>
+        <a class="btn" href="downloads/passages/passages-${num}.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    `;
 
-      card.appendChild(img);
-      card.appendChild(meta);
-      grid.appendChild(card);
-    });
+    card.appendChild(img);
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
 
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
