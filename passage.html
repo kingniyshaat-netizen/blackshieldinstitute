@@ -194,6 +194,7 @@
       document.getElementById("bookMeta").textContent = `Blackshield Institute • PASSAGES Series • Book ${bookNum}`;
       document.getElementById("bookSynopsis").textContent = book.synopsis;
 
+      // ROOT IMAGE PATH FOR YOUR CURRENT REPO SETUP
       const coverPath = `passages-${bookNum}.png`;
       const pdfPath = `downloads/passages/passages-${bookNum}.pdf`;
 
@@ -207,7 +208,7 @@
         coverWrap.innerHTML = `
           <div class="missing-cover">
             Cover missing for Book ${bookNum}.<br>
-            Expected file: assets/images/passages/passages-${bookNum}.png
+            Expected file: passages-${bookNum}.png
           </div>
         `;
       };
