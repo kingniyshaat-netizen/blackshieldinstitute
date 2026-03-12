@@ -21,7 +21,7 @@ const PASSAGES = [
 
 // Paths (keep these consistent with your repo structure)
 function coverPath(n) {
-  return `assets/images/passages/passages-${n}.png`;
+  return `passages-${n}.png`;
 }
 function pdfPath(n) {
   return `downloads/passages-${n}.pdf`;
