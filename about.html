@@ -8,9 +8,11 @@
 </head>
 <body>
   <header>
-    <div class="wrap header-inner">
+    <div class="header-inner">
       <div class="brand">
-        <img src="assets/images/shield.png" alt="Shield" onerror="this.style.display='none'"/>
+        <div class="logoWrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
+        </div>
         <div class="brandText">
           <b>Blackshield Institute</b>
           <span>About</span>
@@ -20,50 +22,43 @@
       <nav>
         <a class="navBtn" href="index.html">Home</a>
         <a class="navBtn" href="catalog.html">Catalog</a>
-        <a class="navBtn" href="passages.html">PASSAGES</a>
+        <a class="navBtn" href="passages-series.html">PASSAGES</a>
+        <a class="navBtn" href="curriculum.html">Curriculum</a>
         <a class="navBtn gold" href="about.html">About</a>
         <a class="navBtn" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main>
     <section class="hero">
-      <div class="card" style="padding:18px;">
-        <h1 style="font-size:22px;">About Blackshield Institute</h1>
-        <p style="color:var(--muted);margin-top:6px;">
-          Blackshield Institute publishes disciplined, institutional-grade learning systems and youth educational assets.
-          This page is your authority page—mission, standards, and what the Institute stands for.
+      <div class="card" style="padding:24px;">
+        <h1 style="color:var(--gold); margin-bottom:12px;">About Blackshield Institute</h1>
+        <p style="color:var(--muted); line-height:1.7; max-width:70ch;">
+          Blackshield Institute develops structured educational products, premium publications,
+          children’s series, curriculum systems, and institutional-grade learning assets designed
+          for clarity, discipline, and real-world usefulness.
         </p>
-
-        <div style="margin-top:14px; display:grid; gap:10px;">
-          <div class="card" style="padding:14px; background: rgba(11,18,32,.35); border:1px solid rgba(255,255,255,.06);">
-            <b style="color:var(--gold); letter-spacing:.3px;">Mission</b>
-            <div style="color:var(--muted); font-size:13px; margin-top:6px;">
-              Build legacy-driven educational products with clarity, structure, and real-world readiness.
-            </div>
-          </div>
-
-          <div class="card" style="padding:14px; background: rgba(11,18,32,.35); border:1px solid rgba(255,255,255,.06);">
-            <b style="color:var(--gold); letter-spacing:.3px;">Standards</b>
-            <div style="color:var(--muted); font-size:13px; margin-top:6px;">
-              Consistency • Authority • Clean Deployment • No placeholders • No broken links.
-            </div>
-          </div>
-
-          <div class="card" style="padding:14px; background: rgba(11,18,32,.35); border:1px solid rgba(255,255,255,.06);">
-            <b style="color:var(--gold); letter-spacing:.3px;">Products</b>
-            <div style="color:var(--muted); font-size:13px; margin-top:6px;">
-              PASSAGES children’s series, digital curricula, publishing assets, and structured training systems.
-            </div>
-          </div>
-        </div>
-
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Institute Focus</h2>
+        <div class="hint">Publishing • Curriculum • Structured Development</div>
+      </div>
+
+      <p style="color:var(--muted); line-height:1.7; max-width:75ch;">
+        The Institute is built to deliver order, structure, and purposeful educational development.
+        Blackshield products are designed to move beyond surface content and into disciplined,
+        usable systems for readers, families, and learners.
+      </p>
     </section>
   </main>
 
   <footer>© <span id="yr"></span> Blackshield Institute</footer>
-  <script src="assets/js/site.js"></script>
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
