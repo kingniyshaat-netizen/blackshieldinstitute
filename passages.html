@@ -116,7 +116,7 @@
             </div>
 
             <div class="viewer-note">
-              If the PDF button opens a 404, that means the PDF has not been uploaded yet.
+              PDF sync is locked to <b>downloads/passages/passages-XX.pdf</b>. If a PDF 404s, that specific file is not uploaded yet.
             </div>
           </div>
         </div>
@@ -128,18 +128,54 @@
 
   <script>
     const PASSAGES = {
-      "01": { title: "My Parents Phone Number", synopsis: "A foundational PASSAGES title designed to help children remember and safely use important phone numbers. This book builds practical recall, confidence, and readiness for real-world situations." },
-      "02": { title: "My Parents Names", synopsis: "This title helps children clearly learn and remember the names of their parents or guardians. It reinforces identity, communication, and practical information every child should know." },
-      "03": { title: "My Parents Address", synopsis: "A practical early-learning title that teaches children how to remember their address and understand why location knowledge matters. It supports safety, memory, and real-world readiness." },
-      "04": { title: "Who Can I Trust", synopsis: "This book introduces the concept of trust, safe adults, and wise judgment in a child-friendly way. It helps young readers think carefully about who to go to when they need help." },
-      "05": { title: "Im Lost Find a Cop", synopsis: "A straightforward guide for children on what to do if they become lost. It teaches calm action, safe choices, and the importance of finding the right authority figure for help." },
-      "06": { title: "I'm a Big Boy Now", synopsis: "A growth-centered PASSAGES title that supports maturity, self-control, responsibility, and confidence. It helps young boys understand what growth should look like in practical daily life." },
-      "07": { title: "I'm a Big Girl Now", synopsis: "A development-focused title for girls that highlights growth, responsibility, self-respect, and confidence. It reinforces maturity and healthy self-awareness in a supportive format." },
-      "08": { title: "The Power in the Know", synopsis: "This title teaches that knowledge is power. It encourages awareness, understanding, and the confidence that comes from being informed and prepared." },
-      "09": { title: "What It Means to Grow Up", synopsis: "A practical introduction to maturity, life changes, and responsible development. This book helps readers think clearly about what growth should mean in real life." },
-      "10": { title: "Teen Years and the Brain", synopsis: "This title explores development, thinking, behavior, and the challenges of the teen years with a direct and understandable approach. It supports self-awareness and better choices." },
-      "11": { title: "My Boundaries My Limits", synopsis: "A clear guide to personal boundaries, self-protection, and respectful limits. It teaches readers the importance of knowing where they end and what they should protect." },
-      "12": { title: "Relationship and Consent", synopsis: "A structured title focused on respect, accountability, boundaries, and consent. It introduces relationship ethics in a serious, readable, and developmentally aware way." }
+      "01": {
+        title: "My Parents Phone Number",
+        synopsis: "A foundational PASSAGES title designed to help children remember and safely use important phone numbers. This book builds practical recall, confidence, and readiness for real-world situations."
+      },
+      "02": {
+        title: "My Parents Names",
+        synopsis: "This title helps children clearly learn and remember the names of their parents or guardians. It reinforces identity, communication, and practical information every child should know."
+      },
+      "03": {
+        title: "My Parents Address",
+        synopsis: "A practical early-learning title that teaches children how to remember their address and understand why location knowledge matters. It supports safety, memory, and real-world readiness."
+      },
+      "04": {
+        title: "Who Can I Trust",
+        synopsis: "This book introduces the concept of trust, safe adults, and wise judgment in a child-friendly way. It helps young readers think carefully about who to go to when they need help."
+      },
+      "05": {
+        title: "Im Lost Find a Cop",
+        synopsis: "A straightforward guide for children on what to do if they become lost. It teaches calm action, safe choices, and the importance of finding the right authority figure for help."
+      },
+      "06": {
+        title: "I'm a Big Boy Now",
+        synopsis: "A growth-centered PASSAGES title that supports maturity, self-control, responsibility, and confidence. It helps young boys understand what growth should look like in practical daily life."
+      },
+      "07": {
+        title: "I'm a Big Girl Now",
+        synopsis: "A development-focused title for girls that highlights growth, responsibility, self-respect, and confidence. It reinforces maturity and healthy self-awareness in a supportive format."
+      },
+      "08": {
+        title: "The Power in the Know",
+        synopsis: "This title teaches that knowledge is power. It encourages awareness, understanding, and the confidence that comes from being informed and prepared."
+      },
+      "09": {
+        title: "What It Means to Grow Up",
+        synopsis: "A practical introduction to maturity, life changes, and responsible development. This book helps readers think clearly about what growth should mean in real life."
+      },
+      "10": {
+        title: "Teen Years and the Brain",
+        synopsis: "This title explores development, thinking, behavior, and the challenges of the teen years with a direct and understandable approach. It supports self-awareness and better choices."
+      },
+      "11": {
+        title: "My Boundaries My Limits",
+        synopsis: "A clear guide to personal boundaries, self-protection, and respectful limits. It teaches readers the importance of knowing where they end and what they should protect."
+      },
+      "12": {
+        title: "Relationship and Consent",
+        synopsis: "A structured title focused on respect, accountability, boundaries, and consent. It introduces relationship ethics in a serious, readable, and developmentally aware way."
+      }
     };
 
     function getBookNumber() {
