@@ -70,6 +70,9 @@
             Names, phone numbers, address recall, trusted adults, what to do when lost,
             healthy growth, boundaries, and age-appropriate development.
           </p>
+          <p>
+            Use the <b>View</b> button to open the book page and the <b>PDF</b> button to open the deployed PDF directly.
+          </p>
         </div>
       </div>
     </section>
@@ -124,7 +127,9 @@
         <div class="title">${title}</div>
         <div class="desc">${desc}</div>
         <div class="actions">
+          <a class="btn primary" href="passages.html?b=${num}">View</a>
           <a class="btn" href="downloads/passages/passages-${num}.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
       `;
 
       card.appendChild(img);
