@@ -67,9 +67,9 @@ img{
 }
 
 .logo-wrap{
-  width:76px;
-  height:76px;
-  flex:0 0 76px;
+  width:88px;
+  height:88px;
+  flex:0 0 88px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -85,8 +85,8 @@ img{
 }
 
 .logo-wrap img{
-  width:64px;
-  height:64px;
+  width:74px;
+  height:74px;
   object-fit:contain;
   filter:
     drop-shadow(0 6px 16px rgba(0,0,0,.40))
@@ -156,8 +156,8 @@ img{
   padding:24px;
   margin-bottom:22px;
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:22px;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
   align-items:center;
 }
 
@@ -198,7 +198,7 @@ img{
 }
 
 .hero-copy h1{
-  font-size:38px;
+  font-size:42px;
 }
 
 .hero-copy{
@@ -225,10 +225,19 @@ img{
     inset 0 0 30px rgba(245,208,122,.08);
 }
 
+.hero-shield-frame-large{
+  max-width:480px;
+  padding:28px;
+}
+
 .hero-shield-frame img{
   max-width:260px;
   margin:0 auto;
   object-fit:contain;
+}
+
+.hero-shield-frame-large img{
+  max-width:360px;
 }
 
 .button-row{
@@ -495,5 +504,9 @@ img{
 
   .hero-copy h1{
     font-size:32px;
+  }
+
+  .hero-shield-frame-large img{
+    max-width:260px;
   }
 }
