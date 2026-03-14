@@ -1,3 +1,4 @@
+FILE: 404.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,19 @@
   <title>404 • Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body>
-  <main class="wrap" style="padding:40px 0;">
-    <div class="card" style="padding:18px;text-align:center;">
-      <h1 style="color:var(--gold);font-size:34px;">404</h1>
-      <p style="color:var(--muted);margin-top:6px;">That page doesn’t exist.</p>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
-        <a class="btn primary" href="index.html">Home</a>
-        <a class="btn" href="passages.html">PASSAGES</a>
-        <a class="btn" href="catalog.html">Catalog</a>
-      </div>
-    </div>
+<body data-page="404">
+  <main class="site-main">
+    <section class="section-panel center-panel">
+      <h1>404</h1>
+      <p>The page you requested could not be found.</p>
+      <a class="btn btn-primary" href="index.html">Return Home</a>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    © <span data-year></span> Blackshield Institute
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
