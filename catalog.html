@@ -1,3 +1,4 @@
+FILE: catalog.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,137 +6,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catalog • Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    .catalog-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .catalog-card{
-      padding:18px;
-      border:1px solid rgba(245,208,122,.18);
-      border-radius:18px;
-      background:rgba(11,18,32,.35);
-    }
-    .catalog-card h3{
-      color:var(--gold);
-      margin-bottom:8px;
-      font-size:18px;
-    }
-    .catalog-card p{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.5;
-      margin-bottom:12px;
-    }
-    @media (max-width: 900px){
-      .catalog-grid{ grid-template-columns:1fr; }
-    }
-  </style>
 </head>
-<body>
-  <header>
+<body data-page="catalog">
+  <header class="site-header">
     <div class="header-inner">
-      <div class="brand">
-        <div class="logoWrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute Shield" onerror="this.style.display='none';" />
-        </div>
-        <div class="brandText">
-          <b>Blackshield Institute</b>
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+        <span class="logo-wrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
+        </span>
+        <span class="brand-text">
+          <strong>Blackshield Institute</strong>
           <span>Catalog</span>
-        </div>
-      </div>
+        </span>
+      </a>
 
-      <nav>
-        <a class="navBtn" href="index.html">Home</a>
-        <a class="navBtn gold" href="catalog.html">Catalog</a>
-        <a class="navBtn" href="passages-series.html">PASSAGES</a>
-        <a class="navBtn" href="curriculum.html">Curriculum</a>
-        <a class="navBtn" href="about.html">About</a>
-        <a class="navBtn" href="contact.html">Contact</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link is-active" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="card" style="padding:20px;">
+  <main class="site-main">
+    <section class="section-panel">
+      <div class="section-heading">
         <h1>Catalog</h1>
-        <p>Browse Blackshield publications, curriculum products, membership access, and featured intellectual properties.</p>
-     <div class="product">
-
-<h3>Diamond in the Rough</h3>
-
-<p>
-Blackshield Institute leadership and discipline development program designed to transform raw potential into structured character and responsibility.
-</p>
-
-<a href="diamond-in-the-rough.html" class="btn primary">
-View Program
-</a>
-
-</div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <h2>Featured Catalog Categories</h2>
-        <div class="hint">Use this page as your commercial storefront</div>
+        <p>Browse Blackshield publications, curriculum products, and featured digital offerings.</p>
       </div>
 
-      <div class="catalog-grid">
-        <div class="catalog-card">
+      <div class="card-grid card-grid-3">
+        <article class="info-card">
           <h3>PASSAGES Series</h3>
-          <p>
-            Twelve-book children’s series focused on safety, identity, growth, and practical developmental knowledge.
-          </p>
-          <a class="btn primary" href="passages-series.html">View Series</a>
-        </div>
+          <p>Browse all PASSAGES titles and deployed PDFs.</p>
+          <a class="btn btn-primary" href="passages-series.html">Open Series</a>
+        </article>
 
-        <div class="catalog-card">
-          <h3>The Diamond in the Rough</h3>
-          <p>
-            Featured flagship Blackshield publication positioned as a premium title within the catalog.
-          </p>
-          <a class="btn primary" href="catalog.html">Featured Title</a>
-        </div>
+        <article class="info-card">
+          <h3>Diamond in the Rough</h3>
+          <p>Flagship Blackshield development title and feature program.</p>
+          <a class="btn btn-primary" href="diamond-in-the-rough.html">View Program</a>
+        </article>
 
-        <div class="catalog-card">
-          <h3>Curriculum Products</h3>
-          <p>
-            Structured institute learning systems, premium educational pathways, and member-tier access products.
-          </p>
-          <a class="btn primary" href="curriculum.html">View Curriculum</a>
-        </div>
-
-        <div class="catalog-card">
-          <h3>Tier I Membership</h3>
-          <p>
-            Foundational subscription access for entry-level supporters and learners.
-          </p>
-          <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_1" target="_blank" rel="noopener">Subscribe</a>
-        </div>
-
-        <div class="catalog-card">
-          <h3>Tier II Membership</h3>
-          <p>
-            Premium institute access for expanded curriculum, advanced resources, and deeper product access.
-          </p>
-          <a class="btn primary" href="https://buy.stripe.com/REPLACE_TIER_2" target="_blank" rel="noopener">Subscribe</a>
-        </div>
-
-        <div class="catalog-card">
+        <article class="info-card">
           <h3>Direct Digital Products</h3>
-          <p>
-            PDF publications, downloadable tools, and premium educational assets prepared for direct digital sale.
-          </p>
-          <a class="btn primary" href="contact.html">Inquire</a>
-        </div>
+          <p>For purchasing, licensing, bundle questions, and institution-ready deployment inquiries.</p>
+          <a class="btn btn-primary" href="contact.html#inquiry">Inquire</a>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="yr"></span> Blackshield Institute</footer>
-  <script src="assets/js/site.js"></script>
+  <footer class="site-footer">
+    © <span data-year></span> Blackshield Institute
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
