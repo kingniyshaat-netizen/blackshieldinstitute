@@ -1,0 +1,181 @@
+FILE: index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackshield Institute</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+        <span class="logo-wrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
+        </span>
+        <span class="brand-text">
+          <strong>Blackshield Institute</strong>
+          <span>Institutional-grade learning systems &amp; publishing</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link is-active" href="index.html">Home</a>
+        <a class="nav-link" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <div class="eyebrow">BLACKSHIELD INSTITUTE</div>
+        <h1>Structured learning. Institutional order. Blackshield standards.</h1>
+        <p>
+          Blackshield Institute delivers premium educational assets, children’s series,
+          curriculum systems, and flagship development properties built for clarity,
+          discipline, and real-world readiness.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="passages-series.html">Explore PASSAGES</a>
+          <a class="btn" href="curriculum.html">View Curriculum</a>
+          <a class="btn" href="catalog.html">Browse Catalog</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="hero-shield-frame">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield emblem" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Core Blackshield Lines</h2>
+        <p>Foundational Institute offerings</p>
+      </div>
+
+      <div class="card-grid card-grid-3">
+        <article class="info-card">
+          <h3>PASSAGES Series</h3>
+          <p>
+            A structured children’s series focused on memory, trust, boundaries,
+            safety, growth, and practical life knowledge.
+          </p>
+          <a class="btn btn-primary" href="passages-series.html">Open PASSAGES</a>
+        </article>
+
+        <article class="info-card">
+          <h3>Curriculum Systems</h3>
+          <p>
+            Layered educational pathways, digital learning architecture, and
+            institutional content systems built for implementation.
+          </p>
+          <a class="btn btn-primary" href="curriculum.html">Open Curriculum</a>
+        </article>
+
+        <article class="info-card">
+          <img class="feature-cover" src="assets/images/diamond-in-the-rough.png" alt="The Diamond in the Rough cover" />
+          <h3>Diamond in the Rough</h3>
+          <p>
+            A flagship Blackshield development property centered on pressure,
+            structure, endurance, and refinement.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="diamond-in-the-rough.html">View Program</a>
+            <a class="btn" href="catalog.html">View Institute Programs</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Membership Access</h2>
+        <p>Inquiry-based routing until final payment deployment is intentionally connected</p>
+      </div>
+
+      <div class="card-grid card-grid-2">
+        <article class="info-card">
+          <h3>Tier I</h3>
+          <p>
+            Foundational Institute access for families, learners, and supporters entering the Blackshield system.
+          </p>
+          <ul class="feature-list">
+            <li>Foundational digital access</li>
+            <li>Selected support materials</li>
+            <li>Entry-level Institute resources</li>
+          </ul>
+          <a class="btn btn-primary" href="contact.html#membership">Subscribe Tier I</a>
+        </article>
+
+        <article class="info-card">
+          <h3>Tier II</h3>
+          <p>
+            Expanded Institute access for deeper curriculum, premium releases, and advanced implementation pathways.
+          </p>
+          <ul class="feature-list">
+            <li>Expanded curriculum access</li>
+            <li>Premium educational tools</li>
+            <li>Priority release inquiry</li>
+          </ul>
+          <a class="btn btn-primary" href="contact.html#membership">Subscribe Tier II</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Featured PASSAGES Books</h2>
+        <p>Series preview</p>
+      </div>
+
+      <div class="preview-grid">
+        <a class="preview-card" href="passages.html?b=01">
+          <img src="assets/images/passages/passages-01.png" alt="PASSAGES 01 cover" />
+          <div class="preview-meta">
+            <div class="preview-num">Book 01</div>
+            <div class="preview-title">My Parents Phone Number</div>
+          </div>
+        </a>
+
+        <a class="preview-card" href="passages.html?b=02">
+          <img src="assets/images/passages/passages-02.png" alt="PASSAGES 02 cover" />
+          <div class="preview-meta">
+            <div class="preview-num">Book 02</div>
+            <div class="preview-title">My Parents Names</div>
+          </div>
+        </a>
+
+        <a class="preview-card" href="passages.html?b=03">
+          <img src="assets/images/passages/passages-03.png" alt="PASSAGES 03 cover" />
+          <div class="preview-meta">
+            <div class="preview-num">Book 03</div>
+            <div class="preview-title">My Parents Address</div>
+          </div>
+        </a>
+
+        <a class="preview-card" href="passages-series.html">
+          <img src="assets/images/passages/passages-04.png" alt="PASSAGES series preview cover" />
+          <div class="preview-meta">
+            <div class="preview-num">Series</div>
+            <div class="preview-title">View All PASSAGES Books</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span data-year></span> Blackshield Institute
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
