@@ -1,3 +1,4 @@
+FILE: contact.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,78 +7,57 @@
   <title>Contact • Blackshield Institute</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body>
-  <header>
-    <div class="wrap header-inner">
-      <div class="brand">
-        <img src="assets/images/shield.png" alt="Shield" onerror="this.style.display='none'"/>
-        <div class="brandText">
-          <b>Blackshield Institute</b>
+<body data-page="contact">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+        <span class="logo-wrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
+        </span>
+        <span class="brand-text">
+          <strong>Blackshield Institute</strong>
           <span>Contact</span>
-        </div>
-      </div>
+        </span>
+      </a>
 
-      <nav>
-        <a class="navBtn" href="index.html">Home</a>
-        <a class="navBtn" href="catalog.html">Catalog</a>
-        <a class="navBtn" href="passages.html">PASSAGES</a>
-        <a class="navBtn" href="about.html">About</a>
-        <a class="navBtn gold" href="contact.html">Contact</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link is-active" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="card" style="padding:18px;">
-        <h1 style="font-size:22px;">Contact</h1>
-        <p style="color:var(--muted);margin-top:6px;">
-          Use the form below for inquiries, licensing, partnerships, and support.
-        </p>
+  <main class="site-main">
+    <section class="section-panel" id="inquiry">
+      <div class="section-heading">
+        <h1>Contact Blackshield Institute</h1>
+        <p>Use the direct actions below for inquiries, memberships, and product requests.</p>
+      </div>
 
-        <!-- Simple contact form (static HTML only) -->
-        <form style="margin-top:14px; display:grid; gap:10px;">
-          <div>
-            <label style="font-size:12px; color:var(--muted);">Name</label>
-            <input type="text" name="name" placeholder="Your name"
-                   style="width:100%; margin-top:6px; padding:12px; border-radius:12px;
-                          border:1px solid rgba(255,255,255,.10);
-                          background: rgba(11,18,32,.35); color: var(--text);" />
-          </div>
+      <div class="card-grid card-grid-2">
+        <article class="info-card">
+          <h3>General Inquiry</h3>
+          <p>Questions about products, orders, digital access, or Institute offerings.</p>
+          <a class="btn btn-primary" href="mailto:contact@blackshieldinstitute.org?subject=Blackshield%20Institute%20Inquiry">Email Inquiry</a>
+        </article>
 
-          <div>
-            <label style="font-size:12px; color:var(--muted);">Email</label>
-            <input type="email" name="email" placeholder="you@email.com"
-                   style="width:100%; margin-top:6px; padding:12px; border-radius:12px;
-                          border:1px solid rgba(255,255,255,.10);
-                          background: rgba(11,18,32,.35); color: var(--text);" />
-          </div>
-
-          <div>
-            <label style="font-size:12px; color:var(--muted);">Message</label>
-            <textarea name="message" rows="5" placeholder="Tell us what you need…"
-                      style="width:100%; margin-top:6px; padding:12px; border-radius:12px;
-                             border:1px solid rgba(255,255,255,.10);
-                             background: rgba(11,18,32,.35); color: var(--text);"></textarea>
-          </div>
-
-          <!-- NOTE: This button won't send anywhere without a backend -->
-          <button type="button" class="btn primary"
-                  style="cursor:pointer; border-radius:14px; padding:12px 14px;">
-            Send Message
-          </button>
-
-          <div style="font-size:12px; color:var(--muted);">
-            This site is currently static (GitHub Pages). To make the form send email, you’ll need a service like
-            Formspree or a simple server endpoint later.
-          </div>
-        </form>
+        <article class="info-card" id="membership">
+          <h3>Membership Inquiry</h3>
+          <p>Use this route for Tier I, Tier II, and access-related questions until final payment deployment is complete.</p>
+          <a class="btn btn-primary" href="mailto:contact@blackshieldinstitute.org?subject=Blackshield%20Membership%20Inquiry">Email Membership Desk</a>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="yr"></span> Blackshield Institute</footer>
-  <script src="assets/js/site.js"></script>
+  <footer class="site-footer">
+    © <span data-year></span> Blackshield Institute
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
-
