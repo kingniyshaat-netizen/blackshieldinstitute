@@ -1,0 +1,134 @@
+{
+  "categories": [
+    {
+      "slug": "puzzles",
+      "title": "Puzzle Lab",
+      "description": "Educational puzzle challenges and visual problem-solving environments.",
+      "index": "interactive/puzzles/index.html",
+      "tools": [
+        {
+          "slug": "animal-jigsaw",
+          "title": "Animal Jigsaw",
+          "description": "A visual puzzle challenge designed to train spatial recognition.",
+          "path": "interactive/puzzles/animal-jigsaw.html"
+        },
+        {
+          "slug": "pattern-builder",
+          "title": "Pattern Builder",
+          "description": "Recreate visual patterns to strengthen logical thinking.",
+          "path": "interactive/puzzles/pattern-builder.html"
+        },
+        {
+          "slug": "memory-grid",
+          "title": "Memory Grid",
+          "description": "Memorize and reconstruct grid patterns under pressure.",
+          "path": "interactive/puzzles/memory-grid.html"
+        }
+      ]
+    },
+    {
+      "slug": "beat-machines",
+      "title": "Beat Machines",
+      "description": "Interactive rhythm tools and drum machines for musical exploration.",
+      "index": "interactive/beat-machines/index.html",
+      "tools": [
+        {
+          "slug": "baby-drum-machine",
+          "title": "Baby Drum Machine",
+          "description": "A beginner-friendly rhythm machine for early beat learning.",
+          "path": "interactive/beat-machines/baby-drum-machine.html"
+        },
+        {
+          "slug": "rhythm-builder",
+          "title": "Rhythm Builder",
+          "description": "Create layered rhythms using different sound channels.",
+          "path": "interactive/beat-machines/rhythm-builder.html"
+        },
+        {
+          "slug": "beat-grid",
+          "title": "Beat Grid Studio",
+          "description": "Experiment with timing patterns and rhythmic sequences.",
+          "path": "interactive/beat-machines/beat-grid.html"
+        }
+      ]
+    },
+    {
+      "slug": "rhythm-games",
+      "title": "Rhythm Games",
+      "description": "Timing games designed around rhythm and coordination.",
+      "index": "interactive/rhythm-games/index.html",
+      "tools": [
+        {
+          "slug": "planet-rock",
+          "title": "Planet Rock Rhythm",
+          "description": "A timing game where players match beats and rhythm sequences.",
+          "path": "interactive/rhythm-games/planet-rock.html"
+        },
+        {
+          "slug": "beat-match",
+          "title": "Beat Match Challenge",
+          "description": "Listen to the rhythm and match the pattern before time runs out.",
+          "path": "interactive/rhythm-games/beat-match.html"
+        },
+        {
+          "slug": "tempo-runner",
+          "title": "Tempo Runner",
+          "description": "Stay in tempo as speed increases and rhythm patterns change.",
+          "path": "interactive/rhythm-games/tempo-runner.html"
+        }
+      ]
+    },
+    {
+      "slug": "memory-games",
+      "title": "Memory Games",
+      "description": "Cognitive memory challenges and pattern recognition systems.",
+      "index": "interactive/memory-games/index.html",
+      "tools": [
+        {
+          "slug": "memory-match",
+          "title": "Memory Match",
+          "description": "Flip cards and find matching pairs before the timer runs out.",
+          "path": "interactive/memory-games/memory-match.html"
+        },
+        {
+          "slug": "flash-recall",
+          "title": "Flash Recall",
+          "description": "Memorize visual patterns and reproduce them from memory.",
+          "path": "interactive/memory-games/flash-recall.html"
+        },
+        {
+          "slug": "sequence-builder",
+          "title": "Sequence Builder",
+          "description": "Remember and repeat increasingly complex sequences.",
+          "path": "interactive/memory-games/sequence-builder.html"
+        }
+      ]
+    },
+    {
+      "slug": "experiments",
+      "title": "Experimental Lab",
+      "description": "Prototype tools, experimental learning environments, and new digital systems.",
+      "index": "interactive/experiments/index.html",
+      "tools": [
+        {
+          "slug": "prototype-game",
+          "title": "Prototype Game Lab",
+          "description": "Early-stage game environments and concept builds.",
+          "path": "interactive/experiments/prototype-game.html"
+        },
+        {
+          "slug": "ai-learning",
+          "title": "AI Learning Tools",
+          "description": "Experimental educational tools powered by AI interaction.",
+          "path": "interactive/experiments/ai-learning.html"
+        },
+        {
+          "slug": "creative-sandbox",
+          "title": "Creative Sandbox",
+          "description": "Open-ended digital tools for exploration and experimentation.",
+          "path": "interactive/experiments/creative-sandbox.html"
+        }
+      ]
+    }
+  ]
+}
