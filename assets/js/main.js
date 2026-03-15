@@ -1,53 +1,65 @@
-const PASSAGES_BOOKS = {
-  "01": {
+const PASSAGES_BOOKS = [
+  {
+    num: "01",
     title: "My Parents Phone Number",
     synopsis: "A foundational PASSAGES title designed to help children remember and safely use important phone numbers. This book builds practical recall, confidence, and readiness for real-world situations."
   },
-  "02": {
+  {
+    num: "02",
     title: "My Parents Names",
     synopsis: "This title helps children clearly learn and remember the names of their parents or guardians. It reinforces identity, communication, and practical information every child should know."
   },
-  "03": {
+  {
+    num: "03",
     title: "My Parents Address",
     synopsis: "A practical early-learning title that teaches children how to remember their address and understand why location knowledge matters. It supports safety, memory, and real-world readiness."
   },
-  "04": {
+  {
+    num: "04",
     title: "Who Can I Trust",
     synopsis: "This book introduces the concept of trust, safe adults, and wise judgment in a child-friendly way. It helps young readers think carefully about who to go to when they need help."
   },
-  "05": {
+  {
+    num: "05",
     title: "Im Lost Find a Cop",
     synopsis: "A straightforward guide for children on what to do if they become lost. It teaches calm action, safe choices, and the importance of finding the right authority figure for help."
   },
-  "06": {
+  {
+    num: "06",
     title: "I'm a Big Boy Now",
     synopsis: "A growth-centered PASSAGES title that supports maturity, self-control, responsibility, and confidence. It helps young boys understand what growth should look like in practical daily life."
   },
-  "07": {
+  {
+    num: "07",
     title: "I'm a Big Girl Now",
     synopsis: "A development-focused title for girls that highlights growth, responsibility, self-respect, and confidence. It reinforces maturity and healthy self-awareness in a supportive format."
   },
-  "08": {
+  {
+    num: "08",
     title: "The Power in the Know",
     synopsis: "This title teaches that knowledge is power. It encourages awareness, understanding, and the confidence that comes from being informed and prepared."
   },
-  "09": {
+  {
+    num: "09",
     title: "What It Means to Grow Up",
     synopsis: "A practical introduction to maturity, life changes, and responsible development. This book helps readers think clearly about what growth should mean in real life."
   },
-  "10": {
+  {
+    num: "10",
     title: "Teen Years and the Brain",
     synopsis: "This title explores development, thinking, behavior, and the challenges of the teen years with a direct and understandable approach. It supports self-awareness and better choices."
   },
-  "11": {
+  {
+    num: "11",
     title: "My Boundaries My Limits",
     synopsis: "A clear guide to personal boundaries, self-protection, and respectful limits. It teaches readers the importance of knowing where they end and what they should protect."
   },
-  "12": {
+  {
+    num: "12",
     title: "Relationship and Consent",
     synopsis: "A structured title focused on respect, accountability, boundaries, and consent. It introduces relationship ethics in a serious, readable, and developmentally aware way."
   }
-};
+];
 
 function setYear() {
   document.querySelectorAll("[data-year]").forEach((node) => {
@@ -59,19 +71,21 @@ function createPassagesGrid() {
   const mount = document.getElementById("passages-grid");
   if (!mount) return;
 
-  Object.entries(PASSAGES_BOOKS).forEach(([num, book]) => {
+  mount.innerHTML = "";
+
+  PASSAGES_BOOKS.forEach((book) => {
     const card = document.createElement("article");
     card.className = "passages-card";
 
     card.innerHTML = `
-      <img src="assets/images/passages/passages-${num}.png" alt="PASSAGES ${num} cover">
+      <img src="assets/images/passages/passages-${book.num}.png" alt="PASSAGES ${book.num} cover">
       <div class="passages-meta">
-        <div class="passages-num">Book ${num}</div>
+        <div class="passages-num">Book ${book.num}</div>
         <div class="passages-title">${book.title}</div>
         <div class="passages-desc">${book.synopsis}</div>
         <div class="button-row">
-          <a class="btn btn-primary" href="passages.html?b=${num}">View</a>
-          <a class="btn" href="downloads/passages/passages-${num}.pdf" target="_blank" rel="noopener">PDF</a>
+          <a class="btn btn-primary" href="passages.html?b=${book.num}">View</a>
+          <a class="btn" href="downloads/passages/passages-${book.num}.pdf" target="_blank" rel="noopener">PDF</a>
         </div>
       </div>
     `;
@@ -79,7 +93,7 @@ function createPassagesGrid() {
     const img = card.querySelector("img");
     img.addEventListener("error", () => {
       img.style.opacity = ".18";
-      img.title = `Missing file: assets/images/passages/passages-${num}.png`;
+      img.title = `Missing file: assets/images/passages/passages-${book.num}.png`;
     });
 
     mount.appendChild(card);
@@ -90,7 +104,10 @@ function getBookNumber() {
   const params = new URLSearchParams(window.location.search);
   let bookNum = params.get("b") || "01";
   if (bookNum.length === 1) bookNum = `0${bookNum}`;
-  if (!PASSAGES_BOOKS[bookNum]) bookNum = "01";
+
+  const exists = PASSAGES_BOOKS.some((book) => book.num === bookNum);
+  if (!exists) return "01";
+
   return bookNum;
 }
 
@@ -99,7 +116,10 @@ function createPassagesViewer() {
   if (!mount) return;
 
   const bookNum = getBookNumber();
-  const book = PASSAGES_BOOKS[bookNum];
+  const book = PASSAGES_BOOKS.find((item) => item.num === bookNum);
+
+  if (!book) return;
+
   const coverPath = `assets/images/passages/passages-${bookNum}.png`;
   const pdfPath = `downloads/passages/passages-${bookNum}.pdf`;
 
