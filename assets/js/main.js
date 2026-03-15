@@ -1,162 +1,84 @@
-const PASSAGES_BOOKS = [
-  {
-    num: "01",
-    title: "My Parents Phone Number",
-    synopsis: "A foundational PASSAGES title designed to help children remember and safely use important phone numbers. This book builds practical recall, confidence, and readiness for real-world situations."
-  },
-  {
-    num: "02",
-    title: "My Parents Names",
-    synopsis: "This title helps children clearly learn and remember the names of their parents or guardians. It reinforces identity, communication, and practical information every child should know."
-  },
-  {
-    num: "03",
-    title: "My Parents Address",
-    synopsis: "A practical early-learning title that teaches children how to remember their address and understand why location knowledge matters. It supports safety, memory, and real-world readiness."
-  },
-  {
-    num: "04",
-    title: "Who Can I Trust",
-    synopsis: "This book introduces the concept of trust, safe adults, and wise judgment in a child-friendly way. It helps young readers think carefully about who to go to when they need help."
-  },
-  {
-    num: "05",
-    title: "Im Lost Find a Cop",
-    synopsis: "A straightforward guide for children on what to do if they become lost. It teaches calm action, safe choices, and the importance of finding the right authority figure for help."
-  },
-  {
-    num: "06",
-    title: "I'm a Big Boy Now",
-    synopsis: "A growth-centered PASSAGES title that supports maturity, self-control, responsibility, and confidence. It helps young boys understand what growth should look like in practical daily life."
-  },
-  {
-    num: "07",
-    title: "I'm a Big Girl Now",
-    synopsis: "A development-focused title for girls that highlights growth, responsibility, self-respect, and confidence. It reinforces maturity and healthy self-awareness in a supportive format."
-  },
-  {
-    num: "08",
-    title: "The Power in the Know",
-    synopsis: "This title teaches that knowledge is power. It encourages awareness, understanding, and the confidence that comes from being informed and prepared."
-  },
-  {
-    num: "09",
-    title: "What It Means to Grow Up",
-    synopsis: "A practical introduction to maturity, life changes, and responsible development. This book helps readers think clearly about what growth should mean in real life."
-  },
-  {
-    num: "10",
-    title: "Teen Years and the Brain",
-    synopsis: "This title explores development, thinking, behavior, and the challenges of the teen years with a direct and understandable approach. It supports self-awareness and better choices."
-  },
-  {
-    num: "11",
-    title: "My Boundaries My Limits",
-    synopsis: "A clear guide to personal boundaries, self-protection, and respectful limits. It teaches readers the importance of knowing where they end and what they should protect."
-  },
-  {
-    num: "12",
-    title: "Relationship and Consent",
-    synopsis: "A structured title focused on respect, accountability, boundaries, and consent. It introduces relationship ethics in a serious, readable, and developmentally aware way."
+const PLAYROOM_MANIFEST_PATH = "interactive/manifest.json";
+
+async function loadPlayroomManifest() {
+  const response = await fetch(PLAYROOM_MANIFEST_PATH, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Unable to load playroom manifest: ${response.status}`);
   }
-];
-
-function setYear() {
-  document.querySelectorAll("[data-year]").forEach((node) => {
-    node.textContent = new Date().getFullYear();
-  });
+  return response.json();
 }
 
-function createPassagesGrid() {
-  const mount = document.getElementById("passages-grid");
-  if (!mount) return;
-
-  mount.innerHTML = "";
-
-  PASSAGES_BOOKS.forEach((book) => {
-    const card = document.createElement("article");
-    card.className = "passages-card";
-
-    card.innerHTML = `
-      <img src="assets/images/passages/passages-${book.num}.png" alt="PASSAGES ${book.num} cover">
-      <div class="passages-meta">
-        <div class="passages-num">Book ${book.num}</div>
-        <div class="passages-title">${book.title}</div>
-        <div class="passages-desc">${book.synopsis}</div>
-        <div class="button-row">
-          <a class="btn btn-primary" href="passages.html?b=${book.num}">View</a>
-          <a class="btn" href="downloads/passages/passages-${book.num}.pdf" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
-    `;
-
-    const img = card.querySelector("img");
-    img.addEventListener("error", () => {
-      img.style.opacity = ".18";
-      img.title = `Missing file: assets/images/passages/passages-${book.num}.png`;
-    });
-
-    mount.appendChild(card);
-  });
+function slugToTitle(slug) {
+  return slug
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
-function getBookNumber() {
-  const params = new URLSearchParams(window.location.search);
-  let bookNum = params.get("b") || "01";
-  if (bookNum.length === 1) bookNum = `0${bookNum}`;
+function buildCategoryCard(category) {
+  const article = document.createElement("article");
+  article.className = "info-card";
 
-  const exists = PASSAGES_BOOKS.some((book) => book.num === bookNum);
-  if (!exists) return "01";
-
-  return bookNum;
-}
-
-function createPassagesViewer() {
-  const mount = document.getElementById("passages-viewer");
-  if (!mount) return;
-
-  const bookNum = getBookNumber();
-  const book = PASSAGES_BOOKS.find((item) => item.num === bookNum);
-
-  if (!book) return;
-
-  const coverPath = `assets/images/passages/passages-${bookNum}.png`;
-  const pdfPath = `downloads/passages/passages-${bookNum}.pdf`;
-
-  mount.innerHTML = `
-    <div class="viewer-cover">
-      <img id="viewer-cover-image" src="${coverPath}" alt="${book.title} cover">
-    </div>
-
-    <div class="viewer-panel">
-      <h1>PASSAGES ${bookNum} — ${book.title}</h1>
-      <div class="viewer-meta">Blackshield Institute • PASSAGES Series • Book ${bookNum}</div>
-      <div class="viewer-synopsis">${book.synopsis}</div>
-      <div class="button-row">
-        <a class="btn" href="passages-series.html">Back to Series</a>
-        <a class="btn btn-primary" href="${pdfPath}" target="_blank" rel="noopener">Open PDF</a>
-        <a class="btn" href="${coverPath}" target="_blank" rel="noopener">Open Cover</a>
-      </div>
-      <div class="viewer-note">
-        If a PDF or image 404s, that file is not yet present in the expected deployment folder.
-      </div>
-    </div>
+  article.innerHTML = `
+    <h3>${category.title}</h3>
+    <p>${category.description}</p>
+    <a class="btn btn-primary" href="${category.index}">Open Section</a>
   `;
 
-  const cover = document.getElementById("viewer-cover-image");
-  cover.addEventListener("error", () => {
-    const holder = cover.parentElement;
-    holder.innerHTML = `
-      <div class="viewer-panel">
-        Missing cover for Book ${bookNum}. Expected file:
-        <br><strong>${coverPath}</strong>
-      </div>
-    `;
-  });
+  return article;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setYear();
-  createPassagesGrid();
-  createPassagesViewer();
-});
+function buildToolCard(categoryTitle, tool) {
+  const article = document.createElement("article");
+  article.className = "info-card";
+
+  article.innerHTML = `
+    <h3>${tool.title}</h3>
+    <p>${tool.description}</p>
+    <p><strong>Section:</strong> ${categoryTitle}</p>
+    <a class="btn btn-primary" href="${tool.path}">Launch</a>
+  `;
+
+  return article;
+}
+
+async function initPlayroomLoader() {
+  const categoryGrid = document.getElementById("playroom-category-grid");
+  const toolGrid = document.getElementById("playroom-tool-grid");
+
+  if (!categoryGrid && !toolGrid) return;
+
+  try {
+    const manifest = await loadPlayroomManifest();
+    const categories = Array.isArray(manifest.categories) ? manifest.categories : [];
+
+    if (categoryGrid) {
+      categoryGrid.innerHTML = "";
+      categories.forEach((category) => {
+        categoryGrid.appendChild(buildCategoryCard(category));
+      });
+    }
+
+    if (toolGrid) {
+      toolGrid.innerHTML = "";
+      categories.forEach((category) => {
+        const tools = Array.isArray(category.tools) ? category.tools : [];
+        tools.forEach((tool) => {
+          toolGrid.appendChild(buildToolCard(category.title, tool));
+        });
+      });
+    }
+  } catch (error) {
+    const fallback = `
+      <article class="info-card">
+        <h3>Playroom manifest not found</h3>
+        <p>The interactive launcher system could not load <strong>${PLAYROOM_MANIFEST_PATH}</strong>.</p>
+      </article>
+    `;
+    if (categoryGrid) categoryGrid.innerHTML = fallback;
+    if (toolGrid) toolGrid.innerHTML = fallback;
+    console.error(error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initPlayroomLoader);
