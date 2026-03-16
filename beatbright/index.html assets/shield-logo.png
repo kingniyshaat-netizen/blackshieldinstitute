@@ -1,11 +1,10 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>BeatBright | Blackshield Institute</title>
-  <meta name="description" content="BeatBright by Blackshield Institute — a Chromebook-ready rhythm lab with game mode, lesson mode, sequencer, and teacher dashboard." />
+  <meta name="description" content="BeatBright by Blackshield Institute — a Chromebook-ready rhythm lab with pads, sequencer, lesson mode, game mode, and teacher dashboard." />
   <style>
     :root{
       --bg:#070812;
@@ -21,9 +20,9 @@
       --orange:#ff7a18;
       --red:#ff5050;
       --gold:#d4af37;
-      --blackshield:#0a0a0f;
       --shadow:0 16px 40px rgba(0,0,0,.38);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -36,156 +35,410 @@
         radial-gradient(900px 520px at 60% 100%, rgba(166,255,0,.10), transparent 60%),
         linear-gradient(180deg,#05050f,#09091b);
     }
-    a{color:inherit}
+
+    a{color:inherit;text-decoration:none}
+
     .site-shell{min-height:100%;display:grid;grid-template-rows:auto 1fr auto}
+
     .topbar{
-      position:sticky;top:0;z-index:40;
+      position:sticky;
+      top:0;
+      z-index:40;
       backdrop-filter:blur(12px);
       background:linear-gradient(180deg, rgba(6,7,14,.92), rgba(6,7,14,.76));
       border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .topbar-inner,.hero-inner,.section-inner,.footer-inner{max-width:1280px;margin:0 auto;padding:0 18px}
+
+    .topbar-inner,.hero-inner,.section-inner,.footer-inner{
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 18px;
+    }
+
     .topbar-inner{
-      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
       min-height:72px;
     }
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
     .brand-mark{
-      width:48px;height:48px;border-radius:14px;overflow:hidden;display:grid;place-items:center;
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
       background:linear-gradient(135deg,var(--gold),#fff2b5);
       border:1px solid rgba(255,255,255,.16);
       box-shadow:var(--shadow);
     }
-    .brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
-    .brand-fallback{font-weight:1000;color:#111}
+
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .brand-fallback{
+      font-weight:1000;
+      color:#111;
+      font-size:18px;
+    }
+
     .brand-copy{display:grid;gap:2px}
     .brand-copy b{font-size:16px;letter-spacing:.2px}
     .brand-copy span{font-size:12px;color:var(--mut)}
+
     .nav{display:flex;gap:10px;flex-wrap:wrap}
     .nav a{
-      text-decoration:none;padding:10px 12px;border-radius:12px;
-      border:1px solid transparent;color:var(--mut);font-weight:700;font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--mut);
+      font-weight:700;
+      font-size:14px;
     }
-    .nav a:hover{border-color:rgba(255,255,255,.10);color:var(--text);background:rgba(255,255,255,.04)}.hero{padding:28px 0 18px}
-.hero-card,.card{
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px);
-}
-.hero-card{padding:20px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-@media (max-width: 980px){.hero-grid{grid-template-columns:1fr}}
-h1{margin:0;font-size:clamp(32px,4vw,54px);line-height:1.02;font-weight:1000;letter-spacing:.2px}
-.gradient{
-  background:linear-gradient(90deg,var(--pink),var(--cyan),var(--lime));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero-sub{margin:14px 0 0;color:var(--mut);max-width:62ch;font-size:15px;line-height:1.55}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.btn{
-  appearance:none;border:1px solid var(--line);border-radius:14px;padding:12px 16px;
-  color:var(--text);background:rgba(255,255,255,.05);font-weight:900;cursor:pointer;text-decoration:none;
-}
-.btn:hover{filter:brightness(1.06)}
-.btn-primary{background:linear-gradient(135deg, rgba(255,43,214,.28), rgba(0,245,255,.18))}
-.btn-secondary{background:linear-gradient(135deg, rgba(166,255,0,.16), rgba(0,245,255,.12))}
-.hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.stat{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
-.stat b{display:block;font-size:22px}
-.stat span{font-size:12px;color:var(--mut)}
+    .nav a:hover{
+      border-color:rgba(255,255,255,.10);
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
 
-.section{padding:8px 0 18px}
-.section-inner{display:grid;gap:14px}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.section-head h2{margin:0;font-size:22px}
-.section-head p{margin:0;color:var(--mut);font-size:13px;max-width:70ch}
+    .hero{padding:28px 0 18px}
+    .hero-card,.card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+    .hero-card{padding:20px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
 
-.app-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
-@media (max-width: 1024px){.app-grid{grid-template-columns:1fr}}
-.card{padding:14px}
-.row,.controls,.hud,.group{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.row{justify-content:space-between}
-.small{font-size:12px;color:var(--mut);line-height:1.4}
-button,select{
-  padding:10px 14px;border-radius:14px;border:1px solid var(--line);
-  background:rgba(255,255,255,.05);color:var(--text);font-weight:900;cursor:pointer;
-}
-button:hover,select:hover{filter:brightness(1.06)}
-button:active{transform:translateY(1px)}
-button:disabled{opacity:.45;cursor:not-allowed}
-.btnHot{background:linear-gradient(135deg, rgba(255,43,214,.25), rgba(0,245,255,.18))}
-.btnGood{background:linear-gradient(135deg, rgba(166,255,0,.16), rgba(0,245,255,.12))}
-.btnWarn{background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(255,232,74,.10))}
-.btnBad{background:linear-gradient(135deg, rgba(255,80,80,.18), rgba(255,43,214,.10))}
-.slider{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:12px;color:var(--mut)}
-.slider b{color:var(--text)}
-.slider input{width:160px}
-.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:12px;color:var(--mut)}
-.pill b{color:var(--text)}
-.pads{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pad{
-  aspect-ratio:1/1;border-radius:20px;border:1px solid var(--line);padding:10px;
-  display:flex;flex-direction:column;justify-content:space-between;
-  user-select:none;touch-action:manipulation;cursor:pointer;
-  transition:transform .08s ease, filter .08s ease, outline-color .08s ease;
-}
-.pad:active{transform:scale(.99)}
-.pad .name{font-weight:1000}
-.pad .key{font-size:11px;color:var(--mut)}
-.pad.hit{filter:brightness(1.24)}
-.pad.target{outline:3px solid var(--yellow);filter:brightness(1.12)}
-.pads .pad:nth-child(1){background:linear-gradient(135deg, rgba(255,43,214,.20), rgba(0,245,255,.10))}
-.pads .pad:nth-child(2){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(166,255,0,.08))}
-.pads .pad:nth-child(3){background:linear-gradient(135deg, rgba(166,255,0,.18), rgba(255,232,74,.08))}
-.pads .pad:nth-child(4){background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(255,43,214,.08))}
-.pads .pad:nth-child(5){background:linear-gradient(135deg, rgba(124,77,255,.18), rgba(0,245,255,.08))}
-.pads .pad:nth-child(6){background:linear-gradient(135deg, rgba(255,43,214,.18), rgba(124,77,255,.08))}
-.pads .pad:nth-child(7){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(255,232,74,.08))}
-.pads .pad:nth-child(8){background:linear-gradient(135deg, rgba(166,255,0,.18), rgba(255,43,214,.08))}
-.pads .pad:nth-child(9){background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(0,245,255,.08))}
-.pads .pad:nth-child(10){background:linear-gradient(135deg, rgba(124,77,255,.18), rgba(166,255,0,.08))}
-.pads .pad:nth-child(11){background:linear-gradient(135deg, rgba(255,232,74,.18), rgba(255,43,214,.08))}
-.pads .pad:nth-child(12){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(124,77,255,.08))}
-.coach{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:12px;background:linear-gradient(135deg, rgba(0,245,255,.10), rgba(255,43,214,.10));display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.badge{padding:8px 14px;border-radius:999px;font-weight:1000;border:1px solid var(--line);background:rgba(255,255,255,.04)}
-.perfect{background:rgba(166,255,0,.18)}
-.good{background:rgba(0,245,255,.16)}
-.ok{background:rgba(255,232,74,.16)}
-.miss{background:rgba(255,80,80,.16)}
-.hearts,.stars{display:flex;gap:6px;align-items:center}
-.heart{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--pink),var(--orange));box-shadow:0 0 12px rgba(255,43,214,.18)}
-.heart.off{opacity:.18;box-shadow:none;background:rgba(255,255,255,.14)}
-.star{opacity:.3;font-size:18px}
-.star.on{opacity:1;filter:drop-shadow(0 0 8px rgba(255,232,74,.28))}
-.sequencer{display:grid;grid-template-columns:120px repeat(16, minmax(0,1fr));gap:6px;align-items:center}
-.seqLabel{padding:8px 10px;border-radius:14px;border:1px solid var(--line);font-size:12px;color:var(--mut);background:rgba(255,255,255,.03)}
-.seqLabel b{color:var(--text)}
-.step{height:28px;border-radius:10px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);cursor:pointer}
-.step.on{background:linear-gradient(135deg, rgba(255,43,214,.22), rgba(0,245,255,.12))}
-.step.playhead{box-shadow:0 0 0 2px rgba(255,232,74,.35) inset}
-#teacherPanel{display:none}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+    }
 
-.feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-@media (max-width:980px){.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.feature-grid{grid-template-columns:1fr}}
-.feature{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-.feature b{display:block;margin-bottom:6px}
-.feature span{font-size:13px;color:var(--mut);line-height:1.45}
+    h1{
+      margin:0;
+      font-size:clamp(32px,4vw,54px);
+      line-height:1.02;
+      font-weight:1000;
+      letter-spacing:.2px;
+    }
 
-.deploy-list{display:grid;gap:8px}
-.deploy-item{padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:13px;color:var(--mut)}
-.deploy-item b{color:var(--text)}
+    .gradient{
+      background:linear-gradient(90deg,var(--pink),var(--cyan),var(--lime));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
 
-.footer{padding:6px 0 24px}
-.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--mut);font-size:12px}
+    .hero-sub{
+      margin:14px 0 0;
+      color:var(--mut);
+      max-width:62ch;
+      font-size:15px;
+      line-height:1.55;
+    }
 
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.58);padding:16px;z-index:99}
-.modal .box{width:min(560px,100%);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:14px;background:linear-gradient(180deg, rgba(15,16,36,.96), rgba(10,10,24,.96))}
-.modal .actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:12px}
-.hidden{display:none !important}
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
 
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 16px;
+      color:var(--text);
+      background:rgba(255,255,255,.05);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn:hover{filter:brightness(1.06)}
+    .btn-primary{background:linear-gradient(135deg, rgba(255,43,214,.28), rgba(0,245,255,.18))}
+    .btn-secondary{background:linear-gradient(135deg, rgba(166,255,0,.16), rgba(0,245,255,.12))}
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .stat{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    .stat b{
+      display:block;
+      font-size:22px;
+    }
+    .stat span{
+      font-size:12px;
+      color:var(--mut);
+    }
+
+    .section{padding:8px 0 18px}
+    .section-inner{display:grid;gap:14px}
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .section-head h2{margin:0;font-size:22px}
+    .section-head p{
+      margin:0;
+      color:var(--mut);
+      font-size:13px;
+      max-width:70ch;
+    }
+
+    .app-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:14px;
+    }
+
+    @media (max-width: 1024px){
+      .app-grid{grid-template-columns:1fr}
+    }
+
+    .card{padding:14px}
+    .row,.controls,.hud,.group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .row{justify-content:space-between}
+
+    .small{font-size:12px;color:var(--mut);line-height:1.4}
+
+    button,select{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    button:hover,select:hover{filter:brightness(1.06)}
+    button:active{transform:translateY(1px)}
+    button:disabled{opacity:.45;cursor:not-allowed}
+
+    .btnHot{background:linear-gradient(135deg, rgba(255,43,214,.25), rgba(0,245,255,.18))}
+    .btnGood{background:linear-gradient(135deg, rgba(166,255,0,.16), rgba(0,245,255,.12))}
+    .btnWarn{background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(255,232,74,.10))}
+    .btnBad{background:linear-gradient(135deg, rgba(255,80,80,.18), rgba(255,43,214,.10))}
+
+    .slider{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-size:12px;
+      color:var(--mut);
+    }
+    .slider b{color:var(--text)}
+    .slider input{width:160px}
+
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:var(--mut);
+    }
+    .pill b{color:var(--text)}
+
+    .pads{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    .pad{
+      aspect-ratio:1/1;
+      border-radius:20px;
+      border:1px solid var(--line);
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      user-select:none;
+      touch-action:manipulation;
+      cursor:pointer;
+      transition:transform .08s ease, filter .08s ease, outline-color .08s ease;
+    }
+    .pad:active{transform:scale(.99)}
+    .pad .name{font-weight:1000}
+    .pad .key{font-size:11px;color:var(--mut)}
+    .pad.hit{filter:brightness(1.24)}
+    .pad.target{outline:3px solid var(--yellow);filter:brightness(1.12)}
+
+    .pads .pad:nth-child(1){background:linear-gradient(135deg, rgba(255,43,214,.20), rgba(0,245,255,.10))}
+    .pads .pad:nth-child(2){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(166,255,0,.08))}
+    .pads .pad:nth-child(3){background:linear-gradient(135deg, rgba(166,255,0,.18), rgba(255,232,74,.08))}
+    .pads .pad:nth-child(4){background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(255,43,214,.08))}
+    .pads .pad:nth-child(5){background:linear-gradient(135deg, rgba(124,77,255,.18), rgba(0,245,255,.08))}
+    .pads .pad:nth-child(6){background:linear-gradient(135deg, rgba(255,43,214,.18), rgba(124,77,255,.08))}
+    .pads .pad:nth-child(7){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(255,232,74,.08))}
+    .pads .pad:nth-child(8){background:linear-gradient(135deg, rgba(166,255,0,.18), rgba(255,43,214,.08))}
+    .pads .pad:nth-child(9){background:linear-gradient(135deg, rgba(255,122,24,.18), rgba(0,245,255,.08))}
+    .pads .pad:nth-child(10){background:linear-gradient(135deg, rgba(124,77,255,.18), rgba(166,255,0,.08))}
+    .pads .pad:nth-child(11){background:linear-gradient(135deg, rgba(255,232,74,.18), rgba(255,43,214,.08))}
+    .pads .pad:nth-child(12){background:linear-gradient(135deg, rgba(0,245,255,.18), rgba(124,77,255,.08))}
+
+    .coach{
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:12px;
+      background:linear-gradient(135deg, rgba(0,245,255,.10), rgba(255,43,214,.10));
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:1000;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    .perfect{background:rgba(166,255,0,.18)}
+    .good{background:rgba(0,245,255,.16)}
+    .ok{background:rgba(255,232,74,.16)}
+    .miss{background:rgba(255,80,80,.16)}
+
+    .hearts,.stars{display:flex;gap:6px;align-items:center}
+    .heart{
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      background:linear-gradient(135deg,var(--pink),var(--orange));
+      box-shadow:0 0 12px rgba(255,43,214,.18);
+    }
+    .heart.off{opacity:.18;box-shadow:none;background:rgba(255,255,255,.14)}
+    .star{opacity:.3;font-size:18px}
+    .star.on{opacity:1;filter:drop-shadow(0 0 8px rgba(255,232,74,.28))}
+
+    .sequencer{
+      display:grid;
+      grid-template-columns:120px repeat(16, minmax(0,1fr));
+      gap:6px;
+      align-items:center;
+    }
+
+    .seqLabel{
+      padding:8px 10px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      font-size:12px;
+      color:var(--mut);
+      background:rgba(255,255,255,.03);
+    }
+    .seqLabel b{color:var(--text)}
+
+    .step{
+      height:28px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      cursor:pointer;
+    }
+    .step.on{background:linear-gradient(135deg, rgba(255,43,214,.22), rgba(0,245,255,.12))}
+    .step.playhead{box-shadow:0 0 0 2px rgba(255,232,74,.35) inset}
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    @media (max-width:980px){.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:640px){.feature-grid{grid-template-columns:1fr}}
+
+    .feature{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .feature b{display:block;margin-bottom:6px}
+    .feature span{font-size:13px;color:var(--mut);line-height:1.45}
+
+    .deploy-list{display:grid;gap:8px}
+    .deploy-item{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-size:13px;
+      color:var(--mut);
+    }
+    .deploy-item b{color:var(--text)}
+
+    .footer{padding:6px 0 24px}
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--mut);
+      font-size:12px;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.58);
+      padding:16px;
+      z-index:99;
+    }
+    .modal .box{
+      width:min(560px,100%);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:14px;
+      background:linear-gradient(180deg, rgba(15,16,36,.96), rgba(10,10,24,.96));
+    }
+    .modal .actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .hidden{display:none !important}
   </style>
 </head>
 <body>
@@ -194,14 +447,14 @@ button:disabled{opacity:.45;cursor:not-allowed}
     <div class="topbar-inner">
       <a class="brand" href="#top">
         <div class="brand-mark" aria-label="Blackshield Institute logo">
-          <!-- Replace shield-logo.png with your uploaded Blackshield shield asset path -->
-          <img src="shield-logo.png" alt="Blackshield Institute" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=brand-fallback>BS</span>'">
+          <img src="assets/shield-logo.png" alt="Blackshield Institute" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=brand-fallback>BS</span>'">
         </div>
         <div class="brand-copy">
           <b>Blackshield Institute</b>
           <span>BeatBright Deployment</span>
         </div>
       </a>
+
       <nav class="nav" aria-label="Primary">
         <a href="#hero">Overview</a>
         <a href="#experience">Experience</a>
@@ -209,7 +462,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
         <a href="#deploy">Deploy</a>
       </nav>
     </div>
-  </header>  <main>
+  </header>
+
+  <main>
     <section class="hero" id="hero">
       <div class="hero-inner">
         <div class="hero-card hero-grid">
@@ -221,6 +476,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
               <a class="btn btn-secondary" href="#deploy">Deployment Checklist</a>
             </div>
           </div>
+
           <div class="hero-stats">
             <div class="stat"><b>12</b><span>Unique pads + unique sequencer lanes</span></div>
             <div class="stat"><b>5</b><span>Lesson levels with progression lock</span></div>
@@ -229,172 +485,179 @@ button:disabled{opacity:.45;cursor:not-allowed}
           </div>
         </div>
       </div>
-    </section><section class="section" id="experience">
-  <div class="section-inner">
-    <div class="section-head">
-      <div>
-        <h2>Interactive Experience</h2>
-        <p>This section is the actual product page and play surface. It is structured to sit directly inside the Blackshield Institute site or operate as a standalone product landing page.</p>
-      </div>
-    </div>
+    </section>
 
-    <div class="app-grid">
-      <section class="card">
-        <div class="row">
-          <h3>Pads</h3>
-          <div class="small">Q W E R / A S D F / Z X C V — 12 unique sounds, 12 sequencer lanes.</div>
-        </div>
-        <div class="pads" id="pads"></div>
-        <div class="small" style="margin-top:8px">Upgraded sound engine: punchier kick, cleaner snare, brighter hats, fuller clap, stronger low-end, better per-pad identity.</div>
-      </section>
-
-      <section class="card">
-        <div class="row">
-          <h3>Coach</h3>
-          <div class="stars" id="stars">
-            <span class="star" id="s1">★</span>
-            <span class="star" id="s2">★</span>
-            <span class="star" id="s3">★</span>
-          </div>
-        </div>
-
-        <div class="coach">
+    <section class="section" id="experience">
+      <div class="section-inner">
+        <div class="section-head">
           <div>
-            <div style="font-weight:1000" id="coachMsg">Click anywhere, then press Play.</div>
-            <div class="small" id="coachSub">Chrome wants a user gesture before audio. Same circus, different tent.</div>
-          </div>
-          <div class="badge" id="grade">Ready</div>
-        </div>
-
-        <div class="controls" style="margin-top:12px">
-          <div class="group">
-            <button id="playBtn" class="btnHot">▶ Play</button>
-            <button id="gameBtn" class="btnGood">🎮 Game</button>
-            <button id="lessonBtn" class="btnGood">🎓 Lesson</button>
-            <button id="teacherBtn">📊 Teacher</button>
-            <button id="fullscreenBtn">⛶ Fullscreen</button>
+            <h2>Interactive Experience</h2>
+            <p>This section is the actual product page and play surface. It is structured to sit directly inside the Blackshield Institute site or operate as a standalone product landing page.</p>
           </div>
         </div>
 
-        <div class="controls" style="margin-top:10px">
-          <div class="group">
-            <div class="slider">
-              <span><b>BPM</b> <span id="bpmVal">110</span></span>
-              <input id="bpm" type="range" min="70" max="170" value="110">
+        <div class="app-grid">
+          <section class="card">
+            <div class="row">
+              <h3>Pads</h3>
+              <div class="small">Q W E R / A S D F / Z X C V — 12 unique sounds, 12 sequencer lanes.</div>
             </div>
-            <div class="slider">
-              <span><b>Difficulty</b></span>
-              <select id="difficulty">
-                <option value="beginner">Beginner</option>
-                <option value="parent" selected>Parent</option>
-                <option value="pro">Pro</option>
-              </select>
-            </div>
-            <div class="slider">
-              <span><b>Lesson</b></span>
-              <select id="lessonLevel">
-                <option value="1">L1: Clap on 1</option>
-                <option value="2">L2: Snare on 2 & 4</option>
-                <option value="3">L3: Kick on 1 & 3</option>
-                <option value="4">L4: Hats on 8ths</option>
-                <option value="5">L5: Random Callouts</option>
-              </select>
-            </div>
-          </div>
+            <div class="pads" id="pads"></div>
+            <div class="small" style="margin-top:8px">Upgraded sound engine: punchier kick, cleaner snare, brighter hats, fuller clap, stronger low-end, better per-pad identity.</div>
+          </section>
 
-          <div class="group">
-            <button id="metronomeBtn">🪘 Metronome On</button>
-            <button id="clearSeqBtn" class="btnWarn">Clear Sequence</button>
-            <button id="saveBtn">Save</button>
-            <button id="loadBtn">Load</button>
-            <button id="resetBtn" class="btnBad">Reset Progress</button>
-          </div>
+          <section class="card">
+            <div class="row">
+              <h3>Coach</h3>
+              <div class="stars" id="stars">
+                <span class="star" id="s1">★</span>
+                <span class="star" id="s2">★</span>
+                <span class="star" id="s3">★</span>
+              </div>
+            </div>
+
+            <div class="coach">
+              <div>
+                <div style="font-weight:1000" id="coachMsg">Click anywhere, then press Play.</div>
+                <div class="small" id="coachSub">Chrome wants a user gesture before audio. Same circus, different tent.</div>
+              </div>
+              <div class="badge" id="grade">Ready</div>
+            </div>
+
+            <div class="controls" style="margin-top:12px">
+              <div class="group">
+                <button id="playBtn" class="btnHot">▶ Play</button>
+                <button id="gameBtn" class="btnGood">🎮 Game</button>
+                <button id="lessonBtn" class="btnGood">🎓 Lesson</button>
+                <button id="teacherBtn">📊 Teacher</button>
+                <button id="fullscreenBtn">⛶ Fullscreen</button>
+              </div>
+            </div>
+
+            <div class="controls" style="margin-top:10px">
+              <div class="group">
+                <div class="slider">
+                  <span><b>BPM</b> <span id="bpmVal">110</span></span>
+                  <input id="bpm" type="range" min="70" max="170" value="110">
+                </div>
+                <div class="slider">
+                  <span><b>Difficulty</b></span>
+                  <select id="difficulty">
+                    <option value="beginner">Beginner</option>
+                    <option value="parent" selected>Parent</option>
+                    <option value="pro">Pro</option>
+                  </select>
+                </div>
+                <div class="slider">
+                  <span><b>Lesson</b></span>
+                  <select id="lessonLevel">
+                    <option value="1">L1: Clap on 1</option>
+                    <option value="2">L2: Snare on 2 & 4</option>
+                    <option value="3">L3: Kick on 1 & 3</option>
+                    <option value="4">L4: Hats on 8ths</option>
+                    <option value="5">L5: Random Callouts</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="group">
+                <button id="metronomeBtn">🪘 Metronome On</button>
+                <button id="clearSeqBtn" class="btnWarn">Clear Sequence</button>
+                <button id="saveBtn">Save</button>
+                <button id="loadBtn">Load</button>
+                <button id="resetBtn" class="btnBad">Reset Progress</button>
+              </div>
+            </div>
+
+            <div class="hud" style="margin-top:10px">
+              <div class="pill"><b>Mode:</b> <span id="mode">Free</span></div>
+              <div class="pill"><b>Target:</b> <span id="target">—</span></div>
+              <div class="pill"><b>Round:</b> <span id="round">0</span>/<span id="roundMax">12</span></div>
+              <div class="pill"><b>Score:</b> <span id="score">0</span></div>
+              <div class="pill"><b>Streak:</b> <span id="streak">0</span></div>
+              <div class="pill"><b>Level:</b> <span id="level">1</span></div>
+              <div class="pill"><b>Lives:</b> <span id="livesNum">5</span></div>
+              <div class="pill"><b>Accuracy:</b> <span id="acc">0%</span></div>
+              <div class="hearts" id="hearts"></div>
+            </div>
+          </section>
         </div>
 
-        <div class="hud" style="margin-top:10px">
-          <div class="pill"><b>Mode:</b> <span id="mode">Free</span></div>
-          <div class="pill"><b>Target:</b> <span id="target">—</span></div>
-          <div class="pill"><b>Round:</b> <span id="round">0</span>/<span id="roundMax">12</span></div>
-          <div class="pill"><b>Score:</b> <span id="score">0</span></div>
-          <div class="pill"><b>Streak:</b> <span id="streak">0</span></div>
-          <div class="pill"><b>Level:</b> <span id="level">1</span></div>
-          <div class="pill"><b>Lives:</b> <span id="livesNum">5</span></div>
-          <div class="pill"><b>Accuracy:</b> <span id="acc">0%</span></div>
-          <div class="hearts" id="hearts"></div>
-        </div>
-      </section>
-    </div>
+        <section class="card">
+          <div class="row">
+            <h3>12-Button Sequencer</h3>
+            <div class="small">Every visible button has a matching sequencer lane. No fake routing. No ghost duplication.</div>
+          </div>
+          <div class="sequencer" id="sequencer" style="margin-top:10px"></div>
+        </section>
 
-    <section class="card">
-      <div class="row">
-        <h3>12-Button Sequencer</h3>
-        <div class="small">Every visible button has a matching sequencer lane. No fake routing. No ghost duplication.</div>
+        <section class="card hidden" id="teacherPanel">
+          <div class="row">
+            <h3>Teacher Dashboard</h3>
+            <div class="small">Local-only stats. Chromebook-safe. Opens and closes correctly.</div>
+          </div>
+          <div class="hud" style="margin-top:10px">
+            <div class="pill"><b>Unlocked:</b> <span id="tUnlock">1</span>/5</div>
+            <div class="pill"><b>Accuracy:</b> <span id="tAcc">0%</span></div>
+            <div class="pill"><b>Perfect:</b> <span id="tP">0</span></div>
+            <div class="pill"><b>Good:</b> <span id="tG">0</span></div>
+            <div class="pill"><b>OK:</b> <span id="tO">0</span></div>
+            <div class="pill"><b>Miss:</b> <span id="tM">0</span></div>
+            <div class="pill"><b>Best Streak:</b> <span id="tBest">0</span></div>
+            <div class="pill"><b>Minutes:</b> <span id="tMin">0</span></div>
+            <div class="pill"><b>Skill:</b> <span id="tSkill">—</span></div>
+          </div>
+        </section>
       </div>
-      <div class="sequencer" id="sequencer" style="margin-top:10px"></div>
     </section>
 
-    <section class="card hidden" id="teacherPanel">
-      <div class="row">
-        <h3>Teacher Dashboard</h3>
-        <div class="small">Local-only stats. Chromebook-safe. Opens and closes correctly.</div>
-      </div>
-      <div class="hud" style="margin-top:10px">
-        <div class="pill"><b>Unlocked:</b> <span id="tUnlock">1</span>/5</div>
-        <div class="pill"><b>Accuracy:</b> <span id="tAcc">0%</span></div>
-        <div class="pill"><b>Perfect:</b> <span id="tP">0</span></div>
-        <div class="pill"><b>Good:</b> <span id="tG">0</span></div>
-        <div class="pill"><b>OK:</b> <span id="tO">0</span></div>
-        <div class="pill"><b>Miss:</b> <span id="tM">0</span></div>
-        <div class="pill"><b>Best Streak:</b> <span id="tBest">0</span></div>
-        <div class="pill"><b>Minutes:</b> <span id="tMin">0</span></div>
-        <div class="pill"><b>Skill:</b> <span id="tSkill">—</span></div>
+    <section class="section" id="features">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <h2>Complete Components</h2>
+            <p>This replacement package includes the full front-end product surface and the website framing needed to deploy it cleanly on Blackshield Institute.</p>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature"><b>Website Header</b><span>Blackshield branding area, nav, shield asset slot, and sticky top bar.</span></div>
+          <div class="feature"><b>Hero Section</b><span>Product positioning, CTA buttons, and stats that make the page launch-ready.</span></div>
+          <div class="feature"><b>Interactive App</b><span>Pads, sequencer, game mode, lesson mode, teacher dashboard, save/load, and fullscreen.</span></div>
+          <div class="feature"><b>Deployment Structure</b><span>Single-file drop-in build with no required frameworks or external package installs.</span></div>
+        </div>
       </div>
     </section>
-  </div>
-</section>
 
-<section class="section" id="features">
-  <div class="section-inner">
-    <div class="section-head">
-      <div>
-        <h2>Complete Components</h2>
-        <p>This replacement package includes the full front-end product surface and the website framing needed to deploy it cleanly on Blackshield Institute.</p>
+    <section class="section" id="deploy">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <h2>GitHub Deployment Checklist</h2>
+            <p>Use this exact order so the page goes live cleanly on GitHub Pages and on the Blackshield Institute website.</p>
+          </div>
+        </div>
+
+        <div class="deploy-list">
+          <div class="deploy-item"><b>1.</b> Save this file as <code>index.html</code>.</div>
+          <div class="deploy-item"><b>2.</b> Create a folder named <code>assets</code>.</div>
+          <div class="deploy-item"><b>3.</b> Put your Blackshield shield logo inside <code>assets/shield-logo.png</code>.</div>
+          <div class="deploy-item"><b>4.</b> Upload both to the root of your GitHub repository.</div>
+          <div class="deploy-item"><b>5.</b> Turn on GitHub Pages in the repository settings.</div>
+        </div>
       </div>
-    </div>
-    <div class="feature-grid">
-      <div class="feature"><b>Website Header</b><span>Blackshield branding area, nav, shield asset slot, and sticky top bar.</span></div>
-      <div class="feature"><b>Hero Section</b><span>Product positioning, CTA buttons, and stats that make the page launch-ready.</span></div>
-      <div class="feature"><b>Interactive App</b><span>Pads, sequencer, game mode, lesson mode, teacher dashboard, save/load, and fullscreen.</span></div>
-      <div class="feature"><b>Deployment Structure</b><span>Single-file drop-in build with no required frameworks or external package installs.</span></div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<section class="section" id="deploy">
-  <div class="section-inner">
-    <div class="section-head">
-      <div>
-        <h2>Deployment Checklist</h2>
-        <p>Use this exact order so the page goes live cleanly on the Blackshield Institute website.</p>
-      </div>
-    </div>
-    <div class="deploy-list">
-      <div class="deploy-item"><b>1.</b> Save this file as <code>beatbright-blackshield-deploy.html</code> or rename it to match your site routing.</div>
-      <div class="deploy-item"><b>2.</b> Replace <code>shield-logo.png</code> with the actual path of your Blackshield shield logo asset.</div>
-      <div class="deploy-item"><b>3.</b> Upload the file into the site folder where you want the BeatBright experience to live.</div>
-      <div class="deploy-item"><b>4.</b> Add a menu link from your main Blackshield Institute navigation to this page.</div>
-      <div class="deploy-item"><b>5.</b> Test in Chrome on Chromebook first. Click once to unlock audio, then press Play.</div>
-    </div>
-  </div>
-</section>
-
-  </main>  <footer class="footer">
+  <footer class="footer">
     <div class="footer-inner">
       <span>© Blackshield Institute — BeatBright Deployment Surface</span>
-      <span>Single-file HTML • Chromebook-ready • No external dependencies</span>
+      <span>Single-file HTML • Chromebook-ready • GitHub-ready</span>
     </div>
   </footer>
-</div><div class="modal" id="resultModal">
+</div>
+
+<div class="modal" id="resultModal">
   <div class="box">
     <h2 id="resultTitle">Lesson Result</h2>
     <div class="small" id="resultText">—</div>
@@ -409,7 +672,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
       <button id="closeBtn">Close</button>
     </div>
   </div>
-</div><script>
+</div>
+
+<script>
 (() => {
   const $ = id => document.getElementById(id);
   const pct = (h, t) => t ? Math.round((h / t) * 100) + "%" : "0%";
@@ -452,16 +717,24 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const g = AC.createGain();
     const drive = AC.createWaveShaper();
     const curve = new Float32Array(256);
-    for(let i=0;i<256;i++){ const x = i/128 - 1; curve[i] = Math.tanh(x * 2.5); }
+    for(let i=0;i<256;i++){
+      const x = i / 128 - 1;
+      curve[i] = Math.tanh(x * 2.5);
+    }
     drive.curve = curve;
     drive.oversample = "4x";
+
     osc.type = "sine";
     osc.frequency.setValueAtTime(145, t);
     osc.frequency.exponentialRampToValueAtTime(42, t + 0.09);
     g.gain.setValueAtTime(1.1, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.32);
-    osc.connect(drive); drive.connect(g); connectToBus(g);
-    osc.start(t); osc.stop(t + 0.34);
+
+    osc.connect(drive);
+    drive.connect(g);
+    connectToBus(g);
+    osc.start(t);
+    osc.stop(t + 0.34);
 
     const click = AC.createBufferSource();
     click.buffer = NOISE;
@@ -471,8 +744,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const cg = AC.createGain();
     cg.gain.setValueAtTime(0.07, t);
     cg.gain.exponentialRampToValueAtTime(0.0001, t + 0.012);
-    click.connect(hp); hp.connect(cg); connectToBus(cg);
-    click.start(t); click.stop(t + 0.02);
+    click.connect(hp);
+    hp.connect(cg);
+    connectToBus(cg);
+    click.start(t);
+    click.stop(t + 0.02);
   }
 
   function snareSound(){
@@ -480,18 +756,26 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const t = AC.currentTime;
     const noise = AC.createBufferSource();
     noise.buffer = NOISE;
+
     const bp = AC.createBiquadFilter();
     bp.type = "bandpass";
     bp.frequency.value = 2200;
     bp.Q.value = 0.9;
+
     const hp = AC.createBiquadFilter();
     hp.type = "highpass";
     hp.frequency.value = 900;
+
     const g = AC.createGain();
     g.gain.setValueAtTime(0.75, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
-    noise.connect(bp); bp.connect(hp); hp.connect(g); connectToBus(g);
-    noise.start(t); noise.stop(t + 0.22);
+
+    noise.connect(bp);
+    bp.connect(hp);
+    hp.connect(g);
+    connectToBus(g);
+    noise.start(t);
+    noise.stop(t + 0.22);
 
     const body = AC.createOscillator();
     const bodyG = AC.createGain();
@@ -499,8 +783,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     body.frequency.setValueAtTime(195, t);
     bodyG.gain.setValueAtTime(0.16, t);
     bodyG.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-    body.connect(bodyG); connectToBus(bodyG);
-    body.start(t); body.stop(t + 0.14);
+    body.connect(bodyG);
+    connectToBus(bodyG);
+    body.start(t);
+    body.stop(t + 0.14);
   }
 
   function hatSound(){
@@ -508,18 +794,26 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const t = AC.currentTime;
     const noise = AC.createBufferSource();
     noise.buffer = NOISE;
+
     const hp = AC.createBiquadFilter();
     hp.type = "highpass";
     hp.frequency.value = 7000;
+
     const bp = AC.createBiquadFilter();
     bp.type = "bandpass";
     bp.frequency.value = 10000;
     bp.Q.value = 0.6;
+
     const g = AC.createGain();
     g.gain.setValueAtTime(0.23, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
-    noise.connect(hp); hp.connect(bp); bp.connect(g); connectToBus(g);
-    noise.start(t); noise.stop(t + 0.06);
+
+    noise.connect(hp);
+    hp.connect(bp);
+    bp.connect(g);
+    connectToBus(g);
+    noise.start(t);
+    noise.stop(t + 0.06);
   }
 
   function clapSound(){
@@ -529,15 +823,21 @@ button:disabled{opacity:.45;cursor:not-allowed}
       const t = AC.currentTime + dt;
       const noise = AC.createBufferSource();
       noise.buffer = NOISE;
+
       const bp = AC.createBiquadFilter();
       bp.type = "bandpass";
       bp.frequency.value = 1800 + i * 350;
       bp.Q.value = 0.9;
+
       const g = AC.createGain();
       g.gain.setValueAtTime(0.35 / (i + 0.4), t);
       g.gain.exponentialRampToValueAtTime(0.0001, t + 0.10);
-      noise.connect(bp); bp.connect(g); connectToBus(g);
-      noise.start(t); noise.stop(t + 0.11);
+
+      noise.connect(bp);
+      bp.connect(g);
+      connectToBus(g);
+      noise.start(t);
+      noise.stop(t + 0.11);
     });
   }
 
@@ -550,8 +850,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.setValueAtTime(70, t);
     g.gain.setValueAtTime(0.52, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.47);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.47);
   }
 
   function rimSound(){
@@ -563,8 +865,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.setValueAtTime(510, t);
     g.gain.setValueAtTime(0.18, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.08);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.08);
   }
 
   function rideSound(){
@@ -576,8 +880,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.setValueAtTime(650, t);
     g.gain.setValueAtTime(0.16, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.24);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.24);
+
     const n = AC.createBufferSource();
     n.buffer = NOISE;
     const hp = AC.createBiquadFilter();
@@ -586,8 +893,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const ng = AC.createGain();
     ng.gain.setValueAtTime(0.05, t);
     ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-    n.connect(hp); hp.connect(ng); connectToBus(ng);
-    n.start(t); n.stop(t + 0.14);
+    n.connect(hp);
+    hp.connect(ng);
+    connectToBus(ng);
+    n.start(t);
+    n.stop(t + 0.14);
   }
 
   function fxSound(){
@@ -600,8 +910,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.exponentialRampToValueAtTime(180, t + 0.16);
     g.gain.setValueAtTime(0.20, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.20);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.20);
   }
 
   function tomLowSound(){
@@ -614,8 +926,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.exponentialRampToValueAtTime(95, t + 0.08);
     g.gain.setValueAtTime(0.28, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.20);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.20);
   }
 
   function tomHighSound(){
@@ -628,8 +942,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o.frequency.exponentialRampToValueAtTime(180, t + 0.07);
     g.gain.setValueAtTime(0.22, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
-    o.connect(g); connectToBus(g);
-    o.start(t); o.stop(t + 0.18);
+    o.connect(g);
+    connectToBus(g);
+    o.start(t);
+    o.stop(t + 0.18);
   }
 
   function shakerSound(){
@@ -643,8 +959,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const g = AC.createGain();
     g.gain.setValueAtTime(0.14, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.10);
-    n.connect(hp); hp.connect(g); connectToBus(g);
-    n.start(t); n.stop(t + 0.11);
+    n.connect(hp);
+    hp.connect(g);
+    connectToBus(g);
+    n.start(t);
+    n.stop(t + 0.11);
   }
 
   function cowbellSound(){
@@ -659,7 +978,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
     o2.frequency.setValueAtTime(845, t);
     g.gain.setValueAtTime(0.18, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.11);
-    o1.connect(g); o2.connect(g); connectToBus(g);
+    o1.connect(g);
+    o2.connect(g);
+    connectToBus(g);
     o1.start(t); o2.start(t);
     o1.stop(t + 0.12); o2.stop(t + 0.12);
   }
@@ -702,7 +1023,8 @@ button:disabled{opacity:.45;cursor:not-allowed}
       lab.className = "seqLabel";
       lab.innerHTML = `<b>${p.name}</b> <span style="color:#9aa0c6">(${p.key})</span>`;
       seqEl.appendChild(lab);
-      for(let s=0;s<16;s++){
+
+      for(let s = 0; s < 16; s++){
         const cell = document.createElement("div");
         cell.className = "step";
         cell.dataset.id = p.id;
@@ -780,17 +1102,26 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
   function clockTick(){
     const now = performance.now();
+
     while(CLOCK.playing && now >= CLOCK.nextStepAt){
-      if(CLOCK.metronome && CLOCK.stepIndex % 4 === 0 && !pattern.hat[CLOCK.stepIndex] && !pattern.shaker[CLOCK.stepIndex]){
+      if(
+        CLOCK.metronome &&
+        CLOCK.stepIndex % 4 === 0 &&
+        !pattern.hat[CLOCK.stepIndex] &&
+        !pattern.shaker[CLOCK.stepIndex]
+      ){
         hatSound();
       }
+
       playSeqStep(CLOCK.stepIndex);
+
       if(STATE.gameOn || STATE.lessonOn){
         maybeScheduleTarget();
         if(STATE.target && now > STATE.target.time + STATE.windows.ok){
           applyResult("miss", false);
         }
       }
+
       CLOCK.stepIndex = (CLOCK.stepIndex + 1) % 16;
       CLOCK.nextStepAt += CLOCK.stepMs;
       paintSequencer();
@@ -834,12 +1165,24 @@ button:disabled{opacity:.45;cursor:not-allowed}
     roundMax:LESSON_ROUND_HITS,
     roundHits:0,
     windows:DIFFICULTY.parent.windows,
-    stats:{ tries:0, hits:0, perfect:0, good:0, ok:0, miss:0, startTs:Date.now() }
+    stats:{
+      tries:0,
+      hits:0,
+      perfect:0,
+      good:0,
+      ok:0,
+      miss:0,
+      startTs:Date.now()
+    }
   };
 
   function saveStats(){
-    localStorage.setItem(STORE_STATS, JSON.stringify({ stats:STATE.stats, bestStreak:STATE.bestStreak }));
+    localStorage.setItem(STORE_STATS, JSON.stringify({
+      stats:STATE.stats,
+      bestStreak:STATE.bestStreak
+    }));
   }
+
   function loadStats(){
     try{
       const raw = localStorage.getItem(STORE_STATS);
@@ -849,30 +1192,64 @@ button:disabled{opacity:.45;cursor:not-allowed}
       if(typeof obj?.bestStreak === "number") STATE.bestStreak = obj.bestStreak;
     }catch(e){}
   }
-  function saveProgress(){ localStorage.setItem(STORE_PROG, JSON.stringify({ unlocked:STATE.unlocked })); }
+
+  function saveProgress(){
+    localStorage.setItem(STORE_PROG, JSON.stringify({ unlocked:STATE.unlocked }));
+  }
+
   function loadProgress(){
     try{
       const raw = localStorage.getItem(STORE_PROG);
       if(!raw) return;
       const obj = JSON.parse(raw);
-      if(typeof obj?.unlocked === "number") STATE.unlocked = Math.max(1, Math.min(5, obj.unlocked));
+      if(typeof obj?.unlocked === "number"){
+        STATE.unlocked = Math.max(1, Math.min(5, obj.unlocked));
+      }
     }catch(e){}
   }
+
   function saveState(){
-    const payload = { bpm:CLOCK.bpm, difficulty:$("difficulty").value, lessonLevel:STATE.lessonLevel, metronome:CLOCK.metronome, pattern };
+    const payload = {
+      bpm:CLOCK.bpm,
+      difficulty:$("difficulty").value,
+      lessonLevel:STATE.lessonLevel,
+      metronome:CLOCK.metronome,
+      pattern
+    };
     localStorage.setItem(STORE_SAVE, JSON.stringify(payload));
     coach("Saved.", "State stored on this Chromebook.");
   }
+
   function loadState(){
     try{
       const raw = localStorage.getItem(STORE_SAVE);
-      if(!raw){ coach("Nothing saved yet.", "Hit Save first."); return; }
+      if(!raw){
+        coach("Nothing saved yet.", "Hit Save first.");
+        return;
+      }
+
       const obj = JSON.parse(raw);
-      if(obj.bpm){ CLOCK.bpm = obj.bpm; $("bpm").value = String(obj.bpm); $("bpmVal").textContent = String(obj.bpm); recalcStepMs(); }
-      if(obj.difficulty){ $("difficulty").value = obj.difficulty; applyDifficulty(obj.difficulty); }
-      if(obj.lessonLevel){ STATE.lessonLevel = Math.min(obj.lessonLevel, STATE.unlocked); $("lessonLevel").value = String(STATE.lessonLevel); }
+
+      if(obj.bpm){
+        CLOCK.bpm = obj.bpm;
+        $("bpm").value = String(obj.bpm);
+        $("bpmVal").textContent = String(obj.bpm);
+        recalcStepMs();
+      }
+
+      if(obj.difficulty){
+        $("difficulty").value = obj.difficulty;
+        applyDifficulty(obj.difficulty);
+      }
+
+      if(obj.lessonLevel){
+        STATE.lessonLevel = Math.min(obj.lessonLevel, STATE.unlocked);
+        $("lessonLevel").value = String(STATE.lessonLevel);
+      }
+
       CLOCK.metronome = !!obj.metronome;
       $("metronomeBtn").textContent = CLOCK.metronome ? "🪘 Metronome On" : "🪘 Metronome Off";
+
       if(obj.pattern){
         PADS.forEach(p => {
           if(Array.isArray(obj.pattern[p.id]) && obj.pattern[p.id].length === 16){
@@ -880,6 +1257,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
           }
         });
       }
+
       paintSequencer();
       enforceLessonLocks();
       updateHUD();
@@ -890,21 +1268,44 @@ button:disabled{opacity:.45;cursor:not-allowed}
     }
   }
 
-  function coach(msg, sub){ $("coachMsg").textContent = msg; $("coachSub").textContent = sub || ""; }
-  function setGrade(text, cls){ const g = $("grade"); g.textContent = text; g.className = "badge" + (cls ? " " + cls : ""); }
-  function setStars(n){ ["s1","s2","s3"].forEach((id,i)=>$(id).className = "star" + (i < n ? " on" : "")); }
-  function setResultStars(n){ ["rs1","rs2","rs3"].forEach((id,i)=>$(id).className = "star" + (i < n ? " on" : "")); }
+  function coach(msg, sub){
+    $("coachMsg").textContent = msg;
+    $("coachSub").textContent = sub || "";
+  }
+
+  function setGrade(text, cls){
+    const g = $("grade");
+    g.textContent = text;
+    g.className = "badge" + (cls ? " " + cls : "");
+  }
+
+  function setStars(n){
+    ["s1","s2","s3"].forEach((id,i) => {
+      $(id).className = "star" + (i < n ? " on" : "");
+    });
+  }
+
+  function setResultStars(n){
+    ["rs1","rs2","rs3"].forEach((id,i) => {
+      $(id).className = "star" + (i < n ? " on" : "");
+    });
+  }
+
   function heartsRender(){
     const el = $("hearts");
     el.innerHTML = "";
-    for(let i=0;i<6;i++){
+    for(let i = 0; i < 6; i++){
       const d = document.createElement("div");
       d.className = "heart" + (i < STATE.lives ? "" : " off");
       el.appendChild(d);
     }
     $("livesNum").textContent = String(STATE.lives);
   }
-  function minutesPlayed(){ return Math.max(0, Math.floor((Date.now() - STATE.stats.startTs) / 60000)); }
+
+  function minutesPlayed(){
+    return Math.max(0, Math.floor((Date.now() - STATE.stats.startTs) / 60000));
+  }
+
   function skillLabel(){
     const a = STATE.stats.tries ? (STATE.stats.hits / STATE.stats.tries) : 0;
     if(a >= 0.9) return "Rhythm Master";
@@ -912,6 +1313,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
     if(a >= 0.6) return "Developing";
     return "Needs Practice";
   }
+
   function updateTeacher(){
     $("tUnlock").textContent = String(STATE.unlocked);
     $("tAcc").textContent = pct(STATE.stats.hits, STATE.stats.tries);
@@ -923,6 +1325,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
     $("tMin").textContent = String(minutesPlayed());
     $("tSkill").textContent = skillLabel();
   }
+
   function updateHUD(){
     $("mode").textContent = STATE.mode;
     $("target").textContent = STATE.target ? STATE.target.label : "—";
@@ -935,20 +1338,41 @@ button:disabled{opacity:.45;cursor:not-allowed}
     heartsRender();
   }
 
-  function clearTargetUI(){ document.querySelectorAll(".pad").forEach(p => p.classList.remove("target")); }
-  function highlightTarget(id){ const el = document.querySelector(`.pad[data-id="${id}"]`); clearTargetUI(); if(el) el.classList.add("target"); }
-  function labelForId(id){ const p = PADS.find(x => x.id === id); return p ? p.name : id; }
-  function currentLesson(){ return LESSONS[String(STATE.lessonLevel)] || LESSONS["1"]; }
-  function chooseLessonPad(){ const L = currentLesson(); return L.mode === "fixed" ? L.padId : L.padPool[Math.floor(Math.random() * L.padPool.length)]; }
+  function clearTargetUI(){
+    document.querySelectorAll(".pad").forEach(p => p.classList.remove("target"));
+  }
+
+  function highlightTarget(id){
+    const el = document.querySelector(`.pad[data-id="${id}"]`);
+    clearTargetUI();
+    if(el) el.classList.add("target");
+  }
+
+  function labelForId(id){
+    const p = PADS.find(x => x.id === id);
+    return p ? p.name : id;
+  }
+
+  function currentLesson(){
+    return LESSONS[String(STATE.lessonLevel)] || LESSONS["1"];
+  }
+
+  function chooseLessonPad(){
+    const L = currentLesson();
+    return L.mode === "fixed" ? L.padId : L.padPool[Math.floor(Math.random() * L.padPool.length)];
+  }
 
   function maybeScheduleTarget(){
     if(STATE.target) return;
-    for(let i=0;i<16;i++){
+
+    for(let i = 0; i < 16; i++){
       const s = (CLOCK.stepIndex + i) % 16;
       const time = CLOCK.nextStepAt + (i * CLOCK.stepMs);
+
       if(STATE.lessonOn){
         const L = currentLesson();
         if(!L.steps.includes(s)) continue;
+
         const padId = chooseLessonPad();
         STATE.target = { padId, time, label:`${labelForId(padId)} (step ${s+1})` };
         highlightTarget(padId);
@@ -957,9 +1381,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
         updateHUD();
         return;
       }
+
       if(STATE.gameOn){
         const anchors = [0,4,8,12];
         if(!anchors.includes(s)) continue;
+
         const pool = ["kick","snare","hat","clap","tomLow","cowbell"];
         const padId = pool[Math.floor(Math.random() * pool.length)];
         STATE.target = { padId, time, label:`${labelForId(padId)} (step ${s+1})` };
@@ -978,24 +1404,48 @@ button:disabled{opacity:.45;cursor:not-allowed}
     if(acc >= PASS_THRESHOLD) return 1;
     return 0;
   }
-  function showModal(on){ $("resultModal").style.display = on ? "flex" : "none"; }
-  function stopModes(){ STATE.gameOn = false; STATE.lessonOn = false; STATE.mode = "Free"; STATE.target = null; clearTargetUI(); updateHUD(); }
-  function setModeLabel(){ if(STATE.lessonOn) STATE.mode = `Lesson L${STATE.lessonLevel}`; else if(STATE.gameOn) STATE.mode = "Game"; else STATE.mode = "Free"; }
-  function lessonRoundAccuracy(){ return STATE.roundCount ? (STATE.roundHits / STATE.roundCount) : 0; }
+
+  function showModal(on){
+    $("resultModal").style.display = on ? "flex" : "none";
+  }
+
+  function stopModes(){
+    STATE.gameOn = false;
+    STATE.lessonOn = false;
+    STATE.mode = "Free";
+    STATE.target = null;
+    clearTargetUI();
+    updateHUD();
+  }
+
+  function setModeLabel(){
+    if(STATE.lessonOn) STATE.mode = `Lesson L${STATE.lessonLevel}`;
+    else if(STATE.gameOn) STATE.mode = "Game";
+    else STATE.mode = "Free";
+  }
+
+  function lessonRoundAccuracy(){
+    return STATE.roundCount ? (STATE.roundHits / STATE.roundCount) : 0;
+  }
 
   function endLessonRound(){
     stopClock();
+
     const acc = lessonRoundAccuracy();
     const stars = starsFromAccuracy(acc);
     const passed = acc >= PASS_THRESHOLD;
+
     setStars(stars);
     setResultStars(stars);
+
     $("resultTitle").textContent = `Lesson ${STATE.lessonLevel} Result`;
     $("resultText").textContent = `${currentLesson().name}\nAccuracy: ${Math.round(acc*100)}%\n${passed ? "PASS ✅" : "NOT YET ❌ (Retry)"}`;
+
     if(passed && STATE.lessonLevel >= STATE.unlocked && STATE.unlocked < 5){
       STATE.unlocked = STATE.lessonLevel + 1;
       saveProgress();
     }
+
     $("nextBtn").disabled = !(passed && STATE.lessonLevel < 5 && STATE.lessonLevel + 1 <= STATE.unlocked);
     enforceLessonLocks();
     updateTeacher();
@@ -1005,6 +1455,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
   function applyResult(result, hitCounts){
     STATE.stats.tries++;
+
     if(STATE.lessonOn){
       STATE.roundCount = Math.min(STATE.roundMax, STATE.roundCount + 1);
       if(hitCounts) STATE.roundHits++;
@@ -1021,11 +1472,14 @@ button:disabled{opacity:.45;cursor:not-allowed}
       if(result === "perfect") STATE.stats.perfect++;
       if(result === "good") STATE.stats.good++;
       if(result === "ok") STATE.stats.ok++;
+
       STATE.streak++;
       STATE.bestStreak = Math.max(STATE.bestStreak, STATE.streak);
+
       const base = result === "perfect" ? 100 : result === "good" ? 60 : 30;
       const mult = Math.min(5, 1 + Math.floor(STATE.streak / 5));
       STATE.score += base * mult;
+
       setGrade(result.toUpperCase() + (mult > 1 ? ` ×${mult}` : ""), result);
       coach(result === "perfect" ? "Perfect timing." : "Nice.", `Streak: ${STATE.streak}.`);
     }
@@ -1047,11 +1501,13 @@ button:disabled{opacity:.45;cursor:not-allowed}
       $("bpm").value = String(CLOCK.bpm);
       $("bpmVal").textContent = String(CLOCK.bpm);
       recalcStepMs();
+
       STATE.windows = {
         perfect: Math.max(18, STATE.windows.perfect - 2),
         good: Math.max(35, STATE.windows.good - 3),
         ok: Math.max(55, STATE.windows.ok - 4)
       };
+
       coach("Level up.", "Tempo increased.");
     }
 
@@ -1074,15 +1530,18 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
   function judgeHit(padId){
     if(!(STATE.gameOn || STATE.lessonOn) || !STATE.target) return;
+
     const now = performance.now();
     const dt = Math.abs(now - STATE.target.time);
     const correctPad = padId === STATE.target.padId;
+
     let res = "miss";
     if(correctPad){
       if(dt <= STATE.windows.perfect) res = "perfect";
       else if(dt <= STATE.windows.good) res = "good";
       else if(dt <= STATE.windows.ok) res = "ok";
     }
+
     applyResult(res, correctPad && res !== "miss");
   }
 
@@ -1109,6 +1568,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
       opt.textContent = opt.textContent.replace(" (LOCKED)", "");
       if(lvl > STATE.unlocked) opt.textContent += " (LOCKED)";
     });
+
     if(STATE.lessonLevel > STATE.unlocked){
       STATE.lessonLevel = STATE.unlocked;
       $("lessonLevel").value = String(STATE.lessonLevel);
@@ -1133,6 +1593,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
   $("gameBtn").addEventListener("click", () => {
     STATE.gameOn = !STATE.gameOn;
+
     if(STATE.gameOn){
       STATE.lessonOn = false;
       STATE.score = 0;
@@ -1152,16 +1613,19 @@ button:disabled{opacity:.45;cursor:not-allowed}
       setModeLabel();
       coach("Game off.", "Back to free play.");
     }
+
     updateHUD();
   });
 
   $("lessonBtn").addEventListener("click", () => {
     enforceLessonLocks();
     const chosen = Number($("lessonLevel").value);
+
     if(chosen > STATE.unlocked){
       coach("Locked.", "Pass the previous lesson first.");
       return;
     }
+
     if(!STATE.lessonOn){
       STATE.lessonOn = true;
       STATE.gameOn = false;
@@ -1178,6 +1642,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
       setModeLabel();
       coach("Lesson off.", "Use Game mode or free play.");
     }
+
     updateHUD();
   });
 
@@ -1186,6 +1651,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
     const hidden = panel.classList.contains("hidden");
     if(hidden) panel.classList.remove("hidden");
     else panel.classList.add("hidden");
+
     coach(hidden ? "Teacher dashboard open." : "Teacher dashboard closed.", "Stats are working now.");
     updateTeacher();
   });
@@ -1194,7 +1660,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
     try{
       if(!document.fullscreenElement) await document.documentElement.requestFullscreen();
       else await document.exitFullscreen();
-    }catch(e){ coach("Fullscreen blocked.", "Try again."); }
+    }catch(e){
+      coach("Fullscreen blocked.", "Try again.");
+    }
   });
 
   $("metronomeBtn").addEventListener("click", () => {
@@ -1202,7 +1670,11 @@ button:disabled{opacity:.45;cursor:not-allowed}
     $("metronomeBtn").textContent = CLOCK.metronome ? "🪘 Metronome On" : "🪘 Metronome Off";
   });
 
-  $("clearSeqBtn").addEventListener("click", () => { clearSequencer(); coach("Sequence cleared.", "Fresh slate."); });
+  $("clearSeqBtn").addEventListener("click", () => {
+    clearSequencer();
+    coach("Sequence cleared.", "Fresh slate.");
+  });
+
   $("saveBtn").addEventListener("click", saveState);
   $("loadBtn").addEventListener("click", loadState);
 
@@ -1210,10 +1682,12 @@ button:disabled{opacity:.45;cursor:not-allowed}
     localStorage.removeItem(STORE_STATS);
     localStorage.removeItem(STORE_PROG);
     localStorage.removeItem(STORE_SAVE);
+
     STATE.stats = { tries:0, hits:0, perfect:0, good:0, ok:0, miss:0, startTs:Date.now() };
     STATE.bestStreak = 0;
     STATE.unlocked = 1;
     STATE.lessonLevel = 1;
+
     enforceLessonLocks();
     clearSequencer();
     applyDifficulty($("difficulty").value);
@@ -1238,17 +1712,21 @@ button:disabled{opacity:.45;cursor:not-allowed}
   $("lessonLevel").addEventListener("change", () => {
     enforceLessonLocks();
     const chosen = Number($("lessonLevel").value);
+
     if(chosen > STATE.unlocked){
       coach("Locked.", "Pass the previous lesson first.");
       $("lessonLevel").value = String(STATE.unlocked);
       return;
     }
+
     STATE.lessonLevel = chosen;
+
     if(STATE.lessonOn){
       resetRound();
       maybeScheduleTarget();
       coach(`Lesson ${STATE.lessonLevel}.`, currentLesson().name);
     }
+
     setModeLabel();
     updateHUD();
   });
@@ -1265,6 +1743,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
   $("nextBtn").addEventListener("click", () => {
     if(STATE.lessonLevel >= 5 || STATE.lessonLevel + 1 > STATE.unlocked) return;
+
     showModal(false);
     STATE.lessonLevel++;
     $("lessonLevel").value = String(STATE.lessonLevel);
@@ -1287,13 +1766,16 @@ button:disabled{opacity:.45;cursor:not-allowed}
   window.addEventListener("keydown", e => {
     const k = e.key.toUpperCase();
     if(e.repeat) return;
+
     const padId = KEY_TO_PAD.get(k);
     if(padId) hit(padId);
+
     if(k === " "){
       e.preventDefault();
       if(CLOCK.playing) stopClock();
       else startClock();
     }
+
     if(k === "ENTER"){
       e.preventDefault();
       if(document.fullscreenElement) document.exitFullscreen();
@@ -1325,9 +1807,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
   pattern.kick[8] = true;
   pattern.snare[4] = true;
   pattern.snare[12] = true;
-  for(let i=0;i<16;i+=2) pattern.hat[i] = true;
+  for(let i = 0; i < 16; i += 2) pattern.hat[i] = true;
   pattern.shaker[15] = true;
   paintSequencer();
 })();
-</script></body>
+</script>
+</body>
 </html>
