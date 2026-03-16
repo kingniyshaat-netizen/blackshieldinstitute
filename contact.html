@@ -24,6 +24,7 @@
         <a class="nav-link" href="catalog.html">Catalog</a>
         <a class="nav-link" href="passages-series.html">PASSAGES</a>
         <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="digital-playroom.html">Playroom</a>
         <a class="nav-link" href="about.html">About</a>
         <a class="nav-link is-active" href="contact.html">Contact</a>
       </nav>
@@ -34,42 +35,44 @@
     <section class="section-panel" id="inquiry">
       <div class="section-heading">
         <h1>Contact Blackshield Institute</h1>
-        <p>
-          Use the contact routes below for product inquiries, digital purchases,
-          membership questions, licensing, and Institute access.
-        </p>
+        <p>Use the direct sections below for inquiries, memberships, and product requests.</p>
       </div>
 
       <div class="card-grid card-grid-2">
         <article class="info-card">
-          <h3>Direct Contact</h3>
-          <p>
-            Use this contact route for general Institute questions, digital product requests,
-            partnerships, membership inquiry, or order support.
-          </p>
-          <p><strong>Email:</strong> contact@blackshieldinstitute.org</p>
-          <p><strong>Phone:</strong> 215-881-5746</p>Blackshieldinstitute@gmail.com          <div class="button-row">
-            <a class="btn btn-primary" href="mailto:contact@blackshieldinstitute.org?subject=Blackshield%20Institute%20Inquiry">Email Institute</a>
-            <a class="btn" href="tel:2158815746">Call 215-881-5746</a>
-          </div>
+          <h3>General Inquiry</h3>
+          <p>Questions about products, orders, digital access, or Institute offerings.</p>
+          <form id="contact-form" class="contact-form">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>Subject</span>
+              <input type="text" name="subject" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="6" required></textarea>
+            </label>
+            <div class="button-row">
+              <button class="btn btn-primary" type="submit">Open Email Draft</button>
+              <a class="btn" href="index.html">Back Home</a>
+            </div>
+            <p id="form-status" class="form-status"></p>
+          </form>
         </article>
 
         <article class="info-card" id="membership">
-          <h3>Membership &amp; Tier Inquiry</h3>
-          <p>
-            Tier I is for foundational entry, structured access, and early movement into
-            Blackshield educational offerings.
-          </p>
-          <p>
-            Tier II is for expanded access, premium alignment, and deeper positioning inside
-            the Institute’s higher-value resources and releases.
-          </p>
-          <p>
-            If you need help deciding which tier fits your goal, use the direct contact route.
-          </p>
+          <h3>Membership Inquiry</h3>
+          <p>Use this route for Tier I, Tier II, and access-related questions until final payment deployment is complete.</p>
+          <p>Route all membership questions through the Institute contact workflow.</p>
           <div class="button-row">
-            <a class="btn btn-primary" href="mailto:contact@blackshieldinstitute.org?subject=Blackshield%20Membership%20Inquiry">Email Membership Desk</a>
-            <a class="btn" href="tel:2158815746">Call Membership Line</a>
+            <a class="btn btn-primary" href="#contact-form">Contact Membership Desk</a>
           </div>
         </article>
       </div>
