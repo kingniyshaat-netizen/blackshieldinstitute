@@ -1,4 +1,3 @@
-FILE: assets/js/beatbright.js
 (() => {
   const $ = id => document.getElementById(id);
   const pct = (h, t) => t ? Math.round((h / t) * 100) + "%" : "0%";
