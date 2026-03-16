@@ -1,0 +1,129 @@
+import { useState } from "react";
+
+const DESTINATIONS = { passagesPDF: "downloads/passages/", curriculumPDF: "downloads/curriculum/", booksPDF: "downloads/books/", coverImages: "assets/images/covers/", passagesImages: "assets/images/passages/", branding: "assets/images/branding/", playroom: "interactives/playroom/", games: "interactives/games/", beatbright: "apps/beatbright/" };
+
+export default function BlackshieldUploadSystem() { const [files, setFiles] = useState([]); const [category, setCategory] = useState("passagesPDF");
+
+function handleFiles(e) { const selected = Array.from(e.target.files || []);
+
+const validated = selected.map((file) => {
+  const cleanName = file.name
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-.]/g, "");
+
+  return {
+    original: file.name,
+    clean: cleanName,
+    path: DESTINATIONS[category] + cleanName,
+    size: Math.round(file.size / 1024) + " KB"
+  };
+});
+
+setFiles(validated);
+
+}
+
+function copyPath(path) { navigator.clipboard.writeText(path); alert("Path copied: " + path); }
+
+return ( <div className="min-h-screen bg-slate-950 text-white p-8">
+
+<div className="max-w-5xl mx-auto">
+
+    <h1 className="text-3xl font-bold mb-2">Blackshield File Transfer Console</h1>
+    <p className="text-slate-400 mb-8">
+      Use this panel to prepare files before uploading them to your GitHub repository.
+      It validates filenames and generates the correct destination path.
+    </p>
+
+    <div className="bg-slate-900 p-6 rounded-2xl shadow mb-6">
+
+      <label className="block mb-2 font-semibold">Select Destination</label>
+
+      <select
+        className="w-full p-3 rounded bg-slate-800 border border-slate-700"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="passagesPDF">PASSAGES PDFs</option>
+        <option value="curriculumPDF">Curriculum PDFs</option>
+        <option value="booksPDF">Book PDFs</option>
+        <option value="coverImages">Book Covers</option>
+        <option value="passagesImages">PASSAGES Images</option>
+        <option value="branding">Branding Images</option>
+        <option value="playroom">Playroom Tools</option>
+        <option value="games">Interactive Games</option>
+        <option value="beatbright">BeatBright Files</option>
+      </select>
+
+      <p className="text-sm text-slate-400 mt-2">
+        Files will be placed in: <strong>{DESTINATIONS[category]}</strong>
+      </p>
+
+    </div>
+
+
+    <div className="bg-slate-900 p-6 rounded-2xl shadow mb-8">
+
+      <label className="block font-semibold mb-3">Select Files</label>
+
+      <input
+        type="file"
+        multiple
+        onChange={handleFiles}
+        className="w-full p-4 bg-slate-800 border border-slate-700 rounded"
+      />
+
+      <p className="text-xs text-slate-500 mt-2">
+        File names will automatically be converted to lowercase and hyphen format.
+      </p>
+
+    </div>
+
+
+    {files.length > 0 && (
+      <div className="bg-slate-900 p-6 rounded-2xl shadow">
+
+        <h2 className="text-xl font-semibold mb-4">Prepared Upload Paths</h2>
+
+        <div className="space-y-4">
+
+          {files.map((file, i) => (
+            <div
+              key={i}
+              className="bg-slate-800 p-4 rounded-lg flex justify-between items-center"
+            >
+              <div>
+                <p className="font-semibold">{file.clean}</p>
+                <p className="text-sm text-slate-400">{file.size}</p>
+                <p className="text-xs text-yellow-400">{file.path}</p>
+              </div>
+
+              <button
+                onClick={() => copyPath(file.path)}
+                className="bg-yellow-500 text-black px-4 py-2 rounded font-semibold"
+              >
+                Copy Path
+              </button>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    )}
+
+
+    <div className="mt-10 text-sm text-slate-500">
+      Workflow:<br />
+      1. Select category<br />
+      2. Upload file here<br />
+      3. Copy generated path<br />
+      4. Upload file to GitHub in that exact folder
+    </div>
+
+  </div>
+
+</div>
+
+); }
