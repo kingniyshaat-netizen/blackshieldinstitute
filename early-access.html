@@ -4,114 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Early Access | Blackshield Institute</title>
-  <meta name="description" content="Join Blackshield Institute Early Access." />
+  <meta name="description" content="Blackshield Institute memberships and PASSAGES access." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .early-access-hero {
-      padding: 56px 0 24px;
-    }
-
-    .early-access-intro {
-      max-width: 760px;
-      margin: 0 auto 24px;
-      text-align: center;
-    }
-
-    .early-access-intro h1 {
-      margin-bottom: 12px;
-    }
-
-    .early-access-intro p {
-      color: var(--muted, #b8bfd0);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 28px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 24px;
     }
-
-    .pricing-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 28px;
-      background: rgba(255,255,255,0.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
     .pricing-card.featured {
-      border-color: rgba(212,175,55,0.55);
-      background: rgba(212,175,55,0.08);
+      border-color: rgba(212,175,55,.45);
+      background: rgba(212,175,55,.08);
     }
-
-    .pricing-card h2 {
-      margin-bottom: 10px;
-    }
-
-    .pricing-card .tier-label {
+    .tier-label {
       display: inline-block;
-      margin-bottom: 14px;
-      padding: 6px 12px;
+      margin-bottom: 12px;
+      padding: 6px 10px;
       border-radius: 999px;
+      background: rgba(255,255,255,.08);
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-    }
-
-    .pricing-card .price {
-      font-size: 42px;
-      line-height: 1;
       font-weight: 800;
-      margin: 12px 0 16px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
-
-    .pricing-card .price span {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--muted, #b8bfd0);
-      margin-left: 4px;
+    .price {
+      font-size: 40px;
+      font-weight: 900;
+      margin: 10px 0 14px;
     }
-
-    .pricing-card p {
-      color: var(--muted, #b8bfd0);
-      line-height: 1.6;
+    .price span {
+      font-size: 15px;
+      color: var(--mut);
+      font-weight: 600;
     }
-
     .pricing-card ul {
-      margin: 20px 0 24px;
+      margin: 0 0 20px;
       padding-left: 18px;
-      color: #fff;
-      line-height: 1.7;
+      line-height: 1.6;
+      color: var(--mut);
     }
-
-    .pricing-card ul li {
-      margin-bottom: 8px;
-    }
-
-    .pricing-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .support-strip {
-      margin-top: 32px;
-      padding: 18px 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.025);
-      text-align: center;
-      color: var(--muted, #b8bfd0);
-    }
-
-    @media (max-width: 860px) {
+    @media (max-width: 980px) {
       .pricing-grid {
         grid-template-columns: 1fr;
       }
@@ -120,104 +53,98 @@
 </head>
 <body data-page="early-access">
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <span class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
-        </span>
-        <span class="brand-text">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/images/shield.png" alt="Blackshield Institute Shield" class="brand-logo" />
+        <div class="brand-copy">
           <strong>Blackshield Institute</strong>
           <span>Early Access</span>
-        </span>
+        </div>
       </a>
 
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="catalog.html">Catalog</a>
-        <a class="nav-link" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="passages-series.html">PASSAGES</a>
+        <a href="early-access.html" aria-current="page">Early Access</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-main">
-    <section class="early-access-hero">
-      <div class="container">
-        <div class="early-access-intro">
-          <div class="eyebrow">BLACKSHIELD MEMBERSHIP ACCESS</div>
-          <h1>Early Access Membership</h1>
-          <p>
-            Choose your Blackshield access tier and enter the system at the level that matches your goals.
-            These memberships are connected directly to Stripe and are intended to restore the live purchase flow.
-          </p>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="pricing-card">
-            <div class="tier-label">Tier I</div>
-            <h2>BLACKSHIELD Tier I</h2>
-            <div class="price">$147<span>/month</span></div>
-            <p>
-              Foundational membership access for users entering the Blackshield system with structured curriculum exposure,
-              early releases, and institutional updates.
-            </p>
-
-            <ul>
-              <li>Foundational curriculum access</li>
-              <li>Selected early releases</li>
-              <li>Institutional updates</li>
-              <li>Entry-level Blackshield access path</li>
-            </ul>
-
-            <div class="pricing-actions">
-              <a href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW09" target="_blank" rel="noopener" class="btn btn-primary">
-                Join Tier I
-              </a>
-              <a href="contact.html" class="btn">
-                Contact
-              </a>
-            </div>
-          </article>
-
-          <article class="pricing-card featured">
-            <div class="tier-label">Tier II</div>
-            <h2>BLACKSHIELD Tier II</h2>
-            <div class="price">$297<span>/month</span></div>
-            <p>
-              Expanded institutional membership for users who need deeper access, priority release pathways,
-              and stronger integration into the Blackshield learning system.
-            </p>
-
-            <ul>
-              <li>Full premium access tier</li>
-              <li>Priority release pathway</li>
-              <li>Expanded institutional access</li>
-              <li>Advanced Blackshield system entry</li>
-            </ul>
-
-            <div class="pricing-actions">
-              <a href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener" class="btn btn-primary">
-                Join Tier II
-              </a>
-              <a href="contact.html" class="btn">
-                Contact
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <div class="support-strip">
-          Need direct help before joining? Use the <a href="contact.html">contact page</a>.
-          Looking for the reading series? Go to <a href="passages-series.html">PASSAGES</a>.
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">ACCESS LAYER</p>
+          <h1 class="page-title">Membership and PASSAGES Access</h1>
+          <p class="lede">Choose the correct access path and enter the system clean.</p>
         </div>
       </div>
-    </section>
+
+      <div class="pricing-grid">
+        <article class="card pricing-card">
+          <div class="tier-label">PASSAGES</div>
+          <h2>PASSAGES Access</h2>
+          <div class="price">$97<span>/3 months</span></div>
+          <p>Foundational entry into PASSAGES cultural formation and structured reading access.</p>
+          <ul>
+            <li>PASSAGES access entry</li>
+            <li>Foundational cultural formation</li>
+            <li>Reading-based access path</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdw08" target="_blank" rel="noopener">Get PASSAGES</a>
+            <a class="btn btn-secondary" href="passages-series.html">View Series</a>
+          </div>
+        </article>
+
+        <article class="card pricing-card">
+          <div class="tier-label">Tier I</div>
+          <h2>BLACKSHIELD Tier I</h2>
+          <div class="price">$147<span>/month</span></div>
+          <p>Foundational institutional membership access with broader Blackshield entry.</p>
+          <ul>
+            <li>Foundational curriculum access</li>
+            <li>Early releases</li>
+            <li>System updates</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW09" target="_blank" rel="noopener">Join Tier I</a>
+            <a class="btn btn-secondary" href="contact.html">Contact</a>
+          </div>
+        </article>
+
+        <article class="card pricing-card featured">
+          <div class="tier-label">Tier II</div>
+          <h2>BLACKSHIELD Tier II</h2>
+          <div class="price">$297<span>/month</span></div>
+          <p>Expanded premium institutional access with deeper integration into the Blackshield system.</p>
+          <ul>
+            <li>Premium curriculum access</li>
+            <li>Priority release path</li>
+            <li>Expanded institutional entry</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener">Join Tier II</a>
+            <a class="btn btn-secondary" href="contact.html">Contact</a>
+          </div>
+        </article>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
-    © <span data-year></span> Blackshield Institute
+    <div class="container footer-inner">
+      <div>
+        <strong>Blackshield Institute</strong>
+        <p>Institutional digital platform.</p>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
