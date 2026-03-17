@@ -3,157 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact • Blackshield Institute</title>
+  <title>Catalog | Blackshield Institute</title>
+  <meta name="description" content="Blackshield Institute product catalog." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body data-page="contact">
-
+<body data-page="catalog">
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <span class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
-        </span>
-        <span class="brand-text">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/images/shield.png" alt="Blackshield Institute Shield" class="brand-logo" />
+        <div class="brand-copy">
           <strong>Blackshield Institute</strong>
-          <span>Contact & Inquiry</span>
-        </span>
+          <span>Product Catalog</span>
+        </div>
       </a>
 
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="catalog.html">Catalog</a>
-        <a class="nav-link" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="digital-playroom.html">Playroom</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link is-active" href="contact.html">Contact</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="catalog.html" aria-current="page">Catalog</a>
+        <a href="passages-series.html">PASSAGES</a>
+        <a href="early-access.html">Early Access</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-main">
-
-    <section class="hero-panel">
-      <div class="hero-copy">
-        <div class="eyebrow">BLACKSHIELD CONTACT CENTER</div>
-        <h1>Contact, membership, product, and general inquiry routing.</h1>
-        <p>
-          Use the sections below to route membership questions, Stripe setup requests,
-          product questions, general inquiries, and institute contact requests.
-        </p>
-      </div>
-
-      <div class="hero-art">
-        <div class="hero-shield-frame">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield emblem" />
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">CATALOG</p>
+          <h1 class="page-title">Blackshield Product Catalog</h1>
+          <p class="lede">Cleaned, synced, and routed to active checkout or detail pages.</p>
         </div>
       </div>
-    </section>
 
-    <section class="section-panel" id="membership">
-      <div class="section-heading">
-        <h2>Membership Information</h2>
-        <p>Tier I and Tier II subscription routing</p>
-      </div>
-
-      <div class="card-grid card-grid-2">
-        <article class="info-card" id="stripe-tier1">
-          <h3>Tier I Early Access</h3>
-          <p>Add Tier I description, live price, and live Stripe payment URL here.</p>
+      <div class="card-grid">
+        <article class="card product-card">
+          <div class="product-meta">SUBSCRIPTION</div>
+          <h3>PASSAGES Access</h3>
+          <p>Foundational PASSAGES curriculum access.</p>
+          <p class="price-tag">$97 / 3 months</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdw08" target="_blank" rel="noopener">Subscribe</a>
+            <a class="btn btn-secondary" href="product.html?item=passages">View Details</a>
+          </div>
         </article>
 
-        <article class="info-card" id="stripe-tier2">
-          <h3>Tier II Early Access</h3>
-          <p>Add Tier II description, live price, and live Stripe payment URL here.</p>
+        <article class="card product-card">
+          <div class="product-meta">MEMBERSHIP</div>
+          <h3>BLACKSHIELD Tier I</h3>
+          <p>Entry institutional membership.</p>
+          <p class="price-tag">$147 / month</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW09" target="_blank" rel="noopener">Join Tier I</a>
+          </div>
+        </article>
+
+        <article class="card product-card">
+          <div class="product-meta">MEMBERSHIP</div>
+          <h3>BLACKSHIELD Tier II</h3>
+          <p>Expanded premium membership.</p>
+          <p class="price-tag">$297 / month</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener">Join Tier II</a>
+          </div>
+        </article>
+
+        <article class="card product-card">
+          <div class="product-meta">BOOK</div>
+          <h3>Diamond in the Rough</h3>
+          <p>Standalone Blackshield book product.</p>
+          <p class="price-tag">$19.99</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="product.html?item=diamond">View Details</a>
+          </div>
         </article>
       </div>
-    </section>
-
-    <section class="section-panel" id="passages-inquiry">
-      <div class="section-heading">
-        <h2>PASSAGES Inquiry</h2>
-        <p>Series information, pricing, and direct-sale routing</p>
-      </div>
-
-      <div class="content-stack">
-        <p>
-          Use this section for PASSAGES series inquiries, pricing discussion, institutional purchase,
-          and collection review requests.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-panel" id="diamond-inquiry">
-      <div class="section-heading">
-        <h2>Diamond in the Rough Inquiry</h2>
-        <p>Flagship product contact routing</p>
-      </div>
-
-      <div class="content-stack">
-        <p>
-          Use this section for Diamond in the Rough product questions, PDF access,
-          sales routing, and institutional inquiry.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-panel" id="general-inquiry">
-      <div class="section-heading">
-        <h2>General Inquiry</h2>
-        <p>General information routing</p>
-      </div>
-
-      <div class="content-stack">
-        <p>
-          Use this section for all other Blackshield Institute questions including product support,
-          single-book questions, curriculum interest, and general communication.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Direct Contact Form</h2>
-        <p>Static-site compatible inquiry form</p>
-      </div>
-
-      <form id="contact-form" class="form-card" novalidate>
-        <div class="form-grid">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required />
-          </label>
-
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required />
-          </label>
-
-          <label class="full">
-            <span>Subject</span>
-            <input type="text" name="subject" required />
-          </label>
-
-          <label class="full">
-            <span>Message</span>
-            <textarea name="message" rows="8" required></textarea>
-          </label>
-        </div>
-
-        <div class="form-actions">
-          <button class="btn btn-primary" type="submit">Open Email Draft</button>
-          <a class="btn" href="catalog.html">Back to Catalog</a>
-        </div>
-
-        <p id="form-status" class="form-status" aria-live="polite"></p>
-      </form>
-    </section>
-
+    </div>
   </main>
 
   <footer class="site-footer">
-    © <span data-year></span> Blackshield Institute
+    <div class="container footer-inner">
+      <div>
+        <strong>Blackshield Institute</strong>
+        <p>Institutional digital platform.</p>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
