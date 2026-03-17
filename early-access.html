@@ -3,207 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Black Shield Institute — Early Access</title>
-  <meta name="description" content="Early Access portal for Black Shield Institute products and releases." />
-
+  <title>Early Access | Blackshield Institute</title>
+  <meta name="description" content="Join Blackshield Institute Early Access." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1b33;
-      --ink:#e9eefc;
-      --muted:rgba(233,238,252,.78);
-      --gold:#d4af37;
-      --line:rgba(233,238,252,.14);
-      --btn:#15284d;
-      --btn2:#111c34;
-      --shadow: 0 16px 40px rgba(0,0,0,.35);
-      --radius: 16px;
+    .early-access-hero {
+      padding: 56px 0 24px;
     }
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 800px at 20% 0%, rgba(212,175,55,.10), transparent 55%),
-                  radial-gradient(1200px 800px at 90% 30%, rgba(94,234,212,.06), transparent 55%),
-                  var(--bg);
-      color:var(--ink);
+    .early-access-intro {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      text-align: center;
     }
 
-    a{ color:inherit; }
-    .wrap{ max-width:1100px; margin:0 auto; padding:28px 18px 70px; }
-
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 16px; border:1px solid var(--line);
-      background: rgba(15,27,51,.75);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .brand{ display:flex; align-items:center; gap:12px; }
-    .brand img{ width:54px; height:auto; display:block; }
-    .brand h1{ font-size:16px; letter-spacing:.4px; margin:0; }
-    .brand p{ margin:0; font-size:12px; color:var(--muted); }
-
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .nav a{
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(21,40,77,.5);
-      font-weight:700;
-      font-size:12px;
-    }
-    .nav a:hover{ border-color: rgba(212,175,55,.55); }
-
-    .hero{
-      margin-top:18px;
-      padding:28px 18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(15,27,51,.85), rgba(15,27,51,.55));
-      box-shadow: var(--shadow);
-    }
-    .hero h2{ margin:0 0 10px; font-size:28px; }
-    .hero p{ margin:0; color:var(--muted); max-width: 72ch; line-height:1.5; }
-
-    .grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:14px;
+    .early-access-intro h1 {
+      margin-bottom: 12px;
     }
 
-    .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(15,27,51,.70);
-      box-shadow: var(--shadow);
-      padding:16px;
+    .early-access-intro p {
+      color: var(--muted, #b8bfd0);
+      font-size: 16px;
+      line-height: 1.6;
     }
-    .card h3{ margin:0 0 8px; font-size:16px; }
-    .card p{ margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.45; }
 
-    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(21,40,77,.65);
-      font-weight:800;
-      font-size:12px;
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 28px;
     }
-    .btn.primary{
-      border-color: rgba(212,175,55,.55);
-      background: rgba(212,175,55,.14);
-    }
-    .btn:hover{ transform: translateY(-1px); }
 
-    .note{
-      margin-top:18px;
-      padding:14px 16px;
-      border-radius: 14px;
-      border:1px dashed rgba(212,175,55,.45);
-      color: rgba(233,238,252,.9);
-      background: rgba(212,175,55,.08);
+    .pricing-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px;
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(212,175,55,0.55);
+      background: rgba(212,175,55,0.08);
+    }
+
+    .pricing-card h2 {
+      margin-bottom: 10px;
+    }
+
+    .pricing-card .tier-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
       font-size: 12px;
-      line-height: 1.45;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
     }
 
-    footer{
-      margin-top:26px;
-      color: var(--muted);
-      font-size:12px;
-      text-align:center;
+    .pricing-card .price {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 800;
+      margin: 12px 0 16px;
     }
-    code{
-      background: rgba(0,0,0,.25);
-      padding:2px 6px;
-      border-radius: 8px;
-      border:1px solid rgba(233,238,252,.12);
+
+    .pricing-card .price span {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--muted, #b8bfd0);
+      margin-left: 4px;
+    }
+
+    .pricing-card p {
+      color: var(--muted, #b8bfd0);
+      line-height: 1.6;
+    }
+
+    .pricing-card ul {
+      margin: 20px 0 24px;
+      padding-left: 18px;
+      color: #fff;
+      line-height: 1.7;
+    }
+
+    .pricing-card ul li {
+      margin-bottom: 8px;
+    }
+
+    .pricing-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .support-strip {
+      margin-top: 32px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.025);
+      text-align: center;
+      color: var(--muted, #b8bfd0);
+    }
+
+    @media (max-width: 860px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+<body data-page="early-access">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+        <span class="logo-wrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
+        </span>
+        <span class="brand-text">
+          <strong>Blackshield Institute</strong>
+          <span>Early Access</span>
+        </span>
+      </a>
 
-<body>
-  <div class="wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-      <div class="brand">
-        <img src="assets/images/shield.png" alt="Black Shield Institute Shield" />
-        <div>
-          <h1>Black Shield Institute</h1>
-          <p>Early Access Portal</p>
+  <main class="site-main">
+    <section class="early-access-hero">
+      <div class="container">
+        <div class="early-access-intro">
+          <div class="eyebrow">BLACKSHIELD MEMBERSHIP ACCESS</div>
+          <h1>Early Access Membership</h1>
+          <p>
+            Choose your Blackshield access tier and enter the system at the level that matches your goals.
+            These memberships are connected directly to Stripe and are intended to restore the live purchase flow.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="tier-label">Tier I</div>
+            <h2>BLACKSHIELD Tier I</h2>
+            <div class="price">$147<span>/month</span></div>
+            <p>
+              Foundational membership access for users entering the Blackshield system with structured curriculum exposure,
+              early releases, and institutional updates.
+            </p>
+
+            <ul>
+              <li>Foundational curriculum access</li>
+              <li>Selected early releases</li>
+              <li>Institutional updates</li>
+              <li>Entry-level Blackshield access path</li>
+            </ul>
+
+            <div class="pricing-actions">
+              <a href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW09" target="_blank" rel="noopener" class="btn btn-primary">
+                Join Tier I
+              </a>
+              <a href="contact.html" class="btn">
+                Contact
+              </a>
+            </div>
+          </article>
+
+          <article class="pricing-card featured">
+            <div class="tier-label">Tier II</div>
+            <h2>BLACKSHIELD Tier II</h2>
+            <div class="price">$297<span>/month</span></div>
+            <p>
+              Expanded institutional membership for users who need deeper access, priority release pathways,
+              and stronger integration into the Blackshield learning system.
+            </p>
+
+            <ul>
+              <li>Full premium access tier</li>
+              <li>Priority release pathway</li>
+              <li>Expanded institutional access</li>
+              <li>Advanced Blackshield system entry</li>
+            </ul>
+
+            <div class="pricing-actions">
+              <a href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener" class="btn btn-primary">
+                Join Tier II
+              </a>
+              <a href="contact.html" class="btn">
+                Contact
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="support-strip">
+          Need direct help before joining? Use the <a href="contact.html">contact page</a>.
+          Looking for the reading series? Go to <a href="passages-series.html">PASSAGES</a>.
         </div>
       </div>
-
-      <nav class="nav">
-        <a href="./index.html">PASSAGES</a>
-        <a href="#releases">Releases</a>
-        <a href="#notes">Notes</a>
-      </nav>
-    </header>
-
-    <section class="hero" id="releases">
-      <h2>Early Access</h2>
-      <p>
-        This page is your staging area. Use it to preview releases before they hit the main site.
-        Keep assets in <code>assets/images/</code> to prevent broken links on GitHub Pages.
-      </p>
     </section>
+  </main>
 
-    <section class="grid">
-      <article class="card">
-        <h3>PASSAGES Series (01–12)</h3>
-        <p>View the live PASSAGES catalog grid with stable image paths.</p>
-        <div class="btnrow">
-          <a class="btn primary" href="./index.html#passages">Open PASSAGES</a>
-          <a class="btn" href="assets/images/passages/passages-01.png" target="_blank" rel="noopener">Test Image 01</a>
-        </div>
-      </article>
+  <footer class="site-footer">
+    © <span data-year></span> Blackshield Institute
+  </footer>
 
-      <article class="card">
-        <h3>Asset Health Check</h3>
-        <p>Use these direct links to verify GitHub Pages is serving your images correctly.</p>
-        <div class="btnrow">
-          <a class="btn" href="assets/images/shield.png" target="_blank" rel="noopener">Shield</a>
-          <a class="btn" href="assets/images/passages/passages-12.png" target="_blank" rel="noopener">Book 12</a>
-        </div>
-      </article>
-
-      <article class="card" id="notes">
-        <h3>Operational Notes</h3>
-        <p>
-          Replace book covers by overwriting the same filename (example: <code>passages-06.png</code>).
-          Do not change names unless you also change HTML.
-        </p>
-        <div class="btnrow">
-          <a class="btn" href="https://kingniyshaat-netizen.github.io/blackshieldinstitute/" target="_blank" rel="noopener">
-            Live Site
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <div class="note">
-      If you see a purple placeholder on the live site, that means the file in the repo is still the placeholder.
-      Fix by replacing the image file content while keeping the exact same filename.
-    </div>
-
-    <footer>
-      © <span id="y"></span> Black Shield Institute — Early Access
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
