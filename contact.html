@@ -1,97 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contact | Blackshield Institute</title>
-  <meta name="description" content="Contact Blackshield Institute." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body data-page="contact">
+
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/images/shield.png" alt="Blackshield Institute Shield" class="brand-logo" />
-        <div class="brand-copy">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+        <span class="logo-wrap">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield">
+        </span>
+        <span class="brand-text">
           <strong>Blackshield Institute</strong>
-          <span>Contact</span>
-        </div>
+          <span>Contact the Institute</span>
+        </span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="catalog.html">Catalog</a>
-        <a href="passages-series.html">PASSAGES</a>
-        <a href="early-access.html">Early Access</a>
-        <a href="contact.html" aria-current="page">Contact</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="digital-playroom.html">Playroom</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link is-active" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="section">
-    <div class="container narrow">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">CONTACT</p>
-          <h1 class="page-title">Contact Blackshield Institute</h1>
-          <p class="lede">Use the form below or contact directly.</p>
+  <main class="site-main">
+
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <div class="eyebrow">BLACKSHIELD CONTACT</div>
+        <h1>Contact Blackshield Institute</h1>
+        <p>
+          For support, institution inquiry, product questions, curriculum access,
+          or implementation requests, use the contact information below.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="mailto:info@blackshieldinstitute.org">Email the Institute</a>
+          <a class="btn" href="catalog.html">Return to Catalog</a>
         </div>
       </div>
 
-      <div class="card form-card">
-        <p><strong>Email:</strong> blackshieldinstitute@gmail.com</p>
-        <p><strong>Phone:</strong> (555) 555-5555</p>
-
-        <form action="https://formsubmit.co/blackshieldinstitute@gmail.com" method="POST" class="form-grid">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required />
-          </label>
-
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required />
-          </label>
-
-          <label class="full">
-            <span>Inquiry Type</span>
-            <select name="type">
-              <option>General Inquiry</option>
-              <option>Membership Support</option>
-              <option>Digital Product Inquiry</option>
-              <option>PASSAGES Inquiry</option>
-              <option>Playroom Inquiry</option>
-            </select>
-          </label>
-
-          <label class="full">
-            <span>Message</span>
-            <textarea name="message" rows="8" required></textarea>
-          </label>
-
-          <input type="hidden" name="_subject" value="Blackshield Institute Inquiry" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <div class="form-actions full">
-            <button class="btn btn-primary" type="submit">Send Inquiry</button>
-            <a class="btn btn-secondary" href="catalog.html">Back to Catalog</a>
-          </div>
-        </form>
+      <div class="hero-art">
+        <div class="hero-shield-frame">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield emblem">
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section-panel" id="inquiry">
+      <div class="section-heading">
+        <h2>Direct Contact Information</h2>
+        <p>Active institute contact points</p>
+      </div>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <strong>Phone</strong>
+          <span>215-881-5746</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Address</strong>
+          <span>132 North Rhode Island Ave, Atlantic City, New Jersey 08401</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Email</strong>
+          <span>info@blackshieldinstitute.org</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel" id="membership">
+      <div class="section-heading">
+        <h2>Membership and Program Inquiry</h2>
+        <p>For family, mentor, institutional, or premium access questions</p>
+      </div>
+
+      <div class="card-grid card-grid-2">
+        <article class="info-card">
+          <h3>Catalog and Membership Questions</h3>
+          <p>Need help selecting Tier I, Tier II, PASSAGES access, or Diamond flagship entry.</p>
+        </article>
+
+        <article class="info-card">
+          <h3>Curriculum and Implementation Questions</h3>
+          <p>For structured educational use, institution rollout, or guided implementation requests.</p>
+        </article>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Blackshield Institute</strong>
-        <p>Institutional digital platform.</p>
-      </div>
-    </div>
+    © <span data-year></span> Blackshield Institute
   </footer>
 
   <script src="assets/js/main.js"></script>
