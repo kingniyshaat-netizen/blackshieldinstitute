@@ -158,11 +158,13 @@ a {
 
 .hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
   align-items: center;
   gap: 28px;
   padding: 32px;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
 }
 
 .hero-copy {
@@ -217,22 +219,26 @@ h3 {
   justify-content: center;
   position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-shield-frame {
-  width: min(100%, 440px);
+  width: min(100%, 420px);
+  max-width: 420px;
   aspect-ratio: 1 / 1;
   margin-inline: auto;
   border-radius: 32px;
   border: 1px solid var(--line);
   background:
-    radial-gradient(circle at center, rgba(212, 175, 55, 0.20), transparent 55%),
+    radial-gradient(circle at center, rgba(212, 175, 55, 0.18), transparent 58%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 26px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-shield-frame img {
@@ -246,6 +252,8 @@ h3 {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 18px;
+  position: relative;
+  z-index: 3;
 }
 
 .btn {
@@ -261,6 +269,8 @@ h3 {
   font-weight: 800;
   text-align: center;
   transition: 0.2s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .btn:hover {
@@ -311,6 +321,17 @@ h3 {
 .info-card {
   border-radius: 20px;
   padding: 22px;
+  overflow: hidden;
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .content-stack {
@@ -372,8 +393,13 @@ h3 {
     padding: 24px;
   }
 
+  .hero-art {
+    order: -1;
+  }
+
   .hero-shield-frame {
-    width: min(100%, 340px);
+    width: min(100%, 320px);
+    max-width: 320px;
   }
 
   .card-grid-2,
@@ -404,6 +430,12 @@ h3 {
   .hero-panel,
   .section-panel {
     padding: 20px;
+  }
+
+  .hero-shield-frame {
+    width: min(100%, 260px);
+    max-width: 260px;
+    padding: 18px;
   }
 
   .button-row {
