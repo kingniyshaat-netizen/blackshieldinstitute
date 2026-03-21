@@ -1,208 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeatBright • Blackshield Institute</title>
-  <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="stylesheet" href="../../assets/css/beatbright.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BeatBright Access | Blackshield Institute</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body data-page="beatbright">
+<body data-page="beatbright-pricing">
+
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../../index.html" aria-label="Blackshield Institute home">
+      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
         <span class="logo-wrap">
-          <img src="../../assets/images/shield.png" alt="Blackshield Institute shield" />
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield">
         </span>
         <span class="brand-text">
           <strong>Blackshield Institute</strong>
-          <span>BeatBright Rhythm Lab</span>
+          <span>BeatBright Access</span>
         </span>
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../catalog.html">Catalog</a>
-        <a class="nav-link" href="../../curriculum.html">Curriculum</a>
-        <a class="nav-link is-active" href="../../digital-playroom.html">Playroom</a>
-        <a class="nav-link" href="../../contact.html">Contact</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalog.html">Catalog</a>
+        <a class="nav-link" href="passages-series.html">PASSAGES</a>
+        <a class="nav-link" href="curriculum.html">Curriculum</a>
+        <a class="nav-link" href="digital-playroom.html">Playroom</a>
+        <a class="nav-link is-active" href="beatbright-pricing.html">BeatBright</a>
+        <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-main beatbright-shell">
-    <section class="hero-panel beatbright-hero">
+  <main class="site-main">
+
+    <section class="hero-panel">
       <div class="hero-copy">
-        <div class="eyebrow">BEATBRIGHT</div>
-        <h1><span class="beatbright-gradient">Rhythm lab</span> for Chromebook deployment.</h1>
-        <p class="lede">
-          Pads, sequencer, lesson mode, game mode, fullscreen mode, and teacher dashboard,
-          synced into the Blackshield Playroom without replacing the rest of the site.
+        <div class="eyebrow">BLACKSHIELD RHYTHM SYSTEM</div>
+        <h1>BeatBright Access Model</h1>
+        <p>
+          BeatBright is a Blackshield Institute rhythm lab built for structured interaction,
+          timing development, sound exploration, and guided digital learning. This page
+          defines how BeatBright fits into the Blackshield monetization ladder.
         </p>
         <div class="button-row">
-          <a class="btn btn-primary" href="#lab">Open Lab</a>
-          <a class="btn" href="../../digital-playroom.html">Back to Playroom</a>
+          <a class="btn btn-primary" href="interactive/beat-machines/beatbright.html">Open BeatBright</a>
+          <a class="btn" href="catalog.html">View Catalog</a>
         </div>
       </div>
 
-      <div class="info-card beatbright-status-card">
-        <h3>Deployment Status</h3>
-        <ul class="feature-list">
-          <li>GitHub Pages compatible</li>
-          <li>Chromebook-ready responsive surface</li>
-          <li>12-pad unique sound engine</li>
-          <li>Lesson progression and teacher dashboard</li>
-        </ul>
+      <div class="hero-art">
+        <div class="hero-shield-frame">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield emblem">
+        </div>
       </div>
     </section>
 
-    <section class="section-panel" id="lab">
+    <section class="section-panel">
       <div class="section-heading">
-        <h2>BeatBright Experience</h2>
-        <p>Click once anywhere to unlock audio, then press Play.</p>
+        <h2>Current Positioning</h2>
+        <p>How BeatBright should function inside Blackshield Institute</p>
       </div>
 
-      <div class="beatbright-app-grid">
-        <section class="info-card">
-          <div class="beatbright-row">
-            <h3>Pads</h3>
-            <div class="beatbright-small">Q W E R / A S D F / Z X C V — 12 unique sounds, 12 sequencer lanes.</div>
-          </div>
-          <div class="beatbright-pads" id="pads"></div>
-          <div class="beatbright-small beatbright-top-gap">
-            Punchier kick, cleaner snare, brighter hats, fuller clap, stronger low-end, and clearer per-pad identity.
-          </div>
-        </section>
-
-        <section class="info-card">
-          <div class="beatbright-row">
-            <h3>Coach</h3>
-            <div class="beatbright-stars" id="stars">
-              <span class="beatbright-star" id="s1">★</span>
-              <span class="beatbright-star" id="s2">★</span>
-              <span class="beatbright-star" id="s3">★</span>
-            </div>
-          </div>
-
-          <div class="beatbright-coach">
-            <div>
-              <div class="beatbright-coach-title" id="coachMsg">Click anywhere, then press Play.</div>
-              <div class="beatbright-small" id="coachSub">Chrome wants a user gesture before audio.</div>
-            </div>
-            <div class="beatbright-badge" id="grade">Ready</div>
-          </div>
-
-          <div class="beatbright-controls beatbright-top-gap">
-            <div class="beatbright-group">
-              <button id="playBtn" class="beatbright-btnHot">▶ Play</button>
-              <button id="gameBtn" class="beatbright-btnGood">🎮 Game</button>
-              <button id="lessonBtn" class="beatbright-btnGood">🎓 Lesson</button>
-              <button id="teacherBtn">📊 Teacher</button>
-              <button id="fullscreenBtn">⛶ Fullscreen</button>
-            </div>
-          </div>
-
-          <div class="beatbright-controls beatbright-top-gap-sm">
-            <div class="beatbright-group">
-              <div class="beatbright-slider">
-                <span><b>BPM</b> <span id="bpmVal">110</span></span>
-                <input id="bpm" type="range" min="70" max="170" value="110">
-              </div>
-
-              <div class="beatbright-slider">
-                <span><b>Difficulty</b></span>
-                <select id="difficulty">
-                  <option value="beginner">Beginner</option>
-                  <option value="parent" selected>Parent</option>
-                  <option value="pro">Pro</option>
-                </select>
-              </div>
-
-              <div class="beatbright-slider">
-                <span><b>Lesson</b></span>
-                <select id="lessonLevel">
-                  <option value="1">L1: Clap on 1</option>
-                  <option value="2">L2: Snare on 2 &amp; 4</option>
-                  <option value="3">L3: Kick on 1 &amp; 3</option>
-                  <option value="4">L4: Hats on 8ths</option>
-                  <option value="5">L5: Random Callouts</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="beatbright-group">
-              <button id="metronomeBtn">🪘 Metronome On</button>
-              <button id="clearSeqBtn" class="beatbright-btnWarn">Clear Sequence</button>
-              <button id="saveBtn">Save</button>
-              <button id="loadBtn">Load</button>
-              <button id="resetBtn" class="beatbright-btnBad">Reset Progress</button>
-            </div>
-          </div>
-
-          <div class="beatbright-hud beatbright-top-gap-sm">
-            <div class="beatbright-pill"><b>Mode:</b> <span id="mode">Free</span></div>
-            <div class="beatbright-pill"><b>Target:</b> <span id="target">—</span></div>
-            <div class="beatbright-pill"><b>Round:</b> <span id="round">0</span>/<span id="roundMax">12</span></div>
-            <div class="beatbright-pill"><b>Score:</b> <span id="score">0</span></div>
-            <div class="beatbright-pill"><b>Streak:</b> <span id="streak">0</span></div>
-            <div class="beatbright-pill"><b>Level:</b> <span id="level">1</span></div>
-            <div class="beatbright-pill"><b>Lives:</b> <span id="livesNum">5</span></div>
-            <div class="beatbright-pill"><b>Accuracy:</b> <span id="acc">0%</span></div>
-            <div class="beatbright-hearts" id="hearts"></div>
-          </div>
-        </section>
+      <div class="content-stack">
+        <p>
+          BeatBright should not be treated as a random isolated tool with no business logic.
+          It works best as a premium interactive feature inside the larger Blackshield system.
+        </p>
+        <p>
+          That means BeatBright should first strengthen memberships and flagship access
+          before being considered as a standalone product.
+        </p>
       </div>
-
-      <section class="info-card beatbright-top-gap">
-        <div class="beatbright-row">
-          <h3>12-Button Sequencer</h3>
-          <div class="beatbright-small">Every visible button has a matching sequencer lane.</div>
-        </div>
-        <div class="beatbright-sequencer beatbright-top-gap-sm" id="sequencer"></div>
-      </section>
-
-      <section class="info-card beatbright-top-gap hidden" id="teacherPanel">
-        <div class="beatbright-row">
-          <h3>Teacher Dashboard</h3>
-          <div class="beatbright-small">Local-only stats. Chromebook-safe.</div>
-        </div>
-        <div class="beatbright-hud beatbright-top-gap-sm">
-          <div class="beatbright-pill"><b>Unlocked:</b> <span id="tUnlock">1</span>/5</div>
-          <div class="beatbright-pill"><b>Accuracy:</b> <span id="tAcc">0%</span></div>
-          <div class="beatbright-pill"><b>Perfect:</b> <span id="tP">0</span></div>
-          <div class="beatbright-pill"><b>Good:</b> <span id="tG">0</span></div>
-          <div class="beatbright-pill"><b>OK:</b> <span id="tO">0</span></div>
-          <div class="beatbright-pill"><b>Miss:</b> <span id="tM">0</span></div>
-          <div class="beatbright-pill"><b>Best Streak:</b> <span id="tBest">0</span></div>
-          <div class="beatbright-pill"><b>Minutes:</b> <span id="tMin">0</span></div>
-          <div class="beatbright-pill"><b>Skill:</b> <span id="tSkill">—</span></div>
-        </div>
-      </section>
     </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Recommended Pricing Structure</h2>
+        <p>Clean product logic for BeatBright deployment</p>
+      </div>
+
+      <div class="card-grid card-grid-3">
+
+        <article class="info-card">
+          <h3>Included in Diamond</h3>
+          <p>
+            BeatBright should be included in Diamond in the Rough as part of premium full-system access.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Included in Tier II</h3>
+          <p>
+            Tier II should include BeatBright as a higher-value interactive tool within recurring membership.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Preview in Tier I</h3>
+          <p>
+            Tier I can preview BeatBright or link to limited access, but should not carry full premium positioning.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Standalone Product Decision</h2>
+        <p>Should BeatBright be sold alone?</p>
+      </div>
+
+      <div class="card-grid card-grid-2">
+
+        <article class="info-card">
+          <h3>Recommended Answer: Not Yet</h3>
+          <p>
+            Right now BeatBright is more valuable as a membership enhancer than as a standalone product.
+            Selling it alone too early weakens your tier structure.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Future Standalone Option</h3>
+          <p>
+            Later, BeatBright can become a separate offer with a one-time price or monthly access,
+            but only after the memberships and flagship path are fully stabilized.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Monetization Role</h2>
+        <p>How BeatBright increases value</p>
+      </div>
+
+      <div class="card-grid card-grid-3">
+
+        <article class="info-card">
+          <h3>Membership Booster</h3>
+          <p>
+            Helps Tier II feel more premium and gives Diamond more depth.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Interactive Differentiator</h3>
+          <p>
+            Separates Blackshield from static PDF-only systems by adding digital engagement.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Future Expansion Asset</h3>
+          <p>
+            Can later support rhythm packs, guided levels, classroom modules, or premium upgrades.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Recommended Access Breakdown</h2>
+        <p>Current deployment logic</p>
+      </div>
+
+      <div class="card-grid card-grid-2">
+
+        <article class="info-card">
+          <h3>Diamond in the Rough</h3>
+          <p>
+            Full BeatBright access included.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="diamond-in-the-rough.html">View Diamond</a>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h3>Tier II Membership</h3>
+          <p>
+            Full BeatBright access included.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="catalog.html">View Tier II</a>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h3>Tier I Membership</h3>
+          <p>
+            Limited or preview-only BeatBright positioning recommended.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="catalog.html">View Tier I</a>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h3>Standalone BeatBright</h3>
+          <p>
+            Hold until later phase. Do not fragment the funnel too early.
+          </p>
+          <div class="button-row">
+            <a class="btn" href="contact.html#inquiry">Ask About Access</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <div class="section-heading">
+        <h2>Final Recommendation</h2>
+        <p>Best deployment move right now</p>
+      </div>
+
+      <div class="content-stack">
+        <p>
+          BeatBright should currently function as a premium included feature, not a separate front-line sales product.
+          That strengthens Diamond and Tier II, supports value stacking, and keeps the Blackshield ladder clean.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a class="btn btn-primary" href="interactive/beat-machines/beatbright.html">Launch BeatBright</a>
+        <a class="btn" href="catalog.html">Return to Catalog</a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     © <span data-year></span> Blackshield Institute
   </footer>
 
-  <div class="beatbright-modal" id="resultModal">
-    <div class="beatbright-modal-box">
-      <h2 id="resultTitle">Lesson Result</h2>
-      <div class="beatbright-small" id="resultText">—</div>
-      <div class="beatbright-stars beatbright-top-gap-sm">
-        <span class="beatbright-star" id="rs1">★</span>
-        <span class="beatbright-star" id="rs2">★</span>
-        <span class="beatbright-star" id="rs3">★</span>
-      </div>
-      <div class="beatbright-modal-actions">
-        <button id="retryBtn">Retry</button>
-        <button id="nextBtn">Next Lesson</button>
-        <button id="closeBtn">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/beatbright.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
