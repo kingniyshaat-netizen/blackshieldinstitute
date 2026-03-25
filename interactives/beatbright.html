@@ -1,12 +1,72 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>BeatBright Rhythm Lab | Blackshield Institute</title>
-  <meta name="description" content="BeatBright Rhythm Lab by Blackshield Institute. Structured rhythm learning, timing development, and interactive musical exploration.">
+  <meta name="description" content="BeatBright Rhythm Lab by Blackshield Institute. Interactive rhythm play and beat triggering.">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    .beatbright-shell {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .pad-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .pad {
+      min-height: 120px;
+      border-radius: 20px;
+      border: 1px solid rgba(212,175,55,0.28);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .pad:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .pad.active {
+      transform: scale(0.98);
+      border-color: rgba(212,175,55,0.95);
+      background: linear-gradient(180deg, rgba(212,175,55,0.28), rgba(176,138,20,0.22));
+      color: #fff;
+    }
+
+    .status-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .beat-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .pad-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
 <body data-page="beatbright">
 
@@ -28,112 +88,40 @@
         <a class="nav-link" href="/passages-series.html">PASSAGES</a>
         <a class="nav-link" href="/curriculum.html">Curriculum</a>
         <a class="nav-link" href="/digital-playroom.html">Playroom</a>
-        
+        <a class="nav-link" href="/about.html">About</a>
         <a class="nav-link" href="/contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="site-main">
-
-    <section class="hero-panel">
-      <div class="hero-copy">
-        <div class="eyebrow">BLACKSHIELD RHYTHM SYSTEM</div>
-        <h1>BeatBright Rhythm Lab</h1>
-        <p>
-          BeatBright is Blackshield Institute’s rhythm-learning environment for timing,
-          beat awareness, sound experimentation, and structured digital engagement.
-        </p>
-
-        <div class="button-row">
-          <a class="btn btn-primary" href="/catalog.html">View Access Options</a>
-          <a class="btn" href="/digital-playroom.html">Back to Playroom</a>
-        </div>
-      </div>
-
-      <div class="hero-art">
-        <div class="hero-shield-frame">
-          <img src="/assets/images/shield.png" alt="Blackshield Institute shield emblem">
-        </div>
-      </div>
-    </section>
-
-    <section class="section-panel">
+    <section class="section-panel beatbright-shell">
       <div class="section-heading">
-        <h2>What BeatBright Is</h2>
-        <p>Current live positioning inside the Blackshield system</p>
+        <h2>BeatBright Rhythm Lab</h2>
+        <p>Tap the pads or use keys A, S, D, F, J, K, L, ; to trigger sounds.</p>
       </div>
 
-      <div class="card-grid card-grid-3">
-        <article class="info-card">
-          <h3>Rhythm Development</h3>
-          <p>
-            Built to strengthen timing, musical awareness, pattern recognition, and creative confidence.
-          </p>
-        </article>
+      <div class="pad-grid" id="padGrid">
+        <button class="pad" data-note="Kick" data-key="A">Kick<br><small>A</small></button>
+        <button class="pad" data-note="Snare" data-key="S">Snare<br><small>S</small></button>
+        <button class="pad" data-note="Clap" data-key="D">Clap<br><small>D</small></button>
+        <button class="pad" data-note="Hat" data-key="F">Hat<br><small>F</small></button>
+        <button class="pad" data-note="Tom" data-key="J">Tom<br><small>J</small></button>
+        <button class="pad" data-note="Rim" data-key="K">Rim<br><small>K</small></button>
+        <button class="pad" data-note="Bell" data-key="L">Bell<br><small>L</small></button>
+        <button class="pad" data-note="Bass" data-key=";">Bass<br><small>;</small></button>
+      </div>
 
-        <article class="info-card">
-          <h3>Interactive Learning</h3>
-          <p>
-            BeatBright expands Blackshield beyond static reading by introducing guided digital engagement.
-          </p>
-        </article>
+      <div class="status-box" id="statusBox">
+        Ready. Tap a pad to play.
+      </div>
 
-        <article class="info-card">
-          <h3>Premium Value Layer</h3>
-          <p>
-            BeatBright currently functions as a premium feature within the wider Blackshield ecosystem.
-          </p>
-        </article>
+      <div class="beat-controls">
+        <button class="btn btn-primary" id="demoBeatBtn" type="button">Play Demo Pattern</button>
+        <button class="btn" id="stopBeatBtn" type="button">Stop Demo</button>
+        <a class="btn" href="/digital-playroom.html">Back to Playroom</a>
       </div>
     </section>
-
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Current Access Status</h2>
-        <p>Live deployment note</p>
-      </div>
-
-      <div class="content-stack">
-        <p>
-          The full standalone BeatBright interactive build is still being expanded.
-          This page currently serves as the official live BeatBright entry point inside Blackshield Institute.
-        </p>
-        <p>
-          BeatBright is positioned as part of premium Blackshield access, especially within Diamond
-          in the Rough and higher-tier membership pathways.
-        </p>
-      </div>
-
-      <div class="button-row">
-        <a class="btn btn-primary" href="/diamond-in-the-rough.html">View Diamond Access</a>
-        <a class="btn" href="/members-access.html">Open Members Hub</a>
-      </div>
-    </section>
-
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Next Expansion Path</h2>
-        <p>Where this route leads later</p>
-      </div>
-
-      <div class="card-grid card-grid-2">
-        <article class="info-card">
-          <h3>Future Interactive Build</h3>
-          <p>
-            This route can later be upgraded into a full playable rhythm lab without changing the public URL.
-          </p>
-        </article>
-
-        <article class="info-card">
-          <h3>Stable Production URL</h3>
-          <p>
-            Keeping this file live now prevents broken links and gives you a clean permanent BeatBright location.
-          </p>
-        </article>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -141,5 +129,106 @@
   </footer>
 
   <script src="/assets/js/main.js"></script>
+  <script>
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = AudioContextClass ? new AudioContextClass() : null;
+    const pads = document.querySelectorAll('.pad');
+    const statusBox = document.getElementById('statusBox');
+    const demoBeatBtn = document.getElementById('demoBeatBtn');
+    const stopBeatBtn = document.getElementById('stopBeatBtn');
+    let demoInterval = null;
+    let demoStep = 0;
+
+    function noteConfig(name) {
+      const configs = {
+        Kick: { freq: 110, type: 'sine', duration: 0.18 },
+        Snare: { freq: 240, type: 'triangle', duration: 0.12 },
+        Clap: { freq: 360, type: 'square', duration: 0.09 },
+        Hat: { freq: 520, type: 'square', duration: 0.06 },
+        Tom: { freq: 180, type: 'sine', duration: 0.16 },
+        Rim: { freq: 460, type: 'triangle', duration: 0.05 },
+        Bell: { freq: 740, type: 'sine', duration: 0.24 },
+        Bass: { freq: 90, type: 'sawtooth', duration: 0.22 }
+      };
+      return configs[name] || { freq: 220, type: 'sine', duration: 0.12 };
+    }
+
+    function playTone(name) {
+      if (!audioCtx) {
+        statusBox.textContent = 'Audio is not supported in this browser.';
+        return;
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const cfg = noteConfig(name);
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const now = audioCtx.currentTime;
+
+      osc.type = cfg.type;
+      osc.frequency.setValueAtTime(cfg.freq, now);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.45, now + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + cfg.duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + cfg.duration);
+
+      statusBox.textContent = `Played: ${name}`;
+    }
+
+    function triggerPad(button) {
+      const note = button.dataset.note;
+      playTone(note);
+      button.classList.add('active');
+      setTimeout(() => button.classList.remove('active'), 140);
+    }
+
+    pads.forEach((pad) => {
+      pad.addEventListener('click', () => triggerPad(pad));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      const key = event.key.toUpperCase();
+      pads.forEach((pad) => {
+        if (pad.dataset.key === key) {
+          triggerPad(pad);
+        }
+      });
+
+      if (event.key === ';') {
+        const semicolonPad = Array.from(pads).find((pad) => pad.dataset.key === ';');
+        if (semicolonPad) triggerPad(semicolonPad);
+      }
+    });
+
+    const demoPattern = ['Kick', 'Hat', 'Snare', 'Hat', 'Kick', 'Clap', 'Snare', 'Bass'];
+
+    demoBeatBtn.addEventListener('click', () => {
+      if (demoInterval) return;
+
+      statusBox.textContent = 'Demo pattern playing...';
+      demoInterval = setInterval(() => {
+        const current = demoPattern[demoStep % demoPattern.length];
+        const pad = Array.from(pads).find((item) => item.dataset.note === current);
+        if (pad) triggerPad(pad);
+        demoStep += 1;
+      }, 320);
+    });
+
+    stopBeatBtn.addEventListener('click', () => {
+      clearInterval(demoInterval);
+      demoInterval = null;
+      demoStep = 0;
+      statusBox.textContent = 'Demo stopped.';
+    });
+  </script>
 </body>
 </html>
