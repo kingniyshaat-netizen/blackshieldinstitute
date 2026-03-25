@@ -361,7 +361,15 @@ h3 {
   color: var(--gold);
   margin-bottom: 4px;
 }
+.contact-item a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
+.contact-item a:hover {
+  color: var(--gold);
+}
 .site-footer {
   padding: 0 0 38px;
   color: var(--muted);
@@ -445,4 +453,35 @@ h3 {
   .btn {
     width: 100%;
   }
+}
+.feature-list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.feature-list li + li {
+  margin-top: 8px;
+}
+
+.price-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.contact-item a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-item a:hover {
+  color: var(--gold);
 }
