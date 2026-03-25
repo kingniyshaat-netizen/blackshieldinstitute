@@ -1,1 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Memory Match Cards | Blackshield Institute</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    .game-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+    }
 
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .memory-card {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .memory-card.locked {
+      cursor: default;
+    }
+
+    .card-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.45s ease;
+      transform-style: preserve-3d;
+    }
+
+    .memory-card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      border: 1px solid rgba(212,175,55,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      backface-visibility: hidden;
+      box-shadow: var(--shadow);
+      font-weight: 800;
+    }
+
+    .card-front {
+      background: linear-gradient(180deg, rgba(212,175,55,0.18), rgba(255,255,255,0.03));
+      color: var(--gold);
+    }
+
+    .card-back {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      color: var(--text);
+      transform: rotateY(180deg);
+    }
+
+    .game-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .game-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 820px) {
+      .memory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body data-page="memory-match">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/index.html" aria-label="Blackshield Institute home">
+      <span class="logo-wrap">
+        <img src="/assets/images/shield.png" alt="Blackshield Institute shield">
+      </span>
+      <span class="brand-text">
+        <strong>Blackshield Institute</strong>
+        <span>Memory Match Trainer</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-link" href="/index.html">Home</a>
+      <a class="nav-link" href="/catalog.html">Catalog</a>
+      <a class="nav-link" href="/passages-series.html">PASSAGES</a>
+      <a class="nav-link" href="/curriculum.html">Curriculum</a>
+      <a class="nav-link" href="/digital-playroom.html">Playroom</a>
+      <a class="nav-link" href="/about.html">About</a>
+      <a class="nav-link" href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <section class="section-panel game-wrapper">
+    <div class="section-heading">
+      <h2>Memory Match Cards</h2>
+      <p>Flip the cards and match the pairs. Built for recall, recognition, and repetition.</p>
+    </div>
+
+    <div class="game-meta">
+      <div class="meta-pill" id="movesCount">Moves: 0</div>
+      <div class="meta-pill" id="matchesCount">Matches: 0 / 8</div>
+      <div class="meta-pill" id="statusText">Status: Ready</div>
+    </div>
+
+    <div id="memoryGrid" class="memory-grid"></div>
+
+    <div class="game-controls">
+      <button class="btn btn-primary" id="restartBtn" type="button">Restart Game</button>
+      <a class="btn" href="/digital-playroom.html">Back to Playroom</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  © <span data-year></span> Blackshield Institute
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  const baseValues = [
+    "Discipline",
+    "Respect",
+    "Knowledge",
+    "Leadership",
+    "Responsibility",
+    "Integrity",
+    "Service",
+    "Focus"
+  ];
+
+  const memoryGrid = document.getElementById('memoryGrid');
+  const movesCount = document.getElementById('movesCount');
+  const matchesCount = document.getElementById('matchesCount');
+  const statusText = document.getElementById('statusText');
+  const restartBtn = document.getElementById('restartBtn');
+
+  let firstCard = null;
+  let secondCard = null;
+  let lockBoard = false;
+  let moves = 0;
+  let matches = 0;
+
+  function shuffle(array) {
+    const copy = [...array];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function updateMeta() {
+    movesCount.textContent = `Moves: ${moves}`;
+    matchesCount.textContent = `Matches: ${matches} / ${baseValues.length}`;
+  }
+
+  function setStatus(text) {
+    statusText.textContent = `Status: ${text}`;
+  }
+
+  function createCard(value) {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'memory-card';
+    card.dataset.value = value;
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-face card-front">Blackshield</div>
+        <div class="card-face card-back">${value}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => handleFlip(card));
+    return card;
+  }
+
+  function resetBoardState() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+  }
+
+  function handleFlip(card) {
+    if (lockBoard || card === firstCard || card.classList.contains('locked')) return;
+
+    card.classList.add('flip');
+
+    if (!firstCard) {
+      firstCard = card;
+      setStatus('First card selected');
+      return;
+    }
+
+    secondCard = card;
+    lockBoard = true;
+    moves += 1;
+    updateMeta();
+
+    const isMatch = firstCard.dataset.value === secondCard.dataset.value;
+
+    if (isMatch) {
+      firstCard.classList.add('locked');
+      secondCard.classList.add('locked');
+      matches += 1;
+      updateMeta();
+      setStatus('Match found');
+
+      if (matches === baseValues.length) {
+        setStatus('Complete — all pairs matched');
+        setTimeout(() => alert('Congratulations! You matched all pairs.'), 180);
+      }
+
+      resetBoardState();
+    } else {
+      setStatus('Not a match');
+      setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        resetBoardState();
+        setStatus('Ready');
+      }, 800);
+    }
+  }
+
+  function startGame() {
+    memoryGrid.innerHTML = '';
+    moves = 0;
+    matches = 0;
+    resetBoardState();
+    updateMeta();
+    setStatus('Ready');
+
+    const deck = shuffle([...baseValues, ...baseValues]);
+    deck.forEach((value) => {
+      memoryGrid.appendChild(createCard(value));
+    });
+  }
+
+  restartBtn.addEventListener('click', startGame);
+  startGame();
+</script>
+</body>
+</html>
