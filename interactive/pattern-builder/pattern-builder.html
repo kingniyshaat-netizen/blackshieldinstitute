@@ -1,1 +1,194 @@
 
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pattern Builder | Blackshield Institute</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">  <style>
+    .pattern-shell {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pattern-sequence,
+    .pattern-choices {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pattern-box {
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      border: 1px solid rgba(212,175,55,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .pattern-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .status-line {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.03);
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .game-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .pattern-sequence,
+      .pattern-choices {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style></head>
+<body data-page="pattern-builder"><header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/index.html">
+      <span class="logo-wrap">
+        <img src="/assets/images/shield.png" alt="Blackshield Institute shield">
+      </span>
+      <span class="brand-text">
+        <strong>Blackshield Institute</strong>
+        <span>Pattern Builder</span>
+      </span>
+    </a><nav class="site-nav">
+  <a class="nav-link" href="/index.html">Home</a>
+  <a class="nav-link" href="/catalog.html">Catalog</a>
+  <a class="nav-link" href="/passages-series.html">PASSAGES</a>
+  <a class="nav-link" href="/curriculum.html">Curriculum</a>
+  <a class="nav-link" href="/digital-playroom.html">Playroom</a>
+  <a class="nav-link" href="/about.html">About</a>
+  <a class="nav-link" href="/contact.html">Contact</a>
+</nav>
+
+  </div>
+</header><main class="site-main"><section class="section-panel pattern-shell">  <div class="section-heading">
+    <h2>Pattern Builder</h2>
+    <p>Study the sequence. Choose the next correct item to complete the pattern.</p>
+  </div>  <div id="sequence" class="pattern-sequence"></div>  <div class="section-heading" style="margin-top:22px;">
+    <h3>Select the Next Item</h3>
+  </div>  <div id="choices" class="pattern-choices"></div>  <div id="status" class="status-line">
+    Ready. Observe the pattern.
+  </div>  <div class="game-controls">
+    <button class="btn btn-primary" onclick="startRound()">New Pattern</button>
+    <a class="btn" href="/digital-playroom.html">Back to Playroom</a>
+  </div></section></main><footer class="site-footer">
+  © Blackshield Institute
+</footer><script>
+
+const patterns = [
+  ["Discipline","Respect","Discipline","Respect"],
+  ["A","B","A","B"],
+  ["1","2","3","1"],
+  ["Focus","Effort","Growth","Focus"],
+  ["Red","Blue","Red","Blue"]
+];
+
+let currentPattern = [];
+let correctAnswer = "";
+
+function startRound() {
+
+  const seqDiv = document.getElementById("sequence");
+  const choicesDiv = document.getElementById("choices");
+  const status = document.getElementById("status");
+
+  seqDiv.innerHTML = "";
+  choicesDiv.innerHTML = "";
+
+  currentPattern = patterns[Math.floor(Math.random() * patterns.length)];
+
+  currentPattern.forEach(item => {
+
+    const box = document.createElement("div");
+    box.className = "pattern-box";
+    box.textContent = item;
+
+    seqDiv.appendChild(box);
+
+  });
+
+  correctAnswer = currentPattern[0];
+
+  let options = [...new Set([...currentPattern])];
+
+  while (options.length < 4) {
+
+    options.push("Extra");
+
+  }
+
+  options = shuffle(options);
+
+  options.forEach(option => {
+
+    const choice = document.createElement("div");
+    choice.className = "pattern-box";
+    choice.textContent = option;
+
+    choice.onclick = () => checkAnswer(option);
+
+    choicesDiv.appendChild(choice);
+
+  });
+
+  status.textContent = "Observe the pattern and choose the next item.";
+
+}
+
+function checkAnswer(choice) {
+
+  const status = document.getElementById("status");
+
+  if (choice === correctAnswer) {
+
+    status.textContent = "Correct. Pattern complete.";
+
+  }
+  else {
+
+    status.textContent = "Incorrect. Try again.";
+
+  }
+
+}
+
+function shuffle(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+  return array;
+
+}
+
+startRound();
+
+</script></body>
+</html>
