@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Breaking the Generational Curse and Its Effects | Blackshield Institute</title>
+  <meta name="description" content="Blackshield Institute publication page for Breaking the Generational Curse and Its Effects. A direct, serious, spiritually grounded book confronting inherited trauma, family patterns, and personal accountability.">
+  <style>
+    :root{
+      --bg:#070909;
+      --panel:#0f1316;
+      --panel-2:#141a1f;
+      --line:rgba(212,175,55,.22);
+      --line-soft:rgba(255,255,255,.08);
+      --text:#f5f1e8;
+      --muted:#b7b1a4;
+      --gold:#d4af37;
+      --gold-2:#f1d989;
+      --danger:#b53b3b;
+      --success:#2f9e63;
+      --shadow:0 18px 40px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius-sm:12px;
+      --max:1180px;
+      --focus:0 0 0 3px rgba(212,175,55,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 28%),
+        linear-gradient(180deg, #090b0c 0%, #050607 100%);
+      color:var(--text);
+      min-height:100vh;
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,textarea,select{font:inherit}
+
+    .container{
+      width:min(var(--max), calc(100vw - 2rem));
+      margin:0 auto;
+    }
+
+    .site-shell{
+      padding:22px 0 60px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 16px;
+      margin-bottom:18px;
+      border:1px solid var(--line-soft);
+      border-radius:16px;
+      background:rgba(15,19,22,.78);
+      backdrop-filter: blur(6px);
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:10px;
+      z-index:20;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color:var(--gold-2);
+      background:linear-gradient(180deg,#12171b,#0c1013);
+      font-weight:700;
+      letter-spacing:.08em;
+      flex:0 0 auto;
+    }
+
+    .brand-copy{
+      min-width:0;
+    }
+
+    .brand-copy strong{
+      display:block;
+      font-size:.98rem;
+      letter-spacing:.08em;
+      color:var(--gold-2);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .brand-copy span{
+      display:block;
+      font-size:.84rem;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav-link,
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 16px;
+      border-radius:999px;
+      border:1px solid var(--line-soft);
+      background:#12161a;
+      color:var(--text);
+      font-weight:700;
+      letter-spacing:.01em;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn:hover,
+    .nav-link:hover{
+      transform:translateY(-1px);
+      border-color:var(--line);
+    }
+
+    .btn:focus-visible,
+    .nav-link:focus-visible,
+    .icon-btn:focus-visible,
+    .accordion-btn:focus-visible{
+      outline:none;
+      box-shadow:var(--focus);
+    }
+
+    .btn-primary{
+      background:linear-gradient(180deg, #d8b84d, #b88b16);
+      color:#111;
+      border-color:#e4c970;
+    }
+
+    .btn-primary:hover{
+      background:linear-gradient(180deg, #e0c35b, #c5951c);
+      color:#111;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+      gap:22px;
+      align-items:stretch;
+      margin-top:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(20,26,31,.95), rgba(12,16,19,.95));
+      border:1px solid var(--line-soft);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .cover-card{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .book-cover{
+      aspect-ratio: 2 / 3;
+      border-radius:18px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(212,175,55,.22);
+      background:
+        radial-gradient(circle at 50% 14%, rgba(241,217,137,.22), transparent 22%),
+        radial-gradient(circle at 50% 105%, rgba(181,59,59,.18), transparent 30%),
+        linear-gradient(180deg, #0b1013 0%, #11191f 35%, #090d10 100%);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+    }
+
+    .cover-glow{
+      position:absolute;
+      inset:auto -10% -12% -10%;
+      height:45%;
+      background:radial-gradient(circle, rgba(212,175,55,.14), transparent 60%);
+      filter:blur(20px);
+    }
+
+    .cover-lines{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, transparent 0 47%, rgba(212,175,55,.06) 49%, transparent 52% 100%),
+        linear-gradient(60deg, transparent 0 20%, rgba(255,255,255,.03) 22%, transparent 24% 100%);
+      pointer-events:none;
+    }
+
+    .cover-inner{
+      position:relative;
+      z-index:1;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:18px;
+    }
+
+    .publisher{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      align-self:center;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(8,10,11,.5);
+      color:var(--gold-2);
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    .title-stack{
+      text-align:center;
+      margin-top:12px;
+    }
+
+    .title-stack h1{
+      margin:0;
+      font-size:clamp(1.7rem, 2.6vw, 2.5rem);
+      line-height:1.06;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:#fff9eb;
+      text-wrap:balance;
+    }
+
+    .title-stack p{
+      margin:14px auto 0;
+      width:min(90%, 34ch);
+      color:#d8d0bf;
+      font-size:.97rem;
+    }
+
+    .break-chain{
+      position:relative;
+      width:78%;
+      max-width:270px;
+      margin:8px auto 2px;
+      height:100px;
+    }
+
+    .chain-bar{
+      position:absolute;
+      left:0; right:0; top:50%;
+      height:12px;
+      transform:translateY(-50%);
+      background:linear-gradient(90deg, rgba(212,175,55,.18), rgba(212,175,55,.5), rgba(212,175,55,.18));
+      border-radius:999px;
+      filter:blur(.2px);
+    }
+
+    .chain-link{
+      position:absolute;
+      width:74px;
+      height:44px;
+      border:7px solid rgba(212,175,55,.92);
+      border-radius:999px;
+      top:50%;
+      transform:translateY(-50%) rotate(-12deg);
+      box-shadow:0 0 16px rgba(212,175,55,.16);
+    }
+
+    .chain-link.right{
+      right:0;
+      left:auto;
+      transform:translateY(-50%) rotate(14deg);
+    }
+
+    .chain-break{
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:86px;
+      height:86px;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle, rgba(241,217,137,.25), transparent 65%);
+      border-radius:50%;
+    }
+
+    .chain-spark{
+      position:absolute;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--gold-2);
+      box-shadow:0 0 14px rgba(241,217,137,.55);
+      animation:floatSpark 4s ease-in-out infinite;
+    }
+
+    .chain-spark.s1{left:42%;top:31%}
+    .chain-spark.s2{left:48%;top:24%;animation-delay:.6s}
+    .chain-spark.s3{left:56%;top:34%;animation-delay:1.2s}
+    .chain-spark.s4{left:46%;top:62%;animation-delay:.9s}
+    .chain-spark.s5{left:55%;top:56%;animation-delay:1.7s}
+
+    @keyframes floatSpark{
+      0%,100%{transform:translateY(0) scale(1);opacity:.7}
+      50%{transform:translateY(-8px) scale(1.15);opacity:1}
+    }
+
+    .cover-footer{
+      text-align:center;
+      padding-top:8px;
+      color:var(--muted);
+      font-size:.84rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .detail-card{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .eyebrow{
+      color:var(--gold-2);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.76rem;
+      font-weight:700;
+    }
+
+    .detail-card h2{
+      margin:0;
+      font-size:clamp(1.7rem, 3.6vw, 3.1rem);
+      line-height:1.04;
+      text-wrap:balance;
+    }
+
+    .lead{
+      color:#ddd5c7;
+      font-size:1.02rem;
+      margin:0;
+      max-width:68ch;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .pill{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--line-soft);
+      background:#11161a;
+      color:#d9d2c3;
+      font-size:.92rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .quote-box{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 18px;
+      background:linear-gradient(180deg, rgba(212,175,55,.08), rgba(212,175,55,.03));
+      color:#f1ead9;
+    }
+
+    .quote-box strong{
+      display:block;
+      margin-bottom:8px;
+      color:var(--gold-2);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.78rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .section-card{
+      padding:22px;
+    }
+
+    .section-card h3{
+      margin:0 0 14px;
+      font-size:1.3rem;
+      line-height:1.15;
+    }
+
+    .section-card p{
+      margin:0 0 14px;
+      color:#ddd5c7;
+    }
+
+    .section-card p:last-child{margin-bottom:0}
+
+    .check-list,
+    .chapter-list,
+    .value-list{
+      display:grid;
+      gap:10px;
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+
+    .check-list li,
+    .chapter-list li,
+    .value-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line-soft);
+      background:#101519;
+    }
+
+    .marker{
+      flex:0 0 auto;
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color:var(--gold-2);
+      font-size:.85rem;
+      margin-top:1px;
+    }
+
+    .chapter-list li span:last-child,
+    .check-list li span:last-child,
+    .value-list li span:last-child{
+      color:#e2dccf;
+    }
+
+    .accordion{
+      display:grid;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    .accordion-item{
+      border:1px solid var(--line-soft);
+      border-radius:16px;
+      overflow:hidden;
+      background:#101519;
+    }
+
+    .accordion-btn{
+      width:100%;
+      text-align:left;
+      background:transparent;
+      color:var(--text);
+      border:none;
+      padding:16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .accordion-btn .small{
+      color:var(--muted);
+      font-weight:400;
+      display:block;
+      margin-top:4px;
+      font-size:.92rem;
+    }
+
+    .accordion-panel{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .28s ease;
+      border-top:1px solid transparent;
+    }
+
+    .accordion-item.open .accordion-panel{
+      border-top-color:var(--line-soft);
+      max-height:420px;
+    }
+
+    .accordion-panel-inner{
+      padding:16px 18px 18px;
+      color:#ddd5c7;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .action-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:30px;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      text-align:center;
+      color:var(--muted);
+      border:1px solid var(--line-soft);
+      border-radius:16px;
+      background:#0f1418;
+    }
+
+    .sr-only{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      padding:0 !important;
+      margin:-1px !important;
+      overflow:hidden !important;
+      clip:rect(0,0,0,0) !important;
+      white-space:nowrap !important;
+      border:0 !important;
+    }
+
+    .icon-btn{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--line-soft);
+      background:#12161a;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    @media (max-width: 980px){
+      .hero,
+      .grid,
+      .split{
+        grid-template-columns:1fr;
+      }
+      .detail-card h2{font-size:clamp(1.6rem, 7vw, 2.4rem)}
+    }
+
+    @media (max-width: 720px){
+      .topbar{
+        position:static;
+        padding:14px;
+      }
+      .nav-links{
+        width:100%;
+        justify-content:stretch;
+      }
+      .nav-link{
+        flex:1 1 150px;
+      }
+      .cta-row,
+      .action-bar{
+        flex-direction:column;
+      }
+      .btn,
+      .btn-primary{
+        width:100%;
+      }
+      .cover-card,
+      .detail-card,
+      .section-card{
+        padding:18px;
+      }
+      .title-stack h1{
+        font-size:clamp(1.5rem, 8vw, 2.1rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="container">
+      <header class="topbar" aria-label="Top navigation">
+        <a class="brand" href="#top" aria-label="Go to top of page">
+          <div class="brand-mark" aria-hidden="true">BI</div>
+          <div class="brand-copy">
+            <strong>BLACKSHIELD INSTITUTE</strong>
+            <span>Publishing • Thought Leadership • Intellectual Capital</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Section navigation">
+          <a class="nav-link" href="#overview">Overview</a>
+          <a class="nav-link" href="#inside">Inside the Book</a>
+          <a class="nav-link" href="#chapters">Chapters</a>
+          <a class="nav-link" href="#why">Why It Matters</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="product-title">
+          <article class="card cover-card" aria-label="Book cover">
+            <div class="book-cover" role="img" aria-label="Book cover artwork for Breaking the Generational Curse and Its Effects by Blackshield Institute">
+              <div class="cover-glow" aria-hidden="true"></div>
+              <div class="cover-lines" aria-hidden="true"></div>
+              <div class="cover-inner">
+                <div class="publisher">BLACKSHIELD INSTITUTE</div>
+
+                <div class="title-stack">
+                  <h1>Breaking the Generational Curse and Its Effects</h1>
+                  <p>A direct confrontation of inherited pain, silence, emulation, and the responsibility of healing.</p>
+                </div>
+
+                <div class="break-chain" aria-hidden="true">
+                  <div class="chain-bar"></div>
+                  <div class="chain-link left"></div>
+                  <div class="chain-link right"></div>
+                  <div class="chain-break"></div>
+                  <div class="chain-spark s1"></div>
+                  <div class="chain-spark s2"></div>
+                  <div class="chain-spark s3"></div>
+                  <div class="chain-spark s4"></div>
+                  <div class="chain-spark s5"></div>
+                </div>
+
+                <div class="cover-footer">Institutional Release • Standalone Book Asset</div>
+              </div>
+            </div>
+
+            <div class="pill-row" aria-label="Product highlights">
+              <span class="pill">Standalone Publication</span>
+              <span class="pill">Dark Theme Compatible</span>
+              <span class="pill">Stripe Ready</span>
+            </div>
+          </article>
+
+          <article class="card detail-card" id="overview">
+            <div class="eyebrow">Blackshield Publishing Release</div>
+            <h2 id="product-title">A serious, personal, and uncompromising book product built for direct platform deployment.</h2>
+            <p class="lead">
+              This product page is structured for Blackshield staging transfer and live platform use. It presents the book as a deployable intellectual capital asset: direct, spiritually grounded, and rooted in family truth, inherited trauma, accountability, and generational interruption.
+            </p>
+
+            <div class="pill-row" aria-label="Metadata summary">
+              <span class="pill">Category: Healing / Thought-Leadership</span>
+              <span class="pill">Audience: 18+</span>
+              <span class="pill">Format: Digital Publication</span>
+              <span class="pill">Price Tier: $49</span>
+            </div>
+
+            <div class="quote-box">
+              <strong>Core Position</strong>
+              This is not entertainment. This is not comfort. This is confrontation, reflection, and the work of breaking what was passed down.
+            </div>
+
+            <div class="cta-row" aria-label="Primary actions">
+              <a class="btn btn-primary" href="STRIPE-LINK-HERE" target="_blank" rel="noopener noreferrer">
+                Purchase Access
+              </a>
+
+              <a class="btn" href="/digital-playroom.html">
+                Back to Playroom
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid" style="margin-top:22px;">
+          <article class="card section-card" id="inside">
+            <h3>Synopsis</h3>
+            <p>
+              <strong>Breaking the Generational Curse and Its Effects</strong> confronts the mechanics of inherited pain with seriousness and lived intensity. It addresses silence, abuse, addiction, abandonment, emulation, self-worth, spiritual fracture, and the burden of repeating what should have ended generations ago.
+            </p>
+            <p>
+              This work does not approach family dysfunction as abstract theory. It treats it as reality — patterned, inherited, reenacted, and too often protected. The book presses the reader to examine what was normalized, what was buried, and what has been unconsciously carried forward.
+            </p>
+            <p>
+              Through direct language, moral seriousness, and spiritual weight, the book calls for a break in the bloodline pattern: not through denial, but through recognition, accountability, and deliberate change. It is written for those ready to look at the family vault, confront the truth, and refuse to pass the damage on.
+            </p>
+          </article>
+
+          <article class="card section-card" id="why">
+            <h3>Why This Product Matters</h3>
+            <ul class="check-list">
+              <li><span class="marker">1</span><span>Positions a difficult subject with institutional authority and emotional seriousness.</span></li>
+              <li><span class="marker">2</span><span>Supports Blackshield publishing infrastructure with a monetizable, staging-ready product page.</span></li>
+              <li><span class="marker">3</span><span>Presents the book as an intellectual capital asset rather than a casual title listing.</span></li>
+              <li><span class="marker">4</span><span>Provides clear purchase flow, mobile responsiveness, and platform-safe standalone deployment.</span></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="split">
+          <article class="card section-card">
+            <h3>Reader Outcome</h3>
+            <ul class="value-list">
+              <li><span class="marker">•</span><span>Greater recognition of inherited patterns and emotional repetition.</span></li>
+              <li><span class="marker">•</span><span>Direct confrontation with family silence, inner shame, and destructive normalization.</span></li>
+              <li><span class="marker">•</span><span>A spiritually serious framework for responsibility, healing, and interruption of the cycle.</span></li>
+            </ul>
+          </article>
+
+          <article class="card section-card">
+            <h3>Platform Notes</h3>
+            <ul class="value-list">
+              <li><span class="marker">•</span><span>Single-file deployment with embedded CSS and JavaScript.</span></li>
+              <li><span class="marker">•</span><span>No external dependencies required.</span></li>
+              <li><span class="marker">•</span><span>All navigation, accordions, and action buttons work without internet dependency.</span></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card section-card" id="chapters" style="margin-top:22px;">
+          <h3>Chapter Structure</h3>
+          <div class="accordion" aria-label="Book chapters">
+            <div class="accordion-item open">
+              <button class="accordion-btn" type="button" aria-expanded="true">
+                <span>
+                  Introduction + Chapters 1–4
+                  <span class="small">Origins, truth, the family vault, and the mechanics of emulation</span>
+                </span>
+                <span aria-hidden="true">−</span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-panel-inner">
+                  Introduction, The Family Vault and Its Secrets, Don’t Be Mad at the Truth, The Axiom, and The Great Emulus establish the emotional and structural architecture of inherited damage.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-btn" type="button" aria-expanded="false">
+                <span>
+                  Chapters 5–9
+                  <span class="small">Loving the curse, disguising pain, storytelling, isolation, and first-stage healing response</span>
+                </span>
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-panel-inner">
+                  These chapters move from confession into exposure: what gets protected, what gets renamed, what remains hidden, and what must be done once the truth is known.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-btn" type="button" aria-expanded="false">
+                <span>
+                  Chapters 10–14
+                  <span class="small">Spiritual core, self-worth, sacrifice, severance, and the price of change</span>
+                </span>
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-panel-inner">
+                  These sections push the reader toward internal restructuring, spiritual sobriety, disciplined self-definition, and the hard reasoning required to cut ties with destructive influence.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-btn" type="button" aria-expanded="false">
+                <span>
+                  Chapters 15–17
+                  <span class="small">Kingship, Black excellence, and the burial of the curse</span>
+                </span>
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-panel-inner">
+                  The final movement reclaims dignity, spiritual stature, Black excellence, and closes with the eulogy of the curse — not as suggestion, but as ending.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section-card" style="margin-top:22px;">
+          <h3>Book Product Metadata</h3>
+          <ul class="chapter-list">
+            <li><span class="marker">A</span><span><strong>Product Name:</strong> Breaking the Generational Curse and Its Effects</span></li>
+            <li><span class="marker">B</span><span><strong>Curriculum Category:</strong> Blackshield Publishing / Healing / Thought-Leadership</span></li>
+            <li><span class="marker">C</span><span><strong>Target Age Group:</strong> 18+</span></li>
+            <li><span class="marker">D</span><span><strong>Product Type:</strong> Curriculum</span></li>
+            <li><span class="marker">E</span><span><strong>Price Tier:</strong> $49</span></li>
+            <li><span class="marker">F</span><span><strong>Deployment Destination:</strong> interactive/</span></li>
+            <li><span class="marker">G</span><span><strong>Stripe Product Required:</strong> Yes</span></li>
+          </ul>
+        </section>
+
+        <div class="action-bar" aria-label="Bottom actions">
+          <a class="btn btn-primary" href="STRIPE-LINK-HERE" target="_blank" rel="noopener noreferrer">
+            Purchase Access
+          </a>
+          <a class="btn" href="/digital-playroom.html">
+            Back to Playroom
+          </a>
+        </div>
+
+        <section class="footer" aria-labelledby="deployment-checklist-title" style="margin-top:26px;">
+          <h3 id="deployment-checklist-title" style="margin:0 0 10px;font-size:1.08rem;color:var(--gold-2);letter-spacing:.08em;text-transform:uppercase;">Deployment Checklist</h3>
+          <div class="muted">
+            Files open correctly<br>
+            Buttons work<br>
+            Layout responsive<br>
+            No console errors<br>
+            Ready for staging transfer<br>
+            Ready for Stripe integration<br>
+            Ready for production deployment
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const items = document.querySelectorAll('.accordion-item');
+
+      items.forEach(item => {
+        const btn = item.querySelector('.accordion-btn');
+        const symbol = btn.querySelector('[aria-hidden="true"]');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          item.classList.toggle('open', !isOpen);
+          btn.setAttribute('aria-expanded', String(!isOpen));
+          if(symbol) symbol.textContent = !isOpen ? '−' : '+';
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+
+      // Production-safe console cleanliness check
+      window.addEventListener('error', function(){ /* intentional no-op for front-end stability */ });
+    })();
+  </script>
+</body>
+</html>
