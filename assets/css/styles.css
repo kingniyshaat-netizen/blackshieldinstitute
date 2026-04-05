@@ -539,3 +539,51 @@ h3 {
   </main>
 </body>
 </html>
+ /* EMERGENCY SHIELD CONTROL */
+.brand-logo {
+  width: 56px !important;
+  height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.cover-frame {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.cover-frame img {
+  width: 100% !important;
+  max-width: 260px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.site-header,
+.header-inner,
+.site-nav,
+.product-actions,
+.btn {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.product-hero,
+.compact-hero,
+.catalog-grid-section,
+.series-hero {
+  overflow: hidden !important;
+}
+
+.site-nav a,
+.btn {
+  pointer-events: auto !important;
+}
