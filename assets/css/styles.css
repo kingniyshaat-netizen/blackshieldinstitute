@@ -485,3 +485,57 @@ h3 {
 .contact-item a:hover {
   color: var(--gold);
 }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Playroom | Blackshield Institute</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero compact-hero">
+      <div class="container">
+        <span class="eyebrow">Interactive Training Environment</span>
+        <h1>Playroom</h1>
+        <p>Games, puzzles, drills, and interactive learning tools only. No books. No curriculum sales pages. No chaos. Clean lane discipline.</p>
+      </div>
+    </section>
+
+    <section class="catalog-grid-section">
+      <div class="container product-grid">
+        <article class="product-card">
+          <img src="../assets/images/playroom/beatbright.png" alt="BeatBright interactive rhythm product">
+          <div class="product-card-body">
+            <h2>BeatBright</h2>
+            <p class="identity-line">Rhythm and pattern-based interactive training.</p>
+            <p class="value-line">Needs premium polish, but it belongs here — not in curriculum pages.</p>
+            <div class="product-actions"><a class="btn primary" href="beatbright.html">Open</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="../assets/images/playroom/memory-match.png" alt="Memory Match discipline training game">
+          <div class="product-card-body">
+            <h2>Memory Match</h2>
+            <p class="identity-line">Vocabulary and discipline training game.</p>
+            <p class="value-line">Strengthen language, retention, and institutional tone.</p>
+            <div class="product-actions"><a class="btn primary" href="memory-match.html">Open</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="../assets/images/playroom/pattern-build.png" alt="Pattern Build logic and sequence game">
+          <div class="product-card-body">
+            <h2>Pattern Build</h2>
+            <p class="identity-line">Logic, pattern, and sequence reinforcement.</p>
+            <p class="value-line">Correct spacing, cleaner copy, stronger finish.</p>
+            <div class="product-actions"><a class="btn primary" href="pattern-build.html">Open</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
