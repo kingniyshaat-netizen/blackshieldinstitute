@@ -653,3 +653,42 @@ h3 {
   text-decoration: none;
   white-space: nowrap;
 }
+/* HOMEPAGE SHIELD — CONTROLLED REPRESENTATION */
+
+.brand-logo {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+/* HERO SHIELD — CENTERED BUT NOT DOMINATING */
+
+.hero-shield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hero-shield img {
+  width: 160px;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* BUTTON PROTECTION */
+
+.btn {
+  position: relative;
+  z-index: 5;
+}
+
+.cover-frame img {
+  position: relative;
+  z-index: 1;
+}
