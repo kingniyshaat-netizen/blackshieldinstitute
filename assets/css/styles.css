@@ -692,3 +692,16 @@ h3 {
   position: relative;
   z-index: 1;
 }
+.info-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: #0b111b;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
