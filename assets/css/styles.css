@@ -6,7 +6,7 @@
 /* ---------- Product Status Labels ---------- */
 
 .product-status-row {
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 10px 0 14px;
