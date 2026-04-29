@@ -108,3 +108,113 @@ display: flex;
     margin: 12px;
   }
 }
+/* =========================================================
+   BLACKSHIELD LAUNCH DISCIPLINE POLISH
+   Product labels + admin warning + footer consistency
+   ========================================================= */
+
+/* ---------- Product Status Labels ---------- */
+
+.product-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+  align-items: center;
+}
+
+.product-status,
+.product-type {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(211, 165, 91, 0.32);
+  background: rgba(0, 0, 0, 0.18);
+  color: #d3a55b;
+}
+
+.product-status.available {
+  border-color: rgba(95, 181, 106, 0.55);
+  background: rgba(95, 181, 106, 0.13);
+  color: #dfffe4;
+}
+
+.product-status.preview {
+  border-color: rgba(122, 167, 255, 0.55);
+  background: rgba(122, 167, 255, 0.13);
+  color: #e8f0ff;
+}
+
+.product-status.early-access {
+  border-color: rgba(226, 170, 69, 0.58);
+  background: rgba(226, 170, 69, 0.13);
+  color: #ffe8b9;
+}
+
+.product-status.coming-soon,
+.product-status.prototype {
+  border-color: rgba(211, 165, 91, 0.48);
+  background: rgba(211, 165, 91, 0.12);
+  color: #f2cf88;
+}
+
+/* ---------- Admin Public Warning ---------- */
+
+.admin-warning {
+  max-width: 1100px;
+  margin: 16px auto;
+  padding: 14px 16px;
+  border: 1px solid rgba(198, 90, 78, 0.58);
+  border-radius: 14px;
+  background: rgba(198, 90, 78, 0.13);
+  color: #ffe4df;
+  line-height: 1.5;
+}
+
+.admin-warning strong {
+  color: #ffffff;
+}
+
+/* ---------- Site Footer Consistency ---------- */
+
+.site-footer {
+  margin-top: 48px;
+  padding: 22px 16px;
+  border-top: 1px solid rgba(211, 165, 91, 0.24);
+  color: #c4aa7a;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+.site-footer a {
+  color: #f2cf88;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .product-status-row {
+    gap: 6px;
+  }
+
+  .product-status,
+  .product-type {
+    font-size: 0.68rem;
+    padding: 5px 8px;
+  }
+
+  .admin-warning {
+    margin: 12px;
+  }
+}
