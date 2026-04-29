@@ -2,154 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Catalog | Blackshield Institute</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <title>Blackshield Institute | Catalog</title>
+  <meta name="description" content="Explore Blackshield Institute books, curriculum systems, institutional tiers, and structured learning products.">
+
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    .product-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+      align-items: center;
+    }
+
+    .product-status,
+    .product-type {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(211, 165, 91, 0.32);
+      background: rgba(0, 0, 0, 0.18);
+      color: #d3a55b;
+    }
+
+    .product-status.available {
+      border-color: rgba(95, 181, 106, 0.55);
+      background: rgba(95, 181, 106, 0.13);
+      color: #dfffe4;
+    }
+
+    .product-status.preview {
+      border-color: rgba(122, 167, 255, 0.55);
+      background: rgba(122, 167, 255, 0.13);
+      color: #e8f0ff;
+    }
+
+    .product-status.early-access {
+      border-color: rgba(226, 170, 69, 0.58);
+      background: rgba(226, 170, 69, 0.13);
+      color: #ffe8b9;
+    }
+
+    .product-status.coming-soon,
+    .product-status.prototype {
+      border-color: rgba(211, 165, 91, 0.48);
+      background: rgba(211, 165, 91, 0.12);
+      color: #f2cf88;
+    }
+
+    .site-footer {
+      margin-top: 48px;
+      padding: 22px 16px;
+      border-top: 1px solid rgba(211, 165, 91, 0.24);
+      color: #c4aa7a;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .site-footer p {
+      margin: 6px 0;
+    }
+
+    .site-footer a {
+      color: #f2cf88;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 700px) {
+      .product-status-row {
+        gap: 6px;
+      }
+
+      .product-status,
+      .product-type {
+        font-size: 0.68rem;
+        padding: 5px 8px;
+      }
+    }
+  </style>
 </head>
-<body data-page="catalog">
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <span class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield">
-        </span>
-        <span class="brand-text">
-          <strong>Blackshield Institute</strong>
-          <span>Digital Catalog</span>
-        </span>
-      </a>
+<body>
+  <div class="site-shell">
 
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link is-active" href="catalog.html">Catalog</a>
-        <a class="nav-link" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="digital-playroom.html">Playroom</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+          <img src="assets/images/shield.png" alt="Blackshield Institute shield logo" class="brand-logo">
 
-  <main class="site-main">
-    <section class="hero-panel">
-      <div class="hero-copy">
-        <div class="eyebrow">BLACKSHIELD CATALOG SYSTEM</div>
-        <h1>Catalog</h1>
-        <p>
-          Browse Blackshield Institute memberships, PASSAGES series access,
-          standalone books, flagship access, and curriculum-aligned digital learning assets.
-        </p>
-        <div class="button-row">
-          <a class="btn btn-primary" href="passages-series.html">Open PASSAGES Catalog</a>
-          <a class="btn" href="diamond-in-the-rough.html">View Diamond Flagship</a>
-        </div>
+          <div class="brand-copy">
+            <strong>Blackshield Institute</strong>
+            <span>Institutional Product Catalog</span>
+          </div>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="catalog.html" aria-current="page">Catalog</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="passages-series.html">PASSAGES</a>
+          <a href="playroom/index.html">Playroom</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="hero-art">
-        <div class="hero-shield-frame">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield emblem">
-        </div>
-      </div>
-    </section>
+    <main>
+      <section class="compact-hero">
+        <div class="container">
+          <span class="eyebrow">Blackshield Institute Catalog</span>
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Flagship Access</h2>
-        <p>Premium annual institute entry</p>
-      </div>
+          <h1>Books, curriculum systems, tiers, and structured digital products.</h1>
 
-      <div class="card-grid card-grid-1">
-        <article class="info-card">
-          <h3>Diamond in the Rough</h3>
           <p>
-            Full Blackshield Institute flagship access. Premium annual entry into books,
-            curriculum systems, digital tools, and future eligible releases.
+            Every listing below is positioned for institutional growth, family structure,
+            discipline training, and long-term developmental use.
           </p>
-          <div class="button-row">
-            <a class="btn" href="diamond-in-the-rough.html">View Program</a>
-            <a class="btn btn-primary" href="#" onclick="return false;">Join Diamond — https://buy.stripe.com/7sYbIV0t81pT5izcYVdnW0n</a>
-          </div>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Membership Access</h2>
-        <p>Recurring access tiers for Blackshield Institute users</p>
-      </div>
+      <section class="catalog-grid-section">
+        <div class="container product-grid">
 
-      <div class="card-grid card-grid-2">
-        <article class="info-card">
-          <h3>Tier I Membership</h3>
-          <p>Entry-level Blackshield Institute membership access.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://buy.stripe.com/7sY6oB3FkfgJ12jf73dnW0b" target="_blank" rel="noopener noreferrer">Join Tier I</a>
-          </div>
-        </article>
+          <article class="product-card">
+            <img src="assets/images/covers/diamond-in-the-rough.png" alt="Diamond in the Rough by Blackshield Institute">
 
-        <article class="info-card">
-          <h3>Tier II Membership</h3>
-          <p>Expanded premium Blackshield Institute membership access.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AN3Fk3y1cL10c9dnW0a" target="_blank" rel="noopener noreferrer">Join Tier II</a>
-          </div>
-        </article>
-      </div>
-    </section>
+            <div class="product-card-body">
+              <h2>Diamond in the Rough</h2>
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>PASSAGES Cultural Formation Curriculum</h2>
-        <p>Series subscription and individual volume entry points</p>
-      </div>
+              <div class="product-status-row">
+                <span class="product-status preview">Preview</span>
+                <span class="product-type">Book / Youth Development</span>
+              </div>
 
-      <div class="card-grid card-grid-2">
-        <article class="info-card">
-          <h3>PASSAGES Series Access</h3>
-          <p>Subscribe for direct access to the PASSAGES series system.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://buy.stripe.com/fZu00d3Fk4C56mDaQNdnW08" target="_blank" rel="noopener noreferrer">Subscribe to PASSAGES</a>
-            <a class="btn" href="passages-series.html">View Series</a>
-          </div>
-        </article>
+              <p class="identity-line">Flagship reflective development title.</p>
 
-        <article class="info-card">
-          <h3>PASSAGES Book 01</h3>
-          <p>Start with the first PASSAGES volume as an individual purchase.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://buy.stripe.com/14A7sF0t83y17qH1gddnW0b" target="_blank" rel="noopener noreferrer">Buy Book 01</a>
-            <a class="btn" href="downloads/passages/passages-01.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a>
-          </div>
-        </article>
-      </div>
-    </section>
+              <p class="value-line">
+                Built to speak to discipline, direction, and identity with premium positioning.
+              </p>
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Featured Standalone Book</h2>
-        <p>Premium direct-sale title slot</p>
-      </div>
+              <div class="product-actions">
+                <a class="btn primary" href="diamond-in-the-rough.html">View Product</a>
+              </div>
+            </div>
+          </article>
 
-      <div class="card-grid card-grid-1">
-        <article class="info-card">
-          <h3>Diamond in the Rough</h3>
-          <p>Standalone PDF delivery slot remains available if you later decide to sell it separately from flagship access.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="#" onclick="return false;">Standalone Buy Link Pending</a>
-            <a class="btn" href="downloads/books/diamond-in-the-rough.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+          <article class="product-card">
+            <img src="assets/images/covers/passages-series.png" alt="PASSAGES Series by Blackshield Institute">
 
-  <footer class="site-footer">
-    © <span data-year></span> Blackshield Institute
-  </footer>
+            <div class="product-card-body">
+              <h2>PASSAGES Series</h2>
 
-  <script src="assets/js/main.js"></script>
+              <div class="product-status-row">
+                <span class="product-status preview">Preview</span>
+                <span class="product-type">Series</span>
+              </div>
+
+              <p class="identity-line">12-book structured formation series.</p>
+
+              <p class="value-line">
+                Series-level developmental positioning with stronger attraction than single-book listing alone.
+              </p>
+
+              <div class="product-actions">
+                <a class="btn primary" href="passages-series.html">View Series</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="assets/images/covers/tier-1.png" alt="Tier I membership by Blackshield Institute">
+
+            <div class="product-card-body">
+              <h2>Tier I</h2>
+
+              <div class="product-status-row">
+                <span class="product-status early-access">Early Access</span>
+                <span class="product-type">Membership Tier</span>
+              </div>
+
+              <p class="identity-line">Foundational institutional access.</p>
+
+              <p class="value-line">
+                Entry-level access point for users seeking structure, guided materials,
+                and platform participation.
+              </p>
+
+              <div class="product-actions">
+                <a class="btn primary" href="tiers/tier-1.html">View Tier I</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="assets/images/covers/tier-2.png" alt="Tier II membership by Blackshield Institute">
+
+            <div class="product-card-body">
+              <h2>Tier II</h2>
+
+              <div class="product-status-row">
+                <span class="product-status early-access">Early Access</span>
+                <span class="product-type">Membership Tier</span>
+              </div>
+
+              <p class="identity-line">Expanded institutional access.</p>
+
+              <p class="value-line">
+                Enhanced access tier for deeper product use, broader curriculum reach,
+                and stronger system participation.
+              </p>
+
+              <div class="product-actions">
+                <a class="btn primary" href="tiers/tier-2.html">View Tier II</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Blackshield Institute. All rights reserved.</p>
+      <p>
+        <a href="privacy.html">Privacy</a>
+        <span> | </span>
+        <a href="terms.html">Terms</a>
+        <span> | </span>
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>
