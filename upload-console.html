@@ -26,11 +26,19 @@ setFiles(validated);
 
 function copyPath(path) { navigator.clipboard.writeText(path); alert("Path copied: " + path); }
 
-return ( <div className="min-h-screen bg-slate-950 text-white p-8">
+return (
+  <div className="min-h-screen bg-slate-950 text-white p-8">
 
-<div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto">
 
-    <h1 className="text-3xl font-bold mb-2">Blackshield File Transfer Console</h1>
+      <div className="mb-6 rounded-2xl border border-red-500/50 bg-red-900/30 p-4 text-red-100">
+        <strong className="text-white">Admin Demo Notice:</strong>{" "}
+        This page is public on GitHub Pages unless real authentication is added.
+        Do not place private customer data, learner records, payment records,
+        passwords, admin credentials, or protected product files here.
+      </div>
+
+      <h1 className="text-3xl font-bold mb-2">Blackshield File Transfer Console</h1>
     <p className="text-slate-400 mb-8">
       Use this panel to prepare files before uploading them to your GitHub repository.
       It validates filenames and generates the correct destination path.
