@@ -1,379 +1,494 @@
 <!doctype html>
 <html lang="en">
-<style>
-  :root {
-    --bs-bg: #0b0703;
-    --bs-card: #1c140c;
-    --bs-text: #f7e7c2;
-    --bs-muted: #c7ad7c;
-    --bs-gold: #d3a55b;
-    --bs-gold-2: #f2cf88;
-    --bs-line: rgba(211, 165, 91, 0.26);
-    --bs-green: #62bb71;
-    --bs-blue: #8db2ff;
-    --bs-orange: #e2aa45;
-    --bs-radius: 18px;
-    --bs-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
-    --bs-max: 1180px;
-  }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
-  .home-wrap {
-    width: min(var(--bs-max), 92vw);
-    margin: 0 auto;
-  }
-
-  .home-hero {
-    padding: 32px 0 18px;
-  }
-
-  .home-hero-card {
-    border: 1px solid var(--bs-line);
-    border-radius: 24px;
-    background:
-      linear-gradient(135deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.14)),
-      var(--bs-card);
-    box-shadow: var(--bs-shadow);
-    padding: clamp(22px, 5vw, 40px);
-  }
-
-  .home-eyebrow {
-    display: inline-flex;
-    border: 1px solid var(--bs-line);
-    border-radius: 999px;
-    padding: 7px 11px;
-    color: var(--bs-gold-2);
-    background: rgba(0, 0, 0, 0.18);
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .home-hero h1 {
-    max-width: 900px;
-    margin: 0 0 12px;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 1.02;
-    color: #ffe8b4;
-  }
-
-  .home-hero p,
-  .section-heading p,
-  .pathway-card p,
-  .featured-card p {
-    color: var(--bs-muted);
-    line-height: 1.55;
-  }
-
-  .home-hero p {
-    max-width: 820px;
-    font-size: 1.05rem;
-  }
-
-  .home-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .home-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    border-radius: 13px;
-    padding: 10px 13px;
-    border: 1px solid var(--bs-line);
-    text-decoration: none;
-    font-weight: 900;
-  }
-
-  .home-btn.primary {
-    background: linear-gradient(180deg, var(--bs-gold-2), #b78138);
-    color: #1a1007;
-    border-color: transparent;
-  }
-
-  .home-btn.secondary {
-    background: rgba(0, 0, 0, 0.18);
-    color: var(--bs-text);
-  }
-
-  .home-section {
-    padding: 24px 0;
-  }
-
-  .section-heading {
-    margin-bottom: 16px;
-  }
-
-  .section-heading h2 {
-    margin: 0 0 8px;
-    color: #ffe8b4;
-    font-size: clamp(1.45rem, 3vw, 2.2rem);
-  }
-
-  .pathway-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .pathway-card,
-  .featured-card {
-    border: 1px solid var(--bs-line);
-    border-radius: var(--bs-radius);
-    background: var(--bs-card);
-    box-shadow: var(--bs-shadow);
-    padding: 18px;
-  }
-
-  .pathway-card h3,
-  .featured-card h3 {
-    margin: 0 0 8px;
-    color: #ffe8b4;
-  }
-
-  .pathway-card a {
-    color: var(--bs-gold-2);
-    font-weight: 900;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .featured-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .product-status-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 8px 0 12px;
-    align-items: center;
-  }
-
-  .product-status,
-  .product-type {
-    display: inline-flex;
-    align-items: center;
-    width: max-content;
-    max-width: 100%;
-    border-radius: 999px;
-    padding: 5px 8px;
-    font-size: 0.64rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border: 1px solid rgba(211, 165, 91, 0.32);
-    background: rgba(0, 0, 0, 0.18);
-    color: var(--bs-gold);
-  }
-
-  .product-status.available {
-    border-color: rgba(98, 187, 113, 0.55);
-    background: rgba(98, 187, 113, 0.13);
-    color: #dfffe4;
-  }
-
-  .product-status.preview {
-    border-color: rgba(141, 178, 255, 0.55);
-    background: rgba(141, 178, 255, 0.13);
-    color: #e8f0ff;
-  }
-
-  .site-footer {
-    margin-top: 34px;
-    padding: 20px 16px;
-    border-top: 1px solid rgba(211, 165, 91, 0.24);
-    color: var(--bs-muted);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.16);
-  }
-
-  .site-footer p {
-    margin: 6px 0;
-  }
-
-  .site-footer a {
-    color: var(--bs-gold-2);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  @media (max-width: 1000px) {
-    .featured-grid,
-    .pathway-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 700px) {
-    .featured-grid,
-    .pathway-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .home-actions,
-    .home-btn {
-      width: 100%;
-    }
-  }
-</style>
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Blackshield Institute</title>
-  <meta name="description" content="Blackshield Institute digital curriculum, PASSAGES series, flagship access, and interactive learning systems.">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta
+    name="description"
+    content="Blackshield Institute is an institutional digital curriculum and publishing platform for disciplined learning, family structure, literacy, youth development, leadership, and interactive education."
+  />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    .home-hero {
+      padding: 36px 0 28px;
+    }
+
+    .home-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .home-hero-panel {
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(26px, 5vw, 56px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 12% 5%, rgba(211, 165, 91, 0.18), transparent 36%),
+        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .home-hero-panel h1 {
+      max-width: 980px;
+      margin: 0 0 16px;
+      font-size: clamp(2.65rem, 7vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+    }
+
+    .home-hero-panel p {
+      max-width: 850px;
+      font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+      line-height: 1.6;
+    }
+
+    .home-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .shield-panel {
+      position: relative;
+      min-height: 430px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(242, 207, 136, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.18)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .shield-mark {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle, rgba(242, 207, 136, 0.18), transparent 55%),
+        rgba(0, 0, 0, 0.18);
+      font-size: clamp(6rem, 18vw, 11rem);
+      line-height: 1;
+    }
+
+    .shield-panel h2 {
+      margin: 18px 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .shield-panel p {
+      margin-bottom: 0;
+    }
+
+    .home-section {
+      padding: 34px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+    }
+
+    .section-heading p {
+      max-width: 900px;
+      font-size: 1.05rem;
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .identity-card {
+      padding: 20px;
+    }
+
+    .identity-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pathway-card {
+      padding: 22px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .featured-card {
+      padding: 20px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-card p {
+      flex: 1;
+    }
+
+    .mission-band {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: clamp(24px, 5vw, 46px);
+      background:
+        linear-gradient(135deg, rgba(211, 165, 91, 0.13), rgba(0, 0, 0, 0.12)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .mission-band p {
+      max-width: 980px;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.7;
+    }
+
+    .home-return-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 1000px) {
+      .home-hero-grid,
+      .identity-grid,
+      .pathway-grid,
+      .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-hero-panel,
+      .shield-panel {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .home-hero-grid,
+      .identity-grid,
+      .pathway-grid,
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-actions,
+      .home-actions .btn,
+      .home-return-row,
+      .home-return-row .btn {
+        width: 100%;
+      }
+
+      .shield-mark {
+        min-height: 160px;
+      }
+    }
+  </style>
 </head>
-<body data-page="index">
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <span class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield">
-        </span>
-        <span class="brand-text">
-          <strong>Blackshield Institute</strong>
-          <span>Institutional Digital Platform</span>
-        </span>
-      </a>
+<body>
+  <div class="site-shell">
 
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link is-active" href="index.html">Home</a>
-        <a class="nav-link" href="catalog.html">Catalog</a>
-        <a class="nav-link" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="digital-playroom.html">Playroom</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Blackshield Institute home">
+          <span class="brand-logo" aria-hidden="true">🛡</span>
+          <span class="brand-copy">
+            <strong>Blackshield Institute</strong>
+            <span>Institutional Digital Platform</span>
+          </span>
+        </a>
 
-  <main id="main">
-  <section class="home-hero">
-    <div class="home-wrap home-hero-card">
-      <div>
-        <span class="home-eyebrow">Blackshield Institute</span>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="catalog.html">Catalog</a>
+          <a href="passages-series.html">PASSAGES</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="playroom.html">Playroom</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-        <h1>Digital curriculum, disciplined learning, and institutional products.</h1>
+    <main class="site-main">
 
-        <p>
-          Blackshield Institute builds books, curriculum systems, interactive learning tools,
-          and structured development pathways for families, youth, educators, and independent learners.
-        </p>
+      <section class="home-hero">
+        <div class="container home-hero-grid">
 
-        <div class="home-actions">
-          <a class="home-btn primary" href="catalog.html">Open Catalog</a>
-          <a class="home-btn secondary" href="curriculum.html">View Curriculum</a>
-          <a class="home-btn secondary" href="playroom.html">Enter Playroom</a>
+          <div class="home-hero-panel">
+            <span class="eyebrow">Blackshield Institute</span>
+
+            <h1>Discipline. Literacy. Structure. Legacy.</h1>
+
+            <p>
+              Blackshield Institute is a digital curriculum and publishing platform built to restore
+              disciplined learning, family structure, civic intelligence, leadership, literacy, and
+              institutional self-development.
+            </p>
+
+            <p>
+              This is not just a product shelf. It is a structured educational house for books,
+              curriculum tracks, interactive tools, youth development systems, and long-term
+              community formation.
+            </p>
+
+            <div class="home-actions">
+              <a class="btn" href="catalog.html">Open Catalog</a>
+              <a class="btn btn-secondary" href="curriculum.html">View Curriculum</a>
+              <a class="btn btn-secondary" href="playroom.html">Enter Playroom</a>
+            </div>
+          </div>
+
+          <aside class="shield-panel" aria-label="Meaning of the Blackshield Institute shield">
+            <div class="shield-mark" aria-hidden="true">🛡</div>
+
+            <div>
+              <span class="eyebrow">Meaning of the Shield</span>
+              <h2>The shield represents protection through knowledge.</h2>
+              <p>
+                Within Blackshield Institute, the shield stands for guarded identity, disciplined
+                learning, family defense, moral clarity, and the protection of future generations
+                through education, structure, and responsibility.
+              </p>
+            </div>
+          </aside>
+
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section class="home-section">
-    <div class="home-wrap">
-      <div class="section-heading">
-        <span class="home-eyebrow">Core Pathways</span>
-        <h2>Choose your lane.</h2>
-        <p>
-          The homepage now directs people quickly instead of making them scroll through oversized product blocks.
-        </p>
-      </div>
+      <section class="home-section">
+        <div class="container">
+          <div class="mission-band">
+            <span class="eyebrow">Institutional Purpose</span>
 
-      <div class="pathway-grid">
-        <article class="pathway-card">
-          <h3>Catalog</h3>
-          <p>Books, product previews, membership tiers, and public offers.</p>
-          <a href="catalog.html">Open Catalog →</a>
-        </article>
+            <h2>What Blackshield Institute exists to build.</h2>
 
-        <article class="pathway-card">
-          <h3>Curriculum</h3>
-          <p>Structured learning tracks for literacy, leadership, family, economics, and civic intelligence.</p>
-          <a href="curriculum.html">View Curriculum →</a>
-        </article>
+            <p>
+              Blackshield Institute exists to produce educational systems that help learners think clearly,
+              speak with structure, study with discipline, understand history, strengthen family order,
+              build economic awareness, and move with purpose. The work is rooted in the belief that
+              learning should form character, not just pass information across a screen.
+            </p>
 
-        <article class="pathway-card">
-          <h3>Playroom</h3>
-          <p>Interactive tools, learning games, and digital practice spaces.</p>
-          <a href="playroom.html">Enter Playroom →</a>
-        </article>
-      </div>
-    </div>
-  </section>
+            <div class="home-return-row">
+              <a class="btn" href="about.html">Read About Blackshield</a>
+              <a class="btn btn-secondary" href="contact.html">Contact the Institute</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <section class="home-section">
-    <div class="home-wrap">
-      <div class="section-heading">
-        <span class="home-eyebrow">Featured Products</span>
-        <h2>Key Blackshield products.</h2>
-        <p>
-          Compact product cards with clear status labels. No giant wall. No mystery lane.
-        </p>
-      </div>
-
-      <div class="featured-grid">
-        <article class="featured-card">
-          <h3>Breaking the Generational Curse and Its Effects</h3>
-
-          <div class="product-status-row">
-            <span class="product-status preview">Preview</span>
-            <span class="product-type">Book / Curriculum</span>
+      <section class="home-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Shield Principles</span>
+            <h2>The shield has meaning inside the institution.</h2>
+            <p>
+              These principles should guide the books, curriculum, product pages, interactive tools,
+              and future membership systems.
+            </p>
           </div>
 
-          <p>Healing-centered book and curriculum direction for disciplined generational study.</p>
+          <div class="identity-grid">
+            <article class="identity-card card">
+              <h3>Protection</h3>
+              <p>
+                The shield protects the mind from confusion, miseducation, disorder, and cultural drift.
+              </p>
+            </article>
 
-          <a class="home-btn primary" href="product-1.html">View Product</a>
-        </article>
+            <article class="identity-card card">
+              <h3>Discipline</h3>
+              <p>
+                The shield is not decoration. It represents self-command, correction, study habits,
+                and structured growth.
+              </p>
+            </article>
 
-        <article class="featured-card">
-          <h3>Diamond in the Rough</h3>
+            <article class="identity-card card">
+              <h3>Legacy</h3>
+              <p>
+                The shield points forward: children, families, communities, and future institutions
+                that need stronger foundations.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div class="product-status-row">
-            <span class="product-status preview">Preview</span>
-            <span class="product-type">Book / Youth Development</span>
+      <section class="home-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Core Pathways</span>
+            <h2>Choose your lane.</h2>
+            <p>
+              Blackshield Institute is organized into clear public pathways so visitors can move
+              without confusion.
+            </p>
           </div>
 
-          <p>Reflective development title focused on discipline, identity, and formation.</p>
+          <div class="pathway-grid">
+            <article class="pathway-card">
+              <div>
+                <h3>Catalog</h3>
+                <p>
+                  Books, product previews, membership tiers, digital offers, and institutional product lines.
+                </p>
+              </div>
+              <a class="btn" href="catalog.html">Open Catalog</a>
+            </article>
 
-          <a class="home-btn primary" href="diamond-in-the-rough.html">View Product</a>
-        </article>
+            <article class="pathway-card">
+              <div>
+                <h3>Curriculum</h3>
+                <p>
+                  Structured learning tracks for literacy, leadership, family structure, economics,
+                  civic intelligence, technology, ethics, and personal discipline.
+                </p>
+              </div>
+              <a class="btn" href="curriculum.html">View Curriculum</a>
+            </article>
 
-        <article class="featured-card">
-          <h3>PASSAGES Series</h3>
+            <article class="pathway-card">
+              <div>
+                <h3>Playroom</h3>
+                <p>
+                  Interactive learning tools, practice systems, games, and digital exercises for
+                  youth and independent learners.
+                </p>
+              </div>
+              <a class="btn" href="playroom.html">Enter Playroom</a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div class="product-status-row">
-            <span class="product-status preview">Preview</span>
-            <span class="product-type">Series</span>
+      <section class="home-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Featured Products</span>
+            <h2>Key Blackshield products.</h2>
+            <p>
+              These cards are intentionally compact, but they still show what the institution is building.
+            </p>
           </div>
 
-          <p>Structured formation series built around maturity, reflection, and personal discipline.</p>
+          <div class="featured-grid">
+            <article class="featured-card">
+              <h3>Breaking the Generational Curse and Its Effects</h3>
 
-          <a class="home-btn primary" href="passages-series.html">View Series</a>
-        </article>
+              <div class="product-status-row">
+                <span class="product-status preview">Preview</span>
+                <span class="product-type">Book / Curriculum</span>
+              </div>
 
-        <article class="featured-card">
-          <h3>Family Structure</h3>
+              <p>
+                Healing-centered book and curriculum direction for disciplined generational study,
+                reflection, and restoration.
+              </p>
 
-          <div class="product-status-row">
-            <span class="product-status available">Available</span>
-            <span class="product-type">Curriculum</span>
+              <a class="btn" href="product-1.html">View Product</a>
+            </article>
+
+            <article class="featured-card">
+              <h3>Diamond in the Rough</h3>
+
+              <div class="product-status-row">
+                <span class="product-status preview">Preview</span>
+                <span class="product-type">Book / Youth Development</span>
+              </div>
+
+              <p>
+                Reflective development title focused on discipline, identity, correction, and formation.
+              </p>
+
+              <a class="btn" href="diamond-in-the-rough.html">View Product</a>
+            </article>
+
+            <article class="featured-card">
+              <h3>PASSAGES Series</h3>
+
+              <div class="product-status-row">
+                <span class="product-status preview">Preview</span>
+                <span class="product-type">Series</span>
+              </div>
+
+              <p>
+                Structured formation series built around maturity, reflection, personal discipline,
+                and responsible growth.
+              </p>
+
+              <a class="btn" href="passages-series.html">View Series</a>
+            </article>
+
+            <article class="featured-card">
+              <h3>Family Structure</h3>
+
+              <div class="product-status-row">
+                <span class="product-status available">Available</span>
+                <span class="product-type">Curriculum</span>
+              </div>
+
+              <p>
+                Curriculum pathway focused on family order, responsibility, household structure,
+                and generational repair.
+              </p>
+
+              <a class="btn" href="family-structure.html">Open Curriculum</a>
+            </article>
           </div>
+        </div>
+      </section>
 
-          <p>Curriculum pathway focused on family order, responsibility, and restoration.</p>
+    </main>
 
-          <a class="home-btn primary" href="family-structure.html">Open Curriculum</a>
-        </article>
-      </div>
-    </div>
-  </section>
-</main>
+    <footer class="site-footer">
+      <p>© 2026 Blackshield Institute. All rights reserved.</p>
+      <p>
+        <a href="privacy.html">Privacy</a>
+        <span> | </span>
+        <a href="terms.html">Terms</a>
+        <span> | </span>
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
