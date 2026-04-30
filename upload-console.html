@@ -1,137 +1,381 @@
-import { useState } from "react";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blackshield File Transfer Console</title>
+  <meta name="description" content="Blackshield Institute file transfer and path preparation console." />
 
-const DESTINATIONS = { passagesPDF: "downloads/passages/", curriculumPDF: "downloads/curriculum/", booksPDF: "downloads/books/", coverImages: "assets/images/covers/", passagesImages: "assets/images/passages/", branding: "assets/images/branding/", playroom: "interactives/playroom/", games: "interactives/games/", beatbright: "apps/beatbright/" };
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #0f172a;
+      --panel2: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --line: #334155;
+      --gold: #eab308;
+      --gold2: #facc15;
+      --red: #ef4444;
+      --red-bg: rgba(127, 29, 29, 0.45);
+      --green: #22c55e;
+      --radius: 20px;
+    }
 
-export default function BlackshieldUploadSystem() { const [files, setFiles] = useState([]); const [category, setCategory] = useState("passagesPDF");
+    * {
+      box-sizing: border-box;
+    }
 
-function handleFiles(e) { const selected = Array.from(e.target.files || []);
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1e293b 0%, var(--bg) 42%, #020617 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 28px;
+    }
 
-const validated = selected.map((file) => {
-  const cleanName = file.name
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9\-.]/g, "");
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-  return {
-    original: file.name,
-    clean: cleanName,
-    path: DESTINATIONS[category] + cleanName,
-    size: Math.round(file.size / 1024) + " KB"
-  };
-});
+    .admin-warning {
+      margin-bottom: 24px;
+      padding: 16px;
+      border: 1px solid rgba(239, 68, 68, 0.65);
+      border-radius: var(--radius);
+      background: var(--red-bg);
+      color: #fee2e2;
+      line-height: 1.5;
+    }
 
-setFiles(validated);
+    .admin-warning strong {
+      color: #ffffff;
+    }
 
-}
+    .header {
+      margin-bottom: 28px;
+    }
 
-function copyPath(path) { navigator.clipboard.writeText(path); alert("Path copied: " + path); }
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1;
+    }
 
-return (
-  <div className="min-h-screen bg-slate-950 text-white p-8">
+    .header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+    }
 
-    <div className="max-w-5xl mx-auto">
+    .panel {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.38);
+      margin-bottom: 24px;
+    }
 
-      <div className="mb-6 rounded-2xl border border-red-500/50 bg-red-900/30 p-4 text-red-100">
-        <strong className="text-white">Admin Demo Notice:</strong>{" "}
-        This page is public on GitHub Pages unless real authentication is added.
-        Do not place private customer data, learner records, payment records,
-        passwords, admin credentials, or protected product files here.
-      </div>
+    label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
 
-      <h1 className="text-3xl font-bold mb-2">Blackshield File Transfer Console</h1>
-    <p className="text-slate-400 mb-8">
-      Use this panel to prepare files before uploading them to your GitHub repository.
-      It validates filenames and generates the correct destination path.
-    </p>
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 13px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--text);
+      margin-bottom: 14px;
+    }
 
-    <div className="bg-slate-900 p-6 rounded-2xl shadow mb-6">
+    .hint {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
 
-      <label className="block mb-2 font-semibold">Select Destination</label>
+    .destination {
+      color: var(--gold2);
+      font-weight: 900;
+    }
 
-      <select
-        className="w-full p-3 rounded bg-slate-800 border border-slate-700"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
+    .results {
+      display: grid;
+      gap: 14px;
+    }
+
+    .file-card {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .file-name {
+      margin: 0 0 4px;
+      font-weight: 900;
+    }
+
+    .file-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .file-path {
+      margin: 7px 0 0;
+      color: var(--gold2);
+      font-size: 0.86rem;
+      word-break: break-all;
+    }
+
+    button,
+    .home-link {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 14px;
+      background: var(--gold);
+      color: #111827;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover,
+    .home-link:hover {
+      filter: brightness(1.08);
+    }
+
+    .workflow {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 24px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 20px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer a {
+      color: var(--gold2);
+    }
+
+    .empty {
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
+
+      .file-card {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="admin-warning">
+      <strong>Admin Demo Notice:</strong>
+      This page is public on GitHub Pages unless real authentication is added.
+      Do not place private customer data, learner records, payment records,
+      passwords, admin credentials, or protected product files here.
+    </div>
+
+    <header class="header">
+      <h1>Blackshield File Transfer Console</h1>
+      <p>
+        Use this panel to prepare clean filenames before uploading files to your GitHub repository.
+        It validates file names and generates the correct destination path.
+      </p>
+    </header>
+
+    <section class="panel">
+      <label for="category">Select Destination</label>
+
+      <select id="category">
         <option value="passagesPDF">PASSAGES PDFs</option>
         <option value="curriculumPDF">Curriculum PDFs</option>
         <option value="booksPDF">Book PDFs</option>
-        <option value="coverImages">Book Covers</option>
-        <option value="passagesImages">PASSAGES Images</option>
+        <option value="bookImages">Book Covers</option>
         <option value="branding">Branding Images</option>
         <option value="playroom">Playroom Tools</option>
         <option value="games">Interactive Games</option>
         <option value="beatbright">BeatBright Files</option>
       </select>
 
-      <p className="text-sm text-slate-400 mt-2">
-        Files will be placed in: <strong>{DESTINATIONS[category]}</strong>
+      <p class="hint">
+        Files will be placed in:
+        <span class="destination" id="destinationText">downloads/passages/</span>
       </p>
+    </section>
 
-    </div>
+    <section class="panel">
+      <label for="fileInput">Select Files</label>
 
+      <input id="fileInput" type="file" multiple />
 
-    <div className="bg-slate-900 p-6 rounded-2xl shadow mb-8">
-
-      <label className="block font-semibold mb-3">Select Files</label>
-
-      <input
-        type="file"
-        multiple
-        onChange={handleFiles}
-        className="w-full p-4 bg-slate-800 border border-slate-700 rounded"
-      />
-
-      <p className="text-xs text-slate-500 mt-2">
+      <p class="hint">
         File names will automatically be converted to lowercase and hyphen format.
       </p>
+    </section>
 
-    </div>
+    <section class="panel">
+      <h2>Prepared Upload Paths</h2>
 
-
-    {files.length > 0 && (
-      <div className="bg-slate-900 p-6 rounded-2xl shadow">
-
-        <h2 className="text-xl font-semibold mb-4">Prepared Upload Paths</h2>
-
-        <div className="space-y-4">
-
-          {files.map((file, i) => (
-            <div
-              key={i}
-              className="bg-slate-800 p-4 rounded-lg flex justify-between items-center"
-            >
-              <div>
-                <p className="font-semibold">{file.clean}</p>
-                <p className="text-sm text-slate-400">{file.size}</p>
-                <p className="text-xs text-yellow-400">{file.path}</p>
-              </div>
-
-              <button
-                onClick={() => copyPath(file.path)}
-                className="bg-yellow-500 text-black px-4 py-2 rounded font-semibold"
-              >
-                Copy Path
-              </button>
-            </div>
-          ))}
-
-        </div>
-
+      <div id="results" class="results">
+        <div class="empty">No files selected yet.</div>
       </div>
-    )}
+    </section>
 
-
-    <div className="mt-10 text-sm text-slate-500">
-      Workflow:<br />
+    <section class="workflow">
+      <strong>Workflow:</strong><br />
       1. Select category<br />
       2. Upload file here<br />
       3. Copy generated path<br />
       4. Upload file to GitHub in that exact folder
-    </div>
+    </section>
 
-  </div>
+    <p style="margin-top: 24px;">
+      <a class="home-link" href="index.html">Return to Blackshield Home</a>
+    </p>
+  </main>
 
-</div>
+  <footer class="footer">
+    <p>© 2026 Blackshield Institute. All rights reserved.</p>
+    <p>
+      <a href="privacy.html">Privacy</a>
+      <span> | </span>
+      <a href="terms.html">Terms</a>
+      <span> | </span>
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
 
-); }
+  <script>
+    const DESTINATIONS = {
+      passagesPDF: "downloads/passages/",
+      curriculumPDF: "downloads/curriculum/",
+      booksPDF: "downloads/books/",
+      bookImages: "assets/images/covers/",
+      branding: "assets/images/branding/",
+      playroom: "playroom/",
+      games: "interactives/",
+      beatbright: "interactives/beatbright/"
+    };
+
+    const categorySelect = document.getElementById("category");
+    const destinationText = document.getElementById("destinationText");
+    const fileInput = document.getElementById("fileInput");
+    const results = document.getElementById("results");
+
+    let selectedFiles = [];
+
+    function cleanFileName(name) {
+      const parts = name.split(".");
+      const extension = parts.length > 1 ? "." + parts.pop().toLowerCase() : "";
+      const baseName = parts.join(".")
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      return baseName + extension;
+    }
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + " B";
+      if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + " KB";
+      return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+    }
+
+    function copyPath(path) {
+      navigator.clipboard.writeText(path).then(() => {
+        alert("Path copied: " + path);
+      }).catch(() => {
+        prompt("Copy this path:", path);
+      });
+    }
+
+    function updateDestination() {
+      destinationText.textContent = DESTINATIONS[categorySelect.value];
+      renderFiles();
+    }
+
+    function handleFiles(event) {
+      selectedFiles = Array.from(event.target.files || []);
+      renderFiles();
+    }
+
+    function renderFiles() {
+      const category = categorySelect.value;
+      const destination = DESTINATIONS[category];
+
+      if (!selectedFiles.length) {
+        results.innerHTML = '<div class="empty">No files selected yet.</div>';
+        return;
+      }
+
+      results.innerHTML = selectedFiles.map((file, index) => {
+        const clean = cleanFileName(file.name);
+        const path = destination + clean;
+
+        return `
+          <div class="file-card">
+            <div>
+              <p class="file-name">${clean}</p>
+              <p class="file-meta">Original: ${file.name}</p>
+              <p class="file-meta">Size: ${formatSize(file.size)}</p>
+              <p class="file-path">${path}</p>
+            </div>
+
+            <button type="button" onclick="copyPath('${path.replace(/'/g, "\\'")}')">
+              Copy Path
+            </button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    categorySelect.addEventListener("change", updateDestination);
+    fileInput.addEventListener("change", handleFiles);
+
+    updateDestination();
+  </script>
+</body>
+</html>
+
