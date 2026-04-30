@@ -593,3 +593,57 @@ footer a {
     width: 100%;
   }
 }
+/* =========================================================
+   BLACKSHIELD RETURN NAVIGATION
+   Product-page return buttons and page utility controls
+   ========================================================= */
+
+.return-nav {
+  width: min(calc(100% - 32px), var(--max));
+  margin: 18px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.return-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--gold-2) !important;
+  text-decoration: none !important;
+  font-weight: 900;
+}
+
+.return-nav a.primary-return {
+  background: linear-gradient(180deg, var(--gold-2), #b78138);
+  color: #1a1007 !important;
+  border-color: transparent;
+}
+
+.return-nav a:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.return-nav a:focus-visible {
+  outline: 3px solid var(--gold-2);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .return-nav {
+    width: min(calc(100% - 20px), var(--max));
+  }
+
+  .return-nav a {
+    width: 100%;
+  }
+}
