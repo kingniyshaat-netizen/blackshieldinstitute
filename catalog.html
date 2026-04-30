@@ -14,27 +14,153 @@
 
   <style>
     :root {
-      --bs-bg: #080604;
-      --bs-panel: rgba(23, 17, 11, 0.92);
-      --bs-panel-2: rgba(33, 23, 14, 0.92);
+      --bs-bg: #0b0703;
+      --bs-bg-2: #15100a;
+      --bs-card: #1c140c;
+      --bs-card-2: #251a10;
       --bs-text: #f7e7c2;
-      --bs-muted: #c4aa7a;
+      --bs-muted: #c7ad7c;
+      --bs-dim: #927a55;
       --bs-gold: #d3a55b;
       --bs-gold-2: #f2cf88;
       --bs-line: rgba(211, 165, 91, 0.26);
-      --bs-good: #5fb56a;
-      --bs-blue: #7aa7ff;
-      --bs-warn: #e2aa45;
-      --bs-radius: 20px;
-      --bs-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+      --bs-green: #62bb71;
+      --bs-blue: #8db2ff;
+      --bs-orange: #e2aa45;
+      --bs-radius: 18px;
+      --bs-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+      --bs-max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
+      margin: 0;
       background:
-        radial-gradient(circle at top left, rgba(211, 165, 91, 0.14), transparent 34%),
-        radial-gradient(circle at top right, rgba(211, 165, 91, 0.08), transparent 30%),
-        #080604;
+        radial-gradient(circle at 12% 0%, rgba(211, 165, 91, 0.16), transparent 28%),
+        linear-gradient(180deg, var(--bs-bg-2), var(--bs-bg) 42%, #050301);
       color: var(--bs-text);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .catalog-wrap {
+      width: min(var(--bs-max), 92vw);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 7, 3, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--bs-line);
+    }
+
+    .header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 230px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--bs-line);
+      display: grid;
+      place-items: center;
+      color: var(--bs-gold-2);
+      background: radial-gradient(circle, rgba(211, 165, 91, 0.18), rgba(0, 0, 0, 0.18));
+      font-weight: 900;
+      box-shadow: var(--bs-shadow);
+    }
+
+    .brand-copy strong {
+      display: block;
+      color: #ffe7b4;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--bs-muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: var(--bs-muted);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 0.92rem;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      color: var(--bs-text);
+      border-color: var(--bs-line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .quick-return {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+
+    .return-btn,
+    .catalog-btn {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      padding: 10px 13px;
+      border: 1px solid var(--bs-line);
+      text-decoration: none;
+      font-weight: 900;
+      cursor: pointer;
+      line-height: 1.1;
+    }
+
+    .return-btn {
+      color: var(--bs-gold-2);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .return-btn:hover,
+    .catalog-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
     }
 
     .catalog-main {
@@ -42,29 +168,17 @@
     }
 
     .catalog-hero {
-      padding: 64px 0 34px;
+      padding: 26px 0 16px;
     }
 
     .catalog-hero-card {
       border: 1px solid var(--bs-line);
-      border-radius: 28px;
+      border-radius: 22px;
       background:
-        linear-gradient(135deg, rgba(211, 165, 91, 0.13), rgba(0, 0, 0, 0.12)),
-        var(--bs-panel);
+        linear-gradient(135deg, rgba(211, 165, 91, 0.11), rgba(0, 0, 0, 0.12)),
+        var(--bs-card);
       box-shadow: var(--bs-shadow);
-      padding: clamp(24px, 5vw, 52px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .catalog-hero-card::after {
-      content: "🛡";
-      position: absolute;
-      right: clamp(18px, 5vw, 60px);
-      bottom: clamp(12px, 4vw, 40px);
-      font-size: clamp(4rem, 16vw, 10rem);
-      opacity: 0.08;
-      pointer-events: none;
+      padding: clamp(18px, 4vw, 30px);
     }
 
     .catalog-eyebrow {
@@ -73,65 +187,88 @@
       gap: 8px;
       border: 1px solid var(--bs-line);
       border-radius: 999px;
-      padding: 8px 12px;
+      padding: 7px 11px;
       color: var(--bs-gold-2);
       background: rgba(0, 0, 0, 0.18);
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .catalog-hero h1 {
       max-width: 900px;
-      margin: 0 0 16px;
-      font-size: clamp(2.2rem, 6vw, 4.8rem);
-      line-height: 0.96;
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 4.6vw, 3.4rem);
+      line-height: 1.02;
       color: #ffe8b4;
     }
 
     .catalog-hero p {
-      max-width: 760px;
+      max-width: 840px;
       margin: 0;
       color: var(--bs-muted);
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      line-height: 1.65;
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+      line-height: 1.55;
+    }
+
+    .catalog-toolbar {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--bs-line);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.16);
+      padding: 12px;
+    }
+
+    .catalog-toolbar strong {
+      color: #ffe8b4;
+    }
+
+    .catalog-toolbar span {
+      color: var(--bs-muted);
+      font-size: 0.92rem;
     }
 
     .catalog-section {
-      padding: 26px 0 56px;
+      padding: 18px 0 46px;
     }
 
     .catalog-section-header {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .catalog-section-header h2 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: #ffe8b4;
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-size: clamp(1.45rem, 3vw, 2rem);
     }
 
     .catalog-section-header p {
       margin: 0;
       color: var(--bs-muted);
-      line-height: 1.6;
-      max-width: 760px;
+      line-height: 1.55;
+      max-width: 780px;
     }
 
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
+      align-items: stretch;
     }
 
     .product-card {
       border: 1px solid var(--bs-line);
       border-radius: var(--bs-radius);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
-        var(--bs-panel);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        var(--bs-card);
       box-shadow: var(--bs-shadow);
       overflow: hidden;
       display: flex;
@@ -140,46 +277,57 @@
     }
 
     .product-image {
-      height: 190px;
+      height: 112px;
       border-bottom: 1px solid var(--bs-line);
       background:
-        radial-gradient(circle at center, rgba(211, 165, 91, 0.18), transparent 44%),
-        linear-gradient(135deg, rgba(211, 165, 91, 0.14), rgba(0, 0, 0, 0.18));
+        radial-gradient(circle at center, rgba(211, 165, 91, 0.16), transparent 45%),
+        linear-gradient(135deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.18));
       display: grid;
       place-items: center;
       color: var(--bs-gold-2);
-      font-size: 3rem;
+      font-size: 1.35rem;
       font-weight: 900;
       text-align: center;
-      padding: 16px;
+      padding: 12px;
+      overflow: hidden;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      padding: 4px;
+    }
+
+    .passages-card .product-image {
+      height: 112px;
+    }
+
+    .passages-card .product-image img {
+      max-height: 100px;
+      object-fit: contain;
     }
 
     .product-body {
-      padding: 20px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
     .product-body h2 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: #ffe8b4;
-      font-size: 1.25rem;
-      line-height: 1.15;
+      font-size: 1.12rem;
+      line-height: 1.18;
     }
 
     .product-status-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0 14px;
+      gap: 6px;
+      margin: 8px 0 12px;
       align-items: center;
     }
 
@@ -190,8 +338,8 @@
       width: max-content;
       max-width: 100%;
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.72rem;
+      padding: 5px 8px;
+      font-size: 0.64rem;
       font-weight: 900;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -201,14 +349,14 @@
     }
 
     .product-status.available {
-      border-color: rgba(95, 181, 106, 0.55);
-      background: rgba(95, 181, 106, 0.13);
+      border-color: rgba(98, 187, 113, 0.55);
+      background: rgba(98, 187, 113, 0.13);
       color: #dfffe4;
     }
 
     .product-status.preview {
-      border-color: rgba(122, 167, 255, 0.55);
-      background: rgba(122, 167, 255, 0.13);
+      border-color: rgba(141, 178, 255, 0.55);
+      background: rgba(141, 178, 255, 0.13);
       color: #e8f0ff;
     }
 
@@ -226,37 +374,26 @@
     }
 
     .identity-line {
-      margin: 0 0 8px;
+      margin: 0 0 7px;
       color: var(--bs-text);
       font-weight: 800;
-      line-height: 1.45;
+      line-height: 1.38;
+      font-size: 0.95rem;
     }
 
     .value-line {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: var(--bs-muted);
-      line-height: 1.6;
+      line-height: 1.5;
       flex: 1;
+      font-size: 0.92rem;
     }
 
     .product-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
       margin-top: auto;
-    }
-
-    .catalog-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 11px 14px;
-      border-radius: 13px;
-      border: 1px solid var(--bs-line);
-      text-decoration: none;
-      font-weight: 900;
-      cursor: pointer;
     }
 
     .catalog-btn.primary {
@@ -270,24 +407,20 @@
       color: var(--bs-text);
     }
 
-    .catalog-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-    }
-
     .catalog-note {
-      margin-top: 24px;
+      margin-top: 18px;
       border: 1px solid var(--bs-line);
       border-radius: var(--bs-radius);
       background: rgba(0, 0, 0, 0.18);
-      padding: 18px;
+      padding: 14px;
       color: var(--bs-muted);
-      line-height: 1.6;
+      line-height: 1.5;
+      font-size: 0.95rem;
     }
 
     .site-footer {
-      margin-top: 48px;
-      padding: 22px 16px;
+      margin-top: 34px;
+      padding: 20px 16px;
       border-top: 1px solid rgba(211, 165, 91, 0.24);
       color: var(--bs-muted);
       text-align: center;
@@ -308,34 +441,48 @@
       .catalog-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 700px) {
+      .catalog-wrap {
+        width: min(94vw, var(--bs-max));
+      }
+
       .catalog-hero {
-        padding: 38px 0 22px;
+        padding: 18px 0 12px;
       }
 
       .catalog-grid {
         grid-template-columns: 1fr;
       }
 
-      .product-image {
-        height: 160px;
+      .product-image,
+      .passages-card .product-image {
+        height: 96px;
       }
 
-      .product-status-row {
-        gap: 6px;
-      }
-
-      .product-status,
-      .product-type {
-        font-size: 0.66rem;
-        padding: 5px 8px;
+      .passages-card .product-image img {
+        max-height: 84px;
       }
 
       .product-actions,
-      .catalog-btn {
+      .catalog-btn,
+      .return-btn {
         width: 100%;
+      }
+
+      .site-nav a {
+        width: calc(50% - 4px);
+        text-align: center;
       }
     }
   </style>
@@ -345,19 +492,14 @@
   <div class="site-shell">
 
     <header class="site-header">
-      <div class="container header-inner">
+      <div class="catalog-wrap header-inner">
         <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-          <img
-            src="assets/images/shield.png"
-            alt="Blackshield Institute shield logo"
-            class="brand-logo"
-            onerror="this.style.display='none'"
-          />
+          <span class="brand-mark" aria-hidden="true">BS</span>
 
-          <div class="brand-copy">
+          <span class="brand-copy">
             <strong>Blackshield Institute</strong>
             <span>Institutional Product Catalog</span>
-          </div>
+          </span>
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
@@ -365,36 +507,47 @@
           <a href="catalog.html" aria-current="page">Catalog</a>
           <a href="curriculum.html">Curriculum</a>
           <a href="passages-series.html">PASSAGES</a>
-          <a href="playroom/index.html">Playroom</a>
+          <a href="playroom.html">Playroom</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main class="catalog-main">
+    <main class="catalog-main" id="top">
       <section class="catalog-hero">
-        <div class="container">
+        <div class="catalog-wrap">
           <div class="catalog-hero-card">
-            <span class="catalog-eyebrow">Blackshield Institute Catalog</span>
+            <span class="catalog-eyebrow">Blackshield Catalog</span>
 
-            <h1>Books, curriculum systems, tiers, and structured digital products.</h1>
+            <h1>Products without the scavenger hunt.</h1>
 
             <p>
-              Every listing below is positioned for institutional growth, family structure,
-              discipline training, youth development, and long-term educational use.
+              Books, curriculum systems, membership tiers, and structured learning products.
+              The product cards start immediately below, with clear status labels and direct buttons.
             </p>
+
+            <div class="quick-return" aria-label="Quick return links">
+              <a class="return-btn" href="index.html">← Return Home</a>
+              <a class="return-btn" href="curriculum.html">Open Curriculum</a>
+              <a class="return-btn" href="playroom.html">Open Playroom</a>
+            </div>
+          </div>
+
+          <div class="catalog-toolbar">
+            <strong>Catalog Status:</strong>
+            <span>Preview and early-access items are labeled. Direct links are corrected.</span>
           </div>
         </div>
       </section>
 
       <section class="catalog-section" aria-label="Blackshield product catalog">
-        <div class="container">
+        <div class="catalog-wrap">
           <div class="catalog-section-header">
             <h2>Featured Products</h2>
             <p>
-              This catalog separates products by status so visitors know what is available,
-              what is in preview, and what is still being prepared.
+              Compact display. No giant shield wall. No oversized PASSAGES image takeover.
+              Just the product, the status, and the path forward.
             </p>
           </div>
 
@@ -405,7 +558,7 @@
                 <img
                   src="assets/images/covers/diamond-in-the-rough.png"
                   alt="Diamond in the Rough by Blackshield Institute"
-                  onerror="this.parentElement.textContent='Diamond in the Rough'"
+                  onerror="this.remove(); this.parentElement.textContent='Diamond in the Rough';"
                 />
               </div>
 
@@ -426,16 +579,17 @@
 
                 <div class="product-actions">
                   <a class="catalog-btn primary" href="diamond-in-the-rough.html">View Product</a>
+                  <a class="catalog-btn secondary" href="#top">Top</a>
                 </div>
               </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card passages-card">
               <div class="product-image">
                 <img
                   src="assets/images/covers/passages-series.png"
                   alt="PASSAGES Series by Blackshield Institute"
-                  onerror="this.parentElement.textContent='PASSAGES Series'"
+                  onerror="this.remove(); this.parentElement.textContent='PASSAGES Series';"
                 />
               </div>
 
@@ -456,6 +610,7 @@
 
                 <div class="product-actions">
                   <a class="catalog-btn primary" href="passages-series.html">View Series</a>
+                  <a class="catalog-btn secondary" href="passages.html">Alternate Page</a>
                 </div>
               </div>
             </article>
@@ -465,7 +620,7 @@
                 <img
                   src="assets/images/covers/tier-1.png"
                   alt="Tier I membership by Blackshield Institute"
-                  onerror="this.parentElement.textContent='Tier I'"
+                  onerror="this.remove(); this.parentElement.textContent='Tier I';"
                 />
               </div>
 
@@ -486,6 +641,7 @@
 
                 <div class="product-actions">
                   <a class="catalog-btn primary" href="tiers/tier-1.html">View Tier I</a>
+                  <a class="catalog-btn secondary" href="members-access.html">Members</a>
                 </div>
               </div>
             </article>
@@ -495,7 +651,7 @@
                 <img
                   src="assets/images/covers/tier-2.png"
                   alt="Tier II membership by Blackshield Institute"
-                  onerror="this.parentElement.textContent='Tier II'"
+                  onerror="this.remove(); this.parentElement.textContent='Tier II';"
                 />
               </div>
 
@@ -516,6 +672,7 @@
 
                 <div class="product-actions">
                   <a class="catalog-btn primary" href="tiers/tier-2.html">View Tier II</a>
+                  <a class="catalog-btn secondary" href="members-access.html">Members</a>
                 </div>
               </div>
             </article>
@@ -523,10 +680,15 @@
           </div>
 
           <div class="catalog-note">
-            <strong>Catalog discipline rule:</strong>
-            every product must keep a clear status label. Use
-            <em>Available</em>, <em>Preview</em>, <em>Early Access</em>,
-            <em>Coming Soon</em>, or <em>Prototype</em>. No mystery buttons. No vague lanes.
+            <strong>Next phase:</strong>
+            after this catalog update, clean `interactive.html` and `interactives.html`
+            into redirects to `playroom.html`, then update `index.html` with compact product labels.
+          </div>
+
+          <div class="quick-return">
+            <a class="return-btn" href="index.html">← Return Home</a>
+            <a class="return-btn" href="curriculum.html">Open Curriculum</a>
+            <a class="return-btn" href="playroom.html">Open Playroom</a>
           </div>
         </div>
       </section>
