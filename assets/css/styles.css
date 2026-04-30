@@ -218,3 +218,333 @@
     margin: 12px;
   }
 }
+/* =========================================================
+   BLACKSHIELD GLOBAL THEME REPAIR
+   Fixes raw links, white background, giant banner image,
+   weak page styling, and missing return/navigation polish.
+   ========================================================= */
+
+:root {
+  --bs-bg: #0b0703;
+  --bs-bg-2: #15100a;
+  --bs-card: #1c140c;
+  --bs-card-2: #251a10;
+  --bs-text: #f7e7c2;
+  --bs-muted: #c7ad7c;
+  --bs-dim: #927a55;
+  --bs-gold: #d3a55b;
+  --bs-gold-2: #f2cf88;
+  --bs-line: rgba(211, 165, 91, 0.28);
+  --bs-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+  --bs-radius: 18px;
+  --bs-max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 !important;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(211, 165, 91, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--bs-bg-2), var(--bs-bg) 42%, #050301) !important;
+  color: var(--bs-text) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  line-height: 1.5;
+}
+
+/* ---------- Fix giant top logo/banner image ---------- */
+
+body > img:first-child,
+.site-shell > img:first-child,
+header > img:first-child,
+.banner img,
+.hero-banner img,
+.brand-banner img,
+img[src*="blackshield"],
+img[src*="Blackshield"],
+img[src*="BLACKSHIELD"] {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: clamp(150px, 24vw, 230px) !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 auto !important;
+}
+
+/* ---------- Container control ---------- */
+
+.container,
+.wrap,
+.home-wrap,
+.catalog-wrap,
+main > section > div,
+section > .container {
+  width: min(var(--bs-max), 92vw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Header / raw nav repair ---------- */
+
+header,
+.site-header,
+nav,
+.site-nav {
+  background: rgba(11, 7, 3, 0.94);
+}
+
+.site-header,
+header {
+  border-bottom: 1px solid var(--bs-line);
+}
+
+.header-inner,
+.site-header .container,
+header .container {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+}
+
+.brand,
+header > a:first-of-type {
+  color: var(--bs-gold-2) !important;
+  font-weight: 900;
+  text-decoration: none !important;
+  letter-spacing: 0.03em;
+}
+
+.brand-copy span,
+header span {
+  color: var(--bs-muted);
+}
+
+/* This fixes the ugly purple default browser links. */
+nav a,
+.site-nav a,
+header a,
+.site-header a {
+  color: var(--bs-gold-2) !important;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+}
+
+nav a:hover,
+.site-nav a:hover,
+header a:hover,
+.site-header a:hover,
+nav a[aria-current="page"],
+.site-nav a[aria-current="page"] {
+  color: var(--bs-text) !important;
+  border-color: var(--bs-line);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+/* If nav is just raw links inside the body, style them anyway. */
+body > a,
+body > div > a {
+  color: var(--bs-gold-2) !important;
+}
+
+/* ---------- Typography repair ---------- */
+
+h1,
+h2,
+h3 {
+  color: #ffe8b4 !important;
+  line-height: 1.08;
+}
+
+p,
+li {
+  color: var(--bs-muted);
+}
+
+main {
+  background: transparent !important;
+}
+
+/* ---------- Section/card repair ---------- */
+
+section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+article,
+.card,
+.product-card,
+.pathway-card,
+.featured-card,
+.curriculum-card,
+.module-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+    var(--bs-card) !important;
+  color: var(--bs-text) !important;
+  border: 1px solid var(--bs-line) !important;
+  border-radius: var(--bs-radius) !important;
+  box-shadow: var(--bs-shadow);
+}
+
+/* ---------- Buttons ---------- */
+
+button,
+.btn,
+.button,
+.home-btn,
+.catalog-btn,
+a.button,
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  border: 1px solid var(--bs-line);
+  background: linear-gradient(180deg, var(--bs-gold-2), #b78138);
+  color: #1a1007 !important;
+  font-weight: 900;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover,
+.button:hover,
+.home-btn:hover,
+.catalog-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* ---------- Product labels ---------- */
+
+.product-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px;
+  align-items: center;
+}
+
+.product-status,
+.product-type {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 999px;
+  padding: 5px 8px;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(211, 165, 91, 0.32);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--bs-gold);
+}
+
+.product-status.available {
+  border-color: rgba(98, 187, 113, 0.55);
+  background: rgba(98, 187, 113, 0.13);
+  color: #dfffe4;
+}
+
+.product-status.preview {
+  border-color: rgba(141, 178, 255, 0.55);
+  background: rgba(141, 178, 255, 0.13);
+  color: #e8f0ff;
+}
+
+.product-status.early-access {
+  border-color: rgba(226, 170, 69, 0.58);
+  background: rgba(226, 170, 69, 0.13);
+  color: #ffe8b9;
+}
+
+.product-status.prototype,
+.product-status.coming-soon {
+  border-color: rgba(211, 165, 91, 0.48);
+  background: rgba(211, 165, 91, 0.12);
+  color: var(--bs-gold-2);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer,
+footer {
+  margin-top: 34px;
+  padding: 20px 16px;
+  border-top: 1px solid rgba(211, 165, 91, 0.24);
+  color: var(--bs-muted);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.site-footer p,
+footer p {
+  margin: 6px 0;
+}
+
+.site-footer a,
+footer a {
+  color: var(--bs-gold-2) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Mobile repair ---------- */
+
+@media (max-width: 800px) {
+  .header-inner,
+  .site-header .container,
+  header .container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav,
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  nav a,
+  .site-nav a {
+    width: calc(50% - 6px);
+    text-align: center;
+  }
+
+  body > img:first-child,
+  .site-shell > img:first-child,
+  header > img:first-child,
+  img[src*="blackshield"],
+  img[src*="Blackshield"],
+  img[src*="BLACKSHIELD"] {
+    height: 120px !important;
+  }
+
+  section {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}
