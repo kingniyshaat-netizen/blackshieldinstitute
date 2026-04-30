@@ -57,6 +57,8 @@
 
 /* ---------- Admin Public Warning ---------- */
 
+/* ---------- Admin Public Warning ---------- */
+
 .admin-warning {
   max-width: 1100px;
   margin: 16px auto;
@@ -66,6 +68,10 @@
   background: rgba(198, 90, 78, 0.13);
   color: #ffe4df;
   line-height: 1.5;
+}
+
+.admin-warning strong {
+  color: #ffffff;
 }
 
 .admin-warning strong {
