@@ -1,0 +1,31 @@
+name: Blackshield Return Navigation Patch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-return-navigation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Blackshield return navigation patcher
+        run: node tools/blackshield-return-nav-patcher.js
+
+      - name: Commit patched files
+        run: |
+          git config user.name "blackshield-patch-bot"
+          git config user.email "blackshield-patch-bot@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add .
+            git commit -m "Add return navigation across product pages"
+            git push
+          fi
