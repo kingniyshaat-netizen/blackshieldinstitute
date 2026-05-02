@@ -1,109 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product | Blackshield Institute</title>
-  <meta name="description" content="Blackshield Institute product detail page." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=./breaking-the-generational-curse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting | Blackshield Institute</title>
 </head>
-<body data-page="product">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/images/shield.png" alt="Blackshield Institute Shield" class="brand-logo" />
-        <div class="brand-copy">
-          <strong>Blackshield Institute</strong>
-          <span>Product Detail</span>
-        </div>
-      </a>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="catalog.html">Catalog</a>
-        <a href="passages-series.html">PASSAGES</a>
-        <a href="early-access.html">Early Access</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-<!-- BLACKSHIELD PATCH: return navigation -->
-<nav class="return-nav" aria-label="Return navigation">
-  <a class="primary-return" href="./index.html">← Home</a>
-  <a href="./catalog.html">Catalog</a>
-  <a href="./curriculum.html">Curriculum</a>
-  <a href="./playroom.html">Playroom</a>
-  <a href="./contact.html">Contact</a>
-</nav>
-<!-- END BLACKSHIELD PATCH -->
-
-
-  <main class="section">
-    <div class="container narrow">
-      <div class="card" id="product-root"></div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Blackshield Institute</strong>
-        <p>Institutional digital platform.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const item = params.get("item");
-
-    const products = {
-      passages: {
-        title: "PASSAGES Access",
-        desc: "Foundational cultural formation curriculum access through the PASSAGES system.",
-        price: "$97 / 3 months",
-        action: "https://buy.stripe.com/fZu00d3Fk4C56mDaQNdw08",
-        secondary: "passages-series.html",
-        actionLabel: "Subscribe",
-        secondaryLabel: "View Series"
-      },
-      diamond: {
-        title: "Diamond in the Rough",
-        desc: "Standalone Blackshield book asset positioned as a premium intellectual product.",
-        price: "$19.99",
-        action: "downloads/books/diamond.pdf",
-        secondary: "contact.html",
-        actionLabel: "Preview PDF",
-        secondaryLabel: "Contact"
-      }
-    };
-
-    const product = products[item] || {
-      title: "Product Not Found",
-      desc: "This product is not currently configured.",
-      price: "",
-      action: "catalog.html",
-      secondary: "contact.html",
-      actionLabel: "Back to Catalog",
-      secondaryLabel: "Contact"
-    };
-
-    document.getElementById("product-root").innerHTML = `
-      <p class="eyebrow">PRODUCT DETAIL</p>
-      <h1 class="page-title">${product.title}</h1>
-      <p class="lede">${product.desc}</p>
-      ${product.price ? `<p class="price-tag">${product.price}</p>` : ""}
-      <div class="hero-actions" style="margin-top:18px;">
-        <a class="btn btn-primary" href="${product.action}" ${product.action.startsWith('http') || product.action.endsWith('.pdf') ? 'target="_blank" rel="noopener"' : ''}>${product.actionLabel}</a>
-        <a class="btn btn-secondary" href="${product.secondary}">${product.secondaryLabel}</a>
-      </div>
-    `;
-  </script>
-  <script src="assets/js/main.js"></script>
+<body>
+  <p>
+    Redirecting to
+    <a href="./breaking-the-generational-curse.html">Breaking the Generational Curse and Its Effects</a>.
+  </p>
 </body>
 </html>
