@@ -1,82 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PASSAGES Viewer • Blackshield Institute</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+
+  <title>PASSAGES PDF Library | Blackshield Institute</title>
+  <meta
+    name="description"
+    content="Open the PASSAGES PDF library from Blackshield Institute."
+  />
+
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
-<body data-page="passages-viewer">
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <span class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute shield" />
-        </span>
-        <span class="brand-text">
-          <strong>Blackshield Institute</strong>
-          <span>PASSAGES Viewer</span>
-        </span>
-      </a>
 
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="catalog.html">Catalog</a>
-        <a class="nav-link is-active" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<body>
+  <div class="site-shell">
 
-<!-- BLACKSHIELD PATCH: return navigation -->
-<nav class="return-nav" aria-label="Return navigation">
-  <a class="primary-return" href="./index.html">← Home</a>
-  <a href="./catalog.html">Catalog</a>
-  <a href="./curriculum.html">Curriculum</a>
-  <a href="./playroom.html">Playroom</a>
-  <a href="./contact.html">Contact</a>
-</nav>
-<!-- END BLACKSHIELD PATCH -->
-<section>
-    <div class="container">
-      <div class="section-panel">
-        <span class="eyebrow">PASSAGES PDF Library</span>
-        <h2>Open the PASSAGES series PDFs.</h2>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Blackshield Institute home">
+          <span class="logo-wrap">
+            <img src="./assets/images/shield.png" alt="Blackshield Institute shield">
+          </span>
+          <span class="brand-text">
+            <strong>Blackshield Institute</strong>
+            <span>PASSAGES PDF Library</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./catalog.html">Catalog</a>
+          <a class="nav-link" href="./passages-series.html">PASSAGES</a>
+          <a class="nav-link" href="./curriculum.html">Curriculum</a>
+          <a class="nav-link" href="./playroom.html">Playroom</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- BLACKSHIELD PATCH: return navigation -->
+    <nav class="return-nav" aria-label="Return navigation">
+      <a class="primary-return" href="./index.html">← Home</a>
+      <a href="./catalog.html">Catalog</a>
+      <a href="./curriculum.html">Curriculum</a>
+      <a href="./playroom.html">Playroom</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+    <!-- END BLACKSHIELD PATCH -->
+
+    <main class="site-main">
+
+      <section class="section-panel">
+        <span class="eyebrow">PASSAGES Series</span>
+        <h1>PASSAGES PDF Library</h1>
         <p>
-          Use this library to open the currently available PASSAGES PDF files.
+          This page gathers the currently available PASSAGES PDF files in one clean location.
+          Use the buttons below to open each file.
         </p>
 
-        <div class="passages-pdf-grid">
-          <a class="btn" href="./downloads/passages/passages-01.pdf">PASSAGES 01</a>
-          <a class="btn" href="./downloads/passages/passages-02.pdf">PASSAGES 02</a>
-          <a class="btn" href="./downloads/passages/passages-03.pdf">PASSAGES 03</a>
-          <a class="btn" href="./downloads/passages/passages-04.pdf">PASSAGES 04</a>
-          <a class="btn" href="./downloads/passages/passages-05.pdf">PASSAGES 05</a>
-          <a class="btn" href="./downloads/passages/passages-06.pdf">PASSAGES 06</a>
-          <a class="btn" href="./downloads/passages/passages-07.pdf">PASSAGES 07</a>
-          <a class="btn" href="./downloads/passages/passages-08.pdf">PASSAGES 08</a>
-          <a class="btn" href="./downloads/passages/passages-09.pdf">PASSAGES 09</a>
-          <a class="btn" href="./downloads/passages/passages-10.pdf">PASSAGES 10</a>
-          <a class="btn" href="./downloads/passages/passages-11.pdf">PASSAGES 11</a>
-          <a class="btn" href="./downloads/passages/passages-12.pdf">PASSAGES 12</a>
+        <div class="button-row">
+          <a class="btn" href="./passages-series.html">View PASSAGES Series</a>
+          <a class="btn btn-secondary" href="./catalog.html">Back to Catalog</a>
         </div>
-      </div>
-    </div>
-  </section>
-</main>
+      </section>
 
-  <main class="site-main">
-    <section class="section-panel">
-      <div id="passages-viewer" class="viewer-layout"></div>
-    </section>
-  </main>
+      <section>
+        <div class="container">
+          <div class="section-panel">
+            <span class="eyebrow">PASSAGES PDF Library</span>
+            <h2>Open the PASSAGES series PDFs.</h2>
+            <p>
+              Use this library to open the currently available PASSAGES PDF files.
+            </p>
 
-  <footer class="site-footer">
-    © <span data-year></span> Blackshield Institute
-  </footer>
+            <div class="passages-pdf-grid">
+              <a class="btn" href="./downloads/passages/passages-01.pdf">PASSAGES 01</a>
+              <a class="btn" href="./downloads/passages/passages-02.pdf">PASSAGES 02</a>
+              <a class="btn" href="./downloads/passages/passages-03.pdf">PASSAGES 03</a>
+              <a class="btn" href="./downloads/passages/passages-04.pdf">PASSAGES 04</a>
+              <a class="btn" href="./downloads/passages/passages-05.pdf">PASSAGES 05</a>
+              <a class="btn" href="./downloads/passages/passages-06.pdf">PASSAGES 06</a>
+              <a class="btn" href="./downloads/passages/passages-07.pdf">PASSAGES 07</a>
+              <a class="btn" href="./downloads/passages/passages-08.pdf">PASSAGES 08</a>
+              <a class="btn" href="./downloads/passages/passages-09.pdf">PASSAGES 09</a>
+              <a class="btn" href="./downloads/passages/passages-10.pdf">PASSAGES 10</a>
+              <a class="btn" href="./downloads/passages/passages-11.pdf">PASSAGES 11</a>
+              <a class="btn" href="./downloads/passages/passages-12.pdf">PASSAGES 12</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <script src="assets/js/main.js"></script>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Blackshield Institute. All rights reserved.</p>
+      <p>
+        <a href="./privacy.html">Privacy</a>
+        <span> | </span>
+        <a href="./terms.html">Terms</a>
+        <span> | </span>
+        <a href="./contact.html">Contact</a>
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>
