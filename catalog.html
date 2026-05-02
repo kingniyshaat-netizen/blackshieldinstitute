@@ -1,4 +1,4 @@
-     <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -91,6 +91,14 @@
       background: radial-gradient(circle, rgba(211, 165, 91, 0.18), rgba(0, 0, 0, 0.18));
       font-weight: 900;
       box-shadow: var(--bs-shadow);
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
     }
 
     .brand-copy strong {
@@ -493,8 +501,10 @@
 
     <header class="site-header">
       <div class="catalog-wrap header-inner">
-        <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-          <span class="brand-mark" aria-hidden="true">BS</span>
+        <a class="brand" href="./index.html" aria-label="Blackshield Institute home">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="./assets/images/shield.png" alt="">
+          </span>
 
           <span class="brand-copy">
             <strong>Blackshield Institute</strong>
@@ -503,13 +513,13 @@
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="catalog.html" aria-current="page">Catalog</a>
-          <a href="curriculum.html">Curriculum</a>
-          <a href="passages-series.html">PASSAGES</a>
-          <a href="playroom.html">Playroom</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./catalog.html" aria-current="page">Catalog</a>
+          <a href="./curriculum.html">Curriculum</a>
+          <a href="./passages-series.html">PASSAGES</a>
+          <a href="./playroom.html">Playroom</a>
+          <a href="./about.html">About</a>
+          <a href="./contact.html">Contact</a>
         </nav>
       </div>
     </header>
@@ -528,9 +538,9 @@
             </p>
 
             <div class="quick-return" aria-label="Quick return links">
-              <a class="return-btn" href="index.html">← Return Home</a>
-              <a class="return-btn" href="curriculum.html">Open Curriculum</a>
-              <a class="return-btn" href="playroom.html">Open Playroom</a>
+              <a class="return-btn" href="./index.html">← Return Home</a>
+              <a class="return-btn" href="./curriculum.html">Open Curriculum</a>
+              <a class="return-btn" href="./playroom.html">Open Playroom</a>
             </div>
           </div>
 
@@ -552,41 +562,46 @@
           </div>
 
           <div class="catalog-grid">
-article class="product-card">
-  <div class="product-image">
-    <img
-      src="./assets/images/covers/breaking-the-generational-curse-and-its-effects.png"
-      alt="Breaking the Generational Curse and Its Effects by Blackshield Institute"
-    />
-  </div>
 
-  <div class="product-body">
-    <h2>Breaking the Generational Curse and Its Effects</h2>
-
-    <div class="product-status-row">
-      <span class="product-status preview">Preview</span>
-      <span class="product-type">Book / Curriculum</span>
-    </div>
-
-    <p class="identity-line">Generational study and restoration title.</p>
-
-    <p class="value-line">
-      A Blackshield book and curriculum direction focused on family damage,
-      generational patterns, discipline, reflection, and restoration.
-    </p>
-
-    <div class="product-actions">
-      <a class="catalog-btn primary" href="./product-1.html">View Product</a>
-      <a class="catalog-btn secondary" href="./downloads/breaking-the-generational-curse-and-its-effects/breaking-the-generational-curse-and-its-effects-preview.pdf">Preview PDF</a>
-    </div>
-  </div>
-</article>
             <article class="product-card">
-              <div class="product-actions">
-  <a class="catalog-btn primary" href="diamond-in-the-rough.html">View Product</a>
-  <a class="catalog-btn secondary" href="./downloads/books/diamond-in-the-rough.pdf">Preview PDF</a>
-</div>
-<
+              <div class="product-image">
+                <img
+                  src="./assets/images/covers/breaking-the-generational-curse-and-its-effects.png"
+                  alt="Breaking the Generational Curse and Its Effects by Blackshield Institute"
+                  onerror="this.src='./assets/images/shield.png';"
+                />
+              </div>
+
+              <div class="product-body">
+                <h2>Breaking the Generational Curse and Its Effects</h2>
+
+                <div class="product-status-row">
+                  <span class="product-status preview">Preview</span>
+                  <span class="product-type">Book / Curriculum</span>
+                </div>
+
+                <p class="identity-line">Generational study and restoration title.</p>
+
+                <p class="value-line">
+                  A Blackshield book and curriculum direction focused on family damage,
+                  generational patterns, discipline, reflection, and restoration.
+                </p>
+
+                <div class="product-actions">
+                  <a class="catalog-btn primary" href="./breaking-the-generational-curse.html">View Product</a>
+                  <a class="catalog-btn secondary" href="./downloads/breaking-the-generational-curse-and-its-effects/breaking-the-generational-curse-and-its-effects-preview.pdf">Preview PDF</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="./assets/images/covers/diamond-in-the-rough.png"
+                  alt="Diamond in the Rough by Blackshield Institute"
+                />
+              </div>
+
               <div class="product-body">
                 <h2>Diamond in the Rough</h2>
 
@@ -603,9 +618,10 @@ article class="product-card">
                 </p>
 
                 <div class="product-actions">
-  <a class="catalog-btn primary" href="diamond-in-the-rough.html">View Product</a>
-  <a class="catalog-btn secondary" href="./downloads/books/diamond-in-the-rough.pdf">Preview PDF</a>
-</div>
+                  <a class="catalog-btn primary" href="./diamond-in-the-rough.html">View Product</a>
+                  <a class="catalog-btn secondary" href="./downloads/books/diamond-in-the-rough.pdf">Preview PDF</a>
+                </div>
+              </div>
             </article>
 
             <article class="product-card passages-card">
@@ -632,10 +648,11 @@ article class="product-card">
                 </p>
 
                 <div class="product-actions">
-  <a class="catalog-btn primary" href="passages-series.html">View Series</a>
-  <a class="catalog-btn secondary" href="passages.html">PDF Library</a>
-  <a class="catalog-btn secondary" href="./downloads/passages/passages-01.pdf">Preview PDF</a>
-</div>
+                  <a class="catalog-btn primary" href="./passages-series.html">View Series</a>
+                  <a class="catalog-btn secondary" href="./passages.html">PDF Library</a>
+                  <a class="catalog-btn secondary" href="./downloads/passages/passages-01.pdf">Preview PDF</a>
+                </div>
+              </div>
             </article>
 
             <article class="product-card">
@@ -662,8 +679,8 @@ article class="product-card">
                 </p>
 
                 <div class="product-actions">
-                  <a class="catalog-btn primary" href="family-structure.html">Open Curriculum</a>
-                  <a class="catalog-btn secondary" href="curriculum.html">Curriculum Hub</a>
+                  <a class="catalog-btn primary" href="./family-structure.html">Open Curriculum</a>
+                  <a class="catalog-btn secondary" href="./curriculum.html">Curriculum Hub</a>
                 </div>
               </div>
             </article>
@@ -692,8 +709,8 @@ article class="product-card">
                 </p>
 
                 <div class="product-actions">
-                  <a class="catalog-btn primary" href="tiers/tier-1.html">View Tier I</a>
-                  <a class="catalog-btn secondary" href="members-access.html">Members</a>
+                  <a class="catalog-btn primary" href="./tiers/tier-1.html">View Tier I</a>
+                  <a class="catalog-btn secondary" href="./members-access.html">Members</a>
                 </div>
               </div>
             </article>
@@ -722,8 +739,8 @@ article class="product-card">
                 </p>
 
                 <div class="product-actions">
-                  <a class="catalog-btn primary" href="tiers/tier-2.html">View Tier II</a>
-                  <a class="catalog-btn secondary" href="members-access.html">Members</a>
+                  <a class="catalog-btn primary" href="./tiers/tier-2.html">View Tier II</a>
+                  <a class="catalog-btn secondary" href="./members-access.html">Members</a>
                 </div>
               </div>
             </article>
@@ -732,14 +749,14 @@ article class="product-card">
 
           <div class="catalog-note">
             <strong>Next phase:</strong>
-            after this catalog update, connect existing PDFs and preview downloads using their current filenames.
+            continue polishing individual product pages and connecting confirmed PDFs only.
             Do not rename working assets unless a broken link requires it.
           </div>
 
           <div class="quick-return">
-            <a class="return-btn" href="index.html">← Return Home</a>
-            <a class="return-btn" href="curriculum.html">Open Curriculum</a>
-            <a class="return-btn" href="playroom.html">Open Playroom</a>
+            <a class="return-btn" href="./index.html">← Return Home</a>
+            <a class="return-btn" href="./curriculum.html">Open Curriculum</a>
+            <a class="return-btn" href="./playroom.html">Open Playroom</a>
           </div>
         </div>
       </section>
@@ -748,14 +765,14 @@ article class="product-card">
     <footer class="site-footer">
       <p>© 2026 Blackshield Institute. All rights reserved.</p>
       <p>
-        <a href="privacy.html">Privacy</a>
+        <a href="./privacy.html">Privacy</a>
         <span> | </span>
-        <a href="terms.html">Terms</a>
+        <a href="./terms.html">Terms</a>
         <span> | </span>
-        <a href="contact.html">Contact</a>
+        <a href="./contact.html">Contact</a>
       </p>
     </footer>
 
   </div>
 </body>
-</html>
+</html>     
