@@ -1,263 +1,476 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
-<title>Playroom | Blackshield Institute</title>
+  <title>Playroom | Blackshield Institute</title>
+  <meta
+    name="description"
+    content="Blackshield Institute Playroom is the unified hub for interactive tools, learning games, rhythm training, memory practice, and digital exercises."
+  />
 
-<meta name="description"
-content="Interactive learning tools, games, and training exercises designed to reinforce discipline, vocabulary, memory, and structured development.">
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 
-<link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .playroom-hero {
+      padding: 30px 0 18px;
+    }
 
+    .playroom-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .playroom-hero-card,
+    .playroom-side-card,
+    .playroom-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.14)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 38px);
+    }
+
+    .playroom-hero-card h1 {
+      max-width: 900px;
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+    }
+
+    .playroom-hero-card p,
+    .playroom-side-card p,
+    .playroom-panel p {
+      font-size: 1.04rem;
+      line-height: 1.65;
+    }
+
+    .playroom-side-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .playroom-image-frame {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle, rgba(242, 207, 136, 0.15), transparent 58%),
+        rgba(0, 0, 0, 0.18);
+      padding: 16px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .playroom-image-frame img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.45));
+    }
+
+    .playroom-section {
+      padding: 28px 0;
+    }
+
+    .playroom-section-heading {
+      margin-bottom: 18px;
+    }
+
+    .playroom-section-heading h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+    }
+
+    .playroom-section-heading p {
+      max-width: 900px;
+      font-size: 1.04rem;
+      line-height: 1.6;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      padding: 20px;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+    }
+
+    .tool-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .tool-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+      align-items: center;
+    }
+
+    .tool-status,
+    .tool-type {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(211, 165, 91, 0.32);
+      background: rgba(0, 0, 0, 0.18);
+      color: var(--gold);
+    }
+
+    .tool-status.available {
+      border-color: rgba(98, 187, 113, 0.55);
+      background: rgba(98, 187, 113, 0.13);
+      color: #dfffe4;
+    }
+
+    .tool-status.preview {
+      border-color: rgba(141, 178, 255, 0.55);
+      background: rgba(141, 178, 255, 0.13);
+      color: #e8f0ff;
+    }
+
+    .tool-status.prototype {
+      border-color: rgba(226, 170, 69, 0.58);
+      background: rgba(226, 170, 69, 0.13);
+      color: #ffe8b9;
+    }
+
+    .tool-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .playroom-note {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(22px, 4vw, 36px);
+      background:
+        linear-gradient(135deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.14)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .playroom-note p {
+      max-width: 950px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1000px) {
+      .playroom-hero-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .playroom-image-frame {
+        min-height: 160px;
+      }
+
+      .playroom-image-frame img {
+        max-height: 170px;
+      }
+
+      .tool-actions,
+      .tool-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
-<body>
-
-<div class="site-shell">
-
-<header class="site-header">
-
-<div class="container header-inner">
-
-<a class="brand" href="../index.html">
-
-<img
-src="../assets/images/shield.png"
-alt="Blackshield Institute shield logo"
-class="brand-logo">
-
-<div class="brand-copy">
-<strong>Blackshield Institute</strong>
-<span>Interactive Playroom</span>
-</div>
-
-</a>
-
-<nav class="site-nav">
-
-<a href="../index.html">Home</a>
-<a href="../catalog.html">Catalog</a>
-<a href="../curriculum.html">Curriculum</a>
-<a href="../passages-series.html">PASSAGES</a>
-<a href="index.html" aria-current="page">Playroom</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-
-</nav>
-
-</div>
-
-</header>
-
-<!-- BLACKSHIELD PATCH: return navigation -->
-<nav class="return-nav" aria-label="Return navigation">
-  <a class="primary-return" href="./index.html">← Home</a>
-  <a href="./catalog.html">Catalog</a>
-  <a href="./curriculum.html">Curriculum</a>
-  <a href="./playroom.html">Playroom</a>
-  <a href="./contact.html">Contact</a>
-</nav>
-<!-- END BLACKSHIELD PATCH -->
-
-
-
-
-<main>
-
-<section class="compact-hero">
-
-<div class="container">
-
-<span class="eyebrow">
-Interactive Training Environment
-</span>
-
-<h1>
-Playroom
-</h1>
-
-<p>
-This section contains interactive learning tools only.
-Games, drills, rhythm tools, and memory exercises are placed here
-to strengthen discipline, vocabulary, coordination, and retention.
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="catalog-grid-section">
-
-<div class="container product-grid">
-
-
-
-<!-- BEATBRIGHT -->
-
-<article class="product-card">
-
-<img
-src="../assets/images/playroom/beatbright.png"
-alt="BeatBright rhythm training tool">
-
-<div class="product-card-body">
-
-<h2>
-BeatBright
-</h2>
-
-<p class="identity-line">
-Rhythm and coordination training
-</p>
-
-<p class="value-line">
-Interactive rhythm tool designed to strengthen timing,
-pattern recognition, and structured repetition.
-</p>
-
-<div class="product-actions">
-
-<a
-class="btn primary"
-href="beatbright.html">
-
-Open Tool
-
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- MEMORY MATCH -->
-
-<article class="product-card">
-
-<img
-src="../assets/images/playroom/memory-match.png"
-alt="Memory Match discipline vocabulary game">
-
-<div class="product-card-body">
-
-<h2>
-Memory Match
-</h2>
-
-<p class="identity-line">
-Vocabulary and discipline training game
-</p>
-
-<p class="value-line">
-Reinforces memory, language, and structured thinking
-through repeated recognition exercises.
-</p>
-
-<div class="product-actions">
-
-<a
-class="btn primary"
-href="memory-match.html">
-
-Open Game
-
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- PATTERN BUILD -->
-
-<article class="product-card">
-
-<img
-src="../assets/images/playroom/pattern-build.png"
-alt="Pattern Build logic and sequence training game">
-
-<div class="product-card-body">
-
-<h2>
-Pattern Build
-</h2>
-
-<p class="identity-line">
-Logic and sequence training
-</p>
-
-<p class="value-line">
-Strengthens reasoning, order, and step-by-step problem solving
-through pattern recognition exercises.
-</p>
-
-<div class="product-actions">
-
-<a
-class="btn primary"
-href="pattern-build.html">
-
-Open Game
-
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-</div>
-
-</section>
-
-
-
-<section class="catalog-grid-section">
-
-<div class="container narrow">
-
-<div class="contact-card">
-
-<h2>
-Playroom Structure Rule
-</h2>
-
-<p>
-Books do not belong here.
-Curriculum pages do not belong here.
-Membership tiers do not belong here.
-</p>
-
-<p>
-Only games, puzzles, and interactive training tools are placed
-inside the Playroom section.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-</main>
-
-</div>
-
+<body data-page="playroom">
+  <div class="site-shell">
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Blackshield Institute home">
+          <span class="logo-wrap">
+            <img src="./assets/images/shield.png" alt="Blackshield Institute shield">
+          </span>
+          <span class="brand-text">
+            <strong>Blackshield Institute</strong>
+            <span>Interactive Playroom</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./catalog.html">Catalog</a>
+          <a class="nav-link" href="./passages-series.html">PASSAGES</a>
+          <a class="nav-link" href="./curriculum.html">Curriculum</a>
+          <a class="nav-link" href="./playroom.html" aria-current="page">Playroom</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- BLACKSHIELD PATCH: return navigation -->
+    <nav class="return-nav" aria-label="Return navigation">
+      <a class="primary-return" href="./index.html">← Home</a>
+      <a href="./catalog.html">Catalog</a>
+      <a href="./curriculum.html">Curriculum</a>
+      <a href="./playroom.html">Playroom</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+    <!-- END BLACKSHIELD PATCH -->
+
+    <main class="site-main">
+
+      <section class="playroom-hero">
+        <div class="container playroom-hero-grid">
+
+          <div class="playroom-hero-card">
+            <span class="eyebrow">Blackshield Interactive Training Environment</span>
+
+            <h1>One Playroom. No confusion.</h1>
+
+            <p>
+              The Blackshield Playroom is the unified doorway for interactive learning tools,
+              games, drills, rhythm systems, memory exercises, and digital practice spaces.
+            </p>
+
+            <p>
+              This page replaces scattered playroom paths and keeps every interactive product
+              under one clean public hub.
+            </p>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="#tools">Open Tools</a>
+              <a class="btn" href="./catalog.html">View Catalog</a>
+              <a class="btn btn-secondary" href="./curriculum.html">Curriculum Hub</a>
+            </div>
+          </div>
+
+          <aside class="playroom-side-card">
+            <div>
+              <div class="playroom-image-frame">
+                <img
+                  src="./assets/images/playroom/playroom-banner.png"
+                  alt="Blackshield Playroom interactive training banner"
+                  onerror="this.src='./assets/images/shield.png';"
+                >
+              </div>
+
+              <span class="eyebrow">Playroom Standard</span>
+              <h2>Practice must be structured.</h2>
+              <p>
+                Blackshield interactive tools should strengthen discipline, retention, vocabulary,
+                coordination, timing, pattern recognition, and applied learning through structured play.
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <section class="playroom-section" id="tools">
+        <div class="container">
+          <div class="playroom-section-heading">
+            <span class="eyebrow">Interactive Tools</span>
+            <h2>Choose a training tool.</h2>
+            <p>
+              These tools belong here, not scattered across curriculum pages. The Playroom is the
+              public home for Blackshield interactive practice.
+            </p>
+          </div>
+
+          <div class="tool-grid">
+
+            <article class="tool-card card">
+              <div>
+                <h3>BeatBright</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status available">Available</span>
+                  <span class="tool-type">Rhythm Training</span>
+                </div>
+
+                <p>
+                  Rhythm and pattern-based interactive training designed for timing,
+                  coordination, attention, and repetition discipline.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn btn-primary" href="./beatbright.html">Open BeatBright</a>
+              </div>
+            </article>
+
+            <article class="tool-card card">
+              <div>
+                <h3>Memory Match</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status preview">Preview</span>
+                  <span class="tool-type">Memory Training</span>
+                </div>
+
+                <p>
+                  Vocabulary and memory training game for retention practice,
+                  pattern recognition, and disciplined recall.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn btn-primary" href="./memory-grid/index.html">Open Memory Match</a>
+              </div>
+            </article>
+
+            <article class="tool-card card">
+              <div>
+                <h3>Pattern Build</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status preview">Preview</span>
+                  <span class="tool-type">Logic Practice</span>
+                </div>
+
+                <p>
+                  Pattern-building practice for sequencing, recognition, attention,
+                  and structured thinking.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn btn-primary" href="./playroom/pattern-build.html">Open Pattern Build</a>
+              </div>
+            </article>
+
+            <article class="tool-card card">
+              <div>
+                <h3>Digital Playroom Tools</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status prototype">Redirected</span>
+                  <span class="tool-type">Unified Hub</span>
+                </div>
+
+                <p>
+                  Older playroom paths should point back here so users do not get trapped
+                  between duplicate pages.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn" href="./playroom.html">Main Playroom</a>
+              </div>
+            </article>
+
+            <article class="tool-card card">
+              <div>
+                <h3>PASSAGES Practice</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status preview">Preview</span>
+                  <span class="tool-type">Reading Support</span>
+                </div>
+
+                <p>
+                  Quick access to the PASSAGES PDF library for reading practice,
+                  reflection, and series navigation.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn btn-primary" href="./passages.html">Open PDF Library</a>
+              </div>
+            </article>
+
+            <article class="tool-card card">
+              <div>
+                <h3>Curriculum Practice</h3>
+
+                <div class="tool-status-row">
+                  <span class="tool-status preview">Preview</span>
+                  <span class="tool-type">Learning Tracks</span>
+                </div>
+
+                <p>
+                  Jump from interactive practice back into structured Blackshield
+                  curriculum pathways.
+                </p>
+              </div>
+
+              <div class="tool-actions">
+                <a class="btn btn-primary" href="./curriculum.html">Open Curriculum</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="playroom-section">
+        <div class="container">
+          <div class="playroom-note">
+            <span class="eyebrow">Playroom Direction</span>
+
+            <h2>Keep all interactive products under this hub.</h2>
+
+            <p>
+              New games, drills, rhythm tools, memory exercises, and learning simulations should
+              be added to this page first. Folder pages may exist for tools, but the public doorway
+              should remain this single Playroom hub.
+            </p>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="./catalog.html">View Catalog</a>
+              <a class="btn" href="./curriculum.html">Curriculum Hub</a>
+              <a class="btn btn-secondary" href="./index.html">Return Home</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Blackshield Institute. All rights reserved.</p>
+      <p>
+        <a href="./privacy.html">Privacy</a>
+        <span> | </span>
+        <a href="./terms.html">Terms</a>
+        <span> | </span>
+        <a href="./contact.html">Contact</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="./assets/js/main.js"></script>
 </body>
-
 </html>
