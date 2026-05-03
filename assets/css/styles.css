@@ -1,87 +1,157 @@
 /* =========================================================
-   BLACKSHIELD PATCH: PASSAGES PDF GRID
+   BLACKSHIELD PATCH: LEGACY PAGE FORCE REPAIR
+   Forces older raw pages away from white/purple default HTML.
    ========================================================= */
 
-.passages-pdf-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 18px;
-}
-
-@media (max-width: 900px) {
-  .passages-pdf-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .passages-pdf-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   BLACKSHIELD PATCH: OFFICIAL SHIELD RESTORATION
-   ========================================================= */
-
-.official-shield-frame {
-  min-height: 230px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 24px;
+body {
   background:
-    radial-gradient(circle, rgba(242, 207, 136, 0.16), transparent 58%),
-    rgba(0, 0, 0, 0.18);
-  padding: 18px;
-  overflow: hidden;
+    radial-gradient(circle at 12% 0%, rgba(211, 165, 91, 0.14), transparent 30%),
+    linear-gradient(180deg, #15100a, #070604 42%, #050301) !important;
+  color: #f7e7c2 !important;
 }
 
-.official-shield-img {
-  width: min(360px, 86%);
-  max-height: 260px;
+body > main,
+main,
+.site-main {
+  background: transparent !important;
+}
+
+body > section,
+main > section,
+.section-panel,
+.hero-panel,
+.product-hero,
+.catalog-hero,
+.home-hero-card,
+.info-card,
+.product-card,
+.curriculum-card,
+.module-card,
+article.card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+    #1b1209 !important;
+  color: #f7e7c2 !important;
+  border: 1px solid rgba(211, 165, 91, 0.28) !important;
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+}
+
+main > section,
+.section-panel,
+.hero-panel {
+  width: min(calc(100% - 32px), 1180px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(20px, 4vw, 36px);
+}
+
+h1,
+h2,
+h3 {
+  color: #ffe8b4 !important;
+}
+
+p,
+li {
+  color: #c7ad7c !important;
+}
+
+a {
+  color: #f2cf88 !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.site-header,
+header {
+  background: rgba(7, 6, 4, 0.94) !important;
+  border-bottom: 1px solid rgba(211, 165, 91, 0.28) !important;
+}
+
+.site-nav a,
+nav a,
+header a {
+  color: #f2cf88 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+main img,
+section img {
+  border-radius: 16px;
+}
+
+.hero-art img,
+.product-image img,
+.cover-frame img {
   object-fit: contain;
-  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.45));
 }
 
-.shield-meaning-copy {
-  margin-top: 18px;
+/* Stop legacy banner/images from taking over pages */
+body > img:first-child,
+header > img:first-child,
+.banner img,
+.hero-banner img,
+.brand-banner img {
+  width: 100% !important;
+  height: clamp(120px, 18vw, 200px) !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
-.shield-meaning-list {
-  display: grid;
+/* Raw button/link cleanup */
+.button-row,
+.product-actions,
+.quick-return {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-top: 16px;
 }
 
-.shield-meaning-list div {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.16);
+.btn,
+.button,
+.catalog-btn,
+.return-btn,
+.button-row a,
+.product-actions a,
+.quick-return a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  border: 1px solid rgba(211, 165, 91, 0.28);
+  background: linear-gradient(180deg, #f2cf88, #b78138);
+  color: #1a1007 !important;
+  font-weight: 900;
+  text-decoration: none !important;
 }
 
-.shield-meaning-list strong {
-  display: block;
-  color: var(--gold-2);
-  margin-bottom: 4px;
-  font-size: 0.95rem;
-}
-
-.shield-meaning-list span {
-  display: block;
-  color: var(--muted);
-  line-height: 1.5;
-  font-size: 0.92rem;
+.btn-secondary,
+.catalog-btn.secondary,
+.return-btn {
+  background: rgba(0, 0, 0, 0.18);
+  color: #f7e7c2 !important;
 }
 
 @media (max-width: 700px) {
-  .official-shield-frame {
-    min-height: 170px;
+  main > section,
+  .section-panel,
+  .hero-panel {
+    width: min(calc(100% - 20px), 1180px);
   }
 
-  .official-shield-img {
-    max-height: 190px;
+  .btn,
+  .button,
+  .catalog-btn,
+  .return-btn,
+  .button-row a,
+  .product-actions a,
+  .quick-return a {
+    width: 100%;
   }
 }
