@@ -1,135 +1,330 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+
   <title>Contact | Blackshield Institute</title>
-  <meta name="description" content="Contact Blackshield Institute for publishing, curriculum, digital platform, and institutional inquiries.">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta
+    name="description"
+    content="Contact Blackshield Institute for publishing, curriculum systems, digital products, platform issues, product access, and structured business inquiries."
+  />
+
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+
+  <style>
+    .contact-hero {
+      padding: 30px 0 18px;
+    }
+
+    .contact-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-hero-card,
+    .contact-side-card,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(211, 165, 91, 0.12), rgba(0, 0, 0, 0.14)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 38px);
+    }
+
+    .contact-hero-card h1 {
+      max-width: 900px;
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+    }
+
+    .contact-hero-card p,
+    .contact-side-card p,
+    .contact-panel p {
+      font-size: 1.04rem;
+      line-height: 1.65;
+    }
+
+    .contact-side-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-shield-frame {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle, rgba(242, 207, 136, 0.15), transparent 58%),
+        rgba(0, 0, 0, 0.18);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .contact-shield-frame img {
+      width: min(260px, 82%);
+      max-height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.45));
+    }
+
+    .contact-section {
+      padding: 28px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .contact-card {
+      padding: 20px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .contact-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-list div {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--gold-2);
+      margin-bottom: 5px;
+    }
+
+    .contact-list span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1000px) {
+      .contact-hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-side-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .contact-shield-frame {
+        min-height: 150px;
+      }
+
+      .contact-shield-frame img {
+        max-height: 140px;
+      }
+    }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Blackshield Institute home">
-        <div class="logo-wrap">
-          <img src="assets/images/shield.png" alt="Blackshield Institute official shield">
-        </div>
-        <div class="brand-text">
-          <strong>Blackshield Institute</strong>
-          <span>Institutional Digital Platform</span>
-        </div>
-      </a>
 
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="catalog.html">Catalog</a>
-        <a class="nav-link" href="curriculum.html">Curriculum</a>
-        <a class="nav-link" href="passages-series.html">PASSAGES</a>
-        <a class="nav-link" href="playroom/index.html">Playroom</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link is-active" href="contact.html" aria-current="page">Contact</a>
-      </nav>
-    </div>
-  </header>
+<body data-page="contact">
+  <div class="site-shell">
 
-  <main class="site-main">
-    <section class="hero-panel">
-      <div class="hero-copy">
-        <span class="eyebrow">Blackshield Institute</span>
-        <h1>Contact</h1>
-        <p>
-          Direct institutional contact for publishing, curriculum systems, digital products,
-          platform issues, and structured business inquiries.
-        </p>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Blackshield Institute home">
+          <span class="logo-wrap">
+            <img src="./assets/images/shield.png" alt="Blackshield Institute shield">
+          </span>
+          <span class="brand-text">
+            <strong>Blackshield Institute</strong>
+            <span>Institutional Contact</span>
+          </span>
+        </a>
 
-        <div class="button-row">
-          <a class="btn btn-primary" href="tel:+12158815746">Call Now</a>
-          <a class="btn" href="catalog.html">View Catalog</a>
-        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./catalog.html">Catalog</a>
+          <a class="nav-link" href="./passages-series.html">PASSAGES</a>
+          <a class="nav-link" href="./curriculum.html">Curriculum</a>
+          <a class="nav-link" href="./playroom.html">Playroom</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./contact.html" aria-current="page">Contact</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="hero-art" aria-hidden="true">
-        <div class="hero-shield-frame">
-          <img src="assets/images/shield.png" alt="">
-        </div>
-      </div>
-    </section>
+    <main class="site-main">
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Direct Contact Information</h2>
-        <p>Use the correct lane so the workflow stays clean.</p>
-      </div>
+      <section class="contact-hero">
+        <div class="container contact-hero-grid">
 
-      <div class="card-grid card-grid-2">
-        <article class="info-card">
-          <h3>Phone</h3>
-          <div class="contact-list">
-            <div class="contact-item">
-              <strong>Main Line</strong>
-              <a href="tel:+12158815746">(215) 881-5746</a>
+          <div class="contact-hero-card">
+            <span class="eyebrow">Blackshield Institute Contact</span>
+
+            <h1>Direct institutional contact.</h1>
+
+            <p>
+              Use this page for publishing questions, curriculum systems, digital products,
+              product access, platform issues, business inquiries, and structured Blackshield
+              Institute communication.
+            </p>
+
+            <p>
+              Keep messages clear, specific, and attached to the correct product or curriculum lane
+              whenever possible. The cleaner the request, the faster the response path.
+            </p>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="tel:0000000000">Call Now</a>
+              <a class="btn" href="./catalog.html">View Catalog</a>
+              <a class="btn btn-secondary" href="./index.html">Return Home</a>
             </div>
           </div>
-        </article>
 
-        <article class="info-card">
-          <h3>Location</h3>
-          <div class="contact-list">
-            <div class="contact-item">
-              <strong>Mailing / Business Address</strong>
-              <span>132 North Rhode Island Ave<br>Atlantic City, New Jersey 08401</span>
+          <aside class="contact-side-card">
+            <div>
+              <div class="contact-shield-frame">
+                <img src="./assets/images/shield.png" alt="Blackshield Institute shield">
+              </div>
+
+              <span class="eyebrow">Communication Standard</span>
+              <h2>Order before outreach.</h2>
+              <p>
+                Blackshield Institute communication should be direct, disciplined, and purposeful.
+                This page exists so visitors know where to go and what kind of request they are making.
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-grid">
+
+            <article class="contact-card card">
+              <div>
+                <h3>Publishing Inquiries</h3>
+                <p>
+                  Use this lane for book previews, manuscript development, product pages,
+                  publication questions, and Blackshield Institute written works.
+                </p>
+              </div>
+              <a class="btn" href="./catalog.html">View Products</a>
+            </article>
+
+            <article class="contact-card card">
+              <div>
+                <h3>Curriculum Systems</h3>
+                <p>
+                  Use this lane for structured learning tracks, lesson systems, youth development,
+                  literacy, leadership, family structure, and educational product direction.
+                </p>
+              </div>
+              <a class="btn" href="./curriculum.html">Open Curriculum</a>
+            </article>
+
+            <article class="contact-card card">
+              <div>
+                <h3>Digital Products</h3>
+                <p>
+                  Use this lane for Playroom tools, games, interactive training products,
+                  product access, broken links, and platform issues.
+                </p>
+              </div>
+              <a class="btn" href="./playroom.html">Enter Playroom</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-panel">
+            <span class="eyebrow">Before You Send</span>
+            <h2>Use the right request type.</h2>
+
+            <p>
+              Blackshield Institute has books, curriculum tracks, membership access, interactive tools,
+              and PDF/download assets. A strong request should name the product, page, issue, or goal clearly.
+            </p>
+
+            <div class="contact-list">
+              <div>
+                <strong>Product Access</strong>
+                <span>
+                  Mention the product title, page, tier, or PDF that you need help accessing.
+                </span>
+              </div>
+
+              <div>
+                <strong>Curriculum Request</strong>
+                <span>
+                  Mention the track, age group, learning goal, or curriculum product you are asking about.
+                </span>
+              </div>
+
+              <div>
+                <strong>Platform Issue</strong>
+                <span>
+                  Mention the page name, broken link, image issue, download problem, or browser/device being used.
+                </span>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="tel:0000000000">Call Now</a>
+              <a class="btn" href="./catalog.html">View Catalog</a>
+              <a class="btn btn-secondary" href="./index.html">Return Home</a>
             </div>
           </div>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Inquiry Categories</h2>
-        <p>Route the issue right the first time.</p>
-      </div>
+    </main>
 
-      <div class="card-grid card-grid-3">
-        <article class="info-card">
-          <h3>Publishing</h3>
-          <div class="content-stack">
-            <p>Books, covers, storefront pages, direct-sale PDFs, and title-related questions.</p>
-          </div>
-        </article>
+    <footer class="site-footer">
+      <p>© 2026 Blackshield Institute. All rights reserved.</p>
+      <p>
+        <a href="./privacy.html">Privacy</a>
+        <span> | </span>
+        <a href="./terms.html">Terms</a>
+        <span> | </span>
+        <a href="./contact.html">Contact</a>
+      </p>
+    </footer>
 
-        <article class="info-card">
-          <h3>Curriculum</h3>
-          <div class="content-stack">
-            <p>Educational systems, learning tracks, institutional materials, and structured product questions.</p>
-          </div>
-        </article>
+  </div>
 
-        <article class="info-card">
-          <h3>Digital Platform</h3>
-          <div class="content-stack">
-            <p>Broken links, access issues, page problems, download failures, and website deployment questions.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-panel">
-      <div class="section-heading">
-        <h2>Before You Reach Out</h2>
-        <p>Make the request specific so it moves faster.</p>
-      </div>
-
-      <div class="content-stack">
-        <p>Include the exact product, page, or curriculum name.</p>
-        <p>If something is broken, name the page and say exactly what happened after you clicked it.</p>
-        <p>If a download failed, say whether it was a PDF, HTML file, image, or purchase link issue.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Blackshield Institute © 2026. Structured publishing, curriculum, and institutional digital development.</p>
-  </footer>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
